@@ -39,14 +39,136 @@ bd_inmuno %>%
 
 ## Descripción con R base
 
+- Media de la variable edad:
 
+```{r}
+mean(bd_inmuno$edad)
+```
+
+- Mediana de la variable edad
+
+```{r}
+median(bd_inmuno$edad)
+```
+
+- Desviación estándar de edad
+
+```{r}
+sd(bd_inmuno$edad)
+```
+
+- Media de IgG Basal
+
+```{r}
+mean(bd_inmuno$IgG_Basal)
+```
+
+```{r}
+mean(bd_inmuno$IgG_Basal, na.rm = TRUE)
+```
+
+- Media truncada al 5% de la variable IgG_Basal
+
+```{r}
+mean(bd_inmuno$IgG_Basal, na.rm = TRUE, trim = 0.05)
+```
 
 ## Descripción con dplyr
 
+- Media de IgG_Basal:
 
+```{r}
+bd_inmuno %>% 
+  summarise(Media_IgG_Basal = mean(IgG_Basal, na.rm = TRUE))
+```
+- Media, DE, Mediana, P25 y P75 de IgG_Basal:
+
+```{r}
+bd_inmuno %>% 
+  summarise(Media_IgG_Basal = mean(IgG_Basal, na.rm = TRUE), 
+            DE_IgG_Basal = sd(IgG_Basal, na.rm = TRUE), 
+            Mediana_IgG_Basal = median(IgG_Basal, na.rm = TRUE), 
+            P25_IgG_Basal = quantile(IgG_Basal, na.rm = TRUE, prob = c(0.25)), 
+            P75_IgG_Basal = quantile(IgG_Basal, na.rm = TRUE, prob = c(0.75)))
+```
 
 ## Descripción con summarytools
 
+- Medidas de resumen numérica de la variable edad
 
+```{r}
+bd_inmuno %>% 
+  descr(edad)
+```
+
+- Medidas de resumen numérica de la variable IgG_Basal
+
+```{r}
+bd_inmuno %>% 
+  descr(IgG_Basal)
+```
+
+- Medidas de resumen numérica de todas las variables numéricas
+
+```{r}
+bd_inmuno %>% 
+  descr()
+```
 
 ## Descripción con Hmisc
+
+- Medidas de resumen de la variable edad
+
+Con dialecto de R base
+
+```{r}
+describe(bd_inmuno$edad)
+```
+
+Con dialecto de R tidy
+
+```{r}
+bd_inmuno %>% 
+  pull(edad) %>% 
+  describe()
+```
+
+- Medidas de resumen de todas las variables
+
+```{r}
+describe(bd_inmuno)
+```
+
+```{r}
+bd_inmuno %>% 
+  describe()
+```
+
+## Extra bonus: Uso de paquete DescTools
+
+```{r}
+library(DescTools)
+```
+
+- Medidas de resumen para la variable edad:
+
+```{r}
+Desc(bd_inmuno$edad)
+```
+
+```{r}
+bd_inmuno %>% 
+  pull(edad) %>% 
+  Desc()
+```
+
+- Medidas de resumen para todas las variables
+
+```{r}
+Desc(bd_inmuno)
+```
+
+```{r}
+bd_inmuno %>% 
+  Desc()
+```
