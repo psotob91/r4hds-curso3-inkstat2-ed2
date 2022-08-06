@@ -8,7 +8,7 @@ format:
   revealjs:
     self-contained: true
     theme: [simple, theme/theme.scss]
-    footer: "Introducción a R y RStudio"
+    footer: "Introducción al Manejo de Datos en R con {tidyverse}"
     slide-number: true
     logo: img/logo.png
     width: 1920

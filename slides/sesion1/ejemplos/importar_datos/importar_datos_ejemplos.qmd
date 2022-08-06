@@ -1,0 +1,68 @@
+---
+title: "Importando Datos con R - Ejemplos"
+author: "Percy Soto Becerra"
+---
+
+## Cargar paquetes
+
+```{r}
+
+```
+
+## Importar datos en *.csv (archivo plano)
+
+Importe el archivo denominado `maca_meno_perclin.csv`:
+
+```{r}
+
+```
+
+Explore el data.frame importado:
+
+```{r}
+
+```
+
+## Importar datos en *.xlsx (MS Excel)
+
+Importe el archivo denominado `maca_meno_perclin.xlsx`:
+
+```{r}
+
+```
+
+Explore el data.frame importado:
+
+```{r}
+
+```
+
+
+## Importar datos en *.dta (Stata)
+
+Importe el archivo denominado `maca_meno_fase1.dta`:
+
+```{r}
+
+```
+
+Explore el data.frame importado:
+
+```{r}
+
+```
+
+
+## Importar datos en *.sav (SPSS)
+
+Importe el archivo denominado `RECH0.SAV`:
+
+```{r}
+
+```
+
+Explore el data.frame importado:
+
+```{r}
+
+```

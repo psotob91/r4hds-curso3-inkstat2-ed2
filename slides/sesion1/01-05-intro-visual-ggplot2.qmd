@@ -8,7 +8,7 @@ format:
   revealjs:
     self-contained: true
     theme: [simple, theme/theme.scss]
-    footer: "Introducción a R y RStudio"
+    footer: "Visualización de Datos"
     slide-number: c/t
     logo: img/logo.png
     width: 1920
