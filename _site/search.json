@@ -18,28 +18,35 @@
     "href": "content/01-content.html",
     "title": "Introducción a R y RStudio",
     "section": "",
-    "text": "¡Bienvenidos al curso R para Ciencia de Datos en Salud: Análisis Descriptivo e Inferencia Estadística!\nEn esta primera sesión revisaremos los siguiente:\n\nExplicación de la dinámica del curso.\nCiencia de Datos en Salud Reproducible.\n¿Qué es R y RStudio? ¿Cuáles son las principales herramientas con las que cuenta?\nPrimeros pasos con R\nManejo y visualización de datos"
+    "text": "¡Bienvenidos al curso R para Ciencia de Datos en Salud:Análisis Descriptivo e Inferencia Estadística!\n\n\n\n\n\n\nObjetivos\n\n\n\nEn esta primera sesión revisaremos los siguiente:\n\nExplicación de la dinámica del curso.\nCiencia de Datos en Salud Reproducible.\n¿Qué es R y RStudio? ¿Cuáles son las principales herramientas con las que cuenta?\nPrimeros pasos con R\nManejo y visualización de datos\n\n\n\n\n\nAntes que todo, debe instalar la última versión de los programas que usaremos para este curso. Dependiendo su sistema operativo, Ud. debería instalar los siguientes programas:\n\nWindowsMacLinux (cualquier distro)\n\n\n\nR\nR Studio\nR tools\n\n\n\n\nR\nR Studio\n\n\n\n\nR\nR Studio\n\n\n\n\nSi cuenta con una versión previa, eliminelas y reinstale todo de nuevo: debe tener la última versión actualizada de todos estos. Si nunca ha instalado R, ni los demás programa, hemos preparado el siguiente tutorial de instalación, el cual está disponible en la sección Recursos de la web del curso: Enlace aquí.\nSi tiene alguna duda durante la instalación, no dude en escribir por el Whatssap grupo o por el Discord del grupo."
+  },
+  {
+    "objectID": "content/01-content.html#introducción-al-curso",
+    "href": "content/01-content.html#introducción-al-curso",
+    "title": "Introducción a R y RStudio",
+    "section": "Introducción al curso",
+    "text": "Introducción al curso\n\nBievenidaCómo usar la web del cursoCómo descargar los slides\n\n\n\n\n\n\n\n\n\n\n\n\nComo las diapositivas son interactivas, optamos por guardarlas como HTML (no como PDF). Puedes descargar la diapositiva con la opción Guardar como al dar click derecho sobre esta."
   },
   {
     "objectID": "content/01-content.html#videoclases",
     "href": "content/01-content.html#videoclases",
     "title": "Introducción a R y RStudio",
     "section": "Videoclases",
-    "text": "Videoclases\n\nBievenidaIntroducción a R y RstudioPrimeros pasosManejo de datosVisuación de datos\n\n\n\n\n\n\n\n\n\n[Videoclase se subirá en unas horas]\n\n\n[Videoclase se subirá en unas horas]\n\n\n[Videoclase se subirá en unas horas]\n\n\n[Videoclase se subirá en unas horas]"
+    "text": "Videoclases\n\nIntroducción a R y RstudioPrimeros pasosManejo de datosVisuación de datos\n\n\n[Videoclase se subirá en unas horas]\n\n\n[Videoclase se subirá en unas horas]\n\n\n[Videoclase se subirá en unas horas]\n\n\n[Videoclase se subirá en unas horas]"
   },
   {
     "objectID": "content/01-content.html#slides",
     "href": "content/01-content.html#slides",
     "title": "Introducción a R y RStudio",
     "section": "Slides",
-    "text": "Slides\n\nBievenidaIntroducción a R y RstudioPrimeros pasosManejo de datosVisuación de datos\n\n\n[Slides se subirán en unas horas]\n\n\n\n\n\n[Slides se subirán en unas horas]\n\n\n[Slides se subirán en unas horas]\n\n\n[Slides se subirán en unas horas]\n\n\n[Slides se subirán en unas horas]"
+    "text": "Slides\n\nBievenidaIntroducción a R y RstudioPrimeros pasosManejo de datosVisuación de datos\n\n\n\n Ver diapositivas en una nueva ventana\n\n\n\n\n\n\n\n\n Ver diapositivas en una nueva ventana\n\n\n\n\n\n\n\n\n Ver diapositivas en una nueva ventana\n\n\n\n\n\n\n\n[Slides se subirán en unas horas]\n\n\n[Slides se subirán en unas horas]"
   },
   {
     "objectID": "content/index.html",
     "href": "content/index.html",
     "title": "Clases, lecturas y videos",
     "section": "",
-    "text": "Cada sesión también tiene una lista de reproducción de videos cortos grabados para cada una de las secciones de clase. Las diapositivas de la conferencia son archivos HTML especiales hechos con revealjs a través de Quarto (¡R puede hacer mucho!). En cada sesión verás botones para abrir la presentación en una nueva pestaña o para descargar un HTML de las diapositivas en caso de que quieras imprimirlas o almacenarlas en tu computadora:\n\n Ver diapositivas  Descargar diapositivas\n\nLas diapositivas también están incrustadas en cada página. Puede hacer clic en las diapositivas y navegar por ellas con ← and →. Si escribe ? mientras ve las diapositivas, puede ver una lista de comandos específicos de diapositivas (como f para pantalla completa)."
+    "text": "Ver diapositivas en una nueva ventana\nLas diapositivas también están incrustadas en cada página. Puede hacer clic en las diapositivas y navegar por ellas con ← and →. Si escribe ? mientras ve las diapositivas, puede ver una lista de comandos específicos de diapositivas (como f para pantalla completa).\nPor último, cada sesión de clase tiene un conjunto de lecturas recomendadas que se sugiere revisen para afianzar o ampliar lo abordado en clases."
   },
   {
     "objectID": "example/index.html",

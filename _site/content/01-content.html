@@ -58,14 +58,14 @@ ul.task-list{list-style: none;}
 
 
 <meta property="og:title" content="R para Ciencia de Datos en Salud 3 - Introducción a R y RStudio">
-<meta property="og:description" content="¡Bienvenidos al curso R para Ciencia de Datos en Salud: Análisis Descriptivo e Inferencia Estadística!">
+<meta property="og:description" content="¡Bienvenidos al curso R para Ciencia de Datos en Salud:Análisis Descriptivo e Inferencia Estadística!">
 <meta property="og:image" content="https://rcds3.inkastats.es//files/social-image-f22.png">
 <meta property="og:site-name" content="R para Ciencia de Datos en Salud 3">
 <meta property="og:locale" content="en_US">
 <meta property="og:image:height" content="446">
 <meta property="og:image:width" content="1168">
 <meta name="twitter:title" content="R para Ciencia de Datos en Salud 3 - Introducción a R y RStudio">
-<meta name="twitter:description" content="¡Bienvenidos al curso R para Ciencia de Datos en Salud: Análisis Descriptivo e Inferencia Estadística!">
+<meta name="twitter:description" content="¡Bienvenidos al curso R para Ciencia de Datos en Salud:Análisis Descriptivo e Inferencia Estadística!">
 <meta name="twitter:image" content="https://rcds3.inkastats.es//files/social-image-f22.png">
 <meta name="twitter:creator" content="@psotob91">
 <meta name="twitter:card" content="summary_large_image">
@@ -239,7 +239,11 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#bievenida-al-curso" id="toc-bievenida-al-curso" class="nav-link active" data-scroll-target="#bievenida-al-curso">Bievenida al curso</a></li>
+  <li><a href="#bievenida-al-curso" id="toc-bievenida-al-curso" class="nav-link active" data-scroll-target="#bievenida-al-curso">Bievenida al curso</a>
+  <ul class="collapse">
+  <li><a href="#instale-r" id="toc-instale-r" class="nav-link" data-scroll-target="#instale-r">Instale R</a></li>
+  </ul></li>
+  <li><a href="#introducción-al-curso" id="toc-introducción-al-curso" class="nav-link" data-scroll-target="#introducción-al-curso">Introducción al curso</a></li>
   <li><a href="#videoclases" id="toc-videoclases" class="nav-link" data-scroll-target="#videoclases">Videoclases</a></li>
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
   </ul>
@@ -258,7 +262,17 @@ ul.task-list{list-style: none;}
 
 <section id="bievenida-al-curso" class="level2">
 <h2 class="anchored" data-anchor-id="bievenida-al-curso">Bievenida al curso</h2>
-<p>¡Bienvenidos al curso <code>R para Ciencia de Datos en Salud: Análisis Descriptivo e Inferencia Estadística</code>!</p>
+<p>¡Bienvenidos al curso <strong>R para Ciencia de Datos en Salud:<code></code>Análisis Descriptivo e Inferencia Estadística</strong>!</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Objetivos
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>En esta primera sesión revisaremos los siguiente:</p>
 <ul>
 <li><p>Explicación de la dinámica del curso.</p></li>
@@ -267,29 +281,80 @@ ul.task-list{list-style: none;}
 <li><p>Primeros pasos con R</p></li>
 <li><p>Manejo y visualización de datos</p></li>
 </ul>
-</section>
-<section id="videoclases" class="level2">
-<h2 class="anchored" data-anchor-id="videoclases">Videoclases</h2>
+</div>
+</div>
+<section id="instale-r" class="level3">
+<h3 class="anchored" data-anchor-id="instale-r">Instale R</h3>
+<p>Antes que todo, debe instalar la <strong>última versión</strong> de los programas que usaremos para este curso. Dependiendo su sistema operativo, Ud. debería instalar los siguientes programas:</p>
 <div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Bievenida</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Introducción a R y Rstudio</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Primeros pasos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Manejo de datos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Visuación de datos</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Mac</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Linux (cualquier distro)</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ul>
+<li><p>R</p></li>
+<li><p>R Studio</p></li>
+<li><p>R tools</p></li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<ul>
+<li><p>R</p></li>
+<li><p>R Studio</p></li>
+</ul>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<ul>
+<li><p>R</p></li>
+<li><p>R Studio</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p>Si cuenta con una versión previa, eliminelas y reinstale todo de nuevo: <strong>debe tener la última versión actualizada de todos estos</strong>. Si nunca ha instalado R, ni los demás programa, hemos preparado el siguiente tutorial de instalación, el cual está disponible en la sección <a href="https://rcds3.inkastats.es/resource/">Recursos</a> de la web del curso: <a href="https://rcds3.inkastats.es/resource/manual_installR/install">Enlace aquí</a>.</p>
+<p>Si tiene alguna duda durante la instalación, no dude en escribir por el Whatssap grupo o por el Discord del grupo.</p>
+</section>
+</section>
+<section id="introducción-al-curso" class="level2">
+<h2 class="anchored" data-anchor-id="introducción-al-curso">Introducción al curso</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Bievenida</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Cómo usar la web del curso</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Cómo descargar los slides</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div style="padding:56.25% 0 0 0;position:relative;">
 <iframe src="https://player.vimeo.com/video/737176976?h=bab8439f2c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Bienvenida">
 </iframe>
 </div>
 <script src="https://player.vimeo.com/api/player.js"></script>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>Como las diapositivas son interactivas, optamos por guardarlas como HTML (no como PDF). Puedes descargar la diapositiva con la opción <code>Guardar como</code> al dar <code>click derecho</code> sobre esta.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../files/img/descargar-html.gif" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="videoclases" class="level2">
+<h2 class="anchored" data-anchor-id="videoclases">Videoclases</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Introducción a R y Rstudio</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Primeros pasos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Manejo de datos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">Visuación de datos</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <p>[Videoclase se subirá en unas horas]</p>
 </div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <p>[Videoclase se subirá en unas horas]</p>
 </div>
-<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
 <p>[Videoclase se subirá en unas horas]</p>
 </div>
-<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
 <p>[Videoclase se subirá en unas horas]</p>
 </div>
 </div>
@@ -298,24 +363,39 @@ ul.task-list{list-style: none;}
 <section id="slides" class="level2">
 <h2 class="anchored" data-anchor-id="slides">Slides</h2>
 <div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Bievenida</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Introducción a R y Rstudio</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Primeros pasos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Manejo de datos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">Visuación de datos</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Bievenida</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Introducción a R y Rstudio</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Primeros pasos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">Manejo de datos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-5" role="tab" aria-controls="tabset-4-5" aria-selected="false">Visuación de datos</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>[Slides se subirán en unas horas]</p>
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>
+<a class="btn btn-danger" target="_blank" href="../slides/sesion1/01-01-bienvenida.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver diapositivas en una nueva ventana</a>
+</p>
 <div class="cell">
-
+<iframe src="../slides/sesion1/01-01-bienvenida.html" width="100%" height="400px" data-external="1">
+</iframe>
 </div>
 </div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>
+<a class="btn btn-danger" target="_blank" href="../slides/sesion1/01-02-introR.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver diapositivas en una nueva ventana</a>
+</p>
+<div class="cell">
+<iframe src="../slides/sesion1/01-02-introR.html" width="100%" height="400px" data-external="1">
+</iframe>
+</div>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<p>
+<a class="btn btn-danger" target="_blank" href="../slides/sesion1/01-03-primeros-pasos-R.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver diapositivas en una nueva ventana</a>
+</p>
+<div class="cell">
+<iframe src="../slides/sesion1/01-03-primeros-pasos-R.html" width="100%" height="400px" data-external="1">
+</iframe>
+</div>
+</div>
+<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
 <p>[Slides se subirán en unas horas]</p>
 </div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<p>[Slides se subirán en unas horas]</p>
-</div>
-<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
-<p>[Slides se subirán en unas horas]</p>
-</div>
-<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<div id="tabset-4-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-5-tab">
 <p>[Slides se subirán en unas horas]</p>
 </div>
 </div>
