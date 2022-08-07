@@ -1,0 +1,299 @@
+---
+title: "Instalación"
+---
+
+<br>
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(vembedr)
+
+knitr::opts_chunk$set(echo=TRUE)
+```
+
+## **1. Instalando R**
+
+<div class=text-justify>
+Antes de instalar R(v4.2.1), debemos ir al sitio web de [**CRAN**](https://cran.r-project.org/bin/windows/base/) para descargar el programa dando click en "**Download R 4.2.1 for Windows**". <br>
+</div>
+<br>
+```{r, echo=FALSE, out.width='90%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/1.png')  
+```
+<br>
+<br>
+<div class=text-justify>
+Una vez descargado el programa, el **primer paso** es escoger el idioma del asistente de instalación de R. 
+</div>
+<br>
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/2.png')  
+```
+<br>
+<br>
+<div class=text-justify>
+Escogido el idioma, para el **segundo paso** simplemente debemos dar click en "siguiente".<br>
+</div>
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/3.png')
+```
+<br>
+<br>
+<div class=text-justify>
+En la siguiente ventana, el **tercer paso** consiste en elegir en qué carpeta se instalará R y sus dependencias. Si tenemos permisos de administrador en nuestro dispositivo, podemos dejar que R se instale en la carpeta por defecto ("program files"); sin embargo, si esto no es así (por ejemplo si no es nuestro dispositivo o compartimos su uso mediante distintos usuarios), lo más recomendable es elegir otra ubicación, por ejemplo "documentos". Esto nos evitará problemas de accesos o permisos durante nuestra práctica diaria con R.<br>
+</div>
+<br>
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/4.png')
+```
+<br>
+<br>
+<div class=text-justify>
+A continuación, el **cuarto paso** consiste simplemente en dar click en "siguiente".<br>
+</div>
+<br>
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/5.png')
+```
+<br>
+<br>
+<div class=text-justify>
+En el **quinto paso**, nos preguntará si deseamos utilizar las opciones de configuración, recomendamos marcar "sí".<br>
+</div>
+<br>
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/6.png')
+```
+<br>
+<br>
+<div class=text-justify>
+Luego, para el **sexto paso** seleccionamos MDI y damos click en "siguiente".<br>
+</div>
+<br>
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/7.png')
+```
+<br>
+<br>
+<div class=text-justify>
+En el **séptimo paso** elegimos *ayuda HTML* y damos click en "siguiente".<br>
+</div>
+<br>
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/8.png')
+```
+<br>
+<br>
+<div class=text-justify>
+Como **octavo paso**, en las siguientes dos ventanas daremos click en "siguiente", lo cual iniciará la instalación de R en nuestro dispositivo y, una vez termine, concluimos dando click en "finalizar".<br>
+</div>
+<br>
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/9.png')
+```
+<br>
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/10.png')
+```
+<br>
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/11.png')
+```
+<br>
+
+## **2. Instalando RStudio**
+
+<div class=text-justify>
+Al igual que en la sección anterior, para instalar la versión 2022.07.1+554. de nuestro IDE, primero vamos a la página oficial de [**Rstudio**](https://www.rstudio.com/products/rstudio/download/), escogemos la opción "**Free**" y damos click en "**download RStudio for Windows**".<br>
+</div>
+<br>
+```{r, echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/12.png')
+```
+<br>
+<br>
+```{r, echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/13.png')
+```
+<br>
+<br>
+<div class=text-justify>
+Una vez descargado el programa, iniciamos el asistente de instalación dando click en "Siguiente".<br>
+</div>
+<br>
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/14.png')
+```
+<br>
+<br>
+<div class=text-justify>
+En la siguiente ventana nos preguntarán en qué carpeta deseamos instalar nuestro RStudio. Aquí es importante tener las mismas consideraciones que mencionamos en la primera sección: Si no tenemos acceso de administrador, es mejor escoger "Documentos", de lo contrario, simplemente damos click en "siguiente" en esta ventana e "instalar" en la siguiente.<br>
+</div>
+<br>
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/15.png')
+```
+<br>
+<br>
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/16.png')
+```
+<br>
+<br>
+<div class=text-justify>
+Terminado el proceso de instalación, cerramos el asistente dando click en "Terminar".<br>
+</div>
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/17.png')
+```
+<br>
+
+## **3. Instalando Rtools**
+
+Solo se instala Rtools 
+
+::: text-justify
+Por último, vamos a descargar [**Rtools
+4.2**](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html)
+dando click en [**Rtools42 installer**](https://cran.r-project.org/bin/windows/Rtools/rtools42/files/rtools42-5253-5107.exe) si y solo si tiene sistema operativo Windows. **¡Si tiene sistema operativo Mac o Linux (cualquier distro), no necesita instalar Rtools!**<br>
+:::
+
+<br>
+
+```{r, echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/18.png')
+```
+
+<br> <br>
+
+::: text-justify
+Una vez descargado, iniciamos el asistente de instalación dando click en
+"next" en las siguientes dos ventanas.<br>
+:::
+
+<br>
+
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/19.png')
+```
+
+<br> <br>
+
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/20.png')
+```
+
+<br> <br>
+
+::: text-justify
+A continuación, iniciamos la instalación dando click en "install" y
+esperamos a que el proceso se complete. Finalmente, cerramos el
+asistente dando click en "finish".<br>
+:::
+
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/21.png')
+```
+
+<br> <br>
+
+```{r, echo=FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/22.png')
+```
+
+<br> <br>
+
+::: text-justify
+Si hemos realizado el proceso correctamente, podremos abrir nuestro
+RStudio y llegar a esta pantalla:<br>
+:::
+
+<br>
+
+```{r, echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/23.png')
+```
+
+<br> <br>
+
+::: text-justify
+Si desea más información sobre cómo instalar estos programas en Windows
+y/o MAC, visite la [**página oficial**](https://cran.r-project.org/) del proyecto
+R.<br>
+:::
+
+<br>
+
+## **4. Sobre MAC y Linux**
+
+<div class=text-justify>
+Para la instalación de R y Rstudio en otros sistemas operativos, como macOS y Linux, vamos a la página oficial de [R project](https://cran.r-project.org/) y seguimos las mismas indicaciones. 
+
+<br>
+```{r, echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics('imagenes_guia/mac-linux.png')
+```
+<br>
+
+:::{.callout-important collapse=false appearance='default' icon=true}
+## Importante
+En estos sistemas operativos no es necesario instalar _**Rtools**_, solo es necesario para Windows.
+:::
+
+## **5. Recursos adicionales**
+
+**Videos de youtube recomendados:**
+
+```{r, echo=FALSE, fig.align='center'}
+embed_youtube("k1J43Rm9aFo") %>%
+  use_align("center")
+```
+<center>Video de [henryholder01](https://www.youtube.com/channel/UCYxiF09IKzWqVK60u6XUiMQ/featured)</center>
+<br> 
+<br>
+```{r, echo=FALSE,  }
+embed_youtube("eNwxCHKLkOs") %>%
+  use_align("center")
+```
+<center>Video de [Renzo Caceres Rossi](https://www.youtube.com/channel/UC1A-TUhyfNOpHcNM8da6tJQ)</center>
+<br>
+<br>
+```{r, echo=FALSE, fig.align='center'}
+embed_youtube("OoVIUoiwijc") %>%
+  use_align("center")
+```
+<center>Video de [Roger Miranda](https://www.youtube.com/channel/UC2C--fXugt5FN0YwLEjRsyA)</center>
+<br>
+<br>
+```{r, echo=FALSE, fig.align='center'}
+embed_youtube("LbezGA_Yle8") %>%
+  use_align("center")
+```
+<center>Video de [R Epidemics Consortium (RECON)](http://www.repidemicsconsortium.org/)</center>
+<br>
+<br>
+
+**Manuales disponibles en la web:**
+
+<div class=text-justify>
+1. Manual de [Alessio Bocco](https://sissa.crc-sas.org/wp-content/uploads/2020/10/Instalacion_R.html)
+2. Manual de [Giorgio Boccardo Bosoni y Felipe Ruiz Bruzzone](https://bookdown.org/gboccardo/manual-ED-UCH/instalacion-de-los-softwares-a-utilizar-en-este-manual.html)
+3. Manual del libro ["Hands-On Programming with R"](https://rstudio-education.github.io/hopr/starting.html)
+4. Manual de [Antoine Soetewey](https://statsandr.com/blog/how-to-install-r-and-rstudio/)
+</div>
+<br>
+<br>
+<br>
+___ <br> 
+**Este manual fue elaborado por:** <br>
+[Anthony Romero Cerdán](https://github.com/AnthonyRomeroC) (anthony.romeromh\@gmail.com) <br>
+<br>
+
+
+```{r, echo=FALSE, out.width='20%', fig.align='left'}
+knitr::include_graphics('imagenes_guia/logo_sf.png')
+```
+<br>
+Búscanos en: <br>
+<br>
+[![fb icon](imagenes_guia/fb.png)](https://www.facebook.com/InkaStats.DSS)  [![in icon](imagenes_guia/in.png)](https://www.linkedin.com/company/inkastats-dss)  [![gmail icon](imagenes_guia/gmail.png)](inkastats@gmail.com) [![git icon](imagenes_guia/git.png)](https://github.com/InkaStats)

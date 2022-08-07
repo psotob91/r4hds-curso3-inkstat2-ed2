@@ -1,0 +1,15 @@
+/*-- scss:defaults --*/
+
+$body-bg: #035861;
+$body-color: #FFFFFF;
+$link-color: #ffc72c;
+$presentation-heading-color: #A7D5E8;
+
+/*-- scss:rules --*/
+.reveal .slides > section > section { 
+  text-align:left; 
+}
+
+.hl {
+  color: #E9AFA3;
+}

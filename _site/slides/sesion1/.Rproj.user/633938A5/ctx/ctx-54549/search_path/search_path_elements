@@ -1,0 +1,12 @@
+.GlobalEnv
+renv:shims
+tools:rstudio
+package:stats
+package:graphics
+package:grDevices
+package:datasets
+package:utils
+package:methods
+Autoloads
+org:r-lib
+package:base

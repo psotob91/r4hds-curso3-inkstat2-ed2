@@ -1,0 +1,4 @@
+---
+title: "Intervalos de confianza: buenas prácticas y errores de concepto"
+date: "2022-09-10"
+---

@@ -1,0 +1,54 @@
+---
+title: "<img data-src='img/logo.png' height='144.0' width='124.44'/> <br> <FONT color='#232429'>Introducción a R y Rstudio</FONT>  "
+subtitle: "<FONT color='#636363' size='7'>R para Ciencia de Datos en Salud 3: Análisis Descriptivo e Inferencia Estadística</FONT>"
+author: "<FONT color='#232429' size='30'>Percy Soto-Becerra M.D., M.Sc(c)</FONT>"
+institute: "<FONT color='#232429' size='5'>InkaStats Data Science Solutions | Medical Branch<br>@github/psotob91</FONT>"
+date: "<FONT color='#232429' size='6'>Junio 15, 2022</FONT>"
+format: 
+  revealjs: 
+    theme: simple
+    css: ["theme/theme.css"]
+    footer: "Introducción a R y RStudio"
+    slide-number: c/t
+    # width: 1600
+    # height: 900
+    margin: 0.15
+    logo: img/logo.png
+    # transition: convex
+    # background-transition: zoom
+    # incremental: false
+    # preview-links: true
+    # parallax-background-image: images/bg-ietsi-slide-first.png
+    # parallax-background-size: "1920px 1080px"
+    # chalkboard: true
+    # code-block-background: true
+    # code-block-border-left: "#31BAE9"
+    # highlight-style: solarized
+    # echo: true
+    # multiplex: true
+    # touch: true
+    # auto-stretch: true
+    # link-external-icon: true
+    # link-external-newwindow: true
+---
+
+## {background-image="img/caratula.png" background-position="left"}
+
+```{r}
+#| label: setup
+#| include: false
+library(fontawesome)
+library(tidyverse)
+library(quarto)
+library(gt)
+library(gtExtras)
+library(gtsummary)
+
+## Ver: https://github.com/rstudio-conf-2022/get-started-quarto/blob/main/materials/02-authoring.qmd
+```
+
+
+## Slide 2
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+

@@ -1,0 +1,34 @@
+author: Percy Soto-Becerra
+
+lang: es
+
+instructor:
+  name: Percy Soto-Becerra, M.D., M.Sc(c)
+  name_no_title: Percy Soto-Becerra
+  email: percys1991@gmail.com
+  url: "https://github.com/psotob91"
+  twitter: psotob91
+  github: psotob91
+  office: "Virtual: Vimeo & Google Meet"
+  contact_policy: >-
+    E-mail y Discord son las mejores formas de ponerse en contacto conmigo. Intentaré responder a todos los correos electrónicos relacionados con el curso y los mensajes de Discord dentro de las 24 horas (*de verdad*), pero también recuerde que la vida puede ser ajetreada y caótica para todos (¡incluido yo!), así que si no respondo enseguida, no te preocupes!
+  appointment_url: https://calendly.com/psotob91/15-minutos-de-reunion?back=1&month=2022-08
+
+course:
+  number: "R4HDS03 2022"
+  semester: "Invierno 2022"
+  days: "Sábados"
+  time: "Asincrónico: Sábados 3 pm <br> &nbsp;Sincrónico: Martes o Jueves"
+  location: "Asincrónico: Vimeo <br> &nbsp;Sincrónico: Google Meet"
+  dates: "06 de agosto a 25 de setiembre, 2022"
+  github: "https://github.com/psotob91/r4hds-curso3-inkstat"
+  copyright_year: "2022"
+  discord: "https://discord.gg/jRnxKhnE"
+
+university:
+  name: InkaStats Data Science Solutions
+  url: "https://[Pendiente]"
+
+school:
+  name: Medical Branch
+  url: "https://[Pendiente]"

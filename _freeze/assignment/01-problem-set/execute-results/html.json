@@ -1,0 +1,14 @@
+{
+  "hash": "7350b89d15cbd2a3c8382424f5ed3fa9",
+  "result": {
+    "markdown": "---\ntitle: \"Problem set 1\"\ndate: \"2022-08-14\"\n---\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

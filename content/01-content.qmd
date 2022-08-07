@@ -1,0 +1,78 @@
+---
+title: "Introducción a R y RStudio"
+date: "2022-08-06"
+---
+
+## Bievenida al curso
+
+¡Bienvenidos al curso `R para Ciencia de Datos en Salud: Análisis Descriptivo e Inferencia Estadística`! 
+
+En esta primera sesión revisaremos los siguiente:
+
+- Explicación de la dinámica del curso.
+
+- Ciencia de Datos en Salud Reproducible.
+
+- ¿Qué es R y RStudio? ¿Cuáles son las principales herramientas con las que cuenta?
+
+- Primeros pasos con R
+
+- Manejo y visualización de datos
+
+## Videoclases
+
+::: {.panel-tabset}
+
+### Bievenida
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/737176976?h=bab8439f2c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Bienvenida"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+### Introducción a R y Rstudio
+
+[Videoclase se subirá en unas horas]
+
+### Primeros pasos
+
+[Videoclase se subirá en unas horas]
+
+### Manejo de datos
+
+[Videoclase se subirá en unas horas]
+
+### Visuación de datos
+
+[Videoclase se subirá en unas horas]
+
+:::
+
+## Slides
+
+::: {.panel-tabset}
+
+### Bievenida
+
+[Slides se subirán en unas horas]
+
+```{r}
+#| echo: false
+#| out.width: 100%
+# knitr::include_url('https://github.com/psotob91/r4hds-curso3-inkstat/blob/main/slides/Sesion1/01-01-bienvenida.html')
+```
+
+### Introducción a R y Rstudio
+
+[Slides se subirán en unas horas]
+
+### Primeros pasos
+
+[Slides se subirán en unas horas]
+
+### Manejo de datos
+
+[Slides se subirán en unas horas]
+
+### Visuación de datos
+
+[Slides se subirán en unas horas]
+
+:::

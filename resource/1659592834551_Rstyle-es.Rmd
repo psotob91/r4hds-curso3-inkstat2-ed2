@@ -1,0 +1,216 @@
+---
+title: Sugerencia de estilo en R 
+---
+
+## Convenciones de estilo en R
+
+R es bastante flexible con la forma como escribimos el código (a diferencia de otros lenguajes como Python, donde utilizar mal los espacion puede arruinar todo tu código!). Todas las siguientes líneas de código harán exactamente lo mismo:
+
+```{r eval=FALSE, tidy=FALSE}
+#Código 1:
+mpg %>% 
+  filter(cty > 10, class == "compact")
+
+#Código 2:
+mpg %>% filter(cty > 10, class == "compact")
+
+#Código 3:
+mpg %>% 
+  filter(cty > 10, 
+         class == "compact")
+
+#Código 4:
+mpg %>% filter(cty>10, class=="compact")
+
+#Código 5:
+filter(mpg,cty>10,class=="compact")
+
+#Código 6:
+mpg %>% 
+filter(cty > 10, 
+                        class == "compact")
+
+filter ( mpg,cty>10,     class=="compact" )
+```
+
+Sin embargo, como podrás notar, solo las tres primeras opciones son fácilmente legibles.
+
+Para ayudar a mejorar la legibilidad y que sea más fácil compartir código con otras personas, existe una [guía de estilo para código en R](https://style.tidyverse.org/index.html). Es bastante corta y contiene muchos ejemplos de buenas y malas maneras de escribir código (para nombrar variables, para manejar líneas de código extensas, usar niveles de identación adecuadas, etc.). Deberías hecharle un vistazo alguna vez!
+
+RStudio tiene una forma integrada de limpiar nuestro código. Seleccionamos el código, presionamos <kbd>ctrl</kbd> + <kbd>i</kbd> (en Windows) o <kbd>⌘</kbd> + <kbd>i</kbd> (en macOS), y R reordenará el código por nosotros. Si bien esto no siempre resulta bien, es muy útil para una correcta identación a la derecha sin tener que hacerlo manualmente presionando el botón de <kbd>space</kbd> un millón de veces.
+
+## Principales aspectos de estilo para tener en cuenta en este curso
+
+> *Importante*: En InkaStats nunca te evaluaremos por esto! Si escribes algo como `filter(mpg,cty>10,class=="compact")`, te podriamos recomendar agregar espacios, pero eso no afectará tu calificación.
+
+### Espaciado
+
+> Revisa la sección de ["Spacing"](https://style.tidyverse.org/syntax.html#spacing) en la guía de estilo de tidyverse.
+
+Coloca espacios después de las comas (como en el español cotidiano):
+
+```{r eval=FALSE}
+# Bien
+filter(mpg, cty > 10)
+
+# Mal
+filter(mpg , cty > 10)
+filter(mpg ,cty > 10)
+filter(mpg,cty > 10)
+```
+
+Coloca espacios alrededor de operadores como `+`, `-`, `>`, `=`, etc.:
+
+```{r eval=FALSE}
+# Bien
+filter(mpg, cty > 10)
+
+# Mal
+filter(mpg, cty>10)
+filter(mpg, cty> 10)
+filter(mpg, cty >10)
+```
+
+No coloques espacios alrededor de paréntesis que son parte de la función:
+
+```{r eval=FALSE}
+# Bien
+filter(mpg, cty > 10)
+
+# Mal
+filter (mpg, cty > 10)
+filter ( mpg, cty > 10)
+filter( mpg, cty > 10 )
+```
+
+### Líneas extensas
+
+> Revisa la sección ["Long lines"](https://style.tidyverse.org/syntax.html#long-lines) en la guía de estilo de tidyverse.
+
+Generalmente es una buena práctica no tener líneas de código muy extensas. Una buena sugerencia es trabajar con un límite de 80 caracteres por línea de código. En lugar de contar caracteres manualmente (no hagas eso, en serio), en RStudio ve a "Tools" > "Global Options" > "Code" > "Display" y revisa la opción "Show margin". Deberías poder ver una delgada línea indicando 80 caracteres. De nuevo, podrías no tomar estas sugerencias y eso está bien. Sin embargo, es una buena práctica mantener una extensión límite.
+
+Puedes agregar saltos de línea dentro de líneas de código más largas. Los saltos de línea deben ir después de las comas, y los argumentos de la función deben alinearse dentro de la misma:
+
+```{r eval=FALSE}
+# Bien
+filter(mpg, cty > 10, class == "compact")
+
+# Bien
+filter(mpg, cty > 10, 
+       class == "compact")
+
+# Bien
+filter(mpg,
+       cty > 10,
+       class == "compact")
+
+# Mal
+filter(mpg, cty > 10, class %in% c("compact", "pickup", "midsize", "subcompact", "suv", "2seater", "minivan"))
+
+# Bien
+filter(mpg, 
+       cty > 10, 
+       class %in% c("compact", "pickup", "midsize", "subcompact", 
+                    "suv", "2seater", "minivan"))
+```
+
+### Operador pipe (`%>%`) y capas en ggplot (`+`)
+
+Coloca cada capa de un gráfico con ggplot en líneas separadas con un `+` al final de la línea e idéntalas con dos espacios:
+
+```{r eval=FALSE}
+# Bien
+ggplot(mpg, aes(x = cty, y = hwy, color = class)) +
+  geom_point() +
+  geom_smooth() +
+  theme_bw()
+
+# Mal
+ggplot(mpg, aes(x = cty, y = hwy, color = class)) +
+  geom_point() + geom_smooth() +
+  theme_bw()
+
+# Muy mal
+ggplot(mpg, aes(x = cty, y = hwy, color = class)) + geom_point() + geom_smooth() + theme_bw()
+
+# Muy mal y no va funcionar
+ggplot(mpg, aes(x = cty, y = hwy, color = class))
+  + geom_point()
+  + geom_smooth() 
+  + theme_bw()
+```
+
+Coloca para paso en una sucesión de funciones de dplyr en líneas separadas con el operador `%>%` al final de la línea e idéntalo con dos espacios:
+
+```{r eval=FALSE}
+# Bien
+mpg %>% 
+  filter(cty > 10) %>% 
+  group_by(class) %>% 
+  summarize(avg_hwy = mean(hwy))
+
+# Mal
+mpg %>% filter(cty > 10) %>% group_by(class) %>% 
+  summarize(avg_hwy = mean(hwy))
+
+# Muy mal
+mpg %>% filter(cty > 10) %>% group_by(class) %>% summarize(avg_hwy = mean(hwy))
+
+# Muy mal y no va a funcionar
+mpg %>% 
+  filter(cty > 10)
+  %>% group_by(class)
+  %>% summarize(avg_hwy = mean(hwy))
+```
+
+### Comentarios
+
+> Revisa la sección de ["Comments"](https://style.tidyverse.org/syntax.html#comments) en la guía de estilo de tidyverse.
+
+Los comentarios deben iniciar con un símbolo de comentario y un espacio: `# `
+
+```{r eval=FALSE}
+# Bien
+
+#Mal
+
+    #Mal
+```
+
+Si el comentario es muy corto (y no extenderá la línea de código más allá de los 80 caracteres), podrías incluirlo en la misma línea del código, separándolo por al menos dos espacios (también funciona con un solo espacio, pero si usas dos será más legible):
+
+```{r eval=FALSE}
+mpg %>% 
+  filter(cty > 10) %>%  # Solo filas donde cty es 10 o más
+  group_by(class) %>%  # Dividirlo en grupos según class
+  summarize(avg_hwy = mean(hwy))  # Calcular el promedio de hwy en cada grupo
+```
+
+Si lo deseas, puedes agregar espacios para alinear los comentarios a la misma altura:
+
+```{r eval=FALSE}
+mpg %>% 
+  filter(cty > 10) %>%            # Solo filas donde cty es 10 o más
+  group_by(class) %>%             # Dividirlo en grupos según class
+  summarize(avg_hwy = mean(hwy))  # Calcular el promedio de hwy en cada grupo
+```
+
+Si el comentario es muy extenso, puedes dividirlo en múltiples líneas. RStudio puede hacer esto por ti si vas a "Code" > "Reflow comment"
+
+```{r eval=FALSE}
+# Bien
+# Las familias felices son todas iguales; cada familia infeliz es infeliz a su manera. 
+# Todo estaba en desorden en la casa de los Oblonsky. La esposa había descubierto 
+# que el marido mantenía una intriga con una chica francesa, que había sido 
+# institutriz en su familia, y le había anunciado a su marido que no podía 
+# seguir viviendo en la misma casa con él. Esta situación 
+# ya duraba tres días, y no sólo el marido y la mujer mismos, sino 
+# todos los miembros de su familia y casa, estaban dolorosamente conscientes de ello. 
+
+# Mal 
+# Las familias felices son todas iguales; cada familia infeliz es infeliz a su manera. Todo estaba en confusión en la casa de los Oblonsky. La esposa había descubierto que el marido mantenía una intriga con una muchacha francesa, que había sido institutriz en su familia, y le había anunciado a su marido que no podía seguir viviendo en la misma casa con él. Esta situación había durado ya tres días, y no sólo el marido y la mujer, sino todos los miembros de su familia y hogar, estaban dolorosamente conscientes de ello.
+```
+
+Sin embargo, si se trata de comentarios que son *MUY* largos, considera colocar el texto en R Markdown y hacer que sea prosa real.
+
+Adaptado de [Andrew Heiss](https://evalf22.classes.andrewheiss.com/resource/style.html)

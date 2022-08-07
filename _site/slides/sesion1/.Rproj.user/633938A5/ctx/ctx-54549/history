@@ -1,0 +1,41 @@
+# Use pacman to check whether packages are installed, if not load
+if (!require("pacman")) install.packages("pacman")
+library(pacman)
+pacman::p_unload("all")
+pacman::p_load(
+here,
+tidyverse,
+fontawesome,
+devtools,
+quarto,
+gt,
+gtExtras,
+gtsummary
+)
+# install.packages("devtools")
+devtools::install_github("gadenbuie/countdown")
+renv::status()
+install.packages("devtools")
+devtools::install_github("gadenbuie/countdown")
+install.packages("devtools")
+renv::init()
+pacman::p_load(
+here,
+tidyverse,
+fontawesome,
+devtools,
+quarto,
+gt,
+gtExtras,
+gtsummary
+)
+quarto use template schochastics/quarto-blackboard-theme
+library(showtest)
+install.packages("showtest")
+install.packages("showtext")
+renv::status()
+renv::snapshot()
+renv::status()
+renv::snapshot()
+---
+renv::init()

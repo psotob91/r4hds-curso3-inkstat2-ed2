@@ -1,0 +1,9 @@
+---
+title: "Ejemplos de código"
+---
+
+Venga a esta sección después de terminar de revisar las videoclases y lecturas. Contiene código en R completamente comentado y alguna que otra información complementaria. Será de mucha ayuda para resolver los problem set. También será de ayuda como plantillas que ustedes pueden reusar directamente o adaptar para futuros análisis de datos que realicen.
+
+
+
+

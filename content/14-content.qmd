@@ -1,0 +1,4 @@
+---
+title: "Reporte reproducible de inferencia estadística"
+date: "2022-09-17"
+---

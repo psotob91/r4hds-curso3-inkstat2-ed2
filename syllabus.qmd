@@ -1,0 +1,257 @@
+---
+title: Syllabus
+---
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+#| include: false
+library(dplyr)
+library(tibble)
+library(pander)
+```
+
+::: {.grid .course-details .course-details-smaller}
+
+::: {.g-col-6}
+### Instructor
+
+- {{< fa user >}} &nbsp; [{{< var instructor.name >}}]({{< var instructor.url >}})
+- {{< fa university >}} &nbsp; {{< var instructor.office >}}
+- {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
+- {{< fa brands twitter >}} &nbsp; [{{< var instructor.twitter >}}](https://www.twitter.com/{{< var instructor.twitter >}})
+- {{< fa calendar-check >}} &nbsp; [Schedule an appointment]({{< var instructor.appointment_url >}})
+:::
+
+::: {.g-col-6}
+### Detalles del curso
+
+- {{< fa calendar >}} &nbsp; {{< var course.days >}}
+- {{< fa calendar-alt >}} &nbsp; {{< var course.dates >}}
+- {{< fa clock >}} &nbsp; {{< var course.time >}}
+- {{< fa location-dot >}} &nbsp; {{< var course.location >}}
+- {{< fa brands discord >}} &nbsp; [Discord]({{< var course.discord >}})
+:::
+
+:::
+
+## Objetivos del curso
+
+Al finalizar este curso, el participante tendrá la capacidad de escribir
+código R con estilo tidyverse, mediante flujos de trabajo
+reproducibles, para el análisis descriptivo de variables numéricas y
+categóricas, reporte automatizado y reproducible de resultados,
+estimación e interpretación de intervalos de confianza y pruebas de
+hipótesis, e interpretación del valor p.
+
+## Presentación del curso
+
+Este tercer módulo de la serie **R para Ciencia de Datos en Salud***, organizado por **Inkastats Data Science Solutions | Medical Branch**, busca desarrollar, en el participante, competencias en el análisis y reporte descriptivo de los datos, de tal forma que pueda transmitir información relevante en publicaciones científicas, reportes, informes técnicos o estrategias de comunicación en salud.
+
+Asimismo, brindaremos los `fundamentos sobre inferencia estadística` desde dos perspectivas, la `clásica` y la basada en `remuestreo` (bootstrapping y pruebas de permutación), de tal forma que el alumno cuente con todas las herramientas más comúnmente utilizadas a la hora de realizar inferencia estadística. En particular, los métodos no paramétricos clásicos y el remuestreo permiten realizar inferencias robustas incluso cuando los datos no cumplen los supuestos clásicos o cuando no existe método parámetrico para computarlos.
+
+El curso también abordará los `errores más comunes` en la interpretación del `valor p` y el `intervalo de confianza`, así como pautas para reportar apropiadamente estos resultados en artículos científicos de acuerdo con el estado de arte actual. En la última década, se han conformado iniciativas internacionales para ayudar a usuarios de la estadística a mejorar la calidad metodológica y de reporte de los métodos bioestadísticos. Este curso presentará las `principales guías de reporte vigentes` para que los alumnos sean capaces de ponerlas en práctica en su quehacer diario.
+
+## ¿Por qué R y RStudio?
+
+El software [R](https://cran.r-project.org/) es un lenguaje de programación de acceso libre e ideal como entorno para el análisis estadístico y gráfico, reporte, presentación de datos, etc., lo que lo convierte en una de las opciones líderes a nivel mundial para la Ciencia de Datos en Salud. En la última década ha ocurrido una revolución en la computación estadística. Lenguajes de código abierto como R y Python han superado a programas propietarios más antiguos y costosos como SAS, Stata y SPSS. Asimismo, la literatura (libros, blogs, foros de ayuda, etc.) acerca de R es extensa en comparación con la de otros programas, por lo que resulta más fácil encontrar soluciones a problemas (relativamente complejos) con los que los usuarios a menudo se enfrentan.
+
+Asimismo, `R` tiene varios dialectos, todos los cuales tienen fortalezas y debilidades. Ciertamente, ser fluido en `R` implica manejar más de un dialecto si no todos. Sin embargo, el dialecto de `tiyverse` es probablemente uno de los más consistentes, completos y en constante desarrollo y mantención, por lo que es uno de los más rentables de aprender cuando se trata de `R`. Este curso abordará principalmente el estilo `R tidy`, aunque también hará uso del dialecto de `R base` y otros dialectos cuando sea propicio.
+
+Por otro lado, [R Studio](https://www.rstudio.com/) es una interfaz que permite una mejor comunicación eentre el usuario y `R`. Piense en `R` como el motor de un automóvil y en `R Studio` como el tablero de mando del automóvil: `R` hace el trabajo duro al calcular y aplicar los métodos estadísticos, mientras que `R Studio` es la interfaz amigable que permite ejecutar código de `R`. 
+
+## Aviso de servicio público
+
+Si ya has usado R previamente, este curso será muy fácil para ti. Si no lo has usado nunca, aprender R puede que sea un poco menos fácil, pero prometo que solo al inicio. Como todo **nuevo idioma** comenzarás a ganar fluidez conforme **hables** más 'R-ñol': la práctica hace al maestro. Felizmenete, el dialecto `tidy` es muy fluido y fácil de entender y es por eso que lo hemos elegido. 
+
+Como lo resalta [Andrew Heiss](https://www.andrewheiss.com/) en la web de su curso [Program Evaluation](https://evalf22.classes.andrewheiss.com/syllabus.html), Hadley Wickham, científico de datos creador de tidyverse y fundador de RStudio [una vez dijo](https://r-posts.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/): 
+
+> Cuando comienzas a programar, es fácil frustrarte mucho y pensar: "Oh, soy yo, soy realmente estúpido" o "No estoy hecho para programar". Pero, ese no es el caso en absoluto. Todo el mundo se frustra. Todavía me frustro ocasionalmente cuando escribo código R. Es solo una parte natural de la programación. Entonces, sucede a todos y se vuelve cada vez menos frecuente con el tiempo. No te culpes. Solo tómate un descanso, haz algo divertido y luego regresa e inténtalo de nuevo más tarde. 
+
+Incluso analistas de datos con experiencia sufren cuando encuentran errores que se resiten a resolverse. Andrew Heiss cita un popular meme de un tweet para resumir este ubicuo problema: 
+
+>Si te toma demasiado tiempo pensar infructuosamente, mejor tómate un descanso, conversa con tus compañeros de clase, consúltame por correo, programa una reunión virtual, entre otras opciones.
+
+```{r echo=FALSE, out.width="80%", fig.align="center"}
+# https://twitter.com/allison_horst/status/1213275783675822080
+knitr::include_graphics("/files/img/syllabus/hosrt_error_tweet.png", error = FALSE)
+```
+
+[![Alison Horst: Gator error](/files/img/syllabus/gator_error.jpg)](https://twitter.com/allison_horst/status/1213275783675822080)
+
+## Público objetivo
+
+Este curso está dirigido a estudiantes, profesionales y personas de
+diversas disciplinas que trabajan en áreas relacionadas con las
+Ciencias de la Salud, con conocimientos básicos de manejo de
+datos en R y con interés en realizar análisis descriptivo y/o
+inferencial.
+
+Ya sea que hagas investigación biomédica, seas funcionario de una
+institución pública o trabajador en el sector privado, te dediques a la
+gestión o brindes soporte técnico especializado, _si los datos en salud
+forman parte de tu rutina diaria, ¡este curso es para ti!_.
+
+## Materiales del curso
+
+La mayoría de los materiales en este curso son libres. 
+
+### Libros
+
+Hay algunos libros que usaremos constantemente para este curso. Todos están disponibles digitalmente y son libres. La lista a continuación:
+
+**Libros de bioestadística o ciencia de datos en salud**
+
+- Batra, Neale, et al. *The Epidemiologist R Handbook.* 2021. <https://epirhandbook.com/en/index.html> ([**Libre como versión HTML!**](https://epirhandbook.com/en/index.html))
+
+- Brad Cannell, Melvin Livingston. *R for Epidemiology.*<https://www.r4epi.com/>([**Libre como versión HTML!**](https://www.r4epi.com/))
+
+- Ewen Harrison and Riinu Pius. *R for Health Data Science*. 2021. <https://argoshare.is.ed.ac.uk/healthyr_book/>([**Libre como versión HTML!**](https://moderndive.com/index.html), pero hay una versión impresa por $63.96 en [Routledge](https://www.routledge.com/R-for-Health-Data-Science/Harrison-Pius/p/book/9780367428198#))
+
+- Peter D.R. Higgins. *Reproducible Medical Research with R*. 2022.<https://bookdown.org/pdr_higgins/rmrwr/>([**Libre como versión HTML!**](https://bookdown.org/pdr_higgins/rmrwr/))
+
+- Kamarul Imran, Wan Nor Arifin, Tengku Muhammad Hanis Tengku Mukhtar. *Data Analysis in Medicine and Health using R*. 2022. <https://bookdown.org/drki_musa/dataanalysis/> ([**Libre como versión HTML!**](https://bookdown.org/drki_musa/dataanalysis/))
+
+- James Brophy. *(Mostly Clinical) Epidemiology with R*. 2021. <https://bookdown.org/jbrophy115/bookdown-clinepi/>([**Libre como versión HTML!**](https://bookdown.org/jbrophy115/bookdown-clinepi/))
+
+**Libros de ciencia de datos o estadística general**
+
+- Chester Ismay and Albert Y. Kim. *Statistical Inference via Data Science: A ModernDive into R and the Tidyverse!* 2022 <https://moderndive.com/index.html>([**Libre como versión HTML!**](https://moderndive.com/index.html), pero hay una versión impresa por $57.25 en [Amazon](https://www.amazon.com/Statistical-Inference-via-Data-Science/dp/0367409828/))
+
+- Hadley Wickham & Garrett Grolemund. *R for Data Science*<https://r4ds.had.co.nz/index.html>([**Libre como versión HTML!**](https://r4ds.had.co.nz/index.html), pero hay una versión impresa por $18.99 a 46.74 en [Amazon](https://www.amazon.com/R-Data-Science-Hadley-Wickham/dp/1491910399/ref=as_li_ss_tl?ie=UTF8&qid=1469550189&sr=8-1&keywords=R+for+data+science&linkCode=sl1&tag=devtools-20&linkId=6fe0069f9605cf847ed96c191f4e84dd))
+
+### Artículos, capítulos de libro, y otros materiales
+
+Ocasionalmente también habrá artículos y videos adicionales para leer y mirar. Cuando esto suceda, los enlaces a estos otros recursos se incluirán en la página de lectura de esa semana.
+
+### Ayuda en línea
+
+La Ciencia de Datos en Salud, la Bioestadística y la Programación pueden no ser tan sencillas. Las computadoras no piensan y errores sutiles pueden causar horas de estancamiento incluso si ya cuentan con mucha experiencia.
+
+Por tal motivo, hemos habilitado **dos canales** para que puedan hacer sus consultas las 24 horas del día, los 7 días de la semana: 
+
+- {{< fa brands discord >}} Canal de [Discord](https://discord.gg/jRnxKhnE): Pueden hacer sus preguntas por este canal todo el tiempo que gusten. Este canal permanecerá abierto siempre, incluso muchos años después de terminado el curso, por lo que pueden volver a este cada vez que tengan consultas en el futuro. 
+
+- {{< fa brands whatsapp >}} Grupo de [Whatssap](): También pueden consultar por este canal. Sin embargo, para reducir el Spam y poder tener un mejor registro de las consultas, sugerimos que usen preferentemente el acnal de Discord.
+
+Supervisaré discord y whatssap regularmente y responderé rápidamente. Sin embargo, puede que por mi ajetreada vida laboral y familiar, no pueda responder inmediatamente. Prometo que trataré de hacerlo dentro de las primeras 24 horas. Haga preguntas sobre las clases o problem sets. Es probable que tenga preguntas similares a las de sus compañeros y que también pueda responder las preguntas de otras personas.
+
+
+::: {.callout-warning}
+## **Nota importante** 
+
+Ambos canales están reservados solo para alumnos del curso.
+
+:::
+
+Es posible que nosotros no podamos resolver todas sus dudas. Las Ciencias de Datos pueden llegar a ser realmente complejas, por lo que un poco de ayuda externa más experta podría ser necesaria. 
+
+Felizmente, existe una inmensa comunidad en línea de usuarios de R, quienes continuamente intercambian soluciones. Es muy probable que tu problema ya haya sido resuelto antes y que su solución se encuentre en la web, solo tienes que saber dónde buscarla.
+
+Dos de los más importantes sitios donde puedes buscar soluciones a tus problemas o consultar directamente son [StackOverflow](https://stackoverflow.com/) (un foro de preguntas y respuestas con cientos de miles de respuestas a todo tipo de preguntas sobre programación) y [RStudio Community](https://community.rstudio. com/) (un foro diseñado específicamente para personas que usan RStudio y tidyverse).
+
+Si usa Twitter, publique preguntas y contenido relacionados con `R` usnado [#rstats](https://twitter.com/search?q=%23rstats). La comunidad allí es excepcionalmente generosa y servicial.
+
+Buscar soluciones en `Google` también es una buena opción, pero es un poco truculento si no sabes cómo hacerlo. Es mejor buscar en inglés, aunque también abunda información en español. Unos ejemplos de cómo buscar en Google podrían ser: 
+
+> propensity score matching r
+
+o, si `Google` no reconoce a la letra `r` como el programa estadístico (¡pasa a veces!), puedes usar:
+
+> propensity score matching rstats
+
+Por último, si sus consultas son especializadas en Ciencia de datos en Salud o Bioestadística, es probable que los foros mencionados no sean de ayuda. El foro [Dathamethods](https://discourse.datamethods.org/) es una buena plataforma para hacer este tipo de consultas. Esta plataforma es liderada por bioestadísticos y científicos de datos com amplia trayectoria en investigación clínico-epidemiológica. `Frank Harrell`, Bioestadístico asesor de la FDA, reconocido 'trialista' y experto en predicción clínica, es quien lidera esta plataforma y ha juntado una buena comunidad de bioestadísticos y científicos de datos siniors. Sugerimos se creen una cuenta y usen esta plataforma más a menudo.
+
+Si usas twitter, puedes consultar utilizando el hastagg [#epitwitter](https://twitter.com/hashtag/epitwitter?src=hashtag_click), [#MedStats](https://twitter.com/hashtag/MedStats?src=hashtag_click). También puede ser de gran ayuda uniter al grupo de twitter [Medical statistics](https://twitter.com/i/lists/977466737229729792): *'A non comprhensive list of medical statisticians and methodologist'* creada por [@MaartenvSmeden](https://twitter.com/MaartenvSmeden).
+
+## Estructura del curso
+
+Este curso será completamente virtual y principalmente asincrónico. Sin embargo, existirá un componente sincrónico opcional. Las videoclases serán compartidas todos los sábados para que ustedes puedan verlas en cualquier momento y en el horario que deseen. Opcionalmente, ustedes pueden reunire conmigo en alguna de las dos horas semanales que destinaremos de conexión sincrónica. Me conectaré al meet los `martes` y `jueves` de `7 a 8 pm` para absolver cualquier duda que tengan, resolver ejercicios de R juntos o conversar sobre la forma en que lo aprendido en el curso se podría aplicar a sus investigaciones.
+
+## Asistencia, participación y calificación
+
+Se espera que los participantes tomen las lecciones grabadas de manera asincrónica y desarrollen los problem-set encargados. Las reuniones semanales sincrónicas pueden ser usadas para revisar las preguntas de los problem-set planteados.
+
+Usted puede optar por dos tipos de constancias:
+
+::: {.callout-note}
+## **Constancia de aprobado**
+
+Cuando el participante haya aprobado satisfactoriamente con nota mínima 14 (catorce) el curso.
+
+:::
+
+::: {.callout-note}
+## **Constancia de participación o asistencia**
+
+Cuando no tenga nota aprobatoria habiendo asistido o cumplido con las actividades programadas según lo establecido en el syllabus.
+
+:::
+
+En total habrán 7 `problem set`, los cuales son de carácter individual y permitirán calificar para la **Constancia de aprobado**.
+
+## Políticas del curso
+
+El presente curso tiene el siguiente **código de honor**:
+
+- Sus respuestas a tareas, cuestionarios y exámenes deben ser su propio trabajo (excepto las tareas que permitan explícitamente la colaboración).
+
+- No puede compartir sus soluciones a la tarea, cuestionarios o exámenes con nadie más a menos que lo permita explícitamente las instrucciones de la actividad. Esto incluye todo lo escrito por usted, así como cualquier solución oficial proporcionada por el personal del curso.
+
+- No puede participar en ninguna otra actividad que deshonestamente mejore sus resultados o deshonestamente mejore o perjudique los resultados de otros.
+
+Asimismo, si bien el syllabus refleja el plan del curso, algunas desviaciones a este podrían tornarse necesarias para alcanzar las metas propuestas.
+
+### Entrega retrasada
+
+Tiene hasta una semana adicional de tolerancia para realizar una entrega tardía. Esta entrega tardía no será penalizada, sin embargo, debe ser una alerta para que Ud. note que no está avanzando al ritmo sugerido durante el curso. Puede aprovechar las reuniones sincrónicas para revisar el borrador de la tarea con mi persona y 'desestancarse' si este es el caso.
+
+Luego de la semana de tolerancia, perderá 1 punto por cada día de retraso en al entrega del problema set. 
+
+## Tareas y calificaciones
+
+Puedes encontrar las descripciones de todos los problem sets en la [página de tareas](/assignment/).
+
+```{r assignments-grades, include=FALSE}
+assignments <- tribble(
+  ~Puntos,   ~Tarea,
+  7 * 20,    "Problem sets (7 × 30)",
+  7 * 5,    "Ver videoclases"
+) %>%
+  mutate(Porcentaje = Puntos / sum(Puntos),
+         Porcentaje = scales::percent(Porcentaje))
+
+grading <- tribble(
+  ~Nota, ~Rango, ~Nota, ~Rango,
+  "A",  "93–100%", "C",  "73–76%",
+  "A−", "90–92%", "C−", "70–72%",
+  "B+", "87–89%", "D+", "67–69%",
+  "B",  "83–86%", "D",  "63–66%",
+  "B−", "80–82%", "D−", "60–62%",
+  "C+", "77–79%", "F",  "< 60%"
+)
+```
+
+<div class="centered-table">
+
+```{r show-assignments-table, echo=FALSE, results="asis"}
+assignments_total <- tibble(Tarea = "Total",
+                            Puntos = sum(assignments$Puntos),
+                            Porcentaje = NA)
+
+bind_rows(assignments, assignments_total) %>%
+  select(Tarea, Puntos, Porcentaje) %>%
+  pandoc.table(justify = "lcc", missing = "—")
+```
+</div>
+
+<div class="centered-table">
+
+```{r show-grades-table, echo=FALSE, results="asis"}
+grading %>%
+  pandoc.table(justify = "lclc",
+               col.names = c("Nota", "Rango", "Nota", "Rango"))
+```
+
+<div>

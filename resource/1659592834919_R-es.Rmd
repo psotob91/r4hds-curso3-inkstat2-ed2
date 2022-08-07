@@ -1,0 +1,44 @@
+---
+title: "R"
+---
+
+## Aprendiendo R
+
+Te recomendamos suscribirte al boletín informativo de [R Weekly](https://rweekly.org/), para que recibas un correo cada lunes con tutoriales muy útiles sobre cómo aprender y explotar R.
+
+En algunas ocasiones, la búsqueda de ayuda con R en Google puede ser complicado debido a que el nombre del programa es una única letra. Si bien Google suele ser lo suficientemente inteligente para entender a qué nos referimos cuando escribimos "r scatterplot", si esto no es suficiente, intenta escribiendo "rstats" en lugar de solo "r" (ejm: "rstats scatterplot").
+
+Si usas Twitter, puedes postear preguntas y contenido relacionados con R usando el [#rstats](https://twitter.com/search?q=%23rstats). La comunidad R-lover es muy generosa y colaboradora. Además, te recomendamos revisar [StackOverflow](https://stackoverflow.com/) (un sitio de preguntas y respuesta con cientos de miles de respuestas para todo tipo de preguntas de programación) y la [comunidad de RStudio](https://community.rstudio.com/) (un foro diseñado específicamente para personas que usan RStudio y tidyverse (por ejemplo: InkaStats y Tú).
+
+Estos recursos también son muy útiles:
+
+- [**R for Data Science**](https://r4ds.had.co.nz/): Un libro online gratuito para aprender las bases de R y el tidyverse.
+- [**R and RStudio cheat sheets**](https://www.rstudio.com/resources/cheatsheets/): Una extensa colección de hojas resumen ("cheat sheets") simples para RStudio, **ggplot2** y otros temas relacionados a R.
+- [**Stat 545**](http://stat545.com/): El [Dr. Jenny Bryan](https://twitter.com/JennyBryan) de Posit tiene un curso cpmpleto online de introducción a R, incluyendo visualización y análisis de datos.
+- [**STA 112FS: Data Science**](http://www2.stat.duke.edu/courses/Fall17/sta112.01/): La [Dra. Mine Çetinkaya-Rundel](https://twitter.com/minebocek) de la Universidad de Edinburgh / Universidad Duke tiene un curso de introducción completo a R, a visualización y ciencia de datos online.
+- [**CSE 631: Principles & Practice of Data Visualization**](http://cslu.ohsu.edu/~bedricks/courses/cs631/): Otro curso de introducción a R y ggplot2 a cargo de la [Dra. Alison Presmanes Hill](https://twitter.com/apreshill) de Posit.
+
+
+## R en la naturaleza
+
+Una buena, y cada vez más popular, manera de compartir tus análisis y visualizaciones es publicándolos, junto a una breve explicación de tu proceso, en alguna plataforma online. RStudio te permite publicar archivos HTML o Rmd en [RPubs](http://rpubs.com/), pero también podrías publicar tus resultados en un blog o en otro tipo de sitio web.[^blogdown] Leer este tipo de publicaciones es una de las mejores maneras de aprender R, pues es una guía paso a paso del proceso donde *además* te muestran el código y el resultado.
+
+[^blogdown]: Si quieres ser realmente elegante, puedes usar [blogdown](https://bookdown.org/yihui/blogdown/), con el cual puedes crear un sitio web completo únicamente con archivos R Markdown. Así es como en InkaStats hemos creado esta página ([aquí puedes ver el código](https://github.com/psotob91/r4hds-curso3-inkstat)). Puedes crear tu propio sitio web [con este tutorial](https://apreshill.rbind.io/post/up-and-running-with-blogdown/).
+
+Estos son algunos de los mejores ejemplos que hemos encontrado:
+
+- [Text analysis of Trump's tweets confirms he writes only the (angrier) Android half](http://varianceexplained.org/r/trump-tweets/).
+- [Bob Ross - Joy of Painting](https://rudeboybert.github.io/fivethirtyeight/articles/bob_ross.html).
+- [Bechdel analysis using the tidyverse](https://rudeboybert.github.io/fivethirtyeight/articles/bechdel.html).
+- [Sexism on the Silver Screen: Exploring film's gender divide](http://rpubs.com/Jwhitman/Final_Project).
+- [Comparison of Quentin Tarantino Movies by Box Office and the Bechdel Test](http://soc301s2017.netlify.com/group_projects/group5).
+- [Who came to vote in Utah's caucuses?](https://juliasilge.com/blog/who-came-to-vote/).
+- [Health care indicators in Utah counties](https://juliasilge.com/blog/health-care-indicators/).
+- [Song lyrics across the United States](https://juliasilge.com/blog/song-lyrics-across/).
+- [A decade (ish) of listening to Sigur Rós](http://blog.karawoo.com/2016/09/22/A-decade-ish-of-listening-to-Sigur-Ros).
+- [When is Tom peeping these days?](http://rpubs.com/ry_lisa_elana/chicago).
+- [Mapping Fall Foliage](https://rud.is/b/2017/09/18/mapping-fall-foliage-with-sf/).
+- [General (Attys) Distributions](https://rud.is/b/2017/07/25/r%E2%81%B6-general-attys-distributions/).
+- [Disproving Approval](https://rud.is/b/2017/06/18/r%E2%81%B6-disproving-approval/).
+
+Adaptado de [Andrew Heiss](https://evalf22.classes.andrewheiss.com/resource/r.html)

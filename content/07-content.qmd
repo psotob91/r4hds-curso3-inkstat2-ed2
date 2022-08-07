@@ -1,0 +1,4 @@
+---
+title: "Estimación bajo inferencia por remuestreo"
+date: "2022-08-27"
+---

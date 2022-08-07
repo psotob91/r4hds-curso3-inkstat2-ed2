@@ -1,0 +1,12 @@
+---
+title: "Clases, lecturas y videos"
+---
+
+Cada sesión de clase tiene un conjunto de lecturas obligatorias que se sugiere complete en cada sesión. 
+
+Cada sesión también tiene una lista de reproducción de videos cortos grabados para cada una de las secciones de clase. Las diapositivas de la conferencia son archivos HTML especiales hechos con [**revealjs**](https://revealjs.com/) a través de [**Quarto**](https://quarto.org/docs/presentations/revealjs/) (¡R puede hacer mucho!). En cada sesión verás botones para abrir la presentación en una nueva pestaña o para descargar un HTML de las diapositivas en caso de que quieras imprimirlas o almacenarlas en tu computadora:
+
+
+<p class="buttons" style="text-align:center;"><span class="btn btn-danger">{{< fa arrow-up-right-from-square >}} Ver diapositivas</span> <span class="btn btn-danger">{{< fa file-pdf >}} Descargar diapositivas</span></p>
+
+Las diapositivas también están incrustadas en cada página. Puede hacer clic en las diapositivas y navegar por ellas con <kbd>←</kbd> and <kbd>→</kbd>. Si escribe <kbd>?</kbd> mientras ve las diapositivas, puede ver una lista de comandos específicos de diapositivas (como <kbd>f</kbd> para pantalla completa).

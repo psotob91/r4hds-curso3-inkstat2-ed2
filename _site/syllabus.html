@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R para Ciencia de Datos en Salud 3 - Syllabus</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href=".//files/icon-512-inkastats.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sín resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la busqueda",
+    "search-hide-matches-text": "Esconder resultados adicionales",
+    "search-more-match-text": "hay más resultados en este documento",
+    "search-more-matches-text": "más resultados en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Eviar"
+  }
+}</script>
+
+
+<meta property="og:title" content="R para Ciencia de Datos en Salud 3 - Syllabus">
+<meta property="og:description" content="Al finalizar este curso, el participante tendrá la capacidad de escribir código R con estilo tidyverse, mediante flujos de trabajo reproducibles, para el análisis descriptivo de variables numéricas…">
+<meta property="og:image" content="https://rcds3.inkastats.es//files/social-image-f22.png">
+<meta property="og:site-name" content="R para Ciencia de Datos en Salud 3">
+<meta property="og:locale" content="en_US">
+<meta property="og:image:height" content="446">
+<meta property="og:image:width" content="1168">
+<meta name="twitter:title" content="R para Ciencia de Datos en Salud 3 - Syllabus">
+<meta name="twitter:description" content="Al finalizar este curso, el participante tendrá la capacidad de escribir código R con estilo tidyverse, mediante flujos de trabajo reproducibles, para el análisis descriptivo de variables numéricas…">
+<meta name="twitter:image" content="https://rcds3.inkastats.es//files/social-image-f22.png">
+<meta name="twitter:creator" content="@psotob91">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="446">
+<meta name="twitter:image-width" content="1168">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R para Ciencia de Datos en Salud 3</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./syllabus.html" aria-current="page">Syllabus</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./schedule.html">Cronograma</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./content/index.html">Contenido</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assignment/index.html">Tareas</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./example/index.html">Ejemplos</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./resource/index.html">Recursos</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://discord.gg/jRnxKhnE"><i class="bi bi-discord" role="img" aria-label="Discord">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.google.com"><i class="bi bi-cloud-fill" role="img" aria-label="RStudio.cloud">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#objetivos-del-curso" id="toc-objetivos-del-curso" class="nav-link active" data-scroll-target="#objetivos-del-curso">Objetivos del curso</a></li>
+  <li><a href="#presentación-del-curso" id="toc-presentación-del-curso" class="nav-link" data-scroll-target="#presentación-del-curso">Presentación del curso</a></li>
+  <li><a href="#por-qué-r-y-rstudio" id="toc-por-qué-r-y-rstudio" class="nav-link" data-scroll-target="#por-qué-r-y-rstudio">¿Por qué R y RStudio?</a></li>
+  <li><a href="#aviso-de-servicio-público" id="toc-aviso-de-servicio-público" class="nav-link" data-scroll-target="#aviso-de-servicio-público">Aviso de servicio público</a></li>
+  <li><a href="#público-objetivo" id="toc-público-objetivo" class="nav-link" data-scroll-target="#público-objetivo">Público objetivo</a></li>
+  <li><a href="#materiales-del-curso" id="toc-materiales-del-curso" class="nav-link" data-scroll-target="#materiales-del-curso">Materiales del curso</a>
+  <ul class="collapse">
+  <li><a href="#libros" id="toc-libros" class="nav-link" data-scroll-target="#libros">Libros</a></li>
+  <li><a href="#artículos-capítulos-de-libro-y-otros-materiales" id="toc-artículos-capítulos-de-libro-y-otros-materiales" class="nav-link" data-scroll-target="#artículos-capítulos-de-libro-y-otros-materiales">Artículos, capítulos de libro, y otros materiales</a></li>
+  <li><a href="#ayuda-en-línea" id="toc-ayuda-en-línea" class="nav-link" data-scroll-target="#ayuda-en-línea">Ayuda en línea</a></li>
+  </ul></li>
+  <li><a href="#estructura-del-curso" id="toc-estructura-del-curso" class="nav-link" data-scroll-target="#estructura-del-curso">Estructura del curso</a></li>
+  <li><a href="#asistencia-participación-y-calificación" id="toc-asistencia-participación-y-calificación" class="nav-link" data-scroll-target="#asistencia-participación-y-calificación">Asistencia, participación y calificación</a></li>
+  <li><a href="#políticas-del-curso" id="toc-políticas-del-curso" class="nav-link" data-scroll-target="#políticas-del-curso">Políticas del curso</a>
+  <ul class="collapse">
+  <li><a href="#entrega-retrasada" id="toc-entrega-retrasada" class="nav-link" data-scroll-target="#entrega-retrasada">Entrega retrasada</a></li>
+  </ul></li>
+  <li><a href="#tareas-y-calificaciones" id="toc-tareas-y-calificaciones" class="nav-link" data-scroll-target="#tareas-y-calificaciones">Tareas y calificaciones</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Syllabus</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="grid course-details course-details-smaller">
+<section id="instructor" class="level3 g-col-6">
+<h3 class="anchored" data-anchor-id="instructor">Instructor</h3>
+<ul>
+<li><i class="fa-solid fa-user" aria-hidden="true"></i> &nbsp; <a href="https://github.com/psotob91">Percy Soto-Becerra, M.D., M.Sc(c)</a></li>
+<li><i class="fa-solid fa-university" aria-hidden="true"></i> &nbsp; Virtual: Vimeo &amp; Google Meet</li>
+<li><i class="fa-solid fa-envelope" aria-hidden="true"></i> &nbsp; <a href="mailto:percys1991@gmail.com">percys1991@gmail.com</a></li>
+<li><i class="fa-brands fa-twitter" aria-hidden="true"></i> &nbsp; <a href="https://www.twitter.com/psotob91">psotob91</a></li>
+<li><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> &nbsp; <a href="https://calendly.com/psotob91/15-minutos-de-reunion?back=1&amp;month=2022-08">Schedule an appointment</a></li>
+</ul>
+</section>
+<section id="detalles-del-curso" class="level3 g-col-6">
+<h3 class="anchored" data-anchor-id="detalles-del-curso">Detalles del curso</h3>
+<ul>
+<li><i class="fa-solid fa-calendar" aria-hidden="true"></i> &nbsp; Sábados</li>
+<li><i class="fa-solid fa-calendar-alt" aria-hidden="true"></i> &nbsp; 06 de agosto a 25 de setiembre, 2022</li>
+<li><i class="fa-solid fa-clock" aria-hidden="true"></i> &nbsp; Asincrónico: Sábados 3 pm <br> &nbsp;Sincrónico: Martes o Jueves</li>
+<li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> &nbsp; Asincrónico: Vimeo <br> &nbsp;Sincrónico: Google Meet</li>
+<li><i class="fa-brands fa-discord" aria-hidden="true"></i> &nbsp; <a href="https://discord.gg/jRnxKhnE">Discord</a></li>
+</ul>
+</section>
+</div>
+<section id="objetivos-del-curso" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos-del-curso">Objetivos del curso</h2>
+<p>Al finalizar este curso, el participante tendrá la capacidad de escribir código R con estilo tidyverse, mediante flujos de trabajo reproducibles, para el análisis descriptivo de variables numéricas y categóricas, reporte automatizado y reproducible de resultados, estimación e interpretación de intervalos de confianza y pruebas de hipótesis, e interpretación del valor p.</p>
+</section>
+<section id="presentación-del-curso" class="level2">
+<h2 class="anchored" data-anchor-id="presentación-del-curso">Presentación del curso</h2>
+<p>Este tercer módulo de la serie <strong>R para Ciencia de Datos en Salud</strong>*, organizado por <strong>Inkastats Data Science Solutions | Medical Branch</strong>, busca desarrollar, en el participante, competencias en el análisis y reporte descriptivo de los datos, de tal forma que pueda transmitir información relevante en publicaciones científicas, reportes, informes técnicos o estrategias de comunicación en salud.</p>
+<p>Asimismo, brindaremos los <code>fundamentos sobre inferencia estadística</code> desde dos perspectivas, la <code>clásica</code> y la basada en <code>remuestreo</code> (bootstrapping y pruebas de permutación), de tal forma que el alumno cuente con todas las herramientas más comúnmente utilizadas a la hora de realizar inferencia estadística. En particular, los métodos no paramétricos clásicos y el remuestreo permiten realizar inferencias robustas incluso cuando los datos no cumplen los supuestos clásicos o cuando no existe método parámetrico para computarlos.</p>
+<p>El curso también abordará los <code>errores más comunes</code> en la interpretación del <code>valor p</code> y el <code>intervalo de confianza</code>, así como pautas para reportar apropiadamente estos resultados en artículos científicos de acuerdo con el estado de arte actual. En la última década, se han conformado iniciativas internacionales para ayudar a usuarios de la estadística a mejorar la calidad metodológica y de reporte de los métodos bioestadísticos. Este curso presentará las <code>principales guías de reporte vigentes</code> para que los alumnos sean capaces de ponerlas en práctica en su quehacer diario.</p>
+</section>
+<section id="por-qué-r-y-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="por-qué-r-y-rstudio">¿Por qué R y RStudio?</h2>
+<p>El software <a href="https://cran.r-project.org/">R</a> es un lenguaje de programación de acceso libre e ideal como entorno para el análisis estadístico y gráfico, reporte, presentación de datos, etc., lo que lo convierte en una de las opciones líderes a nivel mundial para la Ciencia de Datos en Salud. En la última década ha ocurrido una revolución en la computación estadística. Lenguajes de código abierto como R y Python han superado a programas propietarios más antiguos y costosos como SAS, Stata y SPSS. Asimismo, la literatura (libros, blogs, foros de ayuda, etc.) acerca de R es extensa en comparación con la de otros programas, por lo que resulta más fácil encontrar soluciones a problemas (relativamente complejos) con los que los usuarios a menudo se enfrentan.</p>
+<p>Asimismo, <code>R</code> tiene varios dialectos, todos los cuales tienen fortalezas y debilidades. Ciertamente, ser fluido en <code>R</code> implica manejar más de un dialecto si no todos. Sin embargo, el dialecto de <code>tiyverse</code> es probablemente uno de los más consistentes, completos y en constante desarrollo y mantención, por lo que es uno de los más rentables de aprender cuando se trata de <code>R</code>. Este curso abordará principalmente el estilo <code>R tidy</code>, aunque también hará uso del dialecto de <code>R base</code> y otros dialectos cuando sea propicio.</p>
+<p>Por otro lado, <a href="https://www.rstudio.com/">R Studio</a> es una interfaz que permite una mejor comunicación eentre el usuario y <code>R</code>. Piense en <code>R</code> como el motor de un automóvil y en <code>R Studio</code> como el tablero de mando del automóvil: <code>R</code> hace el trabajo duro al calcular y aplicar los métodos estadísticos, mientras que <code>R Studio</code> es la interfaz amigable que permite ejecutar código de <code>R</code>.</p>
+</section>
+<section id="aviso-de-servicio-público" class="level2">
+<h2 class="anchored" data-anchor-id="aviso-de-servicio-público">Aviso de servicio público</h2>
+<p>Si ya has usado R previamente, este curso será muy fácil para ti. Si no lo has usado nunca, aprender R puede que sea un poco menos fácil, pero prometo que solo al inicio. Como todo <strong>nuevo idioma</strong> comenzarás a ganar fluidez conforme <strong>hables</strong> más ‘R-ñol’: la práctica hace al maestro. Felizmenete, el dialecto <code>tidy</code> es muy fluido y fácil de entender y es por eso que lo hemos elegido.</p>
+<p>Como lo resalta <a href="https://www.andrewheiss.com/">Andrew Heiss</a> en la web de su curso <a href="https://evalf22.classes.andrewheiss.com/syllabus.html">Program Evaluation</a>, Hadley Wickham, científico de datos creador de tidyverse y fundador de RStudio <a href="https://r-posts.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/">una vez dijo</a>:</p>
+<blockquote class="blockquote">
+<p>Cuando comienzas a programar, es fácil frustrarte mucho y pensar: “Oh, soy yo, soy realmente estúpido” o “No estoy hecho para programar”. Pero, ese no es el caso en absoluto. Todo el mundo se frustra. Todavía me frustro ocasionalmente cuando escribo código R. Es solo una parte natural de la programación. Entonces, sucede a todos y se vuelve cada vez menos frecuente con el tiempo. No te culpes. Solo tómate un descanso, haz algo divertido y luego regresa e inténtalo de nuevo más tarde.</p>
+</blockquote>
+<p>Incluso analistas de datos con experiencia sufren cuando encuentran errores que se resiten a resolverse. Andrew Heiss cita un popular meme de un tweet para resumir este ubicuo problema:</p>
+<blockquote class="blockquote">
+<p>Si te toma demasiado tiempo pensar infructuosamente, mejor tómate un descanso, conversa con tus compañeros de clase, consúltame por correo, programa una reunión virtual, entre otras opciones.</p>
+</blockquote>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../files/img/syllabus/hosrt_error_tweet.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://twitter.com/allison_horst/status/1213275783675822080"><img src="./files/img/syllabus/gator_error.jpg" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">Alison Horst: Gator error</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="público-objetivo" class="level2">
+<h2 class="anchored" data-anchor-id="público-objetivo">Público objetivo</h2>
+<p>Este curso está dirigido a estudiantes, profesionales y personas de diversas disciplinas que trabajan en áreas relacionadas con las Ciencias de la Salud, con conocimientos básicos de manejo de datos en R y con interés en realizar análisis descriptivo y/o inferencial.</p>
+<p>Ya sea que hagas investigación biomédica, seas funcionario de una institución pública o trabajador en el sector privado, te dediques a la gestión o brindes soporte técnico especializado, <em>si los datos en salud forman parte de tu rutina diaria, ¡este curso es para ti!</em>.</p>
+</section>
+<section id="materiales-del-curso" class="level2">
+<h2 class="anchored" data-anchor-id="materiales-del-curso">Materiales del curso</h2>
+<p>La mayoría de los materiales en este curso son libres.</p>
+<section id="libros" class="level3">
+<h3 class="anchored" data-anchor-id="libros">Libros</h3>
+<p>Hay algunos libros que usaremos constantemente para este curso. Todos están disponibles digitalmente y son libres. La lista a continuación:</p>
+<p><strong>Libros de bioestadística o ciencia de datos en salud</strong></p>
+<ul>
+<li><p>Batra, Neale, et al.&nbsp;<em>The Epidemiologist R Handbook.</em> 2021. <a href="https://epirhandbook.com/en/index.html" class="uri">https://epirhandbook.com/en/index.html</a> (<a href="https://epirhandbook.com/en/index.html"><strong>Libre como versión HTML!</strong></a>)</p></li>
+<li><p>Brad Cannell, Melvin Livingston. <em>R for Epidemiology.</em><a href="https://www.r4epi.com/" class="uri">https://www.r4epi.com/</a>(<a href="https://www.r4epi.com/"><strong>Libre como versión HTML!</strong></a>)</p></li>
+<li><p>Ewen Harrison and Riinu Pius. <em>R for Health Data Science</em>. 2021. <a href="https://argoshare.is.ed.ac.uk/healthyr_book/" class="uri">https://argoshare.is.ed.ac.uk/healthyr_book/</a>(<a href="https://moderndive.com/index.html"><strong>Libre como versión HTML!</strong></a>, pero hay una versión impresa por $63.96 en <a href="https://www.routledge.com/R-for-Health-Data-Science/Harrison-Pius/p/book/9780367428198#">Routledge</a>)</p></li>
+<li><p>Peter D.R. Higgins. <em>Reproducible Medical Research with R</em>. 2022.<a href="https://bookdown.org/pdr_higgins/rmrwr/" class="uri">https://bookdown.org/pdr_higgins/rmrwr/</a>(<a href="https://bookdown.org/pdr_higgins/rmrwr/"><strong>Libre como versión HTML!</strong></a>)</p></li>
+<li><p>Kamarul Imran, Wan Nor Arifin, Tengku Muhammad Hanis Tengku Mukhtar. <em>Data Analysis in Medicine and Health using R</em>. 2022. <a href="https://bookdown.org/drki_musa/dataanalysis/" class="uri">https://bookdown.org/drki_musa/dataanalysis/</a> (<a href="https://bookdown.org/drki_musa/dataanalysis/"><strong>Libre como versión HTML!</strong></a>)</p></li>
+<li><p>James Brophy. <em>(Mostly Clinical) Epidemiology with R</em>. 2021. <a href="https://bookdown.org/jbrophy115/bookdown-clinepi/" class="uri">https://bookdown.org/jbrophy115/bookdown-clinepi/</a>(<a href="https://bookdown.org/jbrophy115/bookdown-clinepi/"><strong>Libre como versión HTML!</strong></a>)</p></li>
+</ul>
+<p><strong>Libros de ciencia de datos o estadística general</strong></p>
+<ul>
+<li><p>Chester Ismay and Albert Y. Kim. <em>Statistical Inference via Data Science: A ModernDive into R and the Tidyverse!</em> 2022 <a href="https://moderndive.com/index.html" class="uri">https://moderndive.com/index.html</a>(<a href="https://moderndive.com/index.html"><strong>Libre como versión HTML!</strong></a>, pero hay una versión impresa por $57.25 en <a href="https://www.amazon.com/Statistical-Inference-via-Data-Science/dp/0367409828/">Amazon</a>)</p></li>
+<li><p>Hadley Wickham &amp; Garrett Grolemund. <em>R for Data Science</em><a href="https://r4ds.had.co.nz/index.html" class="uri">https://r4ds.had.co.nz/index.html</a>(<a href="https://r4ds.had.co.nz/index.html"><strong>Libre como versión HTML!</strong></a>, pero hay una versión impresa por $18.99 a 46.74 en <a href="https://www.amazon.com/R-Data-Science-Hadley-Wickham/dp/1491910399/ref=as_li_ss_tl?ie=UTF8&amp;qid=1469550189&amp;sr=8-1&amp;keywords=R+for+data+science&amp;linkCode=sl1&amp;tag=devtools-20&amp;linkId=6fe0069f9605cf847ed96c191f4e84dd">Amazon</a>)</p></li>
+</ul>
+</section>
+<section id="artículos-capítulos-de-libro-y-otros-materiales" class="level3">
+<h3 class="anchored" data-anchor-id="artículos-capítulos-de-libro-y-otros-materiales">Artículos, capítulos de libro, y otros materiales</h3>
+<p>Ocasionalmente también habrá artículos y videos adicionales para leer y mirar. Cuando esto suceda, los enlaces a estos otros recursos se incluirán en la página de lectura de esa semana.</p>
+</section>
+<section id="ayuda-en-línea" class="level3">
+<h3 class="anchored" data-anchor-id="ayuda-en-línea">Ayuda en línea</h3>
+<p>La Ciencia de Datos en Salud, la Bioestadística y la Programación pueden no ser tan sencillas. Las computadoras no piensan y errores sutiles pueden causar horas de estancamiento incluso si ya cuentan con mucha experiencia.</p>
+<p>Por tal motivo, hemos habilitado <strong>dos canales</strong> para que puedan hacer sus consultas las 24 horas del día, los 7 días de la semana:</p>
+<ul>
+<li><p><i class="fa-brands fa-discord" aria-hidden="true"></i> Canal de <a href="https://discord.gg/jRnxKhnE">Discord</a>: Pueden hacer sus preguntas por este canal todo el tiempo que gusten. Este canal permanecerá abierto siempre, incluso muchos años después de terminado el curso, por lo que pueden volver a este cada vez que tengan consultas en el futuro.</p></li>
+<li><p><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Grupo de <a href="">Whatssap</a>: También pueden consultar por este canal. Sin embargo, para reducir el Spam y poder tener un mejor registro de las consultas, sugerimos que usen preferentemente el acnal de Discord.</p></li>
+</ul>
+<p>Supervisaré discord y whatssap regularmente y responderé rápidamente. Sin embargo, puede que por mi ajetreada vida laboral y familiar, no pueda responder inmediatamente. Prometo que trataré de hacerlo dentro de las primeras 24 horas. Haga preguntas sobre las clases o problem sets. Es probable que tenga preguntas similares a las de sus compañeros y que también pueda responder las preguntas de otras personas.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<strong>Nota importante</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ambos canales están reservados solo para alumnos del curso.</p>
+</div>
+</div>
+<p>Es posible que nosotros no podamos resolver todas sus dudas. Las Ciencias de Datos pueden llegar a ser realmente complejas, por lo que un poco de ayuda externa más experta podría ser necesaria.</p>
+<p>Felizmente, existe una inmensa comunidad en línea de usuarios de R, quienes continuamente intercambian soluciones. Es muy probable que tu problema ya haya sido resuelto antes y que su solución se encuentre en la web, solo tienes que saber dónde buscarla.</p>
+<p>Dos de los más importantes sitios donde puedes buscar soluciones a tus problemas o consultar directamente son <a href="https://stackoverflow.com/">StackOverflow</a> (un foro de preguntas y respuestas con cientos de miles de respuestas a todo tipo de preguntas sobre programación) y <a href="https://community.rstudio.%20com/">RStudio Community</a> (un foro diseñado específicamente para personas que usan RStudio y tidyverse).</p>
+<p>Si usa Twitter, publique preguntas y contenido relacionados con <code>R</code> usnado <a href="https://twitter.com/search?q=%23rstats">#rstats</a>. La comunidad allí es excepcionalmente generosa y servicial.</p>
+<p>Buscar soluciones en <code>Google</code> también es una buena opción, pero es un poco truculento si no sabes cómo hacerlo. Es mejor buscar en inglés, aunque también abunda información en español. Unos ejemplos de cómo buscar en Google podrían ser:</p>
+<blockquote class="blockquote">
+<p>propensity score matching r</p>
+</blockquote>
+<p>o, si <code>Google</code> no reconoce a la letra <code>r</code> como el programa estadístico (¡pasa a veces!), puedes usar:</p>
+<blockquote class="blockquote">
+<p>propensity score matching rstats</p>
+</blockquote>
+<p>Por último, si sus consultas son especializadas en Ciencia de datos en Salud o Bioestadística, es probable que los foros mencionados no sean de ayuda. El foro <a href="https://discourse.datamethods.org/">Dathamethods</a> es una buena plataforma para hacer este tipo de consultas. Esta plataforma es liderada por bioestadísticos y científicos de datos com amplia trayectoria en investigación clínico-epidemiológica. <code>Frank Harrell</code>, Bioestadístico asesor de la FDA, reconocido ‘trialista’ y experto en predicción clínica, es quien lidera esta plataforma y ha juntado una buena comunidad de bioestadísticos y científicos de datos siniors. Sugerimos se creen una cuenta y usen esta plataforma más a menudo.</p>
+<p>Si usas twitter, puedes consultar utilizando el hastagg <a href="https://twitter.com/hashtag/epitwitter?src=hashtag_click">#epitwitter</a>, <a href="https://twitter.com/hashtag/MedStats?src=hashtag_click">#MedStats</a>. También puede ser de gran ayuda uniter al grupo de twitter <a href="https://twitter.com/i/lists/977466737229729792">Medical statistics</a>: <em>‘A non comprhensive list of medical statisticians and methodologist’</em> creada por <a href="https://twitter.com/MaartenvSmeden"><span class="citation" data-cites="MaartenvSmeden">(</span></a><a href="#ref-MaartenvSmeden" role="doc-biblioref"><strong>MaartenvSmeden?</strong></a>).</p>
+</section>
+</section>
+<section id="estructura-del-curso" class="level2">
+<h2 class="anchored" data-anchor-id="estructura-del-curso">Estructura del curso</h2>
+<p>Este curso será completamente virtual y principalmente asincrónico. Sin embargo, existirá un componente sincrónico opcional. Las videoclases serán compartidas todos los sábados para que ustedes puedan verlas en cualquier momento y en el horario que deseen. Opcionalmente, ustedes pueden reunire conmigo en alguna de las dos horas semanales que destinaremos de conexión sincrónica. Me conectaré al meet los <code>martes</code> y <code>jueves</code> de <code>7 a 8 pm</code> para absolver cualquier duda que tengan, resolver ejercicios de R juntos o conversar sobre la forma en que lo aprendido en el curso se podría aplicar a sus investigaciones.</p>
+</section>
+<section id="asistencia-participación-y-calificación" class="level2">
+<h2 class="anchored" data-anchor-id="asistencia-participación-y-calificación">Asistencia, participación y calificación</h2>
+<p>Se espera que los participantes tomen las lecciones grabadas de manera asincrónica y desarrollen los problem-set encargados. Las reuniones semanales sincrónicas pueden ser usadas para revisar las preguntas de los problem-set planteados.</p>
+<p>Usted puede optar por dos tipos de constancias:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<strong>Constancia de aprobado</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cuando el participante haya aprobado satisfactoriamente con nota mínima 14 (catorce) el curso.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<strong>Constancia de participación o asistencia</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cuando no tenga nota aprobatoria habiendo asistido o cumplido con las actividades programadas según lo establecido en el syllabus.</p>
+</div>
+</div>
+<p>En total habrán 7 <code>problem set</code>, los cuales son de carácter individual y permitirán calificar para la <strong>Constancia de aprobado</strong>.</p>
+</section>
+<section id="políticas-del-curso" class="level2">
+<h2 class="anchored" data-anchor-id="políticas-del-curso">Políticas del curso</h2>
+<p>El presente curso tiene el siguiente <strong>código de honor</strong>:</p>
+<ul>
+<li><p>Sus respuestas a tareas, cuestionarios y exámenes deben ser su propio trabajo (excepto las tareas que permitan explícitamente la colaboración).</p></li>
+<li><p>No puede compartir sus soluciones a la tarea, cuestionarios o exámenes con nadie más a menos que lo permita explícitamente las instrucciones de la actividad. Esto incluye todo lo escrito por usted, así como cualquier solución oficial proporcionada por el personal del curso.</p></li>
+<li><p>No puede participar en ninguna otra actividad que deshonestamente mejore sus resultados o deshonestamente mejore o perjudique los resultados de otros.</p></li>
+</ul>
+<p>Asimismo, si bien el syllabus refleja el plan del curso, algunas desviaciones a este podrían tornarse necesarias para alcanzar las metas propuestas.</p>
+<section id="entrega-retrasada" class="level3">
+<h3 class="anchored" data-anchor-id="entrega-retrasada">Entrega retrasada</h3>
+<p>Tiene hasta una semana adicional de tolerancia para realizar una entrega tardía. Esta entrega tardía no será penalizada, sin embargo, debe ser una alerta para que Ud. note que no está avanzando al ritmo sugerido durante el curso. Puede aprovechar las reuniones sincrónicas para revisar el borrador de la tarea con mi persona y ‘desestancarse’ si este es el caso.</p>
+<p>Luego de la semana de tolerancia, perderá 1 punto por cada día de retraso en al entrega del problema set.</p>
+</section>
+</section>
+<section id="tareas-y-calificaciones" class="level2">
+<h2 class="anchored" data-anchor-id="tareas-y-calificaciones">Tareas y calificaciones</h2>
+<p>Puedes encontrar las descripciones de todos los problem sets en la <a href="./assignment/">página de tareas</a>.</p>
+<div class="centered-table">
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 12%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tarea</th>
+<th style="text-align: center;">Puntos</th>
+<th style="text-align: center;">Porcentaje</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Problem sets (7 × 30)</td>
+<td style="text-align: center;">140</td>
+<td style="text-align: center;">80%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ver videoclases</td>
+<td style="text-align: center;">35</td>
+<td style="text-align: center;">20%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td style="text-align: center;">175</td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="centered-table">
+
+
+
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 9%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Nota</th>
+<th style="text-align: center;">Rango</th>
+<th style="text-align: left;">Nota</th>
+<th style="text-align: center;">Rango</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: center;">93–100%</td>
+<td style="text-align: left;">C</td>
+<td style="text-align: center;">73–76%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A−</td>
+<td style="text-align: center;">90–92%</td>
+<td style="text-align: left;">C−</td>
+<td style="text-align: center;">70–72%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B+</td>
+<td style="text-align: center;">87–89%</td>
+<td style="text-align: left;">D+</td>
+<td style="text-align: center;">67–69%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: center;">83–86%</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: center;">63–66%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B−</td>
+<td style="text-align: center;">80–82%</td>
+<td style="text-align: left;">D−</td>
+<td style="text-align: center;">60–62%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C+</td>
+<td style="text-align: center;">77–79%</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: center;">&lt; 60%</td>
+</tr>
+</tbody>
+</table>
+<div>
+
+
+
+
+
+
+</div></div></section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/rcds3\.inkastats\.es\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Contenido <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> 2022 por <a href="https://github.com/psotob91">Percy Soto-Becerra</a> <br> Todo el contenido está bajo <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-by" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-nc" aria-hidden="true"></i> <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-right">Hecho con <i class="fa-brands fa-r-project" aria-hidden="true"></i> y <a href="https://quarto.org/">Quarto</a><br> <a href="https://github.com/psotob91/r4hds-curso3-inkstat">Ver el código fuente en <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

@@ -1,0 +1,4 @@
+---
+title: "Principios de inferencia estadística"
+date: "2022-08-20"
+---

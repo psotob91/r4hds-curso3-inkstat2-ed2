@@ -1,0 +1,50 @@
+---
+title: "R para Ciencia de Datos en Salud 3"
+subtitle: "Análisis Descriptivo e Inferencia Estadística"
+details: |
+  R4HDS 202203 • Invierno 2022<br>InkaStats Data Science Solutions | Medical Branch<br> Virtual [Asincrónico & Sincrónico]
+sidebar: false
+toc: false
+page-layout: full
+format:
+  html:
+    template-partials:
+      - html/home/title-block.html
+course-logo: /files/img/eval-hires-inkstats.png
+---
+
+::: {.home}
+
+::: {.grid .course-details}
+
+::: {.g-col-4}
+### Instructor
+
+- {{< fa user >}} &nbsp; [{{< var instructor.name >}}]({{< var instructor.url >}})
+- {{< fa university >}} &nbsp; {{< var instructor.office >}}
+- {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
+- {{< fa brands twitter >}} &nbsp; [{{< var instructor.twitter >}}](https://www.twitter.com/{{< var instructor.twitter >}})
+- {{< fa calendar-check >}} &nbsp; [Agenda una reunión virtual]({{< var instructor.appointment_url >}})
+:::
+
+::: {.g-col-4}
+### Detalles del curso
+
+- {{< fa calendar >}} &nbsp; {{< var course.days >}}
+- {{< fa calendar-alt >}} &nbsp; {{< var course.dates >}}
+- {{< fa clock >}} &nbsp; {{< var course.time >}}
+- {{< fa location-dot >}} &nbsp; {{< var course.location >}}
+- {{< fa brands discord >}} &nbsp; [Discord]({{< var course.discord >}})
+:::
+
+::: {.g-col-4 .contact-policy}
+### Contáctame
+
+{{< var instructor.contact_policy >}}
+:::
+
+:::
+
+![](files/img/eval-hires-flowchart-inkstats.png)
+
+:::

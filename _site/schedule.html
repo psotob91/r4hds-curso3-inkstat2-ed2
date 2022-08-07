@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R para Ciencia de Datos en Salud 3 - Cronograma</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href=".//files/icon-512-inkastats.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sín resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la busqueda",
+    "search-hide-matches-text": "Esconder resultados adicionales",
+    "search-more-match-text": "hay más resultados en este documento",
+    "search-more-matches-text": "más resultados en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Eviar"
+  }
+}</script>
+
+
+<meta property="og:title" content="R para Ciencia de Datos en Salud 3 - Cronograma">
+<meta property="og:image" content="https://rcds3.inkastats.es//files/social-image-f22.png">
+<meta property="og:site-name" content="R para Ciencia de Datos en Salud 3">
+<meta property="og:locale" content="en_US">
+<meta property="og:image:height" content="446">
+<meta property="og:image:width" content="1168">
+<meta name="twitter:title" content="R para Ciencia de Datos en Salud 3 - Cronograma">
+<meta name="twitter:image" content="https://rcds3.inkastats.es//files/social-image-f22.png">
+<meta name="twitter:creator" content="@psotob91">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="446">
+<meta name="twitter:image-width" content="1168">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R para Ciencia de Datos en Salud 3</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./syllabus.html">Syllabus</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./schedule.html" aria-current="page">Cronograma</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./content/index.html">Contenido</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assignment/index.html">Tareas</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./example/index.html">Ejemplos</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./resource/index.html">Recursos</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://discord.gg/jRnxKhnE"><i class="bi bi-discord" role="img" aria-label="Discord">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.google.com"><i class="bi bi-cloud-fill" role="img" aria-label="RStudio.cloud">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Cronograma</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="schedule-page">
+<p>¡Aquí encontrará la hora de ruta para el curso!</p>
+<ul>
+<li><a href="./content/"><strong>Contenido</strong></a> (<i class="fa-solid fa-book-open-reader" aria-hidden="true"></i>): Esta página contiene las clases, diapositivas y conferencias grabadas de la semana. Lea y mire estos <strong>antes</strong> de nuestra reunión sincrónica.</li>
+<li><a href="./example/"><strong>Ejemplos</strong></a> (<i class="fa-solid fa-laptop-code" aria-hidden="true"></i>): Esta página contiene código R completamente anotado e información complementaria que puede usar como referencia para sus tareas. Esta es solo una página referencial, no necesariamente tiene que hacer nada aquí. Algunas secciones también contienen videos de código con ejemplos para que pueda ver cómo se ve trabajar con R en tiempo real. Esta página será <em>muy</em> útil mientras trabaja en sus tareas.</li>
+<li><a href="./assignment/"><strong>Tarea</strong></a> (<i class="fa-solid fa-pen-ruler" aria-hidden="true"></i>): Esta página contiene las instrucciones para cada tarea. Los informes semanales deben entregarse antes del <em>11:59 p.&nbsp;m.</em> del día domingo de la siguiente semana. Existe <em>una semana adicional</em> para <em>entrega retrasada</em> de las tareas encomendadas.</li>
+</ul>
+<section id="análisis-descriptivo" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-descriptivo">Análisis descriptivo</h3>
+
+<table class="schedule-table table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+</th>
+<th style="text-align:left;">
+Título
+</th>
+<th style="text-align:center;">
+Contenido
+</th>
+<th style="text-align:center;">
+Ejemplo
+</th>
+<th style="text-align:center;">
+Tarea
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="1">
+<td colspan="5" style="border-bottom: 2px solid #000000;">
+<strong>Sesión 1</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>6/08/2022 </strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+<span class="content-title">Introducción a R y Rstudio</span>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./content/01-content.html"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./example/rstudio-tidyverse.html"><i class="fa-solid fa-laptop-code fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>
+</td>
+</tr>
+<tr grouplength="2">
+<td colspan="5" style="border-bottom: 2px solid #000000;">
+<strong>Sesión 2</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>6/08/2022 </strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+<span class="content-title">Análisis descriptivo univariado</span>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./content/02-content.html"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>6/08/2022 </strong>–<strong>14/08/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+Problem set 1  <small>(enviar antes de 11:59 p.&nbsp;m.)</small>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-book-open-reader fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./assignment/01-problem-set.html"><i class="fa-solid fa-pen-ruler fa-lg"></i></a>
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="5" style="border-bottom: 2px solid #000000;">
+<strong>Sesión 3</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>13/08/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+<span class="content-title">Análisis descriptivo bivariado</span>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./content/03-content.html"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>
+</td>
+</tr>
+<tr grouplength="2">
+<td colspan="5" style="border-bottom: 2px solid #000000;">
+<strong>Sesión 4</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>13/08/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+<span class="content-title">Reporte descriptivo reproducible</span>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./content/04-content.html"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="example/dags.qmd"><i class="fa-solid fa-laptop-code fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>13/08/2022</strong>–<strong>21/08/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+Problem set 2  <small>(enviar antes de 11:59 p.&nbsp;m.)</small>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-book-open-reader fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./assignment/02-problem-set.html"><i class="fa-solid fa-pen-ruler fa-lg"></i></a>
+</td>
+</tr>
+</tbody>
+
+</table>
+</section>
+<section id="principios-de-inferencia" class="level3">
+<h3 class="anchored" data-anchor-id="principios-de-inferencia">Principios de inferencia</h3>
+
+<table class="schedule-table table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+</th>
+<th style="text-align:left;">
+Título
+</th>
+<th style="text-align:center;">
+Contenido
+</th>
+<th style="text-align:center;">
+Ejemplo
+</th>
+<th style="text-align:center;">
+Tarea
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="1">
+<td colspan="5" style="border-bottom: 2px solid #000000;">
+<strong>Sesión 5</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>20/08/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+<span class="content-title">Principios de inferencia estadística</span>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./content/05-content.html"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="example/po-ate-cate.qmd"><i class="fa-solid fa-laptop-code fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>
+</td>
+</tr>
+<tr grouplength="2">
+<td colspan="5" style="border-bottom: 2px solid #000000;">
+<strong>Sesión 6</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>20/08/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+<span class="content-title">Estimación bajo inferencia clásica</span>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./content/06-content.html"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>20/08/2022</strong>–<strong>28/08/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+Problem set 3  <small>(enviar antes de 11:59 p.&nbsp;m.)</small>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-book-open-reader fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./assignment/03-problem-set.html"><i class="fa-solid fa-pen-ruler fa-lg"></i></a>
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="5" style="border-bottom: 2px solid #000000;">
+<strong>Sesión 7</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>27/08/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+<span class="content-title">Estimación bajo inferencia por remuestreo</span>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./content/07-content.html"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="example/matching-ipw.qmd"><i class="fa-solid fa-laptop-code fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>
+</td>
+</tr>
+<tr grouplength="2">
+<td colspan="5" style="border-bottom: 2px solid #000000;">
+<strong>Sesión 8</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>27/08/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+<span class="content-title">Pruebas de hipótesis: Paradigma clásico y bajo remuestreo</span>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./content/08-content.html"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="example/diff-in-diff.qmd"><i class="fa-solid fa-laptop-code fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>27/08/2022</strong>–<strong>4/09/2022 </strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+Problem set 4  <small>(enviar antes de 11:59 p.&nbsp;m.)</small>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-book-open-reader fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./assignment/04-problem-set.html"><i class="fa-solid fa-pen-ruler fa-lg"></i></a>
+</td>
+</tr>
+</tbody>
+
+</table>
+</section>
+<section id="herramientas" class="level3">
+<h3 class="anchored" data-anchor-id="herramientas">Herramientas</h3>
+
+<table class="schedule-table table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+</th>
+<th style="text-align:left;">
+Título
+</th>
+<th style="text-align:center;">
+Contenido
+</th>
+<th style="text-align:center;">
+Ejemplo
+</th>
+<th style="text-align:center;">
+Tarea
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="1">
+<td colspan="5" style="border-bottom: 2px solid #000000;">
+<strong>Sesión 9</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>3/09/2022 </strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+<span class="content-title">Pruebas de hipótesis para 1 y 2 grupos</span>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./content/09-content.html"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>
+</td>
+</tr>
+<tr grouplength="2">
+<td colspan="5" style="border-bottom: 2px solid #000000;">
+<strong>Sesión 10</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>3/09/2022 </strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+<span class="content-title">Pruebas de hipótesis para 3 o más grupos</span>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./content/10-content.html"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="example/rdd.qmd"><i class="fa-solid fa-laptop-code fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>3/09/2022 </strong>–<strong>11/09/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+Problem set 5  <small>(enviar antes de 11:59 p.&nbsp;m.)</small>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-book-open-reader fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./assignment/05-problem-set.html"><i class="fa-solid fa-pen-ruler fa-lg"></i></a>
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="5" style="border-bottom: 2px solid #000000;">
+<strong>Sesión 11</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>10/09/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+<span class="content-title">Pruebas de hipótesis para proporciones</span>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./content/11-content.html"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="example/iv.qmd"><i class="fa-solid fa-laptop-code fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>
+</td>
+</tr>
+</tbody>
+
+</table>
+</section>
+<section id="aplicaciones" class="level3">
+<h3 class="anchored" data-anchor-id="aplicaciones">Aplicaciones</h3>
+
+<table class="schedule-table table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+</th>
+<th style="text-align:left;">
+Título
+</th>
+<th style="text-align:center;">
+Contenido
+</th>
+<th style="text-align:center;">
+Ejemplo
+</th>
+<th style="text-align:center;">
+Tarea
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="2">
+<td colspan="5" style="border-bottom: 2px solid #000000;">
+<strong>Sesión 12</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>10/09/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+<span class="content-title">Intervalos de confianza: buenas prácticas y errores de concepto</span>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./content/12-content.html"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="example/rdd-fuzzy.qmd"><i class="fa-solid fa-laptop-code fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>10/09/2022</strong>–<strong>18/09/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+Problem set 6  <small>(enviar antes de 11:59 p.&nbsp;m.)</small>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-book-open-reader fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./assignment/06-problem-set.html"><i class="fa-solid fa-pen-ruler fa-lg"></i></a>
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="5" style="border-bottom: 2px solid #000000;">
+<strong>Sesión 13</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>17/09/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+<span class="content-title">Valor p: buenas prácticas y errores de concepto</span>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./content/13-content.html"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="example/synthetic-data.qmd"><i class="fa-solid fa-laptop-code fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>
+</td>
+</tr>
+<tr grouplength="2">
+<td colspan="5" style="border-bottom: 2px solid #000000;">
+<strong>Sesión 14</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>17/09/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+<span class="content-title">Reporte reproducible de inferencia estadística</span>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./content/14-content.html"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 20%; padding-right: 20px;padding-left: 2em;" indentlevel="1">
+<strong>17/09/2022</strong>–<strong>25/09/2022</strong>
+</td>
+<td style="text-align:left;width: 50%; ">
+Problem set 7
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-book-open-reader fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>
+</td>
+<td style="text-align:center;width: 10%; ">
+<a href="./assignment/07-problem-set.html"><i class="fa-solid fa-pen-ruler fa-lg"></i></a>
+</td>
+</tr>
+</tbody>
+
+</table>
+</section>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/rcds3\.inkastats\.es\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Contenido <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> 2022 por <a href="https://github.com/psotob91">Percy Soto-Becerra</a> <br> Todo el contenido está bajo <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-by" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-nc" aria-hidden="true"></i> <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-right">Hecho con <i class="fa-brands fa-r-project" aria-hidden="true"></i> y <a href="https://quarto.org/">Quarto</a><br> <a href="https://github.com/psotob91/r4hds-curso3-inkstat">Ver el código fuente en <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>
