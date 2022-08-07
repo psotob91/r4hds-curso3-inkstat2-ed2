@@ -67,6 +67,10 @@ Si tiene alguna duda durante la instalación, no dude en escribir por el Whatssa
 
 ### Cómo usar la web del curso
 
+Acceda a la web del curso: <https://rcds3.inkastats.es/>
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/737286191?h=6b4f201cba&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 7/8/2022, 7:59:34"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 ### Cómo descargar los slides
 
 Como las diapositivas son interactivas, optamos por guardarlas como HTML (no como PDF). Puedes descargar la diapositiva con la opción `Guardar como` al dar `click derecho` sobre esta. 
@@ -86,17 +90,40 @@ knitr::include_graphics("../files/img/descargar-html.gif")
 
 ### Introducción a R y Rstudio
 
-[Videoclase se subirá en unas horas]
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/737283234?h=30be88b33e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Intro a R y Rstudio"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 ### Primeros pasos
 
-[Videoclase se subirá en unas horas]
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/737289435?h=f18a726649&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 7/8/2022, 8:22:56"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+::: {.callout-note}
+
+### Mi primer proyecto
+
+Puede descargar los archivos generados en la carpeta `mi_primer_proyecto` en el siguiente enlace: [Aquí].
+
+:::
+
+
+::: {.callout-warning}
+
+### ¿Cómo abrir proyecto existente
+
+Cuando quiera iniciar un proyecto existente de R, recuerde abrirlo a través del archivo del proyecto (extensión `*.Rproj`).
+
+```{r}
+#| echo: false
+knitr::include_graphics("../slides/sesion1/img/abrir-proyecto.gif")
+```
+
+:::
+
 
 ### Manejo de datos
 
 [Videoclase se subirá en unas horas]
 
-### Visuación de datos
+### Visualización de datos
 
 [Videoclase se subirá en unas horas]
 
@@ -150,7 +177,7 @@ knitr::include_url('../slides/sesion1/01-03-primeros-pasos-R.html')
 
 [Slides se subirán en unas horas]
 
-### Visuación de datos
+### Visualización de datos
 
 [Slides se subirán en unas horas]
 

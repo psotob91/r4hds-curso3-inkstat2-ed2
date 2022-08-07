@@ -3,7 +3,7 @@
     "path": "D:/OneDrive/GitHub/r4hds-curso3-inkstat2/content/01-content.qmd",
     "project_path": "content/01-content.qmd",
     "type": "quarto_markdown",
-    "hash": "1514527397",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1659830717360.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "80,0",
-        "scrollLine": "66"
+        "cursorPosition": "96,390",
+        "scrollLine": "93"
     },
     "folds": "",
-    "lastKnownWriteTime": 1659837567,
+    "lastKnownWriteTime": 1659882197,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1659837567724,
+    "last_content_update": 1659882197579,
     "read_only": false,
     "read_only_alternatives": []
 }

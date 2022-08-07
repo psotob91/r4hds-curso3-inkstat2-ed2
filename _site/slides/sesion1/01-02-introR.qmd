@@ -86,6 +86,10 @@ knitr::include_graphics("img/RStudio.png")
 :::
 ::::
 
+::: {.notes}
+Comencemos por explicar qué es R y RStudio. (leer diapos)
+:::
+
 ---
 
 ## El problema de R: su aspecto
@@ -93,6 +97,10 @@ knitr::include_graphics("img/RStudio.png")
 <br/>
 
 ![](img/Rconsola.png){fig-align="center"}
+
+::: {.notes}
+El gran problema de R es su aspecto, como pueden ver en la imagen que muestra la consola de R.
+:::
 
 ---
 
@@ -102,6 +110,10 @@ knitr::include_graphics("img/RStudio.png")
 
 ![](img/RStudioConsola.png){fig-align="center"}
 
+::: {.notes}
+En cambio, R Studio no solo tiene un mejor aspecto, si no que cuenta con múltiples herramientas que hacen mucho más sencillo y cómodo manejar R.
+:::
+
 ---
 
 ## En resumen, R y RStudio
@@ -109,6 +121,10 @@ knitr::include_graphics("img/RStudio.png")
 <br/>
 
 ![](img/ryrstudio.png){fig-align="center"}
+
+::: {.notes}
+En resumen, el motor de todo es R, es aquí donde ocurren las cosas, se realizan los cálculos, etc. Sin embargo, para poder operar el motor y sacarle el proyecto, necesitamos un buen tablero de mandos: ese es RStudio.
+:::
 
 ---
 
@@ -142,6 +158,10 @@ knitr::include_graphics("img/RStudio.png")
   
 >`Paquetes de R tidy:` Conjunto de paquetes que siguen el estilo tidy en R.
 
+::: {.notes}
+Es importante también conocer algunos términos comunes cuando se trabaja en R (leer definiciones)
+:::
+
 ---
 
 ## Paquetes de R
@@ -172,6 +192,10 @@ knitr::include_graphics("img/r-packages.png")
 :::
 :::
 
+::: {.notes}
+Los paquetes son claves para todo. Leer diapos.
+:::
+
 ---
 
 ## R y sus paquetes
@@ -187,6 +211,10 @@ knitr::include_graphics("img/r-rpackages.png")
 
 ::: aside
 <br> <FONT size='4'>*Tomado de Sesion 2. Introducción a R y RStudio. Valle Andree y Loyola Steev.* \[[Enlace](https://docs.google.com/presentation/d/1tadIMMxP6oy2JaXIBGIhWw2CNUXT9rNIbXbdBjP3Nrs/edit#slide=id.p)\]</FONT>
+:::
+
+::: {.notes}
+Una forma de entender los paquetes es verlos como si fueran los applicativos de un celular. cada aplicativop uede realizar diversas tareas (funciones), y un celular promedio puede  tener más de un aplicativo.
 :::
 
 ---
@@ -242,6 +270,11 @@ knitr::include_graphics("img/tidyverse.png")
 - Usaremos este enfoque predominantemente y `R base` cuando no tenga remplazo o sea más sencillo usarlo.
 
 :::
+:::
+
+
+::: {.notes}
+Dentro de los paquetes famosos de R, tidyverse es uno de los más emblemáticos.
 :::
 
 ---

@@ -41,7 +41,18 @@ library(showtext)
 
 ## Installe R, R Studio y R tools
 
-- Si aún no ha instalado R y RStudio, vaya al enlace de 
+<br/> 
+
+Si aún no ha instalado R y RStudio, revise el tutorial de instalación de R que hemos preparado para el curso: [Enlace aquí](https://rcds3.inkastats.es/resource/manual_installr/install).
+
+- Pause el video, instale y vuelva cuando todo esté listo.
+
+```{r}
+#| echo: false
+#| fig-align: center
+knitr::include_graphics("img/install-r.gif")
+```
+
 
 ---
 
@@ -49,25 +60,68 @@ library(showtext)
 
 <br/>
 
-:::: {.columns}
+- **Paso 1:** Cree una carpeta de trabajo `r fontawesome::fa("folder")`. 
 
-::: {.column width='30%'}
-- **Paso 1:** Cree una carpeta de trabajo `r fontawesome::fa("folder")`. En donde quiera. Sea ordenado.  
+    + En donde quiera. Sea ordenado.  
 
 - **Paso 2:** Abra RStudio `r fontawesome::fa("r-project")`. 
 
-- **Paso 3:** Cree un proyecto y vincule el proyecto con la carpeta nueva.
+- **Paso 3:** Cree un proyecto y vincule el proyecto con la carpeta nueva. 
 
-- **Paso 3:** Comience a trabajar. Puede usar `R scripts` o `R Markdown / Quarto`. Nosotros usaremos `Quarto`.
-:::
+    + A partir de este momento, la carpeta que contiene el archivo `.Rproj` es denominada `carpeta raíz`. 
+    
+    + Todo lo que ocurra en R partirá de la carpeta raíz en adelante.
 
-::: {.column width='70%'}
+- **Paso 3:** Comience a trabajar. Puede usar `R scripts` o `R Markdown / Quarto`.
 
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/737160174?h=8a99d29851&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Carpeta y Proyecto RStudio"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+    + Nosotros usaremos `Quarto`.
 
-:::
+---
 
-::::
+# `r fontawesome::fa("laptop-code", "white")` Nuestro turno {background-color="#000000"}
+
+<br/>
+
+-   Cree una carpeta de trabajo en Documentos, llámela `mi_primer_proyecto`.
+-   Cree un proyecto de Rstudio y ubíquelo en la carpeta nueva `mi_primer_proyecto`.
+-   Cree el primer script de R, anote lo siguiente: `"# Este es mi primer script de R"` y guárdelo como `mi_primer_script.r`.
+-   Cree el primer archivo .qmd de Quarto, anote lo siguiente: `"# Este es mi primer archivo quarto"` y guárdelo como `mi_primer_quarto.qmd`.
+-   Verifique que los archivos han sido creados y se encuentran en la carpeta raíz `mi_primer_proyecto`.
+
+<br/><br/><br/>  
+
+```{r}
+#| echo: false
+library(countdown)
+countdown_timer <- function(
+    minutes = 1, 
+    play_sound = TRUE, 
+    font_size = "2em", 
+    ...
+) {
+  countdown(
+    minutes = minutes,
+    # Fanfare when it's over
+    play_sound = play_sound,
+    # Set timer theme to match solarized colors
+    color_border              = "#404041",
+    color_text                = "white",
+    color_background = "#000000",
+    color_running_background  = "#72994E",
+    color_running_text        = "white",
+    color_finished_background = "#EE6331",
+    color_finished_text       = "white",
+    font_size = font_size,
+    ...
+  )
+}
+
+```
+
+```{R}
+#| echo: false
+countdown_timer(2)
+```
 
 ---
 
@@ -279,4 +333,101 @@ library(package_name)
 
 ![](img/help2.png){.fragment}
 :::
+
+---
+
+## Cargar conjunto de datos de R
+
+- Se pueden importar de diversas fuentes: MS Excel, .csv, .txt, Stata, SAS, SPSS, etc.
+
+- Algunos paquetes cuentan también con datos en formato de R: `*.RData` o `.rds`.
+
+- Importar datos de paquetes:
+
+```{r}
+#| echo: true
+library(medicaldata)
+data(covid_testing)
+```
+
+- Consultar por descrpción de la data
+
+```{r}
+?covid_testing
+```
+
+- Ver un resumen de los datos
+
+```{r}
+head(covid_testing)
+```
+
+---
+
+## Operador esenciales de R base
+
+::: panel-tabset
+
+## Operador seleccionar `$`
+
+- En un conjunto de datos, permite seleccionar la columna de interés.
+
+- Por ejemplo, género de los participantes:
+
+```{r}
+covid_testing$gender
+```
+
+- O la edad:
+
+```{r}
+head(covid_testing$age)
+```
+
+## Operador asignar nombre `<-`
+
+- `<-` representa una flecha que se lee: "asignar a"
+
+- Permite guardar un objeto con un nombre dado
+
+```{r}
+genero <- covid_testing$gender
+```
+
+- El objeto se guarda en el `Environment`.
+
+- Luego, lo puedes llamar utilizando el nombre con el que lo guardaste.
+
+```{r}
+genero
+```
+
+:::
+
+--- 
+
+# `r fontawesome::fa("laptop-code", "white")` Nuestro turno {background-color="#000000"}
+
+<br/>
+
+-   En el script previamente creado `mi_primer_script.r`, escriba las siguientes operaciones matemáticas: cinco más ocho;  tres por 23; veinte elevado al cubo; setenta y tres entre cinco. Ejecute el código y mire el resultado en la consola.
+
+- Copie las operaciones matemáticas escritas en `mi_primer_script.r` sobre `mi_primer_quarto.qmd`.
+
+- El código debe colocarse como `chunk` de código par que pueda ejecutarse. Ejecute el código de cada chunk.
+    
+- Compare las salidas del `mi_primer_script.r` y de `mi_primer_quarto.qmd`.
+
+- Instale y cargue el paquete `{tidyverse}` y el paquete `{medicaldata}`.
+
+- Consulte la ayuda de la función `filter` del paquete `{dplyr}` de `{tidyverse}`.
+
+- Descargue el conjunto de datos `theoph_desc` de la libería `{medicaldata}`.
+
+- Seleccion la columna `dosis` y asignelo a un objeto nuevo llamado `dosis`.
+
+```{r}
+#| echo: false
+countdown_timer(3)
+```
 

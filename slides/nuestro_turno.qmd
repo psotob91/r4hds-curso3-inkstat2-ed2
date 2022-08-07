@@ -1,0 +1,48 @@
+---
+title: "nuestro_turno"
+---
+
+```{r}
+#| echo: false
+library(countdown)
+countdown_timer <- function(
+    minutes = 1, 
+    play_sound = TRUE, 
+    font_size = "2em", 
+    ...
+) {
+  countdown(
+    minutes = minutes,
+    # Fanfare when it's over
+    play_sound = play_sound,
+    # Set timer theme to match solarized colors
+    color_border              = "#404041",
+    color_text                = "white",
+    color_background = "#000000",
+    color_running_background  = "#72994E",
+    color_running_text        = "white",
+    color_finished_background = "#EE6331",
+    color_finished_text       = "white",
+    font_size = font_size,
+    ...
+  )
+}
+```
+
+# `r fontawesome::fa("laptop-code", "white")` Nuestro turno {background-color="#000000"}
+
+<br/>
+
+-   Cree una carpeta de trabajo en Documentos, llámela `mi_primer_proyecto`.
+-   Cree un proyecto de Rstudio y ubíquelo en la carpeta nueva `mi_primer_proyecto`.
+-   Cree el primer script de R, anote lo siguiente: `"# Este es mi primer script de R"` y guárdelo como `mi_primer_script.r`.
+-   Cree el primer archivo .qmd de Quarto, anote lo siguiente: `"# Este es mi primer archivo quarto"` y guárdelo como `mi_primer_quarto.qmd`.
+-   Verifique que los archivos han sido creados y se encuentran en la carpeta raíz `mi_primer_proyecto`.
+
+<br/><br/><br/>  
+
+```{R}
+#| echo: false
+countdown_timer(3)
+```
+

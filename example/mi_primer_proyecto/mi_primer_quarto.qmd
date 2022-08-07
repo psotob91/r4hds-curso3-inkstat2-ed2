@@ -1,0 +1,84 @@
+---
+title: "Mi primer documento quarto"
+author: "Percy Soto Becerra"
+format: html
+---
+
+## Mi primer archivo de quarto
+
+5 + 8
+
+3 * 23
+
+20 ^ 3
+
+73 / 5
+
+## Hacer cálculos con R
+
+- cinco más ocho
+
+```{r}
+5 + 8
+```
+
+- tres por veintitrés
+
+```{r}
+3 * 23
+```
+
+- veinte elevado al cubo
+
+```{r}
+20 ^ 3
+```
+
+- setenta y tres entre cinco
+
+```{r}
+73 / 5
+```
+
+## Instalación de paquetes:
+
+```{r}
+# install.packages("medicaldata")
+# install.packages("tidyverse")
+
+### Nota: Uno solo instala los paquetes la primera vez, luego es RECOMENDABLE comentarlos con el símbolo inicial #. Si no se hace esto, suelen aparecer mensajes de error.
+```
+
+Nota: Uno solo instala los paquetes la primera vez, luego es RECOMENDABLE comentarlos con el símbolo inicial #. Si no se hace esto, suelen aparecer mensajes de error.
+
+## Cargar paquetes
+
+```{r}
+library(medicaldata)
+library(tidyverse)
+```
+
+## Consultar ayuda de filter()
+
+```{r}
+?filter
+```
+
+## Cargar base de datos theoph de medicaldata
+
+```{r}
+data(theoph)
+```
+
+## Seleccionar columna Dose de datos theoph
+
+```{r}
+theoph$Dose
+```
+
+## Guardar columna seleccionada en dosis
+
+```{r}
+dosis <- theoph$Dose
+```
+

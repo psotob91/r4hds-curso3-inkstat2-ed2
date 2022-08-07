@@ -7,31 +7,14 @@ date: "<FONT color='#FFFFFF' size='6'>Agosto 06, 2022</FONT>"
 
 format: 
   revealjs:
+    self-contained: true
     theme: [simple, theme/theme.scss]
-    # css: ["theme/theme.css"]
     footer: "Introducción a R y RStudio"
     slide-number: c/t
-    # margin: 0.15
     logo: img/logo.png
     width: 1920
     height: 1080
-    # transition: convex
-    # background-transition: zoom
-    # incremental: false
-    # preview-links: true
-    # parallax-background-image: images/bg-ietsi-slide-first.png
-    # parallax-background-size: "1920px 1080px"
-    chalkboard: true
-    # code-block-background: true
-    # code-block-border-left: "#31BAE9"
     highlight-style: ayu-dark
-    # echo: true
-    # multiplex: true
-    touch: true
-    auto-stretch: true
-    # link-external-icon: true
-    # link-external-newwindow: true
-    self-contained: false
     self-contained-math: true
 from: markdown+emoji
 execute:
@@ -56,64 +39,18 @@ library(showtext)
 ## https://github.com/schochastics/xaringan-themes
 ```
 
-# Programa
+# Datos en R
 
-## 
+## Conjunto de datos en R
 
-Excel
+- En investigación, las bases de datos se organizan en tablas estructuradas.
 
-## 
+- Cada fila es una `observación`.
 
-R consola
-
-## 
-
-Rstudio
-
-# Flujo de ciencia de datos
-
-## 
-
-Imagen de Improt -> tidy --> transform...
-
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+- Cada columna es una `variable`. 
 
 ```{r}
-#| echo: true
-casa <- 1
-casa
+#| echo: 
 ```
 
-# Titulo h1
 
-## Titulo h2
-
-### Tituluo h3
-
-#### Titulo
-
-## Titulo h2
-
-------------------------------------------------------------------------
-
-### Prueba 1
-
-## Extra code
-
-Intro :wave:
-
-Sonrisa :smile:
-
-[Need help?]{.fragment}
-
-[Look for orange shirts!]{.r-fit-text .fragment style="color: #EE6331;"}
-
-`r fa("r-project")` You know R
-
-`r fa("markdown")` You know a little bit of Markdown
-
-<br/>
-
-::: notes
-Esto es una prueba
-:::
