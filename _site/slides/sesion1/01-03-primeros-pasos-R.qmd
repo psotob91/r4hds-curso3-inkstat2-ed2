@@ -422,9 +422,38 @@ genero
 
 - Consulte la ayuda de la función `filter` del paquete `{dplyr}` de `{tidyverse}`.
 
-- Descargue el conjunto de datos `theoph_desc` de la libería `{medicaldata}`.
+- Descargue el conjunto de datos `theoph_` de la libería `{medicaldata}`.
 
-- Seleccion la columna `dosis` y asignelo a un objeto nuevo llamado `dosis`.
+- Seleccion la columna `Dose` y asignelo a un objeto nuevo llamado `dosis`.
+
+<br/>
+
+```{r}
+#| echo: false
+library(countdown)
+countdown_timer <- function(
+    minutes = 1, 
+    play_sound = TRUE, 
+    font_size = "2em", 
+    ...
+) {
+  countdown(
+    minutes = minutes,
+    # Fanfare when it's over
+    play_sound = play_sound,
+    # Set timer theme to match solarized colors
+    color_border              = "#404041",
+    color_text                = "white",
+    color_background = "#000000",
+    color_running_background  = "#72994E",
+    color_running_text        = "white",
+    color_finished_background = "#EE6331",
+    color_finished_text       = "white",
+    font_size = font_size,
+    ...
+  )
+}
+```
 
 ```{r}
 #| echo: false

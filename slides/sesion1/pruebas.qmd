@@ -1,0 +1,59 @@
+---
+title: "pruebas"
+
+format: 
+  revealjs:
+    self-contained: true
+    theme: [simple, theme/theme.scss]
+    footer: "Introducción a R y RStudio"
+    slide-number: true
+    logo: img/logo.png
+    width: 1920
+    height: 1080
+    highlight-style: dracula
+    self-contained-math: true
+    code-line-numbers: true
+from: markdown+emoji
+editor: source
+execute:
+  echo: true
+---
+
+## Prueba
+
+- normal text
+
+- [big text 0]{.big-text0}
+
+- [big text 1]{.big-text1}
+
+- [big text 2]{.big-text2}
+
+- palabra [resaltada]{#yellow}
+
+- palabra [resaltada]{#yellowh}
+
+- palabra [resaltada]{#black}
+
+- palabra [resaltada]{#red}
+
+:::{#yellow}
+oración resaltada
+:::
+
+## Animación
+
+## {auto-animate="true"}
+
+```r
+install.packages("rio")
+rio::install_formats()
+```
+
+## {auto-animate="true"}
+
+```r
+install.packages("rio")
+rio::install_formats()
+library(rio)
+```

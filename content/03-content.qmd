@@ -2,3 +2,119 @@
 title: "Análisis descriptivo bivariado"
 date: "2022-08-13"
 ---
+
+## Objetivos de la sesión
+
+:::{.callout-note}
+
+### Objetivos
+
+En esta tercera sesión revisaremos los siguiente:
+
+- Análisis bivariado
+
+- Comparación de variables numéricos entre grupos
+
+- Comparación de variables categóricas entre grupos
+
+- Comparación de variables de tiempo de supervencia entre grupos
+
+- Correlación de variables numéricas
+
+:::
+
+## Videoclases
+
+::: {.panel-tabset}
+
+### Análisis bivariado
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+### Comparación de grupos: Desenlace numérico
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+### Comparación de grupos: Desenlace categórico
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+### Comparación de grupos: Desenlace tiempo de supervivencia
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+### Correlación de variables numéricas
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+:::
+
+## Slides
+
+```{r slides-videos, echo=FALSE, include=FALSE}
+source(here::here("R", "slide-things.R"))
+```
+
+::: {.panel-tabset}
+
+### Análisis bivariado
+
+```{r show-slide-tabs1, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion3/03-01-intro-anal-biv")
+```
+
+```{r}
+#| echo: false
+#| out.width: 100%
+knitr::include_url('../slides/sesion3/03-01-intro-anal-biv.html')
+```
+
+### Comparación de grupos: Desenlace numérico
+
+```{r show-slide-tabs2, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion3/03-02-comp-num-grupos")
+```
+
+```{r}
+#| echo: false
+#| out.width: 100%
+knitr::include_url('../slides/sesion3/03-02-comp-num-grupos.html')
+```
+
+### Comparación de grupos: Desenlace categórico
+
+```{r show-slide-tabs3, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion3/03-03-comp-cat-grupos")
+```
+
+```{r}
+#| echo: false
+#| out.width: 100%
+knitr::include_url('../slides/sesion3/03-03-comp-cat-grupos.html')
+```
+
+### Comparación de grupos: Desenlace tiempo de supervivencia
+
+```{r show-slide-tabs4, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion3/03-04-comp-superv-grupos")
+```
+
+```{r}
+#| echo: false
+#| out.width: 100%
+knitr::include_url('../slides/sesion3/03-04-comp-superv-grupos.html')
+```
+
+### Correlación de variables numéricas
+
+```{r show-slide-tabs5, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion3/03-05-corelac-numeric")
+```
+
+```{r}
+#| echo: false
+#| out.width: 100%
+knitr::include_url('../slides/sesion3/03-05-corelac-numeric.html')
+```
+
+:::

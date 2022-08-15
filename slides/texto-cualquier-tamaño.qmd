@@ -1,0 +1,33 @@
+---
+title: "texto-cualquier-tamaño"
+---
+
+
+::: {style="margin-top: 100px; font-size: 2em; color: white;"}
+| El paquete [{rio}]{.plo} es la [navaja suiza]{.hl}
+|  de la importación de datos en R.
+
+<br/>
+
+::: columns
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 80%
+#| eval: false
+knitr::include_graphics("img/rio-hex.png")
+```
+
+:::
+
+::: {.column width="50%"}
+
+|           Su función [import]{.plo} 
+|           permite importar 
+|           prácticamente  
+|           cualquier formato.
+
+:::
+:::

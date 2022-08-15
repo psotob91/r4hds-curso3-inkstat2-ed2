@@ -2,3 +2,133 @@
 title: "Análisis descriptivo univariado"
 date: "2022-08-06"
 ---
+
+## Objetivos de la sesión
+
+:::{.callout-note}
+
+### Objetivos
+
+En esta segunda sesión revisaremos los siguiente:
+
+- Descripción univariada de datos numéricos
+
+- Descripción univariadade datos categóricos
+
+- Descripción univariada de datos de tiempos de supervivencia
+
+- Revisión de recomendaciones de guías de reporte sobre descripción de datos
+
+:::
+
+## Videoclases
+
+::: {.panel-tabset}
+
+### Tipo de variables
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+### Datos numéricos
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+### Evaluación de distribución
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+### Datos categóricos
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+### Datos de tiempo de supervivencia
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+### Revisando guías de reporte
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+:::
+
+## Slides
+
+```{r slides-videos, echo=FALSE, include=FALSE}
+source(here::here("R", "slide-things.R"))
+```
+
+::: {.panel-tabset}
+
+### Tipo de variables
+
+```{r show-slide-tabs1, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion2/02-01-tipo-vars")
+```
+
+```{r}
+#| echo: false
+#| out.width: 100%
+knitr::include_url('../slides/sesion2/02-01-tipo-vars.html')
+```
+
+### Datos numéricos
+
+```{r show-slide-tabs2, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion2/02-02-var-num")
+```
+
+```{r}
+#| echo: false
+#| out.width: 100%
+knitr::include_url('../slides/sesion2/02-02-var-num.html')
+```
+
+### Evaluación de distribución
+
+```{r show-slide-tabs3, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion2/02-03-dist")
+```
+
+```{r}
+#| echo: false
+#| out.width: 100%
+knitr::include_url('../slides/sesion2/02-03-dist.html')
+```
+
+### Datos categóricos
+
+```{r show-slide-tabs4, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion2/02-04-var-cat")
+```
+
+```{r}
+#| echo: false
+#| out.width: 100%
+knitr::include_url('../slides/sesion2/02-04-var-cat.html')
+```
+
+### Datos de tiempo de supervivencia
+
+```{r show-slide-tabs5, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion2/02-05-superviv")
+```
+
+```{r}
+#| echo: false
+#| out.width: 100%
+knitr::include_url('../slides/sesion2/02-05-superviv.html')
+```
+
+### Revisando guías de reporte
+
+```{r show-slide-tabs6, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion2/02-06-guias-reporte")
+```
+
+```{r}
+#| echo: false
+#| out.width: 100%
+knitr::include_url('../slides/sesion2/02-06-guias-reporte.html')
+```
+
+:::

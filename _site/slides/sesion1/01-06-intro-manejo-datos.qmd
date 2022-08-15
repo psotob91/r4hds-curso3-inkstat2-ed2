@@ -1,0 +1,294 @@
+---
+title: "<FONT color='#A7D5E8'>Introducción al Manejo de Datos en R con {tidyverse}</FONT>"
+subtitle: "<FONT color='#8FADA7' size='10'>R para Ciencia de Datos en Salud: <br> Análisis Descriptivo e Inferencia Estadística</FONT>"
+author: "<FONT color='#9DA7A7' size='30'>Percy Soto-Becerra M.D., M.Sc(c)</FONT>"
+institute: "<FONT color='#FFFFFF' size='5'>InkaStats Data Science Solutions | Medical Branch<br>@github/psotob91</FONT>"
+
+format: 
+  revealjs:
+    self-contained: true
+    theme: [simple, theme/theme.scss]
+    footer: "Introducción a R y RStudio"
+    slide-number: true
+    logo: img/logo.png
+    width: 1920
+    height: 1080
+    highlight-style: dracula
+    self-contained-math: true
+    code-line-numbers: true
+from: markdown+emoji
+editor: source
+execute:
+  echo: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(fontawesome)
+library(tidyverse)
+library(quarto)
+library(gt)
+library(gtExtras)
+library(gtsummary)
+library(showtext)
+library(kableExtra)
+library(haven)
+
+## Ver QUARTO RSTUDIO CONFERENCE: https://github.com/rstudio-conf-2022/get-started-quarto/blob/main/materials/02-authoring.qmd
+## 
+## blackboard theme: https://github.com/schochastics/quarto-blackboard-theme
+## 
+## https://github.com/schochastics/xaringan-themes
+```
+
+# El Operador Pipe
+
+## %\>%
+
+-   Operador `pipe`: [**%\>%**](https://magrittr.tidyverse.org/reference/pipe.html) del paquete [`magrittr`](https://magrittr.tidyverse.org/index.html) de [`tidyverse`](https://www.tidyverse.org/).
+
+-   Conector de secuencia de acciones.
+
+![<FONT size='4'>*Fuente: Sesion2-Introduccion a R y RStudio. Andre Valle y Steev Loyola*</FONT> [<FONT size='4'>Enlace</FONT>](https://docs.google.com/presentation/d/1tadIMMxP6oy2JaXIBGIhWw2CNUXT9rNIbXbdBjP3Nrs/edit#slide=id.p)](images/oraciones_pipe.png)
+
+## Operadar %\>% en acción
+
+Esto de aquí:
+
+```{r}
+getwd()
+```
+
+```{r}
+mis_datos <- read_stata("maca_meno_fase1.dta") 
+mis_datos <- as_factor(mis_datos)
+```
+
+Se puede simplificar a esto:
+
+```{r}
+mis_datos <- read_stata("maca_meno_fase1.dta") %>% 
+  as_factor()
+```
+
+# Principios del manejo de datos con {dplyr}
+
+## Librería dplyr
+
+-   El paquete `dplyr` es una 'suite' de funciones para manipular dato
+
+![](images/verbos-dplyr.png){fig-align="center"}
+
+## Filtrado de datos con filter()
+
+-   Extrae filas que cumplen cierta condición lógica
+
+![](images/filter.png)
+
+## Filtrado de datos con filter() y comparadores
+
+![](images/filter-logica.png)
+
+## Filtrado de datos con filter() y booleanos
+
+![](images/filter-boolean.png)
+
+## Filtrado de datos con filter() - ejemplo {.scrollable}
+
+-   Se tienen los datos originales:
+
+```{r}
+datos_fase1 <- read_stata("maca_meno_fase1.dta") %>% 
+  as_factor()
+
+datos_fase1
+```
+
+-   Si se filtra solo para tener a los individuos en su **medición basal**:
+
+```{r}
+datos_fase1 %>% 
+  filter(time == "Baseline")
+```
+
+-   Podemos querer filtrar a los individuos en la **medición basal** **`Y`** que sean **placebo**:
+
+```{r}
+datos_fase1 %>% 
+  filter(time == "Baseline" & treat == "PLACEBO")
+```
+
+-   Podemos querer filtrar a los individuos en la **medición basal** **`O`** que sean **placebo**:
+
+```{r}
+datos_fase1 %>% 
+  filter(time == "Baseline" | treat == "PLACEBO")
+```
+
+-   Si queremos solo las mujeres entre 34 y 38 años de edad:
+
+```{r}
+datos_fase1 %>% 
+  filter(age >= 34 & age <= 38)
+```
+
+-   Si queremos a quienes son de Santa Anita, Callao, SMP o Carabayllo:
+
+**Opción válida pero ineficiente**:
+
+```{r}
+datos_fase1 %>% 
+  filter(procedence == "Santa Anita" | procedence == "Callao" | procedence == "SMP" | procedence == "Carabayllo")
+```
+
+**Opción válida y eficiente**:
+
+```{r}
+datos_fase1 %>% 
+  filter(procedence %in% c("Santa Anita", "Callao", "SMP", "Carabayllo"))
+```
+
+<br>
+
+## Selección de columnas con select()
+
+-   La función `select()` selecciona columnas
+
+-   El signo `-` permite elegir qué columnas eliminar.
+
+-   A veces es mejor llamarla usando: `dplyr::select()` debido a que otros paquetes también tienen una función con el mismo nombre select()
+
+## Selección de columnas con select() - ejemplo {.scrollable}
+
+-   Los datos originales:
+
+```{r}
+datos_fase1
+```
+
+-   Si solo quiero seleccionar a id, time, age, race y procedence:
+
+```{r}
+datos_fase1_seleccionados <- datos_fase1 %>% 
+  select(id, time, age, race, procedence)
+
+datos_fase1_seleccionados 
+```
+
+-   Si quisiera excluir a procedence:
+
+```{r}
+datos_fase1_seleccionados %>% 
+  select(-procedence) #notar el signo -
+```
+
+## Podemos anidar con %\>% varias tareas
+
+```{r}
+datos_fase1 %>% 
+  filter(age > 35) %>% # Primero filtro por age
+  select(id, time, treat, race, age) # Luego me quedo solo con estas 5 columnas
+```
+
+## Creación de nuevas columnas con mutate()
+
+-   La función `mutate()` crea nuevas columnas en base a otras.
+
+![](images/mutate.png)
+
+## Creación de nuevas columnas con mutate() - ejemplo {.scrollable}
+
+-   Si queremos crear la variable índice de masa corporal:
+
+```{r}
+datos_fase1 %>% 
+  select(id, weight, height) %>% # Nos quedamos con peso y talla 
+  mutate(imc = weight / height ^ 2) # Creamos IMC en base a peso y talla
+```
+
+## Modificación de columnas existentes con mutate()
+
+-   `mutate()` también remplaza columnas existentes.
+
+-   Tener cuidado si se quiere reutilizar la variable original, en ese caso es mejor crear columna nueva.
+
+## Modificación de columnas existentes con mutate() - ejemplo {.scrollable}
+
+-   Queremos que la edad sea reportada en meses:
+
+**Podríamos crear una columna nueva para edad en meses:**
+
+```{r}
+datos_fase1 %>% 
+  select(id, age) %>% 
+  mutate(age2 = age * 12) # Notar que se creó una columa nueva llamada age2
+```
+
+**La otra opción es remplazar la edad:**
+
+```{r}
+datos_fase1 %>% 
+  select(id, age) %>% 
+  mutate(age = age * 12) # Notar que se remplazó age 
+```
+
+## Categorización de variables con case_when()
+
+-   Función de apoyo a mutate().
+
+-   Categoriza variables de acuerdo a condiciones complejas
+
+![](images/caswe_when.png)
+
+## Categorización de variables con case_when()-ejemplo {.scrollable}
+
+-   Se quieren crear categorías de edad: 20-30, 31-35 y 36-41
+
+```{r}
+datos_fase1 %>% 
+  select(id, age) %>% 
+  mutate(agecat = case_when(age >= 20 & age <= 30 ~ "20-30", 
+                            age >= 31 & age <= 35 ~ "31-35", 
+                            age >= 36 & age <= 41 ~ "36-41", 
+                            TRUE ~ as.character(NA))) # Siempre cerrar con esto
+```
+
+## Etiquetar variables con set_var_labels()
+
+-   La función `set_var_labels()` del paquete `labelled()` es muy útil para etiquetar columnas.
+
+-   Los datos deben tener metadatos que permitan ser legibles por el ser humano.
+
+-   Esta función debería ser usada al final de todo el proceso.
+
+## Etiquetar variables con set_var_labels() {.scrollable}
+
+-   Veamos un ejemplo:
+
+![](images/sin-etiqueta.png)
+
+-   Ahora pongamos una etiqueta:
+
+```{r}
+#| echo: false
+datos <- data.frame(
+  pas = c(122.3, 142.1, 100.2), 
+  pad = c(74, 81, 79), 
+  pam = c(90.1, 101.37, 86.06)
+)
+```
+
+```{r}
+library(labelled)
+datos2 <- datos %>% 
+  set_variable_labels(
+    pam = "Presión Arterial Media", 
+    pas = "Presión Arterial Sistólica", 
+    pad = "Presión Arterial Diastólica"
+  )
+```
+
+![](images/con-etiqueta.png)
+
+--- 
