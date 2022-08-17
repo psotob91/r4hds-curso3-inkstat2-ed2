@@ -8,7 +8,7 @@ format:
   revealjs:
     self-contained: true
     theme: [simple, theme/theme.scss]
-    footer: "Introducción a R y RStudio"
+    footer: "Visualización de Datos"
     slide-number: c/t
     logo: img/logo.png
     width: 1920
@@ -1124,7 +1124,7 @@ ggplot(data = gapminder,
 
 - Uno también puede personalizar sus propios temas: [Ver aquí](https://ggplot2.tidyverse.org/reference/theme.html).
 
-## Temas completos 
+## Temas completos {.scrollable}
 
 ::: {.panel-tabset}
 

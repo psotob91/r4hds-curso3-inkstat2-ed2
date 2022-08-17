@@ -27,6 +27,22 @@ $presentation-heading-color: #A7D5E8;
   color: #9DA7A7;
 }
 
+.ros {
+  color: #ff79c6;
+}
+
+.viol {
+  color: #bd93f9;
+}
+
+.amar {
+  color: #f1fa8c;
+}
+
+.verdrac {
+  color: #50fa7b;
+}
+
 .reveal .slide blockquote {
   text-align: left;
   width: 100%;
@@ -81,4 +97,10 @@ $presentation-heading-color: #A7D5E8;
 .big-text6 {
   font-size: 220px;
   color: white;
+}
+
+kbd {
+  border-radius: 3px;
+  padding: 1px 2px 0;
+  border: 1px solid white;
 }

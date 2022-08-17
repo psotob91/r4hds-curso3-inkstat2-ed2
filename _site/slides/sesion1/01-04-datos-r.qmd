@@ -8,7 +8,7 @@ format:
   revealjs:
     self-contained: true
     theme: [simple, theme/theme.scss]
-    footer: "Introducción a R y RStudio"
+    footer: "Datos en R"
     slide-number: true
     logo: img/logo.png
     width: 1920
@@ -280,7 +280,7 @@ knitr::include_graphics("img/rio-hex.png")
 
 :::
 
-## Importando datos con {rio}
+## Importando datos con {rio} {.scrollable}
 
 ::: panel-tabset
 

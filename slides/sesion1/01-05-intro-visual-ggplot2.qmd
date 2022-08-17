@@ -1124,7 +1124,7 @@ ggplot(data = gapminder,
 
 - Uno también puede personalizar sus propios temas: [Ver aquí](https://ggplot2.tidyverse.org/reference/theme.html).
 
-## Temas completos 
+## Temas completos {.scrollable}
 
 ::: {.panel-tabset}
 

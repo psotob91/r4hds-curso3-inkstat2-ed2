@@ -119,13 +119,17 @@ knitr::include_graphics("../slides/sesion1/img/abrir-proyecto.gif")
 :::
 
 
-### Manejo de datos
+### Datos en R
 
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739988566?h=f2051d942c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Datos en R"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 ### Visualización de datos
 
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/740001443?h=b1b118f07a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Visualizaci&amp;oacute;n de datos"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+### Manejo de datos
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/740463481?h=db54f9d6df&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Introducci&amp;oacute;n a Manejo de Datos con Tidyverse"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 :::
 
@@ -200,13 +204,13 @@ knitr::include_url('../slides/sesion1/01-05-intro-visual-ggplot2.html')
 ### Manejo de datos
 
 ```{r show-slide-tabs6, echo=FALSE, results="asis"}
-slide_buttons("/slides/sesion1/01-03-primeros-pasos-R")
+slide_buttons("/slides/sesion1/01-06-intro-manejo-datos")
 ```
 
 ```{r}
 #| echo: false
 #| out.width: 100%
-knitr::include_url('../slides/sesion1/01-03-primeros-pasos-R.html')
+knitr::include_url('../slides/sesion1/01-06-intro-manejo-datos.html')
 ```
 
 :::

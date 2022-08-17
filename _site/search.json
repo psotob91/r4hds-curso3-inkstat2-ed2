@@ -32,7 +32,7 @@
     "href": "content/01-content.html#videoclases",
     "title": "Introducción a R y RStudio",
     "section": "Videoclases",
-    "text": "Videoclases\n\nIntroducción a R y RstudioPrimeros pasosManejo de datosVisualización de datos\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMi primer proyecto\n\n\n\nPuede descargar los archivos generados en la carpeta mi_primer_proyecto en el siguiente enlace: [Aquí].\n\n\n\n\n\n\n\n\n¿Cómo abrir proyecto existente?\n\n\n\nCuando quiera iniciar un proyecto existente de R, recuerde abrirlo a través del archivo del proyecto (extensión *.Rproj)."
+    "text": "Videoclases\n\nIntroducción a R y RstudioPrimeros pasosDatos en RVisualización de datosManejo de datos\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMi primer proyecto\n\n\n\nPuede descargar los archivos generados en la carpeta mi_primer_proyecto en el siguiente enlace: [Aquí].\n\n\n\n\n\n\n\n\n¿Cómo abrir proyecto existente?\n\n\n\nCuando quiera iniciar un proyecto existente de R, recuerde abrirlo a través del archivo del proyecto (extensión *.Rproj)."
   },
   {
     "objectID": "content/01-content.html#slides",

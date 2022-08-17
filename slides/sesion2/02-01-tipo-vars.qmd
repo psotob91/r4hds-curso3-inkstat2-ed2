@@ -44,6 +44,22 @@ library(kableExtra)
 
 ---
 
+## Variable
+
+<br/> 
+
+> Es toda característica que se desea observa, medir o evaluar en las unidades de estudio.
+
+- Se pueden clasificar de varias formas.
+
+- Dos clasificaciones son importantes porque pueden tener implicancias estadísticas:
+
+    + Basada en la naturaleza de la variable
+    
+    + Basada en su escala o nivel de medición
+
+---
+
 ## Tipos de variables 
 
 ```{mermaid}
@@ -62,7 +78,81 @@ graph TD
 
 ---
 
+## Variables numéricas
+
+<br/>
+
+- Son aquellas cuyos valores pueden ser expresados en forma numérica.
+
+- También llamadas cuantitativas.
+
+- Pueden ser continuas o discretas
+
+:::: {.columns}
+
+::: {.column width='50%'}
+:::{.callout-note collapse=false appearance='default' icon=true}
+## Continuas
+- Son aquellas que pueden tomar un número infinito no numerable de valores posibles.
+- Por lo general pueden obtenerse mediante la aplicación de instrumentos de medición.
+- Ejemplos: Peso, talla, hemoglobina, etc.
+:::
+:::
+
+::: {.column width='50%'}
+:::{.callout-note collapse=false appearance='default' icon=true}
+## Discretas
+- Son aquellas que tienen un número finito o infinito numerable de valores posibles.
+- Por lo general pueden obtenerse mediante conteo.
+- Número de casos COVID-19, número de camas, etc.
+:::
+:::
+
+::::
+
+---
+
+## Variables categóricas
+
+<br/>
+
+- Son aquellas que proporcionan datos expresados como categorías.
+
+- También llamadas cualitativas.
+
+- Pueden ser dicotómicas o politómicas.
+
+:::: {.columns}
+
+::: {.column width='50%'}
+:::{.callout-note collapse=false appearance='default' icon=true}
+## Dicotómicas o binarias
+- Son aquellas que solo pueden asumir dos valores.
+- Como son dos valores, el orden no es un asunto importante, incluso si se pudiera establecer una jerarquía.
+- Ejemplos: Diagnóstico de diabetes, muerte, etc.
+:::
+:::
+
+::: {.column width='50%'}
+:::{.callout-note collapse=false appearance='default' icon=true}
+## Politómicas o multinomiales
+- Son aquellas que asumen 3 o más valores.
+- Puede haber o no una relación de jerarquía u orden.
+- Ejemplos: Nivel de dolor, tipo de establecimiento de salud, etc.
+:::
+:::
+
+::::
+
+---
+
+# Niveles de medición
+
+---
+
 ## Niveles de medición
+
+<br/>
 
 ```{r}
 #| echo: false
@@ -81,29 +171,196 @@ var_escalas %>%
   column_spec(1, bold = T) %>%
   collapse_rows(columns = 1:2, valign = "top")  %>% 
   row_spec(0, background = "black", color = "white", bold = TRUE) %>% 
-  row_spec(c(1, 3:5), background = "#D7261E", color = "white", bold = TRUE) %>% 
-  row_spec(c(2, 6, 7), background = "blue", color = "white", bold = TRUE)
+  row_spec(c(1, 3:5), background = "white", color = "black", bold = TRUE) %>% 
+  row_spec(c(2, 6, 7), background = "gray", color = "white", bold = TRUE)
 ```
 
 ---
 
-## Tipos y Niveles de medición
+## Tipos de variables y niveles de medición
+
+<br/>
+
+- A continuación algunos ejemplos de cómo se relaciona el tipo de variable y el nivel de medición de esta:
 
 ```{r}
-# var_escalas <- data.frame(
-#   Nivel = c("Razón", "Intervalo", "Ordinal", "Nominal"), 
-#   Continua = c(""), 
-#   Discreta = c(), 
-#   Politómica = c(), 
-#   Dicotómica = c()
-# )
+#| echo: false
+tipo_escala <- data.frame(
+  Tipo = c("Dicotómicas", "Politómicas", "Discretas", "Continuas"), 
+  Nominal = c("Diabetes(tiene vs. no tiene)", "Tipo de Establecimiento de Salud (MINSA vs. EsSalud vs. FFAA/PNP vs. Privado)", "No aplica", "No aplica"), 
+  Ordinal = c("No aplica", "Nivel de dolor (Leve, Moderado, Severo)", "Escala de valoración numérica de dolor", "Escala visual analógica de dolor"), 
+  Intervalo = c("No aplica", "No aplica", "Coeficiente intelectual (debate)", "Temperatura en ºC"), 
+  Razón = c("No aplica", "No aplica", "Número de casos COVID-19", "Hemoglobina en mg/dL")
+)
+
+tipo_escala %>% 
+  kbl() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                full_width = T) %>%
+  # kable_paper("striped", full_width = F) %>%               
+  column_spec(1, bold = T) %>% 
+  # collapse_rows(columns = 1:2, valign = "top")  %>% 
+  row_spec(0, background = "black", color = "yellow", bold = TRUE)
+  # row_spec(c(1, 3:5), background = "#D7261E", color = "white", bold = TRUE) %>% 
+  # row_spec(c(2, 6, 7), background = "blue", color = "white", bold = TRUE)
+```
+
+## ¿Pueden las variables numéricas ser de escala ordinal?
+
+- ¡Claro que sí!
+
+- Son `numéricas` porque expresamos `números` para `representarlas`.
+
+- El `orden` de estos números `importa`, sin embargo, `no siempre esto alcanza` para ser al menos escala de `intervalo` o `razón`.
+
+:::{.callout-important collapse=false appearance='default' icon=true}
+## ¿Qué se requiere para ser intervalo o razón?
+- Se llama `intervalo` porque si tomo dos valores cualesquiera y formo un intervalo y luego tomo otro intervalo del mismo tamaño, pero conformado por dos valores diferentes, ambos intervalos valen objetiva y consistentemente lo mismo.
+
+- Ejemplo: 
+
+    + Si Pepe pesa 45 kg y Rosa pesa 50 kg, la diferencia del peso es 5 kg. 
+    
+    + Si Juan pesa 49 kg y María pesa 54 kg, la diferencia también es de 5 kg. 
+    
+    + Objetivamente hablando, ambas diferencias de 5 kg son exactamente iguales. 
+    
+    + 5 kg es una métrica física basada en un estándar que es la misma a donde vayas. Por eso, el peso es una variable que cumple los criterios de variable de intervalo. 
+    
+    + Además, es de razón porque su cero es absoluto.
+:::
+
+
+## Variables numéricas medidas en escala ordinal
+
+::: {.panel-tabset}
+
+### ¿Cómo medimos el dolor?
+
+:::: {.columns}
+
+::: {.column width='60%'}
+- Nominal: Duele vs. No duele
+
+- Ordinal: 
+
+    + `Politómico`: Escala de intensidad visual del dolor (Visual Pain Intensity Scale) o "FACES" Scale
+    
+      * No dolor, Leve, ..., El peor dolor posible
+    
+    + `Numérica discreta`: Escala de valoración numérica de dolor (Numerical Rating Scale / Numerical Pain Intensity Scale) 
+    
+      * Puntua del 0 al 10 (solo números enteros).
+    
+    + `Numérica continua`: Escala visual analógica (Visual Analogue Scale)
+    
+      * Elige un punto en una recta horizontal. 
+      * Luego mide con una regla en cm (esto permite decimales).
+:::
+
+::: {.column width='3%'}
+:::
+
+::: {.column width='37%'}
+
+<br/> <br/> <br/> 
+
+```{r}
+#| echo: false
+#| out-width: "100%"
+#| fig-align: center
+knitr::include_graphics("img/pain-scales.jpg")
+```
+
+:::
+
+::::
+
+### Una diferencia de 2 puntos, ¿vale lo mismo siempre?
+
+:::: {.columns}
+
+::: {.column width='40%'}
+
+- Pepe puntua 1 y Rosa puntúa 3:
+
+    + La diferencia entre ellos es de 2 puntos.
+
+- Juan puntúa 8 y María puntúa 10: 
+
+    + La diferencia entre ellos también es de 2 puntos.
+:::
+
+::: {.column width='60%'}
+
+```{r}
+#| echo: false
+#| out-width: "70%"
+#| fig-align: center
+knitr::include_graphics("img/numerical-pain.png")
+```
+
+:::
+
+::::
+
+
+- ¿Estas diferencias, ambas de 2 puntos, son iguales? ¿Qué es un punto de dolor desde la perspectiva física, concreta, objetivable? 
+
+    + Estos 2 puntos pueden significar cosas diferentes dependiendo de la subjetividad de Pepe, Rosa, Juan y María. 
+
+- Por eso, aunque se midan en números, su diferencia o [intervalo no significan consistentemente lo mismo]{.hl}. La escala visual analógica y la escalade rating numérico son [variables numéricas]{.hl} medidas en [escala ordinal]{.hl}, no de intervalo.
+
+:::
+
+---
+
+```{r}
+#| echo: false
+library(countdown)
+countdown_timer <- function(
+    minutes = 1, 
+    play_sound = TRUE, 
+    font_size = "2em", 
+    ...
+) {
+  countdown(
+    minutes = minutes,
+    # Fanfare when it's over
+    play_sound = play_sound,
+    # Set timer theme to match solarized colors
+    color_border              = "#404041",
+    color_text                = "white",
+    color_background = "#000000",
+    color_running_background  = "#72994E",
+    color_running_text        = "white",
+    color_finished_background = "#EE6331",
+    color_finished_text       = "white",
+    font_size = font_size,
+    ...
+  )
+}
+```
+
+# `r fontawesome::fa("laptop-code", "white")` Nuestro turno {background-color="#000000"}
+
+<br/>
+
+- Descargue la carpeta comprimida `variables_tipos` y descomprímala.
+
+- Abra el archivo quarto `variable_tipos.qmd` y responda las preguntas.
+
+- Compile el archivo quarto.
+
+
+<br/><br/><br/>  
+
+```{R}
+#| echo: false
+countdown_timer(5)
 ```
 
 
----
+        
+        
 
-## Variables numéricas
-
----
-
-## Variables numéricas
