@@ -21,50 +21,40 @@ datos <- as_factor(read_stata("maca_meno_fase1.dta"))
 ## Inspeccionar datos
 
 ```{r}
-glimpse(datos)
+
 ```
 
 
 ## Cree un gráfico de dispersión de puntos que relacione el peso (variable weight, en el eje x) con la hormona foliculo estimulante (variable fsh, en el eje y).
 
 ```{r}
-ggplot(datos, 
-       aes(x = weight, y = fsh)) + 
-  geom_point()
+
 ```
 
 
 ## Cree otro gráfico que también diferencie los grupos de tratamiento (variable treat) mediante colores diferentes. Tip: mapee colour con treat.
 
 ```{r}
-ggplot(datos, 
-       aes(x = weight, y = fsh, colour = treat)) + 
-  geom_point()
+
 ```
 
 ## Cree otro gráfico que taambién diferencie el tiempo de medición (variable time) con formas diferentes. Tip: mapee shape con time.
 
 ```{r}
-ggplot(datos, 
-       aes(x = weight, y = fsh, colour = treat, shape = time)) + 
-  geom_point()
+
 ```
 
 
 ## Reutilizando el código anterior, configure la transparencie en 0.5. Tip: configure el alpha dentro de la geometría.
 
 ```{r}
-ggplot(datos, 
-       aes(x = weight, y = fsh, colour = treat, shape = time)) + 
-  geom_point(alpha = 0.5)
+
 ```
 
 ## Aplique una transformación logarítmica a la variable fsh. Tipo: Aplique log() directamente sobre la variable fsh dentro del chunk de código ya elaborado.
 
 ```{r}
-ggplot(datos, 
-       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + 
-  geom_point(alpha = 0.5)
+
 ```
 
 ## Divida en facetas los gráficos: 1) Una faceta para cada tratamiento; y 2) Una faceta para tratamiento – tiempo. Tip: Use facet__wrap() y facet_grid()
@@ -72,60 +62,36 @@ ggplot(datos,
 - Una faceta para cada tratamiento:
 
 ```{r}
-ggplot(datos, 
-       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + 
-  geom_point(alpha = 0.5) + 
-  facet_grid(.~treat)
+
 ```
 
 ```{r}
-ggplot(datos, 
-       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + 
-  geom_point(alpha = 0.5) + 
-  facet_grid(treat~.)
+
 ```
 
 Una faceta para tratamiento – tiempo
 
 ```{r}
-ggplot(datos, 
-       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + 
-  geom_point(alpha = 0.5) + 
-  facet_wrap(treat ~ time)
+
 ```
 
 ```{r}
-ggplot(datos, 
-       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + 
-  geom_point(alpha = 0.5) + 
-  facet_wrap(time ~ treat)
+
 ```
 
 ## Utilice el tema completo theme_bw().
 
 ```{r}
-ggplot(datos, 
-       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + 
-  geom_point(alpha = 0.5) + 
-  facet_wrap(time ~ treat) + 
-  theme_bw()
+
 ```
 
 
 ## Bonus: Temas extra
 
 ```{r}
-ggplot(datos, 
-       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + 
-  geom_point(alpha = 0.5) + 
-  facet_wrap(time ~ treat) + 
-  theme_minimal()
+
 ```
 
 ```{r}
-ggplot(datos, 
-       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + 
-  geom_point(alpha = 0.5) + 
-  facet_wrap(time ~ treat) + 
-  theme_classic()
+
 ```

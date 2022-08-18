@@ -32,7 +32,7 @@
     "href": "content/01-content.html#videoclases",
     "title": "Introducción a R y RStudio",
     "section": "Videoclases",
-    "text": "Videoclases\n\nIntroducción a R y RstudioPrimeros pasosDatos en RVisualización de datosManejo de datos\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMi primer proyecto\n\n\n\nPuede descargar los archivos generados en la carpeta mi_primer_proyecto en el siguiente enlace: [Aquí].\n\n\n\n\n\n\n\n\n¿Cómo abrir proyecto existente?\n\n\n\nCuando quiera iniciar un proyecto existente de R, recuerde abrirlo a través del archivo del proyecto (extensión *.Rproj)."
+    "text": "Videoclases\n\nIntroducción a R y RstudioPrimeros pasosDatos en RVisualización de datosManejo de datos\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNuestro turno: Mi primer proyecto\n\n\n\n\nPuede descargar los archivos generados en la carpeta mi_primer_proyecto en el siguiente enlace: Aquí.\nPuede ver la versión Web de este ejercicio en el siguiente enlace se la sección Ejemplos: Aquí\n\n\n\n\n\n\n\n\n\n¿Cómo abrir proyecto existente?\n\n\n\nCuando quiera iniciar un proyecto existente de R, recuerde abrirlo a través del archivo del proyecto (extensión *.Rproj).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNuestro turno: Importar datos\n\n\n\n\nPuede descargar los archivos generados en la carpeta importar_datos en el siguiente enlace: Aquí.\nPuede ver la versión Web de este ejercicio en el siguiente enlace se la sección Ejemplos: Aquí\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNuestro turno: Mi primer y segundo ggplot\n\n\n\n\nPuede descargar los archivos generados en la carpeta mi_primer_ggplot en el siguiente enlace: Aquí.\nPuede ver la versión Web de este ejercicio en el siguiente enlace se la sección Ejemplos: Aquí\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNuestro turno: Mi primer manejo de datos\n\n\n\n\nPuede descargar los archivos generados en la carpeta mi_primer_manejo_datos en el siguiente enlace: Aquí.\nPuede ver la versión Web de este ejercicio en el siguiente enlace se la sección Ejemplos: Aquí"
   },
   {
     "objectID": "content/01-content.html#slides",
@@ -112,6 +112,41 @@
     "text": "Ver diapositivas en una nueva ventana\nLas diapositivas también están incrustadas en cada página. Puede hacer clic en las diapositivas y navegar por ellas con ← and →. Si escribe ? mientras ve las diapositivas, puede ver una lista de comandos específicos de diapositivas (como f para pantalla completa).\nPor último, cada sesión de clase tiene un conjunto de lecturas recomendadas que se sugiere revisen para afianzar o ampliar lo abordado en clases."
   },
   {
+    "objectID": "example/importar_datos/importar_datos_ejemplos.html",
+    "href": "example/importar_datos/importar_datos_ejemplos.html",
+    "title": "Importando Datos con R - Ejemplos",
+    "section": "",
+    "text": "Código\nlibrary(tidyverse)\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.8     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n\nCódigo\nlibrary(rio)\nlibrary(haven)"
+  },
+  {
+    "objectID": "example/importar_datos/importar_datos_ejemplos.html#importar-datos-en-.csv-archivo-plano",
+    "href": "example/importar_datos/importar_datos_ejemplos.html#importar-datos-en-.csv-archivo-plano",
+    "title": "Importando Datos con R - Ejemplos",
+    "section": "Importar datos en *.csv (archivo plano)",
+    "text": "Importar datos en *.csv (archivo plano)\nImporte el archivo denominado maca_meno_perclin.csv:\n\n\nCódigo\ndatos_csv <- import(\"maca_meno_perclin.csv\")\n\n\nExplore el data.frame importado:\n\n\nCódigo\nhead(datos_csv)\n\n\n  id_jaula id_raton tratamiento protocolo peso_inicial peso_final peso_utero\n1        1        1     control       ovx        26.00      33.28      0.089\n2        1        2     control       ovx        24.50      30.50      0.063\n3        1        3     control       ovx        20.40      29.93      0.078\n4        2        4     control   hemiovx        26.59      32.19      0.134\n5        2        5     control       ovx        23.50      30.37      0.052\n6        2        6        maca       ovx        25.00      30.43      0.055\n    chol glucose    tag prot  urea album\n1  85.99  109.97 182.42 5.37 66.27 66.82\n2  94.46   81.62 211.87 4.68 76.73 55.36\n3  99.67  118.37 195.16   NA 52.32    NA\n4  83.38   71.91  98.46   NA 50.71    NA\n5  82.08   95.53 108.13 5.33 26.02    NA\n6 107.49  160.36 141.10   NA    NA 72.14"
+  },
+  {
+    "objectID": "example/importar_datos/importar_datos_ejemplos.html#importar-datos-en-.xlsx-ms-excel",
+    "href": "example/importar_datos/importar_datos_ejemplos.html#importar-datos-en-.xlsx-ms-excel",
+    "title": "Importando Datos con R - Ejemplos",
+    "section": "Importar datos en *.xlsx (MS Excel)",
+    "text": "Importar datos en *.xlsx (MS Excel)\nImporte el archivo denominado maca_meno_perclin.xlsx:\n\n\nCódigo\ndatos_xslx <- import(\"maca_meno_perclin.xlsx\")\n\n\nExplore el data.frame importado:\n\n\nCódigo\nglimpse(datos_xslx)\n\n\nRows: 23\nColumns: 13\n$ id_jaula     <dbl> 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 5, 5, 5, 5, 8, 8, 9, 9, 9, …\n$ id_raton     <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17…\n$ tratamiento  <chr> \"control\", \"control\", \"control\", \"control\", \"control\", \"m…\n$ protocolo    <chr> \"ovx\", \"ovx\", \"ovx\", \"hemiovx\", \"ovx\", \"ovx\", \"ovx\", \"ovx…\n$ peso_inicial <dbl> 26.00, 24.50, 20.40, 26.59, 23.50, 25.00, 24.80, 23.20, 2…\n$ peso_final   <dbl> 33.28, 30.50, 29.93, 32.19, 30.37, 30.43, 28.77, 27.30, 2…\n$ peso_utero   <dbl> 0.089, 0.063, 0.078, 0.134, 0.052, 0.055, 0.064, 0.062, 0…\n$ chol         <dbl> 85.990, 94.460, 99.670, 83.380, 82.080, 107.490, 76.870, …\n$ glucose      <dbl> 109.97, 81.62, 118.37, 71.91, 95.53, 160.36, 195.53, 182.…\n$ tag          <dbl> 182.42, 211.87, 195.16, 98.46, 108.13, 141.10, 95.82, 105…\n$ prot         <dbl> 5.37, 4.68, NA, NA, 5.33, NA, 5.02, 6.12, NA, 4.85, NA, N…\n$ urea         <dbl> 66.27, 76.73, 52.32, 50.71, 26.02, NA, 40.78, 66.94, NA, …\n$ album        <dbl> 66.82, 55.36, NA, NA, NA, 72.14, 67.09, 70.64, 66.27, 83.…"
+  },
+  {
+    "objectID": "example/importar_datos/importar_datos_ejemplos.html#importar-datos-en-.dta-stata",
+    "href": "example/importar_datos/importar_datos_ejemplos.html#importar-datos-en-.dta-stata",
+    "title": "Importando Datos con R - Ejemplos",
+    "section": "Importar datos en *.dta (Stata)",
+    "text": "Importar datos en *.dta (Stata)\nImporte el archivo denominado maca_meno_fase1.dta:\n\nOpción 1: Usar import\n\n\n\nCódigo\ndatos_stata1 <- import(\"maca_meno_fase1.dta\")\n\n\nExplore el data.frame importado:\n\n\nCódigo\nglimpse(datos_stata1)\n\n\nRows: 106\nColumns: 14\n$ id         <dbl> 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 1…\n$ time       <dbl> 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,…\n$ treat      <dbl> 1, 1, 3, 3, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 1, 1, 3, 3, 1, 1,…\n$ age        <dbl> 33, 32, 27, 27, 25, 25, 37, 38, 31, 32, 38, 38, 26, 26, 34,…\n$ race       <chr> \"Mestiza\", \"Mestiza\", \"Mestiza\", \"Mestiza\", \"Mestiza\", \"Mes…\n$ married    <dbl> 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 5, 5, 5, 5, 5, 5, 1, 1, 1, 1,…\n$ married2   <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0,…\n$ procedence <chr> \"Callao\", \"Callao\", \"Santa Anita\", \"Santa Anita\", \"Callao\",…\n$ weight     <dbl> 59.0, 59.9, 62.0, 62.1, 62.0, 60.0, 60.9, 61.4, 64.0, 58.1,…\n$ height     <dbl> 1.4, 1.3, 1.5, 1.6, 1.6, 1.6, 1.5, 1.5, 1.5, 1.6, 1.5, 1.5,…\n$ e2         <dbl> 87.30, 210.05, 169.01, 99.91, 78.76, 155.04, 40.99, 109.03,…\n$ lh         <dbl> 3.28, 26.85, 6.34, 5.77, 11.86, 10.14, 4.57, 7.29, 7.81, 9.…\n$ fsh        <dbl> 1.95, 8.83, 4.32, 1.70, 2.81, 4.51, 3.81, 2.39, 2.01, 3.66,…\n$ prog       <dbl> 14.20, 12.95, 0.50, 9.61, 10.46, 5.04, 4.64, 11.73, 15.11, …\n\n\n\nOpción 2: Usar read_stata de {haven} y as_factor()\n\n\n\nCódigo\ndatos_stata2 <- as_factor(read_stata(\"maca_meno_fase1.dta\"))\n\n\nExplore el data.frame importado:\n\n\nCódigo\nglimpse(datos_stata2)\n\n\nRows: 106\nColumns: 14\n$ id         <dbl> 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 1…\n$ time       <fct> Baseline, 3 months, Baseline, 3 months, Baseline, 3 months,…\n$ treat      <fct> PLACEBO, PLACEBO, WARMI 6 C/D, WARMI 6 C/D, WARMI 3 C/D, WA…\n$ age        <dbl> 33, 32, 27, 27, 25, 25, 37, 38, 31, 32, 38, 38, 26, 26, 34,…\n$ race       <chr> \"Mestiza\", \"Mestiza\", \"Mestiza\", \"Mestiza\", \"Mestiza\", \"Mes…\n$ married    <fct> Single, Single, Single, Single, Single, Single, Divorced, D…\n$ married2   <fct> Without couple, Without couple, Without couple, Without cou…\n$ procedence <chr> \"Callao\", \"Callao\", \"Santa Anita\", \"Santa Anita\", \"Callao\",…\n$ weight     <dbl> 59.0, 59.9, 62.0, 62.1, 62.0, 60.0, 60.9, 61.4, 64.0, 58.1,…\n$ height     <dbl> 1.4, 1.3, 1.5, 1.6, 1.6, 1.6, 1.5, 1.5, 1.5, 1.6, 1.5, 1.5,…\n$ e2         <dbl> 87.30, 210.05, 169.01, 99.91, 78.76, 155.04, 40.99, 109.03,…\n$ lh         <dbl> 3.28, 26.85, 6.34, 5.77, 11.86, 10.14, 4.57, 7.29, 7.81, 9.…\n$ fsh        <dbl> 1.95, 8.83, 4.32, 1.70, 2.81, 4.51, 3.81, 2.39, 2.01, 3.66,…\n$ prog       <dbl> 14.20, 12.95, 0.50, 9.61, 10.46, 5.04, 4.64, 11.73, 15.11, …"
+  },
+  {
+    "objectID": "example/importar_datos/importar_datos_ejemplos.html#importar-datos-en-.sav-spss",
+    "href": "example/importar_datos/importar_datos_ejemplos.html#importar-datos-en-.sav-spss",
+    "title": "Importando Datos con R - Ejemplos",
+    "section": "Importar datos en *.sav (SPSS)",
+    "text": "Importar datos en *.sav (SPSS)\n\nOpción 1:\n\nImporte el archivo denominado RECH0.SAV:\n\n\nCódigo\ndatos_spss <- import(\"RECH0.SAV\")\n\n\nExplore el data.frame importado:\n\n\nCódigo\nglimpse(datos_spss)\n\n\nRows: 37,479\nColumns: 44\n$ ID1       <dbl> 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, …\n$ HHID      <chr> \"      000100301\", \"      000100401\", \"      000100801\", \"  …\n$ HV000     <chr> \"PE6\", \"PE6\", \"PE6\", \"PE6\", \"PE6\", \"PE6\", \"PE6\", \"PE6\", \"PE6…\n$ HV001     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …\n$ HV002     <dbl> 3, 4, 8, 10, 29, 42, 62, 70, 73, 95, 1, 32, 39, 54, 56, 59, …\n$ HV002A    <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ HV003     <dbl> 2, 1, 2, 1, 0, 2, 1, 1, 0, 0, 0, 0, 1, 1, 1, 3, 3, 3, 2, 1, …\n$ HV004     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …\n$ HV007     <dbl> 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, …\n$ HV008     <dbl> 1454, 1454, 1454, 1454, 1454, 1454, 1454, 1454, 1454, 1454, …\n$ HV009     <dbl> 6, 5, 6, 5, 0, 3, 3, 3, 0, 0, 0, 0, 3, 5, 4, 4, 6, 5, 4, 3, …\n$ HV010     <dbl> 2, 1, 2, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 2, 1, 0, 2, 0, 1, 1, …\n$ HV011     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ HV012     <dbl> 6, 5, 6, 5, 0, 3, 3, 3, 0, 0, 0, 0, 3, 5, 4, 4, 6, 5, 4, 3, …\n$ HV013     <dbl> 5, 5, 6, 5, 0, 3, 3, 2, 0, 0, 0, 0, 3, 5, 4, 4, 6, 5, 4, 3, …\n$ HV014     <dbl> 1, 1, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, …\n$ HV015     <dbl> 1, 1, 1, 1, 3, 1, 1, 1, 6, 2, 6, 5, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ HV017     <dbl> 1, 1, 1, 1, 4, 1, 1, 1, 4, 2, 3, 5, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ HV020     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ HV021     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …\n$ HV023     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ HV024     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ HV025     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ HV026     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ HV027     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ HV028     <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ HV030     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ HV031     <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ HV032     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ HV033     <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ HV035     <dbl> 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, …\n$ HV040     <dbl> 2338, 2338, 2338, 2338, 2338, 2338, 2338, 2338, 2338, 2338, …\n$ HV041     <dbl> 2, 1, 2, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 2, 1, 0, 2, 0, 1, 1, …\n$ HV042     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ HV043     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ HV044     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ UBIGEO    <chr> \"010101\", \"010101\", \"010101\", \"010101\", \"010101\", \"010101\", …\n$ HV022     <dbl> 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ CODCCPP   <chr> \"0001\", \"0001\", \"0001\", \"0001\", \"0001\", \"0001\", \"0001\", \"000…\n$ NOMCCPP   <chr> \"CHACHAPOYAS\", \"CHACHAPOYAS\", \"CHACHAPOYAS\", \"CHACHAPOYAS\", …\n$ NCONGLOME <chr> \"0706402\", \"0706402\", \"0706402\", \"0706402\", \"0706402\", \"0706…\n$ HV005     <dbl> 103273, 103273, 103273, 532968, 0, 103273, 532968, 103273, 0…\n$ longitudx <dbl> -77.87403, -77.87403, -77.87403, -77.87403, -77.87403, -77.8…\n$ latitudy  <dbl> -6.221249, -6.221249, -6.221249, -6.221249, -6.221249, -6.22…\n\n\n\nOpción 2:\n\nImporte el archivo denominado RECH0.SAV usando read_sav de {haven}y as_factor\n\n\nCódigo\ndatos_spss2 <- as_factor(read_sav(\"RECH0.SAV\"))\n\n\nExplore el data.frame importado:\n\n\nCódigo\nglimpse(datos_spss2)\n\n\nRows: 37,479\nColumns: 44\n$ ID1       <dbl> 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, …\n$ HHID      <chr> \"      000100301\", \"      000100401\", \"      000100801\", \"  …\n$ HV000     <chr> \"PE6\", \"PE6\", \"PE6\", \"PE6\", \"PE6\", \"PE6\", \"PE6\", \"PE6\", \"PE6…\n$ HV001     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …\n$ HV002     <dbl> 3, 4, 8, 10, 29, 42, 62, 70, 73, 95, 1, 32, 39, 54, 56, 59, …\n$ HV002A    <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ HV003     <dbl> 2, 1, 2, 1, 0, 2, 1, 1, 0, 0, 0, 0, 1, 1, 1, 3, 3, 3, 2, 1, …\n$ HV004     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …\n$ HV007     <dbl> 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, …\n$ HV008     <dbl> 1454, 1454, 1454, 1454, 1454, 1454, 1454, 1454, 1454, 1454, …\n$ HV009     <dbl> 6, 5, 6, 5, 0, 3, 3, 3, 0, 0, 0, 0, 3, 5, 4, 4, 6, 5, 4, 3, …\n$ HV010     <dbl> 2, 1, 2, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 2, 1, 0, 2, 0, 1, 1, …\n$ HV011     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ HV012     <dbl> 6, 5, 6, 5, 0, 3, 3, 3, 0, 0, 0, 0, 3, 5, 4, 4, 6, 5, 4, 3, …\n$ HV013     <dbl> 5, 5, 6, 5, 0, 3, 3, 2, 0, 0, 0, 0, 3, 5, 4, 4, 6, 5, 4, 3, …\n$ HV014     <dbl> 1, 1, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, …\n$ HV015     <fct> Completo, Completo, Completo, Completo, Hogar ausente, Compl…\n$ HV017     <dbl> 1, 1, 1, 1, 4, 1, 1, 1, 4, 2, 3, 5, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ HV020     <fct> Muestra todas las mujeres, Muestra todas las mujeres, Muestr…\n$ HV021     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …\n$ HV023     <fct> Amazonas, Amazonas, Amazonas, Amazonas, Amazonas, Amazonas, …\n$ HV024     <fct> Amazonas, Amazonas, Amazonas, Amazonas, Amazonas, Amazonas, …\n$ HV025     <fct> Urbano, Urbano, Urbano, Urbano, Urbano, Urbano, Urbano, Urba…\n$ HV026     <fct> \"Pequeña ciudad\", \"Pequeña ciudad\", \"Pequeña ciudad\", \"Peque…\n$ HV027     <fct> No seleccionado, No seleccionado, No seleccionado, No selecc…\n$ HV028     <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ HV030     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ HV031     <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ HV032     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ HV033     <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ HV035     <dbl> 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, …\n$ HV040     <dbl> 2338, 2338, 2338, 2338, 2338, 2338, 2338, 2338, 2338, 2338, …\n$ HV041     <dbl> 2, 1, 2, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 2, 1, 0, 2, 0, 1, 1, …\n$ HV042     <fct> Seleccionado, Seleccionado, Seleccionado, Seleccionado, Sele…\n$ HV043     <fct> Hogar no seleccionado, Hogar no seleccionado, Hogar no selec…\n$ HV044     <fct> Hogar seleccionado, Hogar seleccionado, Hogar seleccionado, …\n$ UBIGEO    <chr> \"010101\", \"010101\", \"010101\", \"010101\", \"010101\", \"010101\", …\n$ HV022     <dbl> 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ CODCCPP   <chr> \"0001\", \"0001\", \"0001\", \"0001\", \"0001\", \"0001\", \"0001\", \"000…\n$ NOMCCPP   <chr> \"CHACHAPOYAS\", \"CHACHAPOYAS\", \"CHACHAPOYAS\", \"CHACHAPOYAS\", …\n$ NCONGLOME <chr> \"0706402\", \"0706402\", \"0706402\", \"0706402\", \"0706402\", \"0706…\n$ HV005     <dbl> 103273, 103273, 103273, 532968, 0, 103273, 532968, 103273, 0…\n$ longitudx <dbl> -77.87403, -77.87403, -77.87403, -77.87403, -77.87403, -77.8…\n$ latitudy  <dbl> -6.221249, -6.221249, -6.221249, -6.221249, -6.221249, -6.22…"
+  },
+  {
     "objectID": "example/index.html",
     "href": "example/index.html",
     "title": "Ejemplos de código",
@@ -119,60 +154,354 @@
     "text": "Venga a esta sección después de terminar de revisar las videoclases y lecturas. Contiene código en R completamente comentado y alguna que otra información complementaria. Será de mucha ayuda para resolver los problem set. También será de ayuda como plantillas que ustedes pueden reusar directamente o adaptar para futuros análisis de datos que realicen."
   },
   {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot.html",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot.html",
+    "title": "Mi primer ggplot",
+    "section": "",
+    "text": "Código\nlibrary(tidyverse)\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.8     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n\nCódigo\nlibrary(haven)\nlibrary(rio)\nlibrary(ggplot2)"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot.html#importar-datos",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot.html#importar-datos",
+    "title": "Mi primer ggplot",
+    "section": "Importar datos",
+    "text": "Importar datos\n\n\nCódigo\ndatos <- as_factor(read_stata(\"maca_meno_fase1.dta\"))"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot.html#inspeccionar-datos",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot.html#inspeccionar-datos",
+    "title": "Mi primer ggplot",
+    "section": "Inspeccionar datos",
+    "text": "Inspeccionar datos"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot.html#cree-un-gráfico-de-dispersión-de-puntos-que-relacione-el-peso-variable-weight-en-el-eje-x-con-la-hormona-foliculo-estimulante-variable-fsh-en-el-eje-y.",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot.html#cree-un-gráfico-de-dispersión-de-puntos-que-relacione-el-peso-variable-weight-en-el-eje-x-con-la-hormona-foliculo-estimulante-variable-fsh-en-el-eje-y.",
+    "title": "Mi primer ggplot",
+    "section": "Cree un gráfico de dispersión de puntos que relacione el peso (variable weight, en el eje x) con la hormona foliculo estimulante (variable fsh, en el eje y).",
+    "text": "Cree un gráfico de dispersión de puntos que relacione el peso (variable weight, en el eje x) con la hormona foliculo estimulante (variable fsh, en el eje y)."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot.html#cree-otro-gráfico-que-relacione-estradiol-e2-como-y-con-tratamiento-recibido-treat-como-x.-use-gráfico-de-puntos.-tip-use-geomtría-geom_point.",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot.html#cree-otro-gráfico-que-relacione-estradiol-e2-como-y-con-tratamiento-recibido-treat-como-x.-use-gráfico-de-puntos.-tip-use-geomtría-geom_point.",
+    "title": "Mi primer ggplot",
+    "section": "Cree otro gráfico que relacione estradiol (e2 como y) con tratamiento recibido (treat como x). Use gráfico de puntos. Tip: use geomtría geom_point().",
+    "text": "Cree otro gráfico que relacione estradiol (e2 como y) con tratamiento recibido (treat como x). Use gráfico de puntos. Tip: use geomtría geom_point()."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot.html#guarde-este-gráfico-como-un-objeto-pongale-de-nombre-plot1.-tip-use-operador-asignar--.-imprima-plot1",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot.html#guarde-este-gráfico-como-un-objeto-pongale-de-nombre-plot1.-tip-use-operador-asignar--.-imprima-plot1",
+    "title": "Mi primer ggplot",
+    "section": "Guarde este gráfico como un objeto, pongale de nombre: plot1. Tip: Use operador asignar <-. Imprima plot1",
+    "text": "Guarde este gráfico como un objeto, pongale de nombre: plot1. Tip: Use operador asignar <-. Imprima plot1"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot.html#agregue-una-geometría-de-gráfico-de-cajas.-tip-agregue-geom_boxplot.",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot.html#agregue-una-geometría-de-gráfico-de-cajas.-tip-agregue-geom_boxplot.",
+    "title": "Mi primer ggplot",
+    "section": "Agregue una geometría de gráfico de cajas. Tip: Agregue geom_boxplot().",
+    "text": "Agregue una geometría de gráfico de cajas. Tip: Agregue geom_boxplot().\n\nOpción 1: Ampliar el código usando geometrías:\n\n\n\n\n\nOpción 2: Reutilizar el objeto ggplot:"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot.html#invierta-el-orden-de-las-geometrías.-primero-ponga-geom_boxplot-y-luego-ponga-geom_point.-compare-con-el-gráfico-anterior.-en-qué-se-diferencian",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot.html#invierta-el-orden-de-las-geometrías.-primero-ponga-geom_boxplot-y-luego-ponga-geom_point.-compare-con-el-gráfico-anterior.-en-qué-se-diferencian",
+    "title": "Mi primer ggplot",
+    "section": "Invierta el orden de las geometrías. Primero ponga geom_boxplot() y luego ponga geom_point(). Compare con el gráfico anterior. ¿En qué se diferencian?",
+    "text": "Invierta el orden de las geometrías. Primero ponga geom_boxplot() y luego ponga geom_point(). Compare con el gráfico anterior. ¿En qué se diferencian?"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html",
+    "title": "Mi primer ggplot",
+    "section": "",
+    "text": "Código\nlibrary(tidyverse)\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.8     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n\nCódigo\nlibrary(haven)\nlibrary(rio)\nlibrary(ggplot2)"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html#importar-datos",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html#importar-datos",
+    "title": "Mi primer ggplot",
+    "section": "Importar datos",
+    "text": "Importar datos\n\n\nCódigo\ndatos <- as_factor(read_stata(\"maca_meno_fase1.dta\"))"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html#inspeccionar-datos",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html#inspeccionar-datos",
+    "title": "Mi primer ggplot",
+    "section": "Inspeccionar datos",
+    "text": "Inspeccionar datos\n\n\nCódigo\nglimpse(datos)\n\n\nRows: 106\nColumns: 14\n$ id         <dbl> 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 1…\n$ time       <fct> Baseline, 3 months, Baseline, 3 months, Baseline, 3 months,…\n$ treat      <fct> Placebo, Placebo, Dosis 2, Dosis 2, Dosis 1, Dosis 1, Dosis…\n$ age        <dbl> 33, 32, 27, 27, 25, 25, 37, 38, 31, 32, 38, 38, 26, 26, 34,…\n$ race       <chr> \"Mestiza\", \"Mestiza\", \"Mestiza\", \"Mestiza\", \"Mestiza\", \"Mes…\n$ married    <fct> Single, Single, Single, Single, Single, Single, Divorced, D…\n$ married2   <fct> Without couple, Without couple, Without couple, Without cou…\n$ procedence <chr> \"Callao\", \"Callao\", \"Santa Anita\", \"Santa Anita\", \"Callao\",…\n$ weight     <dbl> 59.0, 59.9, 62.0, 62.1, 62.0, 60.0, 60.9, 61.4, 64.0, 58.1,…\n$ height     <dbl> 1.4, 1.3, 1.5, 1.6, 1.6, 1.6, 1.5, 1.5, 1.5, 1.6, 1.5, 1.5,…\n$ e2         <dbl> 87.30, 210.05, 169.01, 99.91, 78.76, 155.04, 40.99, 109.03,…\n$ lh         <dbl> 3.28, 26.85, 6.34, 5.77, 11.86, 10.14, 4.57, 7.29, 7.81, 9.…\n$ fsh        <dbl> 1.95, 8.83, 4.32, 1.70, 2.81, 4.51, 3.81, 2.39, 2.01, 3.66,…\n$ prog       <dbl> 14.20, 12.95, 0.50, 9.61, 10.46, 5.04, 4.64, 11.73, 15.11, …"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html#cree-un-gráfico-de-dispersión-de-puntos-que-relacione-el-peso-variable-weight-en-el-eje-x-con-la-hormona-foliculo-estimulante-variable-fsh-en-el-eje-y.",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html#cree-un-gráfico-de-dispersión-de-puntos-que-relacione-el-peso-variable-weight-en-el-eje-x-con-la-hormona-foliculo-estimulante-variable-fsh-en-el-eje-y.",
+    "title": "Mi primer ggplot",
+    "section": "Cree un gráfico de dispersión de puntos que relacione el peso (variable weight, en el eje x) con la hormona foliculo estimulante (variable fsh, en el eje y).",
+    "text": "Cree un gráfico de dispersión de puntos que relacione el peso (variable weight, en el eje x) con la hormona foliculo estimulante (variable fsh, en el eje y).\n\n\nCódigo\nggplot(datos, \n       aes(x = weight, y = fsh)) + \n  geom_point()\n\n\nWarning: Removed 3 rows containing missing values (geom_point)."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html#cree-otro-gráfico-que-relacione-estradiol-e2-como-y-con-tratamiento-recibido-treat-como-x.-use-gráfico-de-puntos.-tip-use-geomtría-geom_point.",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html#cree-otro-gráfico-que-relacione-estradiol-e2-como-y-con-tratamiento-recibido-treat-como-x.-use-gráfico-de-puntos.-tip-use-geomtría-geom_point.",
+    "title": "Mi primer ggplot",
+    "section": "Cree otro gráfico que relacione estradiol (e2 como y) con tratamiento recibido (treat como x). Use gráfico de puntos. Tip: use geomtría geom_point().",
+    "text": "Cree otro gráfico que relacione estradiol (e2 como y) con tratamiento recibido (treat como x). Use gráfico de puntos. Tip: use geomtría geom_point().\n\n\nCódigo\nggplot(datos, \n       aes(x = treat, y = e2)) + \n  geom_point()"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html#guarde-este-gráfico-como-un-objeto-pongale-de-nombre-plot1.-tip-use-operador-asignar--.-imprima-plot1",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html#guarde-este-gráfico-como-un-objeto-pongale-de-nombre-plot1.-tip-use-operador-asignar--.-imprima-plot1",
+    "title": "Mi primer ggplot",
+    "section": "Guarde este gráfico como un objeto, pongale de nombre: plot1. Tip: Use operador asignar <-. Imprima plot1",
+    "text": "Guarde este gráfico como un objeto, pongale de nombre: plot1. Tip: Use operador asignar <-. Imprima plot1\n\n\nCódigo\nplot1 <- ggplot(datos, \n       aes(x = treat, y = e2)) + \n  geom_point()\n\n\n\n\nCódigo\nplot1"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html#agregue-una-geometría-de-gráfico-de-cajas.-tip-agregue-geom_boxplot.",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html#agregue-una-geometría-de-gráfico-de-cajas.-tip-agregue-geom_boxplot.",
+    "title": "Mi primer ggplot",
+    "section": "Agregue una geometría de gráfico de cajas. Tip: Agregue geom_boxplot().",
+    "text": "Agregue una geometría de gráfico de cajas. Tip: Agregue geom_boxplot().\n\nOpción 1: Ampliar el código usando geometrías:\n\n\n\nCódigo\nggplot(datos, \n       aes(x = treat, y = e2)) + \n  geom_point() + \n  geom_boxplot()\n\n\n\n\n\n\nOpción 2: Reutilizar el objeto ggplot:\n\n\n\nCódigo\nplot1 + \n  geom_boxplot()"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html#invierta-el-orden-de-las-geometrías.-primero-ponga-geom_boxplot-y-luego-ponga-geom_point.-compare-con-el-gráfico-anterior.-en-qué-se-diferencian",
+    "href": "example/mi_primer_ggplot/mi_primer_ggplot_solucion.html#invierta-el-orden-de-las-geometrías.-primero-ponga-geom_boxplot-y-luego-ponga-geom_point.-compare-con-el-gráfico-anterior.-en-qué-se-diferencian",
+    "title": "Mi primer ggplot",
+    "section": "Invierta el orden de las geometrías. Primero ponga geom_boxplot() y luego ponga geom_point(). Compare con el gráfico anterior. ¿En qué se diferencian?",
+    "text": "Invierta el orden de las geometrías. Primero ponga geom_boxplot() y luego ponga geom_point(). Compare con el gráfico anterior. ¿En qué se diferencian?\n\n\nCódigo\nggplot(datos, \n       aes(x = treat, y = e2)) + \n  geom_boxplot() + \n  geom_point()"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot.html",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot.html",
+    "title": "MI segundo grafico ggplot2",
+    "section": "",
+    "text": "Código\nlibrary(tidyverse)\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.8     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n\nCódigo\nlibrary(haven)\nlibrary(rio)\nlibrary(ggplot2)"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot.html#importar-datos",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot.html#importar-datos",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Importar datos",
+    "text": "Importar datos\n\n\nCódigo\ndatos <- as_factor(read_stata(\"maca_meno_fase1.dta\"))"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot.html#inspeccionar-datos",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot.html#inspeccionar-datos",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Inspeccionar datos",
+    "text": "Inspeccionar datos"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot.html#cree-un-gráfico-de-dispersión-de-puntos-que-relacione-el-peso-variable-weight-en-el-eje-x-con-la-hormona-foliculo-estimulante-variable-fsh-en-el-eje-y.",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot.html#cree-un-gráfico-de-dispersión-de-puntos-que-relacione-el-peso-variable-weight-en-el-eje-x-con-la-hormona-foliculo-estimulante-variable-fsh-en-el-eje-y.",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Cree un gráfico de dispersión de puntos que relacione el peso (variable weight, en el eje x) con la hormona foliculo estimulante (variable fsh, en el eje y).",
+    "text": "Cree un gráfico de dispersión de puntos que relacione el peso (variable weight, en el eje x) con la hormona foliculo estimulante (variable fsh, en el eje y)."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot.html#cree-otro-gráfico-que-también-diferencie-los-grupos-de-tratamiento-variable-treat-mediante-colores-diferentes.-tip-mapee-colour-con-treat.",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot.html#cree-otro-gráfico-que-también-diferencie-los-grupos-de-tratamiento-variable-treat-mediante-colores-diferentes.-tip-mapee-colour-con-treat.",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Cree otro gráfico que también diferencie los grupos de tratamiento (variable treat) mediante colores diferentes. Tip: mapee colour con treat.",
+    "text": "Cree otro gráfico que también diferencie los grupos de tratamiento (variable treat) mediante colores diferentes. Tip: mapee colour con treat."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot.html#cree-otro-gráfico-que-taambién-diferencie-el-tiempo-de-medición-variable-time-con-formas-diferentes.-tip-mapee-shape-con-time.",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot.html#cree-otro-gráfico-que-taambién-diferencie-el-tiempo-de-medición-variable-time-con-formas-diferentes.-tip-mapee-shape-con-time.",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Cree otro gráfico que taambién diferencie el tiempo de medición (variable time) con formas diferentes. Tip: mapee shape con time.",
+    "text": "Cree otro gráfico que taambién diferencie el tiempo de medición (variable time) con formas diferentes. Tip: mapee shape con time."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot.html#reutilizando-el-código-anterior-configure-la-transparencie-en-0.5.-tip-configure-el-alpha-dentro-de-la-geometría.",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot.html#reutilizando-el-código-anterior-configure-la-transparencie-en-0.5.-tip-configure-el-alpha-dentro-de-la-geometría.",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Reutilizando el código anterior, configure la transparencie en 0.5. Tip: configure el alpha dentro de la geometría.",
+    "text": "Reutilizando el código anterior, configure la transparencie en 0.5. Tip: configure el alpha dentro de la geometría."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot.html#aplique-una-transformación-logarítmica-a-la-variable-fsh.-tipo-aplique-log-directamente-sobre-la-variable-fsh-dentro-del-chunk-de-código-ya-elaborado.",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot.html#aplique-una-transformación-logarítmica-a-la-variable-fsh.-tipo-aplique-log-directamente-sobre-la-variable-fsh-dentro-del-chunk-de-código-ya-elaborado.",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Aplique una transformación logarítmica a la variable fsh. Tipo: Aplique log() directamente sobre la variable fsh dentro del chunk de código ya elaborado.",
+    "text": "Aplique una transformación logarítmica a la variable fsh. Tipo: Aplique log() directamente sobre la variable fsh dentro del chunk de código ya elaborado."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot.html#divida-en-facetas-los-gráficos-1-una-faceta-para-cada-tratamiento-y-2-una-faceta-para-tratamiento-tiempo.-tip-use-facet__wrap-y-facet_grid",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot.html#divida-en-facetas-los-gráficos-1-una-faceta-para-cada-tratamiento-y-2-una-faceta-para-tratamiento-tiempo.-tip-use-facet__wrap-y-facet_grid",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Divida en facetas los gráficos: 1) Una faceta para cada tratamiento; y 2) Una faceta para tratamiento – tiempo. Tip: Use facet__wrap() y facet_grid()",
+    "text": "Divida en facetas los gráficos: 1) Una faceta para cada tratamiento; y 2) Una faceta para tratamiento – tiempo. Tip: Use facet__wrap() y facet_grid()\n\nUna faceta para cada tratamiento:\n\n\n\n\n\n\n\nUna faceta para tratamiento – tiempo"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot.html#utilice-el-tema-completo-theme_bw.",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot.html#utilice-el-tema-completo-theme_bw.",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Utilice el tema completo theme_bw().",
+    "text": "Utilice el tema completo theme_bw()."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot.html#bonus-temas-extra",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot.html#bonus-temas-extra",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Bonus: Temas extra",
+    "text": "Bonus: Temas extra"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html",
+    "title": "MI segundo grafico ggplot2",
+    "section": "",
+    "text": "Código\nlibrary(tidyverse)\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.8     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n\nCódigo\nlibrary(haven)\nlibrary(rio)\nlibrary(ggplot2)"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#importar-datos",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#importar-datos",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Importar datos",
+    "text": "Importar datos\n\n\nCódigo\ndatos <- as_factor(read_stata(\"maca_meno_fase1.dta\"))"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#inspeccionar-datos",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#inspeccionar-datos",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Inspeccionar datos",
+    "text": "Inspeccionar datos\n\n\nCódigo\nglimpse(datos)\n\n\nRows: 106\nColumns: 14\n$ id         <dbl> 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 1…\n$ time       <fct> Baseline, 3 months, Baseline, 3 months, Baseline, 3 months,…\n$ treat      <fct> Placebo, Placebo, Dosis 2, Dosis 2, Dosis 1, Dosis 1, Dosis…\n$ age        <dbl> 33, 32, 27, 27, 25, 25, 37, 38, 31, 32, 38, 38, 26, 26, 34,…\n$ race       <chr> \"Mestiza\", \"Mestiza\", \"Mestiza\", \"Mestiza\", \"Mestiza\", \"Mes…\n$ married    <fct> Single, Single, Single, Single, Single, Single, Divorced, D…\n$ married2   <fct> Without couple, Without couple, Without couple, Without cou…\n$ procedence <chr> \"Callao\", \"Callao\", \"Santa Anita\", \"Santa Anita\", \"Callao\",…\n$ weight     <dbl> 59.0, 59.9, 62.0, 62.1, 62.0, 60.0, 60.9, 61.4, 64.0, 58.1,…\n$ height     <dbl> 1.4, 1.3, 1.5, 1.6, 1.6, 1.6, 1.5, 1.5, 1.5, 1.6, 1.5, 1.5,…\n$ e2         <dbl> 87.30, 210.05, 169.01, 99.91, 78.76, 155.04, 40.99, 109.03,…\n$ lh         <dbl> 3.28, 26.85, 6.34, 5.77, 11.86, 10.14, 4.57, 7.29, 7.81, 9.…\n$ fsh        <dbl> 1.95, 8.83, 4.32, 1.70, 2.81, 4.51, 3.81, 2.39, 2.01, 3.66,…\n$ prog       <dbl> 14.20, 12.95, 0.50, 9.61, 10.46, 5.04, 4.64, 11.73, 15.11, …"
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#cree-un-gráfico-de-dispersión-de-puntos-que-relacione-el-peso-variable-weight-en-el-eje-x-con-la-hormona-foliculo-estimulante-variable-fsh-en-el-eje-y.",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#cree-un-gráfico-de-dispersión-de-puntos-que-relacione-el-peso-variable-weight-en-el-eje-x-con-la-hormona-foliculo-estimulante-variable-fsh-en-el-eje-y.",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Cree un gráfico de dispersión de puntos que relacione el peso (variable weight, en el eje x) con la hormona foliculo estimulante (variable fsh, en el eje y).",
+    "text": "Cree un gráfico de dispersión de puntos que relacione el peso (variable weight, en el eje x) con la hormona foliculo estimulante (variable fsh, en el eje y).\n\n\nCódigo\nggplot(datos, \n       aes(x = weight, y = fsh)) + \n  geom_point()\n\n\nWarning: Removed 3 rows containing missing values (geom_point)."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#cree-otro-gráfico-que-también-diferencie-los-grupos-de-tratamiento-variable-treat-mediante-colores-diferentes.-tip-mapee-colour-con-treat.",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#cree-otro-gráfico-que-también-diferencie-los-grupos-de-tratamiento-variable-treat-mediante-colores-diferentes.-tip-mapee-colour-con-treat.",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Cree otro gráfico que también diferencie los grupos de tratamiento (variable treat) mediante colores diferentes. Tip: mapee colour con treat.",
+    "text": "Cree otro gráfico que también diferencie los grupos de tratamiento (variable treat) mediante colores diferentes. Tip: mapee colour con treat.\n\n\nCódigo\nggplot(datos, \n       aes(x = weight, y = fsh, colour = treat)) + \n  geom_point()\n\n\nWarning: Removed 3 rows containing missing values (geom_point)."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#cree-otro-gráfico-que-taambién-diferencie-el-tiempo-de-medición-variable-time-con-formas-diferentes.-tip-mapee-shape-con-time.",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#cree-otro-gráfico-que-taambién-diferencie-el-tiempo-de-medición-variable-time-con-formas-diferentes.-tip-mapee-shape-con-time.",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Cree otro gráfico que taambién diferencie el tiempo de medición (variable time) con formas diferentes. Tip: mapee shape con time.",
+    "text": "Cree otro gráfico que taambién diferencie el tiempo de medición (variable time) con formas diferentes. Tip: mapee shape con time.\n\n\nCódigo\nggplot(datos, \n       aes(x = weight, y = fsh, colour = treat, shape = time)) + \n  geom_point()\n\n\nWarning: Removed 3 rows containing missing values (geom_point)."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#reutilizando-el-código-anterior-configure-la-transparencie-en-0.5.-tip-configure-el-alpha-dentro-de-la-geometría.",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#reutilizando-el-código-anterior-configure-la-transparencie-en-0.5.-tip-configure-el-alpha-dentro-de-la-geometría.",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Reutilizando el código anterior, configure la transparencie en 0.5. Tip: configure el alpha dentro de la geometría.",
+    "text": "Reutilizando el código anterior, configure la transparencie en 0.5. Tip: configure el alpha dentro de la geometría.\n\n\nCódigo\nggplot(datos, \n       aes(x = weight, y = fsh, colour = treat, shape = time)) + \n  geom_point(alpha = 0.5)\n\n\nWarning: Removed 3 rows containing missing values (geom_point)."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#aplique-una-transformación-logarítmica-a-la-variable-fsh.-tipo-aplique-log-directamente-sobre-la-variable-fsh-dentro-del-chunk-de-código-ya-elaborado.",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#aplique-una-transformación-logarítmica-a-la-variable-fsh.-tipo-aplique-log-directamente-sobre-la-variable-fsh-dentro-del-chunk-de-código-ya-elaborado.",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Aplique una transformación logarítmica a la variable fsh. Tipo: Aplique log() directamente sobre la variable fsh dentro del chunk de código ya elaborado.",
+    "text": "Aplique una transformación logarítmica a la variable fsh. Tipo: Aplique log() directamente sobre la variable fsh dentro del chunk de código ya elaborado.\n\n\nCódigo\nggplot(datos, \n       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + \n  geom_point(alpha = 0.5)\n\n\nWarning: Removed 3 rows containing missing values (geom_point)."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#divida-en-facetas-los-gráficos-1-una-faceta-para-cada-tratamiento-y-2-una-faceta-para-tratamiento-tiempo.-tip-use-facet__wrap-y-facet_grid",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#divida-en-facetas-los-gráficos-1-una-faceta-para-cada-tratamiento-y-2-una-faceta-para-tratamiento-tiempo.-tip-use-facet__wrap-y-facet_grid",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Divida en facetas los gráficos: 1) Una faceta para cada tratamiento; y 2) Una faceta para tratamiento – tiempo. Tip: Use facet__wrap() y facet_grid()",
+    "text": "Divida en facetas los gráficos: 1) Una faceta para cada tratamiento; y 2) Una faceta para tratamiento – tiempo. Tip: Use facet__wrap() y facet_grid()\n\nUna faceta para cada tratamiento:\n\n\n\nCódigo\nggplot(datos, \n       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + \n  geom_point(alpha = 0.5) + \n  facet_grid(.~treat)\n\n\nWarning: Removed 3 rows containing missing values (geom_point).\n\n\n\n\n\n\n\nCódigo\nggplot(datos, \n       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + \n  geom_point(alpha = 0.5) + \n  facet_grid(treat~.)\n\n\nWarning: Removed 3 rows containing missing values (geom_point).\n\n\n\n\n\nUna faceta para tratamiento – tiempo\n\n\nCódigo\nggplot(datos, \n       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + \n  geom_point(alpha = 0.5) + \n  facet_wrap(treat ~ time)\n\n\nWarning: Removed 3 rows containing missing values (geom_point).\n\n\n\n\n\n\n\nCódigo\nggplot(datos, \n       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + \n  geom_point(alpha = 0.5) + \n  facet_wrap(time ~ treat)\n\n\nWarning: Removed 3 rows containing missing values (geom_point)."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#utilice-el-tema-completo-theme_bw.",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#utilice-el-tema-completo-theme_bw.",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Utilice el tema completo theme_bw().",
+    "text": "Utilice el tema completo theme_bw().\n\n\nCódigo\nggplot(datos, \n       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + \n  geom_point(alpha = 0.5) + \n  facet_wrap(time ~ treat) + \n  theme_bw()\n\n\nWarning: Removed 3 rows containing missing values (geom_point)."
+  },
+  {
+    "objectID": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#bonus-temas-extra",
+    "href": "example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html#bonus-temas-extra",
+    "title": "MI segundo grafico ggplot2",
+    "section": "Bonus: Temas extra",
+    "text": "Bonus: Temas extra\n\n\nCódigo\nggplot(datos, \n       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + \n  geom_point(alpha = 0.5) + \n  facet_wrap(time ~ treat) + \n  theme_minimal()\n\n\nWarning: Removed 3 rows containing missing values (geom_point).\n\n\n\n\n\n\n\nCódigo\nggplot(datos, \n       aes(x = weight, y = log(fsh), colour = treat, shape = time)) + \n  geom_point(alpha = 0.5) + \n  facet_wrap(time ~ treat) + \n  theme_classic()\n\n\nWarning: Removed 3 rows containing missing values (geom_point)."
+  },
+  {
+    "objectID": "example/mi_primer_manejo_datos/mi_primer_manejo_datos.html",
+    "href": "example/mi_primer_manejo_datos/mi_primer_manejo_datos.html",
+    "title": "Mi primer manejo de datos - Taller",
+    "section": "",
+    "text": "Descripción: En este taller nos familizaremos con el manejo de datos\nRealice las siguientes acciones en su computador:\n\nTrabaje sobre este documento Quarto.\nImportaremos el conjunto de datos maca_meno_fase1.dta y lo guardaremos con el nombre de datos."
+  },
+  {
+    "objectID": "example/mi_primer_manejo_datos/mi_primer_manejo_datos.html#desarrollo-del-taller",
+    "href": "example/mi_primer_manejo_datos/mi_primer_manejo_datos.html#desarrollo-del-taller",
+    "title": "Mi primer manejo de datos - Taller",
+    "section": "Desarrollo del taller",
+    "text": "Desarrollo del taller\n\nCargar los paquetes\nCon este código se cargan los paquetes. Es recomendable instalar todos los paquetes al inicio y luego cargarlos todos! Solo instala una vez, luego comenta para no reinstalar a cada rato.\nTip: Use library(paquete). Cargue tidyverse, haven y labelled. Si no están instalados, instalelos.\n\n\n\n\n\nImportar datos\nTip: Como es archivo Stata, use read_stata() junto con as_factor() para recuperar metadatos.\n\n\n\n\n\nFiltre al grupo tratado placebo y guardelo como datos2. Imprima datos2\nTip: Use filter()\n\n\n\n\n\nFiltre a quienes tienen edad > 27 y menor de 33 sin guardarlo, solo imprimalo:\nTip: Use filter()\n\n\n\n\n\nSelecciona las variables id, treat, age y married. Guarde como data3 e imprima.\n\n\n\n\n\nElimine las variables married2 y weight. No guarde solo imprima.\n\n\n\n\n\nSeleccione id, time y race y married2. Luego, filtre por status marital sin pareja.\n\n\n\n\n\nSeleccione id, treat, weight y height. Luego, calcule el indice de masa corporal. Guarde como data4 e imprima. Llame a esta variable imc.\nTip: Anide select() con mutate()\n\n\n\n\n\nCategorice edad en edad 20-25, 26-35, 36-41. Guarde como data5 e imprima.\n\n\n\n\n\nCree una variable nueva llamada elegibilidad, que tenga dos valores: elegible cuando el estado marital es con pareja, no proceda de Callao y tenga IMC mayor a 20, caso contrario, denominarlo no elegible.\n\n\n\n\n\nCategorice indice de masa corporal en <18.5 (Bajo peso), 18.5 a 24.9 (peso normal), 25-29.9 (sobrepeso) y 30+ (obeso). Llame a esta variable imc_cat. GUarde como data6 e imprima\n\n\n\n\n\nColoque etiquetas a imc y a imc_cat para que otro investigador entienda su significado.\n\n\n\n\n\nCambiar el nombre del imc a bmi y de imc_cat bmicat\n\n\n\n\n\nQuedarse solo con las filas 1, 3, 5 y 8 de los datos:\n\n\n\n\n\nSeleccionar, id, peso, tratamiento y imc y reordenarlo segun imc de mayor a menor:"
+  },
+  {
+    "objectID": "example/mi_primer_manejo_datos/mi_primer_manejo_datos_solucion.html",
+    "href": "example/mi_primer_manejo_datos/mi_primer_manejo_datos_solucion.html",
+    "title": "Mi primer manejo de datos",
+    "section": "",
+    "text": "Descripción: En este taller nos familizaremos con el manejo de datos\nRealice las siguientes acciones en su computador:\n\nTrabaje sobre este documento Quarto.\nImportaremos el conjunto de datos maca_meno_fase1.dta y lo guardaremos con el nombre de datos."
+  },
+  {
+    "objectID": "example/mi_primer_manejo_datos/mi_primer_manejo_datos_solucion.html#desarrollo-del-taller",
+    "href": "example/mi_primer_manejo_datos/mi_primer_manejo_datos_solucion.html#desarrollo-del-taller",
+    "title": "Mi primer manejo de datos",
+    "section": "Desarrollo del taller",
+    "text": "Desarrollo del taller\n\nCargar los paquetes\nCon este código se cargan los paquetes. Es recomendable instalar todos los paquetes al inicio y luego cargarlos todos! Solo instala una vez, luego comenta para no reinstalar a cada rato.\nTip: Use library(paquete). Cargue tidyverse, haven y labelled. Si no están instalados, instalelos.\n\n\nCódigo\nlibrary(tidyverse)\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.8     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n\nCódigo\nlibrary(labelled)\nlibrary(haven)\n\n\n\n\nImportar datos\nTip: Como es archivo Stata, use read_stata() junto con as_factor() para recuperar metadatos.\n\n\nCódigo\ndatos <- read_stata(\"maca_meno_fase1.dta\") %>% \n  as_factor()\n\ndatos\n\n\n# A tibble: 106 × 14\n      id time     treat    age race  married marri…¹ proce…² weight height    e2\n   <dbl> <fct>    <fct>  <dbl> <chr> <fct>   <fct>   <chr>    <dbl>  <dbl> <dbl>\n 1     1 Baseline Place…    33 Mest… Single  Withou… Callao    59      1.4  87.3\n 2     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. \n 3     2 Baseline Dosis…    27 Mest… Single  Withou… Santa …   62      1.5 169. \n 4     2 3 months Dosis…    27 Mest… Single  Withou… Santa …   62.1    1.6  99.9\n 5     3 Baseline Dosis…    25 Mest… Single  Withou… Callao    62      1.6  78.8\n 6     3 3 months Dosis…    25 Mest… Single  Withou… Callao    60      1.6 155. \n 7     4 Baseline Dosis…    37 Mest… Divorc… Withou… Callao    60.9    1.5  41.0\n 8     4 3 months Dosis…    38 Mest… Divorc… Withou… Callao    61.4    1.5 109. \n 9     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0\n10     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0\n# … with 96 more rows, 3 more variables: lh <dbl>, fsh <dbl>, prog <dbl>, and\n#   abbreviated variable names ¹​married2, ²​procedence\n# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names\n\n\n\n\nFiltre al grupo tratado placebo y guardelo como datos2. Imprima datos2\nTip: Use filter()\n\n\nCódigo\ndatos %>% \n  filter(treat == \"Placebo\") -> datos2\n\ndatos2\n\n\n# A tibble: 34 × 14\n      id time     treat    age race  married marri…¹ proce…² weight height    e2\n   <dbl> <fct>    <fct>  <dbl> <chr> <fct>   <fct>   <chr>    <dbl>  <dbl> <dbl>\n 1     1 Baseline Place…    33 Mest… Single  Withou… Callao    59      1.4  87.3\n 2     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. \n 3     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0\n 4     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0\n 5     6 Baseline Place…    38 Mest… Married With c… Los Ol…   54.5    1.5  36.2\n 6     6 3 months Place…    38 Mest… Married With c… Los Ol…   53.9    1.5  44.7\n 7     8 Baseline Place…    34 Mest… Married With c… Caraba…   64      1.5  65.6\n 8     8 3 months Place…    34 Mest… Married With c… Caraba…   59      1.5 134. \n 9    10 Baseline Place…    38 Mest… Single  Withou… Pueblo…   56.1    1.7 115. \n10    10 3 months Place…    38 Mest… Single  Withou… Pueblo…   54.9    1.5  71.5\n# … with 24 more rows, 3 more variables: lh <dbl>, fsh <dbl>, prog <dbl>, and\n#   abbreviated variable names ¹​married2, ²​procedence\n# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names\n\n\n\n\nFiltre a quienes tienen edad > 27 y menor de 33 sin guardarlo, solo imprimalo:\nTip: Use filter()\n\n\nCódigo\ndatos %>% \n  filter(age > 27 & age < 33) \n\n\n# A tibble: 25 × 14\n      id time     treat    age race  married marri…¹ proce…² weight height    e2\n   <dbl> <fct>    <fct>  <dbl> <chr> <fct>   <fct>   <chr>    <dbl>  <dbl> <dbl>\n 1     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. \n 2     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0\n 3     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0\n 4     9 Baseline Dosis…    30 Mest… Single  Withou… SMP       61      1.6  49.6\n 5     9 3 months Dosis…    30 Mest… Single  Withou… SMP       63.1    1.7  46.3\n 6    16 Baseline Dosis…    30 Mest… Single  Withou… Los Ol…   56      1.5  81.0\n 7    16 3 months Dosis…    30 Mest… Single  Withou… Los Ol…   55.9    1.5  73.1\n 8    21 Baseline Place…    29 Mest… Married With c… SJL       56.9    1.4  71.6\n 9    21 3 months Place…    29 Mest… Married With c… SJL       57.1    1.5  29.6\n10    26 Baseline Place…    32 Mest… Married With c… Chosica   72.1    1.7 117. \n# … with 15 more rows, 3 more variables: lh <dbl>, fsh <dbl>, prog <dbl>, and\n#   abbreviated variable names ¹​married2, ²​procedence\n# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names\n\n\n\n\nSelecciona las variables id, treat, age y married. Guarde como data3 e imprima.\n\n\nCódigo\ndatos %>% \n  select(id, treat, age, married) -> data3\n\ndata3\n\n\n# A tibble: 106 × 4\n      id treat     age married \n   <dbl> <fct>   <dbl> <fct>   \n 1     1 Placebo    33 Single  \n 2     1 Placebo    32 Single  \n 3     2 Dosis 2    27 Single  \n 4     2 Dosis 2    27 Single  \n 5     3 Dosis 1    25 Single  \n 6     3 Dosis 1    25 Single  \n 7     4 Dosis 1    37 Divorced\n 8     4 Dosis 1    38 Divorced\n 9     5 Placebo    31 Single  \n10     5 Placebo    32 Single  \n# … with 96 more rows\n# ℹ Use `print(n = ...)` to see more rows\n\n\n\n\nElimine las variables married2 y weight. No guarde solo imprima.\n\n\nCódigo\ndatos %>% \n  select(-married2, -weight)\n\n\n# A tibble: 106 × 12\n      id time   treat   age race  married proce…¹ height    e2    lh   fsh  prog\n   <dbl> <fct>  <fct> <dbl> <chr> <fct>   <chr>    <dbl> <dbl> <dbl> <dbl> <dbl>\n 1     1 Basel… Plac…    33 Mest… Single  Callao     1.4  87.3  3.28  1.95 14.2 \n 2     1 3 mon… Plac…    32 Mest… Single  Callao     1.3 210.  26.8   8.83 13.0 \n 3     2 Basel… Dosi…    27 Mest… Single  Santa …    1.5 169.   6.34  4.32  0.5 \n 4     2 3 mon… Dosi…    27 Mest… Single  Santa …    1.6  99.9  5.77  1.7   9.61\n 5     3 Basel… Dosi…    25 Mest… Single  Callao     1.6  78.8 11.9   2.81 10.5 \n 6     3 3 mon… Dosi…    25 Mest… Single  Callao     1.6 155.  10.1   4.51  5.04\n 7     4 Basel… Dosi…    37 Mest… Divorc… Callao     1.5  41.0  4.57  3.81  4.64\n 8     4 3 mon… Dosi…    38 Mest… Divorc… Callao     1.5 109.   7.29  2.39 11.7 \n 9     5 Basel… Plac…    31 Mest… Single  La Mol…    1.5  43.0  7.81  2.01 15.1 \n10     5 3 mon… Plac…    32 Mest… Single  La Mol…    1.6  56.0  9.15  3.66 11.5 \n# … with 96 more rows, and abbreviated variable name ¹​procedence\n# ℹ Use `print(n = ...)` to see more rows\n\n\n\n\nSeleccione id, time y race y married2. Luego, filtre por status marital sin pareja.\n\n\nCódigo\ndatos %>% \n  select(id, time, race, married2) %>% \n  filter(married2 == \"Without couple\")\n\n\n# A tibble: 54 × 4\n      id time     race    married2      \n   <dbl> <fct>    <chr>   <fct>         \n 1     1 Baseline Mestiza Without couple\n 2     1 3 months Mestiza Without couple\n 3     2 Baseline Mestiza Without couple\n 4     2 3 months Mestiza Without couple\n 5     3 Baseline Mestiza Without couple\n 6     3 3 months Mestiza Without couple\n 7     4 Baseline Mestiza Without couple\n 8     4 3 months Mestiza Without couple\n 9     5 Baseline Mestiza Without couple\n10     5 3 months Mestiza Without couple\n# … with 44 more rows\n# ℹ Use `print(n = ...)` to see more rows\n\n\n\n\nSeleccione id, treat, weight y height. Luego, calcule el indice de masa corporal. Guarde como data4 e imprima. Llame a esta variable imc.\nTip: Anide select() con mutate()\n\n\nCódigo\ndata4 <- datos %>% \n  select(id, treat, weight, height) %>% \n  mutate(imc = weight / height ^ 2) # ^ : ALT + 94\n\ndata4\n\n\n# A tibble: 106 × 5\n      id treat   weight height   imc\n   <dbl> <fct>    <dbl>  <dbl> <dbl>\n 1     1 Placebo   59      1.4  30.1\n 2     1 Placebo   59.9    1.3  35.4\n 3     2 Dosis 2   62      1.5  27.6\n 4     2 Dosis 2   62.1    1.6  24.3\n 5     3 Dosis 1   62      1.6  24.2\n 6     3 Dosis 1   60      1.6  23.4\n 7     4 Dosis 1   60.9    1.5  27.1\n 8     4 Dosis 1   61.4    1.5  27.3\n 9     5 Placebo   64      1.5  28.4\n10     5 Placebo   58.1    1.6  22.7\n# … with 96 more rows\n# ℹ Use `print(n = ...)` to see more rows\n\n\n\n\nCategorice edad en edad 20-25, 26-35, 36-41. Guarde como data5 e imprima.\n\n\nCódigo\ndatos %>% \n  mutate(\n    edad_cat = case_when(\n      age >= 20 & age <= 25 ~ \"20-25 años\", \n      age >= 26 & age <= 35 ~ \"26-35 años\", \n      age >= 36 & age <= 41 ~ \"36-41 años\", \n      TRUE ~ as.character(NA)\n    )\n  ) -> data5\n\n\ndata5\n\n\n# A tibble: 106 × 15\n      id time     treat    age race  married marri…¹ proce…² weight height    e2\n   <dbl> <fct>    <fct>  <dbl> <chr> <fct>   <fct>   <chr>    <dbl>  <dbl> <dbl>\n 1     1 Baseline Place…    33 Mest… Single  Withou… Callao    59      1.4  87.3\n 2     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. \n 3     2 Baseline Dosis…    27 Mest… Single  Withou… Santa …   62      1.5 169. \n 4     2 3 months Dosis…    27 Mest… Single  Withou… Santa …   62.1    1.6  99.9\n 5     3 Baseline Dosis…    25 Mest… Single  Withou… Callao    62      1.6  78.8\n 6     3 3 months Dosis…    25 Mest… Single  Withou… Callao    60      1.6 155. \n 7     4 Baseline Dosis…    37 Mest… Divorc… Withou… Callao    60.9    1.5  41.0\n 8     4 3 months Dosis…    38 Mest… Divorc… Withou… Callao    61.4    1.5 109. \n 9     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0\n10     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0\n# … with 96 more rows, 4 more variables: lh <dbl>, fsh <dbl>, prog <dbl>,\n#   edad_cat <chr>, and abbreviated variable names ¹​married2, ²​procedence\n# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names\n\n\n\n\nCree una variable nueva llamada elegibilidad, que tenga dos valores: elegible cuando el estado marital es con pareja, no proceda de Callao y tenga IMC mayor a 20, caso contrario, denominarlo no elegible.\n\n\nCódigo\ndatos %>% \n  mutate(\n    imc = weight / height ^ 2, \n    elegibilidad = case_when(\n      married2 == \"With couple\" & procedence != \"Callao\" & imc > 20 ~ \"Elegible\", \n      TRUE ~ \"No elegible\"\n    )\n  )\n\n\n# A tibble: 106 × 16\n      id time     treat    age race  married marri…¹ proce…² weight height    e2\n   <dbl> <fct>    <fct>  <dbl> <chr> <fct>   <fct>   <chr>    <dbl>  <dbl> <dbl>\n 1     1 Baseline Place…    33 Mest… Single  Withou… Callao    59      1.4  87.3\n 2     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. \n 3     2 Baseline Dosis…    27 Mest… Single  Withou… Santa …   62      1.5 169. \n 4     2 3 months Dosis…    27 Mest… Single  Withou… Santa …   62.1    1.6  99.9\n 5     3 Baseline Dosis…    25 Mest… Single  Withou… Callao    62      1.6  78.8\n 6     3 3 months Dosis…    25 Mest… Single  Withou… Callao    60      1.6 155. \n 7     4 Baseline Dosis…    37 Mest… Divorc… Withou… Callao    60.9    1.5  41.0\n 8     4 3 months Dosis…    38 Mest… Divorc… Withou… Callao    61.4    1.5 109. \n 9     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0\n10     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0\n# … with 96 more rows, 5 more variables: lh <dbl>, fsh <dbl>, prog <dbl>,\n#   imc <dbl>, elegibilidad <chr>, and abbreviated variable names ¹​married2,\n#   ²​procedence\n# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names\n\n\n\n\nCategorice indice de masa corporal en <18.5 (Bajo peso), 18.5 a 24.9 (peso normal), 25-29.9 (sobrepeso) y 30+ (obeso). Llame a esta variable imc_cat. GUarde como data6 e imprima\n\n\nCódigo\ndatos %>% \n  mutate(\n    imc = weight / height ^ 2, \n    imc_cat = case_when(\n      imc < 18.5 ~ \"<18.5 (Bajo peso)\", \n      imc >= 18.5 & imc < 25 ~ \"18.5 a 24.9 (peso normal)\", \n      imc >= 25 & imc < 30 ~ \"25-29.9 (sobrepeso)\", \n      imc >= 30 ~ \"30+ (obeso)\"\n    )\n  ) -> data6\n\ndata6\n\n\n# A tibble: 106 × 16\n      id time     treat    age race  married marri…¹ proce…² weight height    e2\n   <dbl> <fct>    <fct>  <dbl> <chr> <fct>   <fct>   <chr>    <dbl>  <dbl> <dbl>\n 1     1 Baseline Place…    33 Mest… Single  Withou… Callao    59      1.4  87.3\n 2     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. \n 3     2 Baseline Dosis…    27 Mest… Single  Withou… Santa …   62      1.5 169. \n 4     2 3 months Dosis…    27 Mest… Single  Withou… Santa …   62.1    1.6  99.9\n 5     3 Baseline Dosis…    25 Mest… Single  Withou… Callao    62      1.6  78.8\n 6     3 3 months Dosis…    25 Mest… Single  Withou… Callao    60      1.6 155. \n 7     4 Baseline Dosis…    37 Mest… Divorc… Withou… Callao    60.9    1.5  41.0\n 8     4 3 months Dosis…    38 Mest… Divorc… Withou… Callao    61.4    1.5 109. \n 9     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0\n10     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0\n# … with 96 more rows, 5 more variables: lh <dbl>, fsh <dbl>, prog <dbl>,\n#   imc <dbl>, imc_cat <chr>, and abbreviated variable names ¹​married2,\n#   ²​procedence\n# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names\n\n\n\n\nColoque etiquetas a imc y a imc_cat para que otro investigador entienda su significado.\n\n\nCódigo\ndata6 %>% \n  set_variable_labels(\n    imc = \"Índice de Masa Corporal (kg/m2)\", \n    imc_cat = \"Categoría de IMC según OMS\"\n  ) -> data7\n\ndata7\n\n\n# A tibble: 106 × 16\n      id time     treat    age race  married marri…¹ proce…² weight height    e2\n   <dbl> <fct>    <fct>  <dbl> <chr> <fct>   <fct>   <chr>    <dbl>  <dbl> <dbl>\n 1     1 Baseline Place…    33 Mest… Single  Withou… Callao    59      1.4  87.3\n 2     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. \n 3     2 Baseline Dosis…    27 Mest… Single  Withou… Santa …   62      1.5 169. \n 4     2 3 months Dosis…    27 Mest… Single  Withou… Santa …   62.1    1.6  99.9\n 5     3 Baseline Dosis…    25 Mest… Single  Withou… Callao    62      1.6  78.8\n 6     3 3 months Dosis…    25 Mest… Single  Withou… Callao    60      1.6 155. \n 7     4 Baseline Dosis…    37 Mest… Divorc… Withou… Callao    60.9    1.5  41.0\n 8     4 3 months Dosis…    38 Mest… Divorc… Withou… Callao    61.4    1.5 109. \n 9     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0\n10     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0\n# … with 96 more rows, 5 more variables: lh <dbl>, fsh <dbl>, prog <dbl>,\n#   imc <dbl>, imc_cat <chr>, and abbreviated variable names ¹​married2,\n#   ²​procedence\n# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names\n\n\n\n\nCambiar el nombre del imc a bmi y de imc_cat bmicat\n\n\nCódigo\ndata7 %>% \n  rename(\n    bmi = imc,\n    bmicat = imc_cat\n  ) -> data8\n\ndata8\n\n\n# A tibble: 106 × 16\n      id time     treat    age race  married marri…¹ proce…² weight height    e2\n   <dbl> <fct>    <fct>  <dbl> <chr> <fct>   <fct>   <chr>    <dbl>  <dbl> <dbl>\n 1     1 Baseline Place…    33 Mest… Single  Withou… Callao    59      1.4  87.3\n 2     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. \n 3     2 Baseline Dosis…    27 Mest… Single  Withou… Santa …   62      1.5 169. \n 4     2 3 months Dosis…    27 Mest… Single  Withou… Santa …   62.1    1.6  99.9\n 5     3 Baseline Dosis…    25 Mest… Single  Withou… Callao    62      1.6  78.8\n 6     3 3 months Dosis…    25 Mest… Single  Withou… Callao    60      1.6 155. \n 7     4 Baseline Dosis…    37 Mest… Divorc… Withou… Callao    60.9    1.5  41.0\n 8     4 3 months Dosis…    38 Mest… Divorc… Withou… Callao    61.4    1.5 109. \n 9     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0\n10     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0\n# … with 96 more rows, 5 more variables: lh <dbl>, fsh <dbl>, prog <dbl>,\n#   bmi <dbl>, bmicat <chr>, and abbreviated variable names ¹​married2,\n#   ²​procedence\n# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names\n\n\n\n\nQuedarse solo con las filas 1, 3, 5 y 8 de los datos:\n\n\nCódigo\ndata8 %>% \n  slice(c(1, 3, 5, 8))\n\n\n# A tibble: 4 × 16\n     id time     treat     age race  married marri…¹ proce…² weight height    e2\n  <dbl> <fct>    <fct>   <dbl> <chr> <fct>   <fct>   <chr>    <dbl>  <dbl> <dbl>\n1     1 Baseline Placebo    33 Mest… Single  Withou… Callao    59      1.4  87.3\n2     2 Baseline Dosis 2    27 Mest… Single  Withou… Santa …   62      1.5 169. \n3     3 Baseline Dosis 1    25 Mest… Single  Withou… Callao    62      1.6  78.8\n4     4 3 months Dosis 1    38 Mest… Divorc… Withou… Callao    61.4    1.5 109. \n# … with 5 more variables: lh <dbl>, fsh <dbl>, prog <dbl>, bmi <dbl>,\n#   bmicat <chr>, and abbreviated variable names ¹​married2, ²​procedence\n# ℹ Use `colnames()` to see all variable names\n\n\n\n\nSeleccionar, id, peso, tratamiento y imc y reordenarlo segun imc de mayor a menor:\n\n\nCódigo\ndata8 %>% \n  select(id, weight, treat, bmi) %>% \n  arrange(desc(bmi))\n\n\n# A tibble: 106 × 4\n      id weight treat     bmi\n   <dbl>  <dbl> <fct>   <dbl>\n 1    41   91.9 Dosis 1  40.8\n 2    50   71.7 Dosis 2  36.6\n 3    36   81   Dosis 1  36  \n 4     1   59.9 Placebo  35.4\n 5    53   64.9 Dosis 2  33.1\n 6    34   72.6 Dosis 1  32.3\n 7    41   92.1 Dosis 1  31.9\n 8    28   81.5 Dosis 2  31.8\n 9    12   68   Dosis 2  30.2\n10    12   68   Dosis 2  30.2\n# … with 96 more rows\n# ℹ Use `print(n = ...)` to see more rows"
+  },
+  {
     "objectID": "example/mi_primer_proyecto/mi_primer_quarto.html",
     "href": "example/mi_primer_proyecto/mi_primer_quarto.html",
     "title": "Mi primer documento quarto",
     "section": "",
-    "text": "5 + 8\n3 * 23\n20 ^ 3\n73 / 5"
+    "text": "Todo lo que se escriba en el documento quarto será entendido como texto en lenguaje humano por quarto.\nPor ejemplo, las siguientes operaciones matemáticas:\n5 + 8\n3 * 23\n20 ^ 3\n73 / 5\nTodas ellas se han impreso, pero no se ha mostrado resultado. Esto debido a que Quarto las entiende como texto."
   },
   {
     "objectID": "example/mi_primer_proyecto/mi_primer_quarto.html#hacer-cálculos-con-r",
     "href": "example/mi_primer_proyecto/mi_primer_quarto.html#hacer-cálculos-con-r",
     "title": "Mi primer documento quarto",
     "section": "Hacer cálculos con R",
-    "text": "Hacer cálculos con R\n\ncinco más ocho\n\n\n\nCódigo\n5 + 8\n\n\n[1] 13\n\n\n\ntres por veintitrés\n\n\n\nCódigo\n3 * 23\n\n\n[1] 69\n\n\n\nveinte elevado al cubo\n\n\n\nCódigo\n20 ^ 3\n\n\n[1] 8000\n\n\n\nsetenta y tres entre cinco\n\n\n\nCódigo\n73 / 5\n\n\n[1] 14.6"
+    "text": "Hacer cálculos con R\nSi queremos hacer cálculos con R en Quarto, debemos hacerlo dentro de chunks de código. Vean los siguientes ejemplos:\n\ncinco más ocho\n\n\n\nCódigo\n5 + 8\n\n\n[1] 13\n\n\n\ntres por veintitrés\n\n\n\nCódigo\n3 * 23\n\n\n[1] 69\n\n\n\nveinte elevado al cubo\n\n\n\nCódigo\n20 ^ 3\n\n\n[1] 8000\n\n\n\nsetenta y tres entre cinco\n\n\n\nCódigo\n73 / 5\n\n\n[1] 14.6"
   },
   {
     "objectID": "example/mi_primer_proyecto/mi_primer_quarto.html#instalación-de-paquetes",
     "href": "example/mi_primer_proyecto/mi_primer_quarto.html#instalación-de-paquetes",
     "title": "Mi primer documento quarto",
     "section": "Instalación de paquetes:",
-    "text": "Instalación de paquetes:\n\n\nCódigo\n# install.packages(\"medicaldata\")\n# install.packages(\"tidyverse\")\n\n### Nota: Uno solo instala los paquetes la primera vez, luego es RECOMENDABLE comentarlos con el símbolo inicial #. Si no se hace esto, suelen aparecer mensajes de error.\n\n\nNota: Uno solo instala los paquetes la primera vez, luego es RECOMENDABLE comentarlos con el símbolo inicial #. Si no se hace esto, suelen aparecer mensajes de error."
+    "text": "Instalación de paquetes:\nUna de las primeras cosas que uno debe hacer es instalar paquetes. Una forma de hacerlo es a través de install.packages(). Los paquetes debería instalarse solo la primera vez, por lo que sugerimos no colocarlos en los chunk de código y solamente correrlos desde la consola.\nEn nuestro caso, los hemos puesto dentro del chunk del código, pero para evitar que se vuelvan a correr, los hemos comentado con el síbolo # al inicio de cada línea.\nEl símbolo # dentro de un chunk de código ocasiona que este no sea procesado por R. Se transforma en un “comentario humano”. Si no colocamos el signo #, entonces R procesará el texto como código y ejecutará la acción correspondiente.\n\n\nCódigo\n# install.packages(\"medicaldata\")\n# install.packages(\"tidyverse\")\n\n### Nota: Uno solo instala los paquetes la primera vez, luego es RECOMENDABLE comentarlos con el símbolo inicial #. Si no se hace esto, suelen aparecer mensajes de error.\n\n\nNota: Uno solo instala los paquetes la primera vez, luego es RECOMENDABLE comentarlos con el símbolo inicial #. Si no se hace esto, suelen aparecer mensajes de error."
   },
   {
     "objectID": "example/mi_primer_proyecto/mi_primer_quarto.html#cargar-paquetes",
     "href": "example/mi_primer_proyecto/mi_primer_quarto.html#cargar-paquetes",
     "title": "Mi primer documento quarto",
     "section": "Cargar paquetes",
-    "text": "Cargar paquetes\n\n\nCódigo\nlibrary(medicaldata)\nlibrary(tidyverse)\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.8     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()"
+    "text": "Cargar paquetes\nUna de las primeras acciones que uno debe realizar es cargar los paquetes que usará. Por un tema de orden, sugerimos que estos siempre se carguen en un solo chunk que se encuentre al inicio del documento Quarto.\n\n\nCódigo\nlibrary(medicaldata)\nlibrary(tidyverse)\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.8     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()"
   },
   {
     "objectID": "example/mi_primer_proyecto/mi_primer_quarto.html#consultar-ayuda-de-filter",
     "href": "example/mi_primer_proyecto/mi_primer_quarto.html#consultar-ayuda-de-filter",
     "title": "Mi primer documento quarto",
     "section": "Consultar ayuda de filter()",
-    "text": "Consultar ayuda de filter()\n\n\nCódigo\n?filter\n\n\nstarting httpd help server ... done"
+    "text": "Consultar ayuda de filter()\nLa función ? permite consultar la ayuda en R.\n\n\nCódigo\n?filter\n\n\nstarting httpd help server ... done"
   },
   {
     "objectID": "example/mi_primer_proyecto/mi_primer_quarto.html#cargar-base-de-datos-theoph-de-medicaldata",
     "href": "example/mi_primer_proyecto/mi_primer_quarto.html#cargar-base-de-datos-theoph-de-medicaldata",
     "title": "Mi primer documento quarto",
     "section": "Cargar base de datos theoph de medicaldata",
-    "text": "Cargar base de datos theoph de medicaldata\n\n\nCódigo\ndata(theoph)"
+    "text": "Cargar base de datos theoph de medicaldata\nSe puede cargar los datos de un paquete usando la función data().\n\n\nCódigo\ndata(theoph)"
   },
   {
     "objectID": "example/mi_primer_proyecto/mi_primer_quarto.html#seleccionar-columna-dose-de-datos-theoph",
     "href": "example/mi_primer_proyecto/mi_primer_quarto.html#seleccionar-columna-dose-de-datos-theoph",
     "title": "Mi primer documento quarto",
     "section": "Seleccionar columna Dose de datos theoph",
-    "text": "Seleccionar columna Dose de datos theoph\n\n\nCódigo\ntheoph$Dose\n\n\n  [1] 4.02 4.02 4.02 4.02 4.02 4.02 4.02 4.02 4.02 4.02 4.02 4.40 4.40 4.40 4.40\n [16] 4.40 4.40 4.40 4.40 4.40 4.40 4.40 4.53 4.53 4.53 4.53 4.53 4.53 4.53 4.53\n [31] 4.53 4.53 4.53 4.40 4.40 4.40 4.40 4.40 4.40 4.40 4.40 4.40 4.40 4.40 5.86\n [46] 5.86 5.86 5.86 5.86 5.86 5.86 5.86 5.86 5.86 5.86 4.00 4.00 4.00 4.00 4.00\n [61] 4.00 4.00 4.00 4.00 4.00 4.00 4.95 4.95 4.95 4.95 4.95 4.95 4.95 4.95 4.95\n [76] 4.95 4.95 4.53 4.53 4.53 4.53 4.53 4.53 4.53 4.53 4.53 4.53 4.53 3.10 3.10\n [91] 3.10 3.10 3.10 3.10 3.10 3.10 3.10 3.10 3.10 5.50 5.50 5.50 5.50 5.50 5.50\n[106] 5.50 5.50 5.50 5.50 5.50 4.92 4.92 4.92 4.92 4.92 4.92 4.92 4.92 4.92 4.92\n[121] 4.92 5.30 5.30 5.30 5.30 5.30 5.30 5.30 5.30 5.30 5.30 5.30"
+    "text": "Seleccionar columna Dose de datos theoph\nPodemos seleccionar una columna del objeto data frame theoph usndo el operador $.\n\n\nCódigo\ntheoph$Dose\n\n\n  [1] 4.02 4.02 4.02 4.02 4.02 4.02 4.02 4.02 4.02 4.02 4.02 4.40 4.40 4.40 4.40\n [16] 4.40 4.40 4.40 4.40 4.40 4.40 4.40 4.53 4.53 4.53 4.53 4.53 4.53 4.53 4.53\n [31] 4.53 4.53 4.53 4.40 4.40 4.40 4.40 4.40 4.40 4.40 4.40 4.40 4.40 4.40 5.86\n [46] 5.86 5.86 5.86 5.86 5.86 5.86 5.86 5.86 5.86 5.86 4.00 4.00 4.00 4.00 4.00\n [61] 4.00 4.00 4.00 4.00 4.00 4.00 4.95 4.95 4.95 4.95 4.95 4.95 4.95 4.95 4.95\n [76] 4.95 4.95 4.53 4.53 4.53 4.53 4.53 4.53 4.53 4.53 4.53 4.53 4.53 3.10 3.10\n [91] 3.10 3.10 3.10 3.10 3.10 3.10 3.10 3.10 3.10 5.50 5.50 5.50 5.50 5.50 5.50\n[106] 5.50 5.50 5.50 5.50 5.50 4.92 4.92 4.92 4.92 4.92 4.92 4.92 4.92 4.92 4.92\n[121] 4.92 5.30 5.30 5.30 5.30 5.30 5.30 5.30 5.30 5.30 5.30 5.30"
   },
   {
     "objectID": "example/mi_primer_proyecto/mi_primer_quarto.html#guardar-columna-seleccionada-en-dosis",
     "href": "example/mi_primer_proyecto/mi_primer_quarto.html#guardar-columna-seleccionada-en-dosis",
     "title": "Mi primer documento quarto",
     "section": "Guardar columna seleccionada en dosis",
-    "text": "Guardar columna seleccionada en dosis\n\n\nCódigo\ndosis <- theoph$Dose"
+    "text": "Guardar columna seleccionada en dosis\nUno puede guardar el objeto extraido con el operador $ en otro nuevo objeto cuyo nombre se asigna con el operador asignar <-\n\n\nCódigo\ndosis <- theoph$Dose"
   },
   {
     "objectID": "example/random-numbers.html",

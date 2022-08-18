@@ -8,7 +8,7 @@ format:
   revealjs:
     self-contained: true
     theme: [simple, theme/theme.scss]
-    footer: "Introducción a R y RStudio"
+    footer: "Variables numérica"
     slide-number: c/t
     logo: img/logo.png
     width: 1920
@@ -30,6 +30,7 @@ library(gt)
 library(gtExtras)
 library(gtsummary)
 library(showtext)
+library(rio)
 
 ## Ver QUARTO RSTUDIO CONFERENCE: https://github.com/rstudio-conf-2022/get-started-quarto/blob/main/materials/02-authoring.qmd
 ## 
@@ -40,5 +41,82 @@ library(showtext)
 
 ---
 
-# Variables numéricas
+# Análisis descriptivo de variables numéricas
+
+---
+
+## Los datos que usaremos
+
+
+
+---
+
+## ¿Qué describir los datos numéricos?
+
+- Forma:
+
+    + Simetría: Sesgo a la derecha, sesgo a la izquierda, simétrico
+    
+    + Modas: Unimodal, bimodal, multimodal, uniforme (no moda)
+    
+    + Curtosis: Solo en distribución unimodal
+
+- Centro: media, mediana, moda (no siempre útil)
+
+- Dispersión: rango, desviacióne stándar, rango intercuartílico
+
+- Observaciones inusuales
+
+---
+
+## ¿Cómo describir los datos numéricos?
+
+<br/>
+
+- Medidas de resumen
+
+- Gráficos
+
+    + Puntos
+
+    + Cajas 
+    
+    + Histogramas 
+    
+    + Densidad
+    
+    + Violin
+    
+    + Combinación de gráficos
+
+## Inspección 
+
+
+## Medidas de resumen
+
+## summarise() y group_by()
+
+
+## 
+
+```{r}
+#| echo: false
+library(medicaldata)
+data(covid_testing)
+```
+
+
+```{r}
+glimpse(covid_testing)
+```
+
+## 
+
+```{r}
+
+```
+
+
+## 
+
 

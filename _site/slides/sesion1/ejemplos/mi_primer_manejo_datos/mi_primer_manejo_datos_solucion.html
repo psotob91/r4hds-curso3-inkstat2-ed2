@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Mi primer manejo de datos</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="mi_primer_manejo_datos_solucion_files/libs/clipboard/clipboard.min.js"></script>
+<script src="mi_primer_manejo_datos_solucion_files/libs/quarto-html/quarto.js"></script>
+<script src="mi_primer_manejo_datos_solucion_files/libs/quarto-html/popper.min.js"></script>
+<script src="mi_primer_manejo_datos_solucion_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="mi_primer_manejo_datos_solucion_files/libs/quarto-html/anchor.min.js"></script>
+<link href="mi_primer_manejo_datos_solucion_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="mi_primer_manejo_datos_solucion_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="mi_primer_manejo_datos_solucion_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="mi_primer_manejo_datos_solucion_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="mi_primer_manejo_datos_solucion_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Mi primer manejo de datos</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="instrucciones" class="level2">
+<h2 class="anchored" data-anchor-id="instrucciones">Instrucciones</h2>
+<ul>
+<li><p>Descripción: En este taller nos familizaremos con el manejo de datos</p></li>
+<li><p>Realice las siguientes acciones en su computador:</p>
+<ol type="1">
+<li><p>Trabaje sobre este documento Quarto.</p></li>
+<li><p>Importaremos el conjunto de datos <code>maca_meno_fase1.dta</code> y lo guardaremos con el nombre de <code>datos</code>.</p></li>
+</ol></li>
+</ul>
+</section>
+<section id="desarrollo-del-taller" class="level2">
+<h2 class="anchored" data-anchor-id="desarrollo-del-taller">Desarrollo del taller</h2>
+<section id="cargar-los-paquetes" class="level3">
+<h3 class="anchored" data-anchor-id="cargar-los-paquetes">Cargar los paquetes</h3>
+<p>Con este código se cargan los paquetes. Es recomendable instalar todos los paquetes al inicio y luego cargarlos todos! Solo instala una vez, luego comenta para no reinstalar a cada rato.</p>
+<p>Tip: Use library(paquete). Cargue <code>tidyverse</code>, <code>haven</code> y <code>labelled</code>. Si no están instalados, instalelos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+✔ tibble  3.1.8     ✔ dplyr   1.0.9
+✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ readr   2.1.2     ✔ forcats 0.5.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importar-datos" class="level3">
+<h3 class="anchored" data-anchor-id="importar-datos">Importar datos</h3>
+<p>Tip: Como es archivo Stata, use read_stata() junto con as_factor() para recuperar metadatos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_stata</span>(<span class="st">"maca_meno_fase1.dta"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_factor</span>()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>datos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 106 × 14
+      id time     treat    age race  married marri…¹ proce…² weight height    e2
+   &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1     1 Baseline Place…    33 Mest… Single  Withou… Callao    59      1.4  87.3
+ 2     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. 
+ 3     2 Baseline Dosis…    27 Mest… Single  Withou… Santa …   62      1.5 169. 
+ 4     2 3 months Dosis…    27 Mest… Single  Withou… Santa …   62.1    1.6  99.9
+ 5     3 Baseline Dosis…    25 Mest… Single  Withou… Callao    62      1.6  78.8
+ 6     3 3 months Dosis…    25 Mest… Single  Withou… Callao    60      1.6 155. 
+ 7     4 Baseline Dosis…    37 Mest… Divorc… Withou… Callao    60.9    1.5  41.0
+ 8     4 3 months Dosis…    38 Mest… Divorc… Withou… Callao    61.4    1.5 109. 
+ 9     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0
+10     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0
+# … with 96 more rows, 3 more variables: lh &lt;dbl&gt;, fsh &lt;dbl&gt;, prog &lt;dbl&gt;, and
+#   abbreviated variable names ¹​married2, ²​procedence
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+</section>
+<section id="filtre-al-grupo-tratado-placebo-y-guardelo-como-datos2.-imprima-datos2" class="level3">
+<h3 class="anchored" data-anchor-id="filtre-al-grupo-tratado-placebo-y-guardelo-como-datos2.-imprima-datos2">Filtre al grupo tratado placebo y guardelo como datos2. Imprima datos2</h3>
+<p>Tip: Use filter()</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(treat <span class="sc">==</span> <span class="st">"Placebo"</span>) <span class="ot">-&gt;</span> datos2</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>datos2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 34 × 14
+      id time     treat    age race  married marri…¹ proce…² weight height    e2
+   &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1     1 Baseline Place…    33 Mest… Single  Withou… Callao    59      1.4  87.3
+ 2     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. 
+ 3     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0
+ 4     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0
+ 5     6 Baseline Place…    38 Mest… Married With c… Los Ol…   54.5    1.5  36.2
+ 6     6 3 months Place…    38 Mest… Married With c… Los Ol…   53.9    1.5  44.7
+ 7     8 Baseline Place…    34 Mest… Married With c… Caraba…   64      1.5  65.6
+ 8     8 3 months Place…    34 Mest… Married With c… Caraba…   59      1.5 134. 
+ 9    10 Baseline Place…    38 Mest… Single  Withou… Pueblo…   56.1    1.7 115. 
+10    10 3 months Place…    38 Mest… Single  Withou… Pueblo…   54.9    1.5  71.5
+# … with 24 more rows, 3 more variables: lh &lt;dbl&gt;, fsh &lt;dbl&gt;, prog &lt;dbl&gt;, and
+#   abbreviated variable names ¹​married2, ²​procedence
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+</section>
+<section id="filtre-a-quienes-tienen-edad-27-y-menor-de-33-sin-guardarlo-solo-imprimalo" class="level3">
+<h3 class="anchored" data-anchor-id="filtre-a-quienes-tienen-edad-27-y-menor-de-33-sin-guardarlo-solo-imprimalo">Filtre a quienes tienen edad &gt; 27 y menor de 33 sin guardarlo, solo imprimalo:</h3>
+<p>Tip: Use filter()</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;</span> <span class="dv">27</span> <span class="sc">&amp;</span> age <span class="sc">&lt;</span> <span class="dv">33</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 25 × 14
+      id time     treat    age race  married marri…¹ proce…² weight height    e2
+   &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. 
+ 2     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0
+ 3     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0
+ 4     9 Baseline Dosis…    30 Mest… Single  Withou… SMP       61      1.6  49.6
+ 5     9 3 months Dosis…    30 Mest… Single  Withou… SMP       63.1    1.7  46.3
+ 6    16 Baseline Dosis…    30 Mest… Single  Withou… Los Ol…   56      1.5  81.0
+ 7    16 3 months Dosis…    30 Mest… Single  Withou… Los Ol…   55.9    1.5  73.1
+ 8    21 Baseline Place…    29 Mest… Married With c… SJL       56.9    1.4  71.6
+ 9    21 3 months Place…    29 Mest… Married With c… SJL       57.1    1.5  29.6
+10    26 Baseline Place…    32 Mest… Married With c… Chosica   72.1    1.7 117. 
+# … with 15 more rows, 3 more variables: lh &lt;dbl&gt;, fsh &lt;dbl&gt;, prog &lt;dbl&gt;, and
+#   abbreviated variable names ¹​married2, ²​procedence
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+</section>
+<section id="selecciona-las-variables-id-treat-age-y-married.-guarde-como-data3-e-imprima." class="level3">
+<h3 class="anchored" data-anchor-id="selecciona-las-variables-id-treat-age-y-married.-guarde-como-data3-e-imprima.">Selecciona las variables id, treat, age y married. Guarde como data3 e imprima.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, treat, age, married) <span class="ot">-&gt;</span> data3</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>data3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 106 × 4
+      id treat     age married 
+   &lt;dbl&gt; &lt;fct&gt;   &lt;dbl&gt; &lt;fct&gt;   
+ 1     1 Placebo    33 Single  
+ 2     1 Placebo    32 Single  
+ 3     2 Dosis 2    27 Single  
+ 4     2 Dosis 2    27 Single  
+ 5     3 Dosis 1    25 Single  
+ 6     3 Dosis 1    25 Single  
+ 7     4 Dosis 1    37 Divorced
+ 8     4 Dosis 1    38 Divorced
+ 9     5 Placebo    31 Single  
+10     5 Placebo    32 Single  
+# … with 96 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="elimine-las-variables-married2-y-weight.-no-guarde-solo-imprima." class="level3">
+<h3 class="anchored" data-anchor-id="elimine-las-variables-married2-y-weight.-no-guarde-solo-imprima.">Elimine las variables married2 y weight. No guarde solo imprima.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>married2, <span class="sc">-</span>weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 106 × 12
+      id time   treat   age race  married proce…¹ height    e2    lh   fsh  prog
+   &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt; &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1     1 Basel… Plac…    33 Mest… Single  Callao     1.4  87.3  3.28  1.95 14.2 
+ 2     1 3 mon… Plac…    32 Mest… Single  Callao     1.3 210.  26.8   8.83 13.0 
+ 3     2 Basel… Dosi…    27 Mest… Single  Santa …    1.5 169.   6.34  4.32  0.5 
+ 4     2 3 mon… Dosi…    27 Mest… Single  Santa …    1.6  99.9  5.77  1.7   9.61
+ 5     3 Basel… Dosi…    25 Mest… Single  Callao     1.6  78.8 11.9   2.81 10.5 
+ 6     3 3 mon… Dosi…    25 Mest… Single  Callao     1.6 155.  10.1   4.51  5.04
+ 7     4 Basel… Dosi…    37 Mest… Divorc… Callao     1.5  41.0  4.57  3.81  4.64
+ 8     4 3 mon… Dosi…    38 Mest… Divorc… Callao     1.5 109.   7.29  2.39 11.7 
+ 9     5 Basel… Plac…    31 Mest… Single  La Mol…    1.5  43.0  7.81  2.01 15.1 
+10     5 3 mon… Plac…    32 Mest… Single  La Mol…    1.6  56.0  9.15  3.66 11.5 
+# … with 96 more rows, and abbreviated variable name ¹​procedence
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="seleccione-id-time-y-race-y-married2.-luego-filtre-por-status-marital-sin-pareja." class="level3">
+<h3 class="anchored" data-anchor-id="seleccione-id-time-y-race-y-married2.-luego-filtre-por-status-marital-sin-pareja.">Seleccione id, time y race y married2. Luego, filtre por status marital sin pareja.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, time, race, married2) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(married2 <span class="sc">==</span> <span class="st">"Without couple"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 54 × 4
+      id time     race    married2      
+   &lt;dbl&gt; &lt;fct&gt;    &lt;chr&gt;   &lt;fct&gt;         
+ 1     1 Baseline Mestiza Without couple
+ 2     1 3 months Mestiza Without couple
+ 3     2 Baseline Mestiza Without couple
+ 4     2 3 months Mestiza Without couple
+ 5     3 Baseline Mestiza Without couple
+ 6     3 3 months Mestiza Without couple
+ 7     4 Baseline Mestiza Without couple
+ 8     4 3 months Mestiza Without couple
+ 9     5 Baseline Mestiza Without couple
+10     5 3 months Mestiza Without couple
+# … with 44 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="seleccione-id-treat-weight-y-height.-luego-calcule-el-indice-de-masa-corporal.-guarde-como-data4-e-imprima.-llame-a-esta-variable-imc." class="level3">
+<h3 class="anchored" data-anchor-id="seleccione-id-treat-weight-y-height.-luego-calcule-el-indice-de-masa-corporal.-guarde-como-data4-e-imprima.-llame-a-esta-variable-imc.">Seleccione id, treat, weight y height. Luego, calcule el indice de masa corporal. Guarde como data4 e imprima. Llame a esta variable imc.</h3>
+<p>Tip: Anide select() con mutate()</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>data4 <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, treat, weight, height) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">imc =</span> weight <span class="sc">/</span> height <span class="sc">^</span> <span class="dv">2</span>) <span class="co"># ^ : ALT + 94</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>data4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 106 × 5
+      id treat   weight height   imc
+   &lt;dbl&gt; &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1     1 Placebo   59      1.4  30.1
+ 2     1 Placebo   59.9    1.3  35.4
+ 3     2 Dosis 2   62      1.5  27.6
+ 4     2 Dosis 2   62.1    1.6  24.3
+ 5     3 Dosis 1   62      1.6  24.2
+ 6     3 Dosis 1   60      1.6  23.4
+ 7     4 Dosis 1   60.9    1.5  27.1
+ 8     4 Dosis 1   61.4    1.5  27.3
+ 9     5 Placebo   64      1.5  28.4
+10     5 Placebo   58.1    1.6  22.7
+# … with 96 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="categorice-edad-en-edad-20-25-26-35-36-41.-guarde-como-data5-e-imprima." class="level3">
+<h3 class="anchored" data-anchor-id="categorice-edad-en-edad-20-25-26-35-36-41.-guarde-como-data5-e-imprima.">Categorice edad en edad 20-25, 26-35, 36-41. Guarde como data5 e imprima.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">edad_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>      age <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">25</span> <span class="sc">~</span> <span class="st">"20-25 años"</span>, </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>      age <span class="sc">&gt;=</span> <span class="dv">26</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">35</span> <span class="sc">~</span> <span class="st">"26-35 años"</span>, </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>      age <span class="sc">&gt;=</span> <span class="dv">36</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">41</span> <span class="sc">~</span> <span class="st">"36-41 años"</span>, </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="fu">as.character</span>(<span class="cn">NA</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="ot">-&gt;</span> data5</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>data5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 106 × 15
+      id time     treat    age race  married marri…¹ proce…² weight height    e2
+   &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1     1 Baseline Place…    33 Mest… Single  Withou… Callao    59      1.4  87.3
+ 2     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. 
+ 3     2 Baseline Dosis…    27 Mest… Single  Withou… Santa …   62      1.5 169. 
+ 4     2 3 months Dosis…    27 Mest… Single  Withou… Santa …   62.1    1.6  99.9
+ 5     3 Baseline Dosis…    25 Mest… Single  Withou… Callao    62      1.6  78.8
+ 6     3 3 months Dosis…    25 Mest… Single  Withou… Callao    60      1.6 155. 
+ 7     4 Baseline Dosis…    37 Mest… Divorc… Withou… Callao    60.9    1.5  41.0
+ 8     4 3 months Dosis…    38 Mest… Divorc… Withou… Callao    61.4    1.5 109. 
+ 9     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0
+10     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0
+# … with 96 more rows, 4 more variables: lh &lt;dbl&gt;, fsh &lt;dbl&gt;, prog &lt;dbl&gt;,
+#   edad_cat &lt;chr&gt;, and abbreviated variable names ¹​married2, ²​procedence
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+</section>
+<section id="cree-una-variable-nueva-llamada-elegibilidad-que-tenga-dos-valores-elegible-cuando-el-estado-marital-es-con-pareja-no-proceda-de-callao-y-tenga-imc-mayor-a-20-caso-contrario-denominarlo-no-elegible." class="level3">
+<h3 class="anchored" data-anchor-id="cree-una-variable-nueva-llamada-elegibilidad-que-tenga-dos-valores-elegible-cuando-el-estado-marital-es-con-pareja-no-proceda-de-callao-y-tenga-imc-mayor-a-20-caso-contrario-denominarlo-no-elegible.">Cree una variable nueva llamada elegibilidad, que tenga dos valores: elegible cuando el estado marital es con pareja, no proceda de Callao y tenga IMC mayor a 20, caso contrario, denominarlo no elegible.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">imc =</span> weight <span class="sc">/</span> height <span class="sc">^</span> <span class="dv">2</span>, </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">elegibilidad =</span> <span class="fu">case_when</span>(</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>      married2 <span class="sc">==</span> <span class="st">"With couple"</span> <span class="sc">&amp;</span> procedence <span class="sc">!=</span> <span class="st">"Callao"</span> <span class="sc">&amp;</span> imc <span class="sc">&gt;</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">"Elegible"</span>, </span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"No elegible"</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 106 × 16
+      id time     treat    age race  married marri…¹ proce…² weight height    e2
+   &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1     1 Baseline Place…    33 Mest… Single  Withou… Callao    59      1.4  87.3
+ 2     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. 
+ 3     2 Baseline Dosis…    27 Mest… Single  Withou… Santa …   62      1.5 169. 
+ 4     2 3 months Dosis…    27 Mest… Single  Withou… Santa …   62.1    1.6  99.9
+ 5     3 Baseline Dosis…    25 Mest… Single  Withou… Callao    62      1.6  78.8
+ 6     3 3 months Dosis…    25 Mest… Single  Withou… Callao    60      1.6 155. 
+ 7     4 Baseline Dosis…    37 Mest… Divorc… Withou… Callao    60.9    1.5  41.0
+ 8     4 3 months Dosis…    38 Mest… Divorc… Withou… Callao    61.4    1.5 109. 
+ 9     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0
+10     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0
+# … with 96 more rows, 5 more variables: lh &lt;dbl&gt;, fsh &lt;dbl&gt;, prog &lt;dbl&gt;,
+#   imc &lt;dbl&gt;, elegibilidad &lt;chr&gt;, and abbreviated variable names ¹​married2,
+#   ²​procedence
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+</section>
+<section id="categorice-indice-de-masa-corporal-en-18.5-bajo-peso-18.5-a-24.9-peso-normal-25-29.9-sobrepeso-y-30-obeso.-llame-a-esta-variable-imc_cat.-guarde-como-data6-e-imprima" class="level3">
+<h3 class="anchored" data-anchor-id="categorice-indice-de-masa-corporal-en-18.5-bajo-peso-18.5-a-24.9-peso-normal-25-29.9-sobrepeso-y-30-obeso.-llame-a-esta-variable-imc_cat.-guarde-como-data6-e-imprima">Categorice indice de masa corporal en &lt;18.5 (Bajo peso), 18.5 a 24.9 (peso normal), 25-29.9 (sobrepeso) y 30+ (obeso). Llame a esta variable imc_cat. GUarde como data6 e imprima</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">imc =</span> weight <span class="sc">/</span> height <span class="sc">^</span> <span class="dv">2</span>, </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">imc_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>      imc <span class="sc">&lt;</span> <span class="fl">18.5</span> <span class="sc">~</span> <span class="st">"&lt;18.5 (Bajo peso)"</span>, </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>      imc <span class="sc">&gt;=</span> <span class="fl">18.5</span> <span class="sc">&amp;</span> imc <span class="sc">&lt;</span> <span class="dv">25</span> <span class="sc">~</span> <span class="st">"18.5 a 24.9 (peso normal)"</span>, </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>      imc <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span> imc <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">~</span> <span class="st">"25-29.9 (sobrepeso)"</span>, </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>      imc <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">~</span> <span class="st">"30+ (obeso)"</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="ot">-&gt;</span> data6</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>data6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 106 × 16
+      id time     treat    age race  married marri…¹ proce…² weight height    e2
+   &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1     1 Baseline Place…    33 Mest… Single  Withou… Callao    59      1.4  87.3
+ 2     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. 
+ 3     2 Baseline Dosis…    27 Mest… Single  Withou… Santa …   62      1.5 169. 
+ 4     2 3 months Dosis…    27 Mest… Single  Withou… Santa …   62.1    1.6  99.9
+ 5     3 Baseline Dosis…    25 Mest… Single  Withou… Callao    62      1.6  78.8
+ 6     3 3 months Dosis…    25 Mest… Single  Withou… Callao    60      1.6 155. 
+ 7     4 Baseline Dosis…    37 Mest… Divorc… Withou… Callao    60.9    1.5  41.0
+ 8     4 3 months Dosis…    38 Mest… Divorc… Withou… Callao    61.4    1.5 109. 
+ 9     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0
+10     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0
+# … with 96 more rows, 5 more variables: lh &lt;dbl&gt;, fsh &lt;dbl&gt;, prog &lt;dbl&gt;,
+#   imc &lt;dbl&gt;, imc_cat &lt;chr&gt;, and abbreviated variable names ¹​married2,
+#   ²​procedence
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+</section>
+<section id="coloque-etiquetas-a-imc-y-a-imc_cat-para-que-otro-investigador-entienda-su-significado." class="level3">
+<h3 class="anchored" data-anchor-id="coloque-etiquetas-a-imc-y-a-imc_cat-para-que-otro-investigador-entienda-su-significado.">Coloque etiquetas a imc y a imc_cat para que otro investigador entienda su significado.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data6 <span class="sc">%&gt;%</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_variable_labels</span>(</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">imc =</span> <span class="st">"Índice de Masa Corporal (kg/m2)"</span>, </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">imc_cat =</span> <span class="st">"Categoría de IMC según OMS"</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="ot">-&gt;</span> data7</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>data7</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 106 × 16
+      id time     treat    age race  married marri…¹ proce…² weight height    e2
+   &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1     1 Baseline Place…    33 Mest… Single  Withou… Callao    59      1.4  87.3
+ 2     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. 
+ 3     2 Baseline Dosis…    27 Mest… Single  Withou… Santa …   62      1.5 169. 
+ 4     2 3 months Dosis…    27 Mest… Single  Withou… Santa …   62.1    1.6  99.9
+ 5     3 Baseline Dosis…    25 Mest… Single  Withou… Callao    62      1.6  78.8
+ 6     3 3 months Dosis…    25 Mest… Single  Withou… Callao    60      1.6 155. 
+ 7     4 Baseline Dosis…    37 Mest… Divorc… Withou… Callao    60.9    1.5  41.0
+ 8     4 3 months Dosis…    38 Mest… Divorc… Withou… Callao    61.4    1.5 109. 
+ 9     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0
+10     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0
+# … with 96 more rows, 5 more variables: lh &lt;dbl&gt;, fsh &lt;dbl&gt;, prog &lt;dbl&gt;,
+#   imc &lt;dbl&gt;, imc_cat &lt;chr&gt;, and abbreviated variable names ¹​married2,
+#   ²​procedence
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+</section>
+<section id="cambiar-el-nombre-del-imc-a-bmi-y-de-imc_cat-bmicat" class="level3">
+<h3 class="anchored" data-anchor-id="cambiar-el-nombre-del-imc-a-bmi-y-de-imc_cat-bmicat">Cambiar el nombre del imc a bmi y de imc_cat bmicat</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data7 <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">bmi =</span> imc,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">bmicat =</span> imc_cat</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="ot">-&gt;</span> data8</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>data8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 106 × 16
+      id time     treat    age race  married marri…¹ proce…² weight height    e2
+   &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1     1 Baseline Place…    33 Mest… Single  Withou… Callao    59      1.4  87.3
+ 2     1 3 months Place…    32 Mest… Single  Withou… Callao    59.9    1.3 210. 
+ 3     2 Baseline Dosis…    27 Mest… Single  Withou… Santa …   62      1.5 169. 
+ 4     2 3 months Dosis…    27 Mest… Single  Withou… Santa …   62.1    1.6  99.9
+ 5     3 Baseline Dosis…    25 Mest… Single  Withou… Callao    62      1.6  78.8
+ 6     3 3 months Dosis…    25 Mest… Single  Withou… Callao    60      1.6 155. 
+ 7     4 Baseline Dosis…    37 Mest… Divorc… Withou… Callao    60.9    1.5  41.0
+ 8     4 3 months Dosis…    38 Mest… Divorc… Withou… Callao    61.4    1.5 109. 
+ 9     5 Baseline Place…    31 Mest… Single  Withou… La Mol…   64      1.5  43.0
+10     5 3 months Place…    32 Mest… Single  Withou… La Mol…   58.1    1.6  56.0
+# … with 96 more rows, 5 more variables: lh &lt;dbl&gt;, fsh &lt;dbl&gt;, prog &lt;dbl&gt;,
+#   bmi &lt;dbl&gt;, bmicat &lt;chr&gt;, and abbreviated variable names ¹​married2,
+#   ²​procedence
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+</section>
+<section id="quedarse-solo-con-las-filas-1-3-5-y-8-de-los-datos" class="level3">
+<h3 class="anchored" data-anchor-id="quedarse-solo-con-las-filas-1-3-5-y-8-de-los-datos">Quedarse solo con las filas 1, 3, 5 y 8 de los datos:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>data8 <span class="sc">%&gt;%</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 16
+     id time     treat     age race  married marri…¹ proce…² weight height    e2
+  &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1     1 Baseline Placebo    33 Mest… Single  Withou… Callao    59      1.4  87.3
+2     2 Baseline Dosis 2    27 Mest… Single  Withou… Santa …   62      1.5 169. 
+3     3 Baseline Dosis 1    25 Mest… Single  Withou… Callao    62      1.6  78.8
+4     4 3 months Dosis 1    38 Mest… Divorc… Withou… Callao    61.4    1.5 109. 
+# … with 5 more variables: lh &lt;dbl&gt;, fsh &lt;dbl&gt;, prog &lt;dbl&gt;, bmi &lt;dbl&gt;,
+#   bmicat &lt;chr&gt;, and abbreviated variable names ¹​married2, ²​procedence
+# ℹ Use `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+</section>
+<section id="seleccionar-id-peso-tratamiento-y-imc-y-reordenarlo-segun-imc-de-mayor-a-menor" class="level3">
+<h3 class="anchored" data-anchor-id="seleccionar-id-peso-tratamiento-y-imc-y-reordenarlo-segun-imc-de-mayor-a-menor">Seleccionar, id, peso, tratamiento y imc y reordenarlo segun imc de mayor a menor:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>data8 <span class="sc">%&gt;%</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, weight, treat, bmi) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(bmi))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 106 × 4
+      id weight treat     bmi
+   &lt;dbl&gt;  &lt;dbl&gt; &lt;fct&gt;   &lt;dbl&gt;
+ 1    41   91.9 Dosis 1  40.8
+ 2    50   71.7 Dosis 2  36.6
+ 3    36   81   Dosis 1  36  
+ 4     1   59.9 Placebo  35.4
+ 5    53   64.9 Dosis 2  33.1
+ 6    34   72.6 Dosis 1  32.3
+ 7    41   92.1 Dosis 1  31.9
+ 8    28   81.5 Dosis 2  31.8
+ 9    12   68   Dosis 2  30.2
+10    12   68   Dosis 2  30.2
+# … with 96 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

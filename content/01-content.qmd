@@ -98,9 +98,11 @@ knitr::include_graphics("../files/img/descargar-html.gif")
 
 ::: {.callout-note}
 
-### Mi primer proyecto
+### Nuestro turno: Mi primer proyecto
 
-Puede descargar los archivos generados en la carpeta `mi_primer_proyecto` en el siguiente enlace: [Aquí].
+- Puede descargar los archivos generados en la carpeta `mi_primer_proyecto` en el siguiente enlace: [Aquí](../slides/sesion1/ejemplos/mi_primer_proyecto.zip).
+
+- Puede ver la versión Web de este ejercicio en el siguiente enlace se la sección Ejemplos: [Aquí]()
 
 :::
 
@@ -123,13 +125,44 @@ knitr::include_graphics("../slides/sesion1/img/abrir-proyecto.gif")
 
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739988566?h=f2051d942c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Datos en R"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
+::: {.callout-note}
+
+### Nuestro turno: Importar datos
+
+- Puede descargar los archivos generados en la carpeta `importar_datos` en el siguiente enlace: [Aquí](../slides/sesion1/ejemplos/importar_datos.zip).
+
+- Puede ver la versión Web de este ejercicio en el siguiente enlace se la sección Ejemplos: [Aquí]()
+
+:::
+
+
 ### Visualización de datos
 
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/740001443?h=b1b118f07a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Visualizaci&amp;oacute;n de datos"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
+::: {.callout-note}
+
+### Nuestro turno: Mi primer y segundo ggplot
+
+- Puede descargar los archivos generados en la carpeta `mi_primer_ggplot` en el siguiente enlace: [Aquí](../slides/sesion1/ejemplos/mi_primer_ggplot.zip).
+
+- Puede ver la versión Web de este ejercicio en el siguiente enlace se la sección Ejemplos: [Aquí]()
+
+:::
+
 ### Manejo de datos
 
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/740463481?h=db54f9d6df&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Introducci&amp;oacute;n a Manejo de Datos con Tidyverse"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+::: {.callout-note}
+
+### Nuestro turno: Mi primer manejo de datos
+
+- Puede descargar los archivos generados en la carpeta `mi_primer_manejo_datos` en el siguiente enlace: [Aquí](../slides/sesion1/ejemplos/mi_primer_manejo_datos.zip).
+
+- Puede ver la versión Web de este ejercicio en el siguiente enlace se la sección Ejemplos: [Aquí]()
+
+:::
 
 :::
 

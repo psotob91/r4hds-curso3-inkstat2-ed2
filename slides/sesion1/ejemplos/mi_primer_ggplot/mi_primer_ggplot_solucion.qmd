@@ -1,0 +1,82 @@
+---
+title: "Mi primer ggplot"
+author: "Percy Soto Becerra"
+---
+
+## Cargar las librerías
+
+```{r}
+library(tidyverse)
+library(haven)
+library(rio)
+library(ggplot2)
+```
+
+## Importar datos
+
+```{r}
+datos <- as_factor(read_stata("maca_meno_fase1.dta"))
+```
+
+## Inspeccionar datos
+
+```{r}
+glimpse(datos)
+```
+
+
+## Cree un gráfico de dispersión de puntos que relacione el peso (variable weight, en el eje x) con la hormona foliculo estimulante (variable fsh, en el eje y).
+
+```{r}
+ggplot(datos, 
+       aes(x = weight, y = fsh)) + 
+  geom_point()
+```
+
+## Cree otro gráfico que relacione estradiol (e2 como y) con tratamiento recibido (treat como x). Use gráfico de puntos. Tip: use geomtría geom_point().
+
+```{r}
+ggplot(datos, 
+       aes(x = treat, y = e2)) + 
+  geom_point()
+```
+
+## Guarde este gráfico como un objeto, pongale de nombre: plot1. Tip: Use operador asignar <-. Imprima plot1
+
+```{r}
+plot1 <- ggplot(datos, 
+       aes(x = treat, y = e2)) + 
+  geom_point()
+```
+
+```{r}
+plot1
+```
+
+## Agregue una geometría de gráfico de cajas. Tip: Agregue geom_boxplot().
+
+- Opción 1: Ampliar el código usando geometrías:
+
+```{r}
+ggplot(datos, 
+       aes(x = treat, y = e2)) + 
+  geom_point() + 
+  geom_boxplot()
+```
+
+- Opción 2: Reutilizar el objeto ggplot:
+
+```{r}
+plot1 + 
+  geom_boxplot()
+```
+
+## Invierta el orden de las geometrías. Primero ponga geom_boxplot() y luego ponga geom_point(). Compare con el gráfico anterior. ¿En qué se diferencian?
+
+```{r}
+ggplot(datos, 
+       aes(x = treat, y = e2)) + 
+  geom_boxplot() + 
+  geom_point()
+```
+

@@ -1,0 +1,99 @@
+---
+title: "Importando Datos con R - Ejemplos"
+author: "Percy Soto Becerra"
+---
+
+## Cargar paquetes
+
+```{r}
+library(tidyverse)
+library(rio)
+library(haven)
+```
+
+## Importar datos en *.csv (archivo plano)
+
+Importe el archivo denominado `maca_meno_perclin.csv`:
+
+```{r}
+datos_csv <- import("maca_meno_perclin.csv")
+```
+
+Explore el data.frame importado:
+
+```{r}
+head(datos_csv)
+```
+
+## Importar datos en *.xlsx (MS Excel)
+
+Importe el archivo denominado `maca_meno_perclin.xlsx`:
+
+```{r}
+datos_xslx <- import("maca_meno_perclin.xlsx")
+```
+
+Explore el data.frame importado:
+
+```{r}
+glimpse(datos_xslx)
+```
+
+
+## Importar datos en *.dta (Stata)
+
+Importe el archivo denominado `maca_meno_fase1.dta`:
+
+- Opción 1: Usar import
+
+```{r}
+datos_stata1 <- import("maca_meno_fase1.dta")
+```
+
+Explore el data.frame importado:
+
+```{r}
+glimpse(datos_stata1)
+```
+
+- Opción 2: Usar read_stata de {haven} y as_factor()
+
+```{r}
+datos_stata2 <- as_factor(read_stata("maca_meno_fase1.dta"))
+```
+
+Explore el data.frame importado:
+
+```{r}
+glimpse(datos_stata2)
+```
+
+## Importar datos en *.sav (SPSS)
+
+- Opción 1: 
+
+Importe el archivo denominado `RECH0.SAV`:
+
+```{r}
+datos_spss <- import("RECH0.SAV")
+```
+
+Explore el data.frame importado:
+
+```{r}
+glimpse(datos_spss)
+```
+
+- Opción 2: 
+
+Importe el archivo denominado `RECH0.SAV` usando read_sav de {haven}y as_factor
+
+```{r}
+datos_spss2 <- as_factor(read_sav("RECH0.SAV"))
+```
+
+Explore el data.frame importado:
+
+```{r}
+glimpse(datos_spss2)
+```
