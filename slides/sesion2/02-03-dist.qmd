@@ -42,3 +42,39 @@ library(showtext)
 
 # Evaluación de distribución
 
+-----------------------------------
+
+## Análisis descriptivo de variable numérica {.scrollable}
+
+::: panel-tabset
+### Tend. Central
+-   Medias de tendencia central 
+    -   Media 
+    -   Mediana (es también `medida de posición`) 
+    -   Moda (no es usual) 
+    
+### Posición 
+-   Medidas de posición 
+    -   Cuantiles (en general)
+    -   Mediana = percentil 50 (es también medida de `tendencia central`)
+    -   Percentil 25 (p25) 
+    -   Percentil 75 (p75) 
+    
+### Dispersión    
+-   Medidas de dispersión 
+    -   Rango (máximo - mínimo) 
+    -   Varianza / Desviación estándar
+    -   Rango intercuartílico (p75 - p25)   
+    
+### Distribución
+
+- Simétrica
+- Asimétrica (o 'sesgada')
+<FONT size='6'>
+    - Positiva (A la derecha) </FONT><FONT size='6'>
+    - Negativa (A la izquierda) </FONT>
+    
+- Resumiendo:
+
+![](img/distrib.png)
+:::

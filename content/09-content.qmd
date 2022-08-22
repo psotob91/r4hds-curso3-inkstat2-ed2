@@ -1,5 +1,5 @@
 ---
 title: "Pruebas de hipótesis para 1 y 2 grupos"
-date: "2022-09-03"
+date: "2022-09-19"
 ---
 

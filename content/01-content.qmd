@@ -1,6 +1,6 @@
 ---
 title: "Introducción a R y RStudio"
-date: "2022-08-06"
+date: "2022-08-22"
 ---
 
 ## Bievenida al curso

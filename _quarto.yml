@@ -17,7 +17,7 @@ csl: files/bib/chicago-author-date.csl
 lang: es
 
 website:
-  title: "R para Ciencia de Datos en Salud 3"
+  title: "R para Ciencia de Datos en Salud"
   site-url: "https://rcds3.inkastats.es/"
   description-meta: "Brindar fundamentos de análisis descriptivo e inferencia estadística aplicado a Ciencias de la Salud"
 
@@ -114,6 +114,13 @@ website:
         - section: "Información general"
           contents:
             - example/index.qmd
+        - section: "Sesión 1"
+          contents:
+            - example/mi_primer_proyecto/mi_primer_quarto.qmd
+            - example/importar_datos/importar_datos.qmd
+            - example/mi_primer_ggplot/mi_primer_ggplot_solucion.qmd
+            - example/mi_primer_ggplot/mi_segundo_ggplot_solucion.qmd
+            - example/mi_primer_manejo_datos/mi_primer_manejo_datos_solucion.qmd
 
     - title: "Recursos"
       contents:

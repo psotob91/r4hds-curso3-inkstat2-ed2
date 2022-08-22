@@ -1,6 +1,6 @@
 ---
 title: "Reporte descriptivo reproducible"
-date: "2022-08-13"
+date: "2022-09-01"
 ---
 
 ## Objetivos de la sesión

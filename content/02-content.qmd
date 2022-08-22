@@ -1,6 +1,6 @@
 ---
 title: "Análisis descriptivo univariado"
-date: "2022-08-06"
+date: "2022-08-25"
 ---
 
 ## Objetivos de la sesión
@@ -28,6 +28,10 @@ En esta segunda sesión revisaremos los siguiente:
 ### Tipo de variables
 
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/740494146?h=71e524d65c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Tipos de Variables"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+### Análisis Inicial y Exploratorio de Datos
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 ### Datos numéricos
 
@@ -62,18 +66,30 @@ source(here::here("R", "slide-things.R"))
 ### Tipo de variables
 
 ```{r show-slide-tabs1, echo=FALSE, results="asis"}
-slide_buttons("/slides/sesion2/02-01-tipo-vars")
+slide_buttons("/slides/sesion2/02-00-tipo-vars")
 ```
 
 ```{r}
 #| echo: false
 #| out.width: 100%
-knitr::include_url('../slides/sesion2/02-01-tipo-vars.html')
+knitr::include_url('../slides/sesion2/02-00-tipo-vars.html')
+```
+
+### Análisis Inicial y Exploratorio de Datos
+
+```{r show-slide-tabs2, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion2/02-01-aid-aed")
+```
+
+```{r}
+#| echo: false
+#| out.width: 100%
+knitr::include_url('../slides/sesion2/02-01-aid-aed.html')
 ```
 
 ### Datos numéricos
 
-```{r show-slide-tabs2, echo=FALSE, results="asis"}
+```{r show-slide-tabs3, echo=FALSE, results="asis"}
 slide_buttons("/slides/sesion2/02-02-var-num")
 ```
 
@@ -85,7 +101,7 @@ knitr::include_url('../slides/sesion2/02-02-var-num.html')
 
 ### Evaluación de distribución
 
-```{r show-slide-tabs3, echo=FALSE, results="asis"}
+```{r show-slide-tabs4, echo=FALSE, results="asis"}
 slide_buttons("/slides/sesion2/02-03-dist")
 ```
 
@@ -97,7 +113,7 @@ knitr::include_url('../slides/sesion2/02-03-dist.html')
 
 ### Datos categóricos
 
-```{r show-slide-tabs4, echo=FALSE, results="asis"}
+```{r show-slide-tabs5, echo=FALSE, results="asis"}
 slide_buttons("/slides/sesion2/02-04-var-cat")
 ```
 
@@ -109,7 +125,7 @@ knitr::include_url('../slides/sesion2/02-04-var-cat.html')
 
 ### Datos de tiempo de supervivencia
 
-```{r show-slide-tabs5, echo=FALSE, results="asis"}
+```{r show-slide-tabs6, echo=FALSE, results="asis"}
 slide_buttons("/slides/sesion2/02-05-superviv")
 ```
 
@@ -121,7 +137,7 @@ knitr::include_url('../slides/sesion2/02-05-superviv.html')
 
 ### Revisando guías de reporte
 
-```{r show-slide-tabs6, echo=FALSE, results="asis"}
+```{r show-slide-tabs7, echo=FALSE, results="asis"}
 slide_buttons("/slides/sesion2/02-06-guias-reporte")
 ```
 

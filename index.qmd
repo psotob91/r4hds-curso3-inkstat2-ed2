@@ -1,6 +1,6 @@
 ---
-title: "R para Ciencia de Datos en Salud 3"
-subtitle: "Análisis Descriptivo e Inferencia Estadística"
+title: "R para Ciencia de Datos en Salud"
+subtitle: "Análisis Descriptivo e Inferencia Estadística (Segunda Edición)"
 details: |
   R4HDS 202203 • Invierno 2022<br>InkaStats Data Science Solutions | Medical Branch<br> Virtual [Asincrónico & Sincrónico]
 sidebar: false
