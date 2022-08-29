@@ -1,0 +1,259 @@
+---
+title: "<FONT color='#A7D5E8'>Guías de reporte de análisis descriptivo</FONT>"
+subtitle: "<FONT color='#E9AFA3' size='10'>R para Ciencia de Datos en Salud: <br> Análisis Descriptivo e Inferencia Estadística</FONT>"
+author: "<FONT color='#FFFFFF' size='30'>Percy Soto-Becerra M.D., M.Sc(c)</FONT>"
+institute: "<FONT color='#FFFFFF' size='5'>InkaStats Data Science Solutions | Medical Branch<br>@github/psotob91</FONT>"
+
+format: 
+  revealjs:
+    self-contained: true
+    theme: [simple, theme/theme.scss]
+    footer: "Introducción a R y RStudio"
+    slide-number: c/t
+    logo: img/logo.png
+    width: 1920
+    height: 1080
+    highlight-style: ayu-dark
+    self-contained-math: true
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(fontawesome)
+library(tidyverse)
+library(quarto)
+library(gt)
+library(gtExtras)
+library(gtsummary)
+library(showtext)
+
+## Ver QUARTO RSTUDIO CONFERENCE: https://github.com/rstudio-conf-2022/get-started-quarto/blob/main/materials/02-authoring.qmd
+## 
+## blackboard theme: https://github.com/schochastics/quarto-blackboard-theme
+## 
+## https://github.com/schochastics/xaringan-themes
+```
+
+---
+
+# Revisando guías de reporte de análisis descriptivo
+
+## Recomendaciones sobre reporte descriptivo según STROBE {.scrollable}
+
+- *`Strengthening the Reporting of Observational Studies in Epidemiology (STROBE)`* es una `guía de reporte` de `estudios observacionales` en `salud` mundialmente reconocida.
+
+- Las `revistas de alto impacto` solicitan que los investigadores se adhieran a estas guías y llenen un checklist.
+
+![<FONT size='4'>[Vanderbroucke JP, Elm Ev, Altman DG, et al. 2007](https://www.acpjournals.org/doi/epdf/10.7326/0003-4819-147-8-200710160-00010-w1)</FONT>](img/strobe.png)
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Lo que mencionamos acerca de reportar variables numéricas:
+:::
+
+::: {.column width="50%"}
+![<FONT size='4'>[Vanderbroucke JP, Elm Ev, Altman DG, et al. 2007](https://www.acpjournals.org/doi/epdf/10.7326/0003-4819-147-8-200710160-00010-w1)</FONT>](img/strobe-description.png)
+:::
+:::: 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![<FONT size='4'>[Vanderbroucke JP, Elm Ev, Altman DG, et al. 2007](https://www.acpjournals.org/doi/epdf/10.7326/0003-4819-147-8-200710160-00010-w1)</FONT>](img/strobe-missing.png)
+:::
+
+::: {.column width="50%"}
+- También debe reportarse el `número de participantes` con `datos perdidos` para cada variable de interés
+:::
+
+::::
+
+## Recomendaciones adicionales para mejorar un reporte descriptivo transparente según REMARK {.scrollable}
+
+-   *`Reporting Recommendations for Tumor Marker Prognostic Studies (REMARK)`* es una guía de reporte para estudios de marcadores pronósticos:
+<FONT size='6'>
+    - Inicialmente para cáncer. </FONT> <FONT size='6'>
+    - Debido a su amplio alcance, se usa en casi cualquier campo (p. ej., cardiología, neurología, etc.) donde se evalúe un marcador pronóstico.</FONT>
+
+![<FONT size='4'>[Sauerbrei W, Taube SE, McShane LM, et al. JNCI 2018](https://doi.org/10.1093/jnci/djy088)</FONT>](img/remark.png)
+
+
+![<FONT size='4'>[Sauerbrei W, Taube SE, McShane LM, et al. JNCI 2018](https://doi.org/10.1093/jnci/djy088)</FONT>](img/remark-description.png)
+
+:::: {.columns}
+
+::: {.column width="50%"}
+-   REMARK indica que `debe reportarse`  la `distribución` de los `marcadores` o `factores pronóstico` de interés y del `desenlace`: <FONT size='6'>
+    -   Biomarcador o score de predicción </FONT><FONT size='6'>
+    -   Desenlace </FONT>
+:::
+ 
+::: {.column width="50%"}    
+![<FONT size='4'>[Sauerbrei W, Taube SE, McShane LM, et al. JNCI 2018](https://doi.org/10.1093/jnci/djy088)</FONT>](img/remark-distribution.png)    
+:::
+
+::::
+
+-   Lamentablemente es una mala práctica no hacerlo. <FONT size='6'>
+    -   Usen anexos si el espacio queda corto y no quieren distraer al lector del mensaje principal. </FONT><FONT size='6'>
+    -   No hay excusa para no reportar esto. </FONT>
+
+## Recomendaciones adicionales para mejorar un reporte descriptivo transparente (cont.)
+
+-   No cree la tabla "manualmente".
+
+-   `Genere` las `tablas` con `código`: <FONT size='6'>
+
+    -   Es `reproducible`. </FONT><FONT size='6'>
+    -   Menos propenso a error de digitación o *`lapsus calamis`*. </FONT><FONT size='6'>
+    -   Han habido retracciones de ensayos clínicos por errores de tipeo!! </FONT><FONT size='6'>
+    -   Es más rápido, ahorrarás tiempo!! </FONT>
+
+## Generación de tabla descriptiva reproducible 
+
+-   A menudo se la conoce como `la Tabla 1`. <FONT size='6'>
+    -   Puede haber más de una, no hay reglas, solo buenos o malos criterios para presentar resultados. </FONT>
+-   Hay muchos paquetes: `{flextable}`, `{gt}`, etc.
+-   Sugerimos: `{gtsummary}`: [https://www.danieldsjoberg.com/gtsummary/](https://www.danieldsjoberg.com/gtsummary/)
+
+## Tabla decriptiva reproducible con {gtsummary}
+
+-   Permite `crear tablas` en formato de `revistas biomédicas`.
+
+-   Función `tbl_summary()` para tablas descriptivas univariadas y comparativas (bivariadas)
+
+<center>![](img/tbl_summary_demo1.gif)</center>
+
+## Función tbl_summary() paso a paso {.scrollable}
+
+::: panel-tabset
+
+### Paso 1
+
+- Seleccionar las variables que desea reportar con función `select()`, luego usar `tbl_summary()`:
+
+```{r}
+#| echo: false
+library(haven)
+datos2 <- import("maca_meno_fase1.dta") %>% 
+  as_factor()
+```
+
+
+```{r}
+#| code-line-numbers: "|2|3|4|"
+library(gtsummary)
+datos2 %>% 
+  select(age, race, married2, weight, height, e2, lh, fsh, prog) %>% 
+  tbl_summary()
+```
+
+- Por defecto, las `variables numéricas` son reportadas como `mediana` (`percentil 25`, `percentil 75`).
+
+- Asimismo, `si una variable numérica tiene pocos valores`, esta se muestra como `categórica`.
+
+- Uno puede `personalizar` esto. Veamos los siguientes pasos.
+
+### Paso 2
+
+- Indicar  `qué variables` son `numéricas` con el argumento `type = `
+
+```{r}
+#| code-line-numbers: "|4|"
+datos2 %>% 
+  select(age, race, married2, weight, height, e2, lh, fsh, prog) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous")
+  )
+```
+
+- Notar que ahora `height` es considerada una variable numérica y se reporta como `mediana` con sus respectivos `percentiles`. 
+
+### Paso 3
+
+- ¿Qué pasa si queremos reportar `media` (`desviación estándar`) para las variables simétricas `height` y `weight`, pero mantener la `mediana` (`percentiles`) para las variables `e2`, `lh`, `fsh`, y `prog`. 
+
+- Se puede configurar esto con el argumento `statistic = `
+
+```{r}
+#| code-line-numbers: "|5|"
+datos2 %>% 
+  select(age, race, married2, weight, height, e2, lh, fsh, prog) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    statistic = list(c(age, weight, height) ~ "{mean} ({sd})", c(e2, lh, fsh, prog) ~ "{median} ({p25}, {p75})")
+  )
+```
+
+### Paso 4
+
+- Se pueden realizar `más configuraciones adicionales` con `R` o realizarlas `manualmente` en el Word.
+
+- Para más información sobre cómo hacer tablas descriptivas con `{gtsummary}`: [https://www.danieldsjoberg.com/gtsummary/articles/tbl_summary.html](https://www.danieldsjoberg.com/gtsummary/articles/tbl_summary.html)
+
+- Por ejemplo, podemos crear una tabla con `máximos` y `minimos`: 
+
+```{r}
+#| code-line-numbers: "|5|"
+datos2 %>% 
+  select(age, race, married2, weight, height, e2, lh, fsh, prog) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    statistic = list(c(age, weight, height, e2, lh, fsh, prog) ~ "{min} - {max}")
+  )
+```
+
+### Paso 5 
+
+- Se puede `descargar` la tabla en formato `MS. Word` para `reporte reproducible`.
+
+- Primero se  `guarda`  como un `objeto` de `R`:
+
+```{r}
+#| code-line-numbers: "|6|"
+datos2 %>% 
+  select(age, race, married2, weight, height, e2, lh, fsh, prog) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    statistic = list(c(age, weight, height) ~ "{mean} ({sd})", c(e2, lh, fsh, prog) ~ "{median} ({p25}, {p75})")
+  ) -> tabla1 
+
+tabla1
+```
+
+- Luego, al objeto se lo `guarda` como un archivo de `MS Word`. Para esto, se usa la función `as_flex_table()` del paquete `{gtsummary}` y la función `save_as_docx()` del paquete `{flextable}`: 
+
+```{r}
+#| code-line-numbers: "|4|5|"
+# install.packages(flextable)
+library(flextable)
+tabla1 %>% 
+  as_flex_table() %>% 
+  save_as_docx(path = "Tabla1.docx")
+```
+
+- El `MS Word` aparecerá en la `carpeta` del `proyecto`:
+
+![](img/tabla1-rstudio.png)
+
+- Y la `tabla` en `Word` lucirá así:
+
+![](img/tabla1-word.png)
+
+:::
+
+
+--- 
+
+<br/><br/><br/><br/><br/>
+<center>[Preguntas?]{.big-text6}</center>
+
+--- 
+
+<br/><br/><br/><br/><br/>
+<center>[Muchas gracias!]{.big-text6}</center>

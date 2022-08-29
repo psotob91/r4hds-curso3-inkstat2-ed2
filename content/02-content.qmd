@@ -31,27 +31,107 @@ En esta segunda sesión revisaremos los siguiente:
 
 ### Análisis Inicial y Exploratorio de Datos
 
+#### Parte 1
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/743984811?h=cdfae103c9&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="AID - parte 1"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+::: {.callout-note}
+
+### Nuestro turno: AID
+
+- Puede descargar los archivos generados en la carpeta `aid` en el siguiente enlace: [Aquí](../slides/sesion2/ejemplos/aid.zip).
+
+- Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí]()
+
+:::
+
+#### Parte 2
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/744008287?h=ad4ed99ba7&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="AID - parte 2"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+### Datos numéricos: Gráficos
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/744010981?h=f7493cc779&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Variables num&amp;eacute;ricas"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+::: {.callout-note}
+
+### Nuestro turno: Graficos de variables numéricas
+
+- Puede descargar los archivos generados en la carpeta `var_num_graficos` en el siguiente enlace: [Aquí](../slides/sesion2/ejemplos/var_num_graficos.zip).
+
+- Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí]()
+
+:::
+
+### Datos numéricos: Medidas de resumen
+
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
-### Datos numéricos
+::: {.callout-note}
+
+### Nuestro turno: Resumen de variables numéricas
+
+- Puede descargar los archivos generados en la carpeta `var_num_resumen` en el siguiente enlace: [Aquí](../slides/sesion2/ejemplos/var_num_resumen.zip).
+
+- Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí]()
+
+:::
+
+### Datos categóricos: Medidas de frecuencia
 
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
-### Evaluación de distribución
+::: {.callout-note}
+
+### Nuestro turno: Frecuencias de variables categçoricas
+
+- Puede descargar los archivos generados en la carpeta `var_cat_resumen` en el siguiente enlace: [Aquí](../slides/sesion2/ejemplos/var_cat_resumen.zip).
+
+- Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí]()
+
+:::
+
+### Datos categóricos: Gráficos
 
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
-### Datos categóricos
+::: {.callout-note}
 
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+### Nuestro turno: Gráficos de variables categóricas
+
+- Puede descargar los archivos generados en la carpeta `var_cat_graficos` en el siguiente enlace: [Aquí](../slides/sesion2/ejemplos/var_cat_graficos.zip).
+
+- Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí]()
+
+:::
 
 ### Datos de tiempo de supervivencia
 
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
-### Revisando guías de reporte
+::: {.callout-note}
+
+### Nuestro turno: Descripción de variables de tiempo
+
+- Puede descargar los archivos generados en la carpeta `var_tiempo` en el siguiente enlace: [Aquí](../slides/sesion2/ejemplos/var_tiempo.zip).
+
+- Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí]()
+
+:::
+
+### Reporte reproducible univariado
 
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+::: {.callout-note}
+
+### Nuestro turno: Reporte reproducible univariado
+
+- Puede descargar los archivos generados en la carpeta `report_reprod_univ` en el siguiente enlace: [Aquí](../slides/sesion2/ejemplos/report_reprod_univ.zip).
+
+- Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí]()
+
+:::
 
 :::
 
@@ -87,7 +167,7 @@ slide_buttons("/slides/sesion2/02-01-aid-aed")
 knitr::include_url('../slides/sesion2/02-01-aid-aed.html')
 ```
 
-### Datos numéricos
+### Datos numéricos: Gráficos
 
 ```{r show-slide-tabs3, echo=FALSE, results="asis"}
 slide_buttons("/slides/sesion2/02-02-var-num")
@@ -99,19 +179,19 @@ slide_buttons("/slides/sesion2/02-02-var-num")
 knitr::include_url('../slides/sesion2/02-02-var-num.html')
 ```
 
-### Evaluación de distribución
+### Datos numéricos: Medidas de resumen
 
 ```{r show-slide-tabs4, echo=FALSE, results="asis"}
-slide_buttons("/slides/sesion2/02-03-dist")
+slide_buttons("/slides/sesion2/02-03-var-num2")
 ```
 
 ```{r}
 #| echo: false
 #| out.width: 100%
-knitr::include_url('../slides/sesion2/02-03-dist.html')
+knitr::include_url('../slides/sesion2/02-03-var-num2.html')
 ```
 
-### Datos categóricos
+### Datos categóricos: Medidas de frecuencia
 
 ```{r show-slide-tabs5, echo=FALSE, results="asis"}
 slide_buttons("/slides/sesion2/02-04-var-cat")
@@ -123,28 +203,40 @@ slide_buttons("/slides/sesion2/02-04-var-cat")
 knitr::include_url('../slides/sesion2/02-04-var-cat.html')
 ```
 
-### Datos de tiempo de supervivencia
+### Datos categóricos: Gráficos
 
 ```{r show-slide-tabs6, echo=FALSE, results="asis"}
-slide_buttons("/slides/sesion2/02-05-superviv")
+slide_buttons("/slides/sesion2/02-05-var-cat2")
 ```
 
 ```{r}
 #| echo: false
 #| out.width: 100%
-knitr::include_url('../slides/sesion2/02-05-superviv.html')
+knitr::include_url('../slides/sesion2/02-05-var-cat2.html')
 ```
 
-### Revisando guías de reporte
+### Datos de tiempo de supervivencia
 
 ```{r show-slide-tabs7, echo=FALSE, results="asis"}
-slide_buttons("/slides/sesion2/02-06-guias-reporte")
+slide_buttons("/slides/sesion2/02-06-superviv")
 ```
 
 ```{r}
 #| echo: false
 #| out.width: 100%
-knitr::include_url('../slides/sesion2/02-06-guias-reporte.html')
+knitr::include_url('../slides/sesion2/02-06-superviv.html')
+```
+
+### Reporte reproducible univariado
+
+```{r show-slide-tabs8, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion2/02-07-reporte-reprod")
+```
+
+```{r}
+#| echo: false
+#| out.width: 100%
+knitr::include_url('../slides/sesion2/02-07-reporte-reprod.html')
 ```
 
 :::

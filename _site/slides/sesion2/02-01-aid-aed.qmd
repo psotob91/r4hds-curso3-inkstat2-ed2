@@ -730,9 +730,9 @@ countdown_timer <- function(
 
 <br/>
 
--   Descargue la carpeta `aid`.
+-   Descargue la carpeta `aid_aed`.
 
-- Abra el proyecto `aid.Rproj` y dentro de este, abra el archivo quarto `aid_taller.qmd`. 
+- Abra el proyecto `aid_aed.Rproj` y dentro de este, abra el archivo quarto `aid_taller.qmd`. 
 
 - Siga las instrucciones indicadas en este.
 

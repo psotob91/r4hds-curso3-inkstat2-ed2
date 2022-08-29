@@ -33,6 +33,10 @@ library(gtsummary)
 library(showtext)
 library(rio)
 library(skimr)
+library(Hmisc)
+library(DescTools)
+library(summarytools)
+library(kableExtra)
 
 ## Ver QUARTO RSTUDIO CONFERENCE: https://github.com/rstudio-conf-2022/get-started-quarto/blob/main/materials/02-authoring.qmd
 ## 
@@ -41,11 +45,9 @@ library(skimr)
 ## https://github.com/schochastics/xaringan-themes
 ```
 
----
 
 # Análisis descriptivo de variables numéricas
 
----
 
 ## Análisis descriptivo
 
@@ -98,8 +100,6 @@ library(skimr)
 
 ::::
 
-
-----
 
 ## Los datos que usaremos  {.scrollable}
 
@@ -172,8 +172,6 @@ bd_inmuno %>%
 :::
 
 
----
-
 ## ¿Cómo describir en los datos numéricos?
 
 <br/>
@@ -198,11 +196,7 @@ bd_inmuno %>%
         
     - Combinación de gráficos
 
----
-
 # Gráficos
-
----
 
 ## Intro sobre gráficos de variables numéricas
 
@@ -218,59 +212,6 @@ bd_inmuno %>%
     
     + Los de reporte: Deben ser elegantes y super personalizados., aunque se demoren en generarse. ¡[{ggplot2}]{.plo} es fenomenal para estos!
     
----
-
-## {.scrollable}
-
-:::: {.columns}
-
-::: {.column width='47%'}
-
-### ggplot2
-
-**[Pros]{.hl}**
-
-- Paquete que proporciona funciones que siguen la `gramática de gráficos`.
-
-- Altamante personalizable:
-
-    + Prácticamente no hay ningún gráfico que no puedas crear con ggplot2.
-
-**[Contras]{.hl}**
-
-- Aunque cuenta con varios atajos de personalización (p. ej., theme_), sigue requiriendo bastante código.
-
-- Se deben dibujar una variable a la vez. Dibujar varias variables a la vez es un poco más "tricky" y requiere un poco de programación en R.
-
-:::
-
-::: {.column width='4%'}
-
-:::
-
-::: {.column width='47%'}
-
-### ggpubr
-
-**[Pros]{.hl}**
-
-- Es un atajo o "wrapper" de ggplot2. 
-
-    + Puedo seguir usando funciones de ggplot agregando capas adicionales con operador: `+`
-
-- Se requiere mucho menos código para gráficos de interés y se pueden graficar varias variables a la vez.
-
-**[Contras]{.hl}**
-
-- Su capacidad de personalización es menor que ggplot2. Sin embargo, al construirse sobre ggplot2, puede seguir modificándose sobre este.
-
-- Dependes de los gráficos iniciales que ggpubr te ofrece.
-
-:::
-
-::::
-
----
 
 ## Histogramas de frecuencias
 
@@ -410,8 +351,6 @@ bd_inmuno %>%
 [<https://ggplot2.tidyverse.org/reference/geom_histogram.html>]{.big-text1}
 
 :::
-
---- 
 
 ## Histogramas de densidades
 
@@ -553,8 +492,6 @@ bd_inmuno %>%
 
 :::
 
----
-
 ## Densidad
 
 
@@ -690,7 +627,6 @@ bd_inmuno %>%
 
 :::
 
----
 
 ## Gráfico de cajas 
 
@@ -889,9 +825,6 @@ datos %>%
 
 :::
 
-
----
-    
 ## Violin
 
 ::: {.panel-tabset}
@@ -1047,8 +980,6 @@ datos %>%
 
 :::
 
----
-    
 ## Combinación de gráficos {.scrollable}
 
 >Se sugiere reportar gráficos descriptivos que sean informativos. Estos pueden obtenerse de combinar gráficos existentes. Veremos algunos ejemplos.
@@ -1309,7 +1240,7 @@ countdown_timer <- function(
 
 -   Descargue la carpeta `var_num_graficos`.
 
-- Abra el proyecto `var_num_graficos.Rproj` y dentro de este, abra el archivo quarto `var_num_graficos.qmd`. 
+- Abra el proyecto `var_num_graficos.Rproj` y dentro de este, abra el archivo quarto `var_num_graficos_tal.qmd`. 
 
 - Siga las instrucciones indicadas en este.
 
@@ -1321,3 +1252,4 @@ countdown_timer <- function(
 #| echo: false
 countdown_timer(10)
 ```
+

@@ -370,3 +370,56 @@ datos %>%
 [<https://ggplot2.tidyverse.org/reference/geom_boxplot.html>]{.big-text1}
 
 :::
+
+
+## {.scrollable}
+
+:::: {.columns}
+
+::: {.column width='47%'}
+
+### ggplot2
+
+**[Pros]{.hl}**
+
+- Paquete que proporciona funciones que siguen la `gramática de gráficos`.
+
+- Altamante personalizable:
+
+    + Prácticamente no hay ningún gráfico que no puedas crear con ggplot2.
+
+**[Contras]{.hl}**
+
+- Aunque cuenta con varios atajos de personalización (p. ej., theme_), sigue requiriendo bastante código.
+
+- Se deben dibujar una variable a la vez. Dibujar varias variables a la vez es un poco más "tricky" y requiere un poco de programación en R.
+
+:::
+
+::: {.column width='4%'}
+
+:::
+
+::: {.column width='47%'}
+
+### ggpubr
+
+**[Pros]{.hl}**
+
+- Es un atajo o "wrapper" de ggplot2. 
+
+    + Puedo seguir usando funciones de ggplot agregando capas adicionales con operador: `+`
+
+- Se requiere mucho menos código para gráficos de interés y se pueden graficar varias variables a la vez.
+
+**[Contras]{.hl}**
+
+- Su capacidad de personalización es menor que ggplot2. Sin embargo, al construirse sobre ggplot2, puede seguir modificándose sobre este.
+
+- Dependes de los gráficos iniciales que ggpubr te ofrece.
+
+:::
+
+::::
+
+---

@@ -1,0 +1,52 @@
+---
+title: "Identificando tipos de Variables"
+---
+
+## Introducción
+
+Vamos a resolver una serie de ejercicios de medidas de resumen de variables numéricas. Para esto, vamos a hacer uso de la base de datos `boost_inmuno.dta`. Esta es una base de datos simulada y modificada para los fines de este ejercicio, la cual se basa en el estudio **Immunogenicity and reactogenicity of a third dose of BNT162b2 vaccine for COVID-19 after a primary regimen with BBIBP-CorV or BNT162b2 vaccines in Lima, Peru** pre-publicado en **MedRxiv** en 2022 y en revisión por pares por la revista Plos Medicine. El estudio detallado puede leerse en el artículo original el cual se encuentra en este [enlace web](https://www.medrxiv.org/content/10.1101/2022.05.01.22274548v1). 
+
+Este fue un estudio observacional exploratorio que evaluó la **reactogenicidad** e **inmunogenicidad** de la tercera dosis en persona de salud y adultos mayores. Ambos grupos recibieron como tercera dosis la vacuna **BNT162b2 (Pfizer)**; sin embargo, hubo diferencias en cuanto al esquema primario producto de cómo el esquema de vacunación nacional fue realizado. El personal de salud había recibido como esquema primario la vacuna **BBIBP-CorV (Sinopharm)** y los adultos mayores recibieron mayoritariamente **BNT162b2 (Pfizer)**, por lo que tuvimos un grupo de **vacunación heteróloga** (BBIBP-CorV + BNT162b2) y otro de **vacunación homóloga** (SOlo BNT162b2) en los cuales evaluar la inmunogenicidad y reactogenicidad.
+
+## Cargar paquetes
+
+```{r}
+library(tidyverse)     # Esto carga {dplyr}, {ggplot2}, etc.
+library(haven)         # Para importar datos de Stata
+library(skimr)         # Exploración de datos
+library(summarytools)  # Para generar estadísticos descriptivos
+library(Hmisc)         # Para generar estadísticos descriptivos
+```
+
+## Importar Datos
+
+```{r}
+bd_inmuno <- read_stata("boost_inmuno.dta") %>% 
+  as_factor()
+```
+
+## Análisis Inicial de Datos: Inspección
+
+```{r}
+bd_inmuno %>% 
+  glimpse()
+```
+
+```{r}
+bd_inmuno %>% 
+  skim()
+```
+
+## Descripción con R base
+
+
+
+## Descripción con dplyr
+
+
+
+## Descripción con summarytools
+
+
+
+## Descripción con Hmisc

@@ -1,0 +1,228 @@
+---
+title: "Taller: Análisis Inicial de Datos"
+---
+
+## Introducción
+
+Vamos a resolver una serie de ejercicios de análisis inicial de datos y manejo de datos. Para esto, vamos a hacer uso de la base de datos `maca_meno_perclin_modif.xlsx`. Esta es una base de datos simulada y modificada para los fines de este ejercicio, la cual se basa en el estudio **"Effect of a natural supplement containing glucosinolates, phytosterols and citrus flavonoids on body weight and metabolic parameters in a menopausal murine model induced by bilateral ovariectomy"** publicado en la revista **Gynecological Endocrinology** en 2020. El experimento detallado puede leerse en el artículo original el cual se encuentra en este [enlace web](https://doi.org/10.1080/09513590.2020.1821639). 
+
+Este fue un experimento para evaluar el efecto de un **suplemento** basado en una preparación herbal que contiene glucosinolatos, fitosteroles y citrus flavonoides en desenlaces metabólicos usalmente afectados por la menopausia: peso, colesterol, triglicéridos, glucosa e índice glucosa / triglicéridos. La pregunta PICO es la siguiente:
+
+**P:** Ratones sometidos a ovarectomía bilateral mediante un modelo animal de menopausia quirúrgica.
+
+**I1:** Suplemento oral 0.5625 mg/kg/día administrada por vía oral
+
+**I2:** Suplemento oral 1.6875 mg/kg/día administrada por vía oral
+
+**C1:** Extracto de maca gelatinizada 0.5625 mg/kg/día administrada por vía oral
+
+**C2:** Solución salina 100 µl/kg/día por vía oral
+
+**Os:** Peso, colesterol, triglicéridos, glucosa e índice glucosa / triglicéridos.
+
+**Control Sham**: Hubo un control sham que recibió solución salina 100 µl/kg/día por vía oral y además fue sometido a una cirugía ficticia que no indujo menopausia quirúrgica.
+
+El libro de códigos se encuentra en el mismo archivo excel, pero en otra hoja denominada `codebook`.
+
+Hemos pre-escrito parte del código para facilitar el desarrollo del ejercicio y agregado algunos comentarios. Hemos dejado una línea en blanco ____ para solicitar que Ud. complete el ejercicio. Elimine la línea _____ y remplacela por su respuesta.
+
+
+## Cargar paquetes
+
+```{r}
+library(tidyverse)  # Paquetes variados de universo tidyverse (dplyr, ggplot2, etc.)
+library(rio)        # Para importar casi cualquier tipo de formato.
+library(skimr)      # Funcion skim() para explorar rápidamente variables categóricas y numéricas.
+library(Hmisc)      # Proporciona función describe() que es muy similar a skim()
+library(janitor)    # Miscelánea de funciones basadas en tidyverse para manejo y reporte de datos.
+library(visdat)     # Funciones para visualizar datos faltantes
+library(tidyr)      # FUnciones para manejo y limpieza de datos
+```
+
+**Nota:** Recuerda instalar el paquete si no lo tienes hecho aún.
+
+## Importar base de datos
+
+Usaremos la navaja suiza de la importación de datos en R: el paquete {rio} y su función `import()`.
+
+```{r}
+preclin_data <- import("maca_meno_perclin_modif.xlsx")
+```
+
+## Paso 1: Resumen global de los datos
+
+La función `glimpse()` ('hechar un vistazo') del paquete `{dplyr}` de `{tidyverse}` es muy útil para identificar rápidamente las características generales de los datos (número de filas, columnas y lista de variables con pequeña salida de ejemplo).
+
+```{r}
+preclin_data %>%
+  glimpse()
+```
+
+Podemos usar también la función `skim()` del paquete `{skimr}` para tener un ersumen detallado de cada una de las variables.
+
+```{r}
+preclin_data %>%
+  skim()
+```
+
+O podemos usar la función `describe()` del paquete `{Hmisc}`.
+
+```{r}
+preclin_data %>%
+  _____()
+```
+
+## Paso 2: Detecte y maneje duplicados
+
+La primera pregunta que debemos hacernos con esta base de datos es **¿cuál es la variable ID que debe ser única?** Si bien hay dos variables id: `id_jaula` y `id_raton`, solo `id_raton` es la variable que debería ser única, ya que varios ratones podían compartir la misma jaula como parte del experimento.
+
+Una forma muy informal de buscar datos duplicados es inspeccionado en data frame con la función `View()` de R base o dándole click al ícono de matriz de cálculo que aparece a la derecha del objeto `preclin_data` mostrado en el `Environment`.
+
+```{r}
+View(_____)
+```
+
+De la inspección de esta matriz de cálculo, podemos apreciar que efectivamente hay datos duplicados. Si bien esta forma puede ayudar cuand los datos son de tamaño pequeño y manejable, no es útil cuando se tienen muchísimos datos. Se necesita un método que detecte todos los duplicados sin posibilidad de que se escape algún duplicado. 
+
+Para esto, podemos usar la función `get_dupes()` del paquete `{janitor}`, el cual permite hacer el diagnóstico de observaciones duplicadas en todo el conjunto de datos.
+
+Lo primero es identificar si hay algún duplicado de observación completa, es decir, que hayan dos o más filas que sean exactamente iguales entre sí en todas sus variables. Esta es la forma mas obvia de duplicación de datos.
+
+```{r}
+preclin_data %>%
+  _____()
+```
+
+Se observa que hay duplicados de fila, por lo que uno puede proceder a eliminarlos sin ninguna preocupación. Al ser filas exactamente iguales, no importa cuál de las filas elimine, solo necesito quedarme con una de estas. Es muy importante guardar el data frame para poder seguir limpiando sobre este:
+
+```{r}
+preclin_data %>% 
+  _____(____, .keep_all = ___) -> preclin_data2
+```
+
+Una forma más sutil es cuando solo hay duplicación del ID pero no de la fila entera. En estos casos la pregunta que surge es ¿qué fila es la correcta? En esta base de datos podemos verificar este tipo de duplicación también haciendo uso de `get_dupes()` e indicando la o las variables donde se desea identificar el duplicado.
+
+Veamos si todavía hay duplicados en la base de datos. Trabajaremos sobre el data frame nuevo `preclin_data2` al cual ya se le quitaron los duplicados de fila completa. 
+
+```{r}
+preclin_data2 %>% 
+  _____(____)
+```
+
+Se aprecia que el ratón con id_raton de 1 se repite 3 veces pero solo debería aparecer una vez. Además, a pesar de ser el mismo ratón, supuestamente, tiene valores distitntos para la variable id_jaula y la variable protocolo. La pregunta clave aquí es ¿cuál de todas las filas es la fila correcta y cuáles son filas que debamos eliminar? La solución requiere conocer los datos originales, verificar la fuente de los datos y otros elementos propios de la investigación.
+
+Supongamos que luego de revisar los documentos fuente y hacer algunas otras validaciones, logras determinar que la fila correcta es la del raton que tiene protocolo = "ovx" y id_jaula = 1. Entonces, debes eliminar las otras dos filas equivocadas que son duplicados de ratón pero con datos erróneos. Podemos hacer esto usando la función `filter()`. No se olviden de guardar los datos para poder trabajar con los datos nuevos sin duplicados.
+
+```{r}
+preclin_data2 %>% 
+  filter(____) -> preclin_data3
+```
+
+
+## Paso 3: Datos faltantes
+
+### Paso 3.1: Identifique datos faltantes
+
+Podemos usar `skim()` para hacernos una idea de los datos faltantes. Aplicaremos esta función sobre el data frame sin duplicados que creamos anteriormente.
+
+```{r}
+preclin_data3 %>% 
+  skim()
+```
+ 
+También podemos hacer uso de gráficos de datos faltantes para mejorar la comprensión de estos. La función `vis_dat()` del paquete `{vis_dat}` ofrece buenas soluciones gráficas.
+
+```{r}
+preclin_data3 %>% 
+  ____()
+```
+
+Otra función muy útil es `vis_miss()` que te da el porcentaje de datos faltantes por variable
+
+```{r}
+preclin_data3 %>% 
+  ____()
+```
+
+
+Si queremos ver cómo se combinan los datos faltantes por variable, la librería `{VIM}` ofrece la función `aggr()` que permite una rápida visualización.
+
+```{r}
+preclin_data3 %>% 
+  ____()
+```
+
+También podemos usar la función `gg_miss_upset()` del paquete `{naniar}`:
+
+```{r}
+preclin_data3 %>% 
+  ____()
+```
+
+Podemos inspeccionar los datos solo de los individuos con datos faltantes usando `filter()`. Por ejemplo, si queremos saber quienes son los individuos que tienen datos faltantes en la variable urea, podemos hacerlo fácilmente usando `is.na()` dentro de `filter()`. 
+
+```{r}
+
+```
+
+
+### Paso 3.2: Manejo de los datos faltantes
+
+Imaginemos que sabemos que el ratón con `id == 6` tiene un valor de úrea `65.2`. Como vemos en la tabla de datos de arriba, ese valor está faltando. Nosotros podemos corregir este valor usando código. Para esto podemos hacer uso de la función `replace()` tal y como sigue:
+
+```{r}
+
+```
+
+Otro problema clásico en el análisis inicial de datos y su limpieza es que encontramos valores perdidos camuflados, que no parecen perdidos a menos que uno los inspeccione detalladamente. Por ejemplo, veamos qué pasa con estas dos variables `prot` y `protocolo`.
+
+```{r}
+
+```
+
+Notar que estas hay valores perdidos que han sido etiquetados como `-999` o `desconocido` respectivamente. Estos valores deberían ser transformados `NA` para que R los considere datos faltantes. Esto se puede lograr fácilmente usando la función `na_if()` del paquete `{tidyr}`. 
+
+```{r}
+
+```
+
+## Paso 4: Valores extremos no plausibles
+
+Para identificar valores extremos no plausibles, puede ayudar  ver los valores mínimos y máximo usando `skim()` o `describe()`.
+
+```{r}
+
+```
+
+Los gráficos de caja de R base también pueden ayudar a tener una rápida visualización de la variable numérica:
+
+```{r}
+
+```
+
+Una vez identificado el dato no plausible, podemos tratar de corregirlo o, si no es posible, eliminarlo. 
+
+Por ejemplo, en el caso de la variable `prot`, el valor `43131` es una valor extremo que podríamos corregir si tuvieramos esta información. Imaginemos que el valor correcto era de 4.5, esto se podría hacer de la siguiente manera:
+
+```{r}
+
+```
+
+En el caso no pudieramos corregirlo, podríamos convertirlo en dato faltante con la función `na_if()`
+
+```{r}
+
+```
+
+## Paso 5: Haga consultas para verificar consistencias
+
+Podemos hacer algunas consultas o `queries` usando las funciones de {dplyr}. Veamos algunas consultas de interés:
+
+
+### a) Seleccione a los ratones de la jaula 5 y muestre sus valores de glucosa y triglicéridos.
+
+
+
+### b) Muestre qué ratones tienen niveles de úrea mayores a 60 pero niveles de glucosa entre 100 y 160
+
+

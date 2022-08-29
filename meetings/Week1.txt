@@ -1,0 +1,13 @@
+Agenda
+------
+
+1) Revisar instalación de R, RStudio y Rtools.
+
+2) Revisar si conocen como navegar en Web de curso:
+
+3) Repaso: 
+
+	- Creación de carpeta y proyecto.
+	- Importar datos.
+	- Limpieza de datos.
+	- 
