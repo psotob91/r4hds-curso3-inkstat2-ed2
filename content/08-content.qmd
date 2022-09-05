@@ -1,4 +1,4 @@
 ---
-title: "Pruebas de hipótesis: Paradigma clásico y bajo remuestreo"
+title: "Estimación bajo inferencia por remuestreo"
 date: "2022-09-15"
 ---

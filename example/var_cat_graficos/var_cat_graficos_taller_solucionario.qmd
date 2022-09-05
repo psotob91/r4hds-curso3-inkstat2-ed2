@@ -1,0 +1,376 @@
+---
+title: "Identificando tipos de Variables"
+---
+
+## Introducción
+
+Vamos a resolver una serie de ejercicios acerca de gráfocps de variables categóricas. Usaremos un conjunto de datos juguetes acerca de casos de pacientes con Ébola que se atendieron en hospitales de África. Estos datos están disponibles en el libro [The Epidemiologist Handbook](https://epirhandbook.com/en/index.html).
+
+## Cargar paquetes
+
+
+```{r}
+library(tidyverse)     # Esto carga {dplyr}, {ggplot2}, etc.
+library(rio)           # Para importar todo tipo de datos
+library(skimr)         # Exploración de datos
+library(treemap)       # Gráfico de Treemap (mosaicos)
+```
+
+## Importar datos
+
+```{r}
+ebola_data <- import("linelist_cleaned.rds")
+```
+
+## Análisis inicial de datos
+
+```{r}
+ebola_data %>% 
+  glimpse()
+```
+
+```{r}
+ebola_data %>% 
+  skim()
+```
+
+## Gráfico de barras de frecuencias absolutas
+
+- Inspeccionar hospital
+
+```{r}
+table(ebola_data$hospital)
+```
+
+
+- Gráfico de barras de frecuencias absolutas para hospital
+
+Barra de FA vertical con geom_bar() - usamos datos individuales:
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  ggplot(aes(x = hospital)) + 
+  geom_bar()
+```
+
+Barra de FA horizontal con geom_bar() - usamos datos individuales:
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  ggplot(aes(y = hospital)) + 
+  geom_bar()
+```
+
+Barra de FA horizontal con geom_col() - usamos datos agrupados:
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  ggplot(aes(y = hospital, x = n)) + 
+  geom_col()
+```
+
+Barra de FA vertical con geom_col() - usamos datos agrupados:
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  ggplot(aes(x = hospital, y = n)) + 
+  geom_col()
+```
+
+Barra de FA horizontal con geom_bar(stat = "identity") - usamos datos agrupados:
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) -> ebola_data_agregada
+
+ebola_data_agregada
+```
+
+```{r}
+ebola_data_agregada %>% 
+  ggplot(aes(x = n, y = hospital)) + 
+  geom_bar(stat = "identity")
+```
+
+- Ordenar por orden arbitrario
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  mutate(hospital = fct_relevel(hospital, 
+                                "Military Hospital", "Central Hospital", 
+                                "Port Hospital", 
+                                "St. Mark's Maternity Hospital (SMMH)", 
+                                "Other")) %>% 
+  count(hospital) -> ebola_data_reordenada
+
+ebola_data_reordenada
+```
+
+```{r}
+ebola_data_reordenada %>% 
+  ggplot(aes(x = n, y = hospital)) + 
+  geom_col()
+```
+
+Bonus extra: Si quiero invertir el orden: 
+
+```{r}
+ebola_data_reordenada %>% 
+  ggplot(aes(x = n, y = fct_rev(hospital))) + 
+  geom_col()
+```
+
+- Oderdar por orden de mayor a menor frecuencia
+
+Si datos son individuales
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  ggplot(aes(y = fct_infreq(hospital))) + # Ojo: Tienen que ser datos individuales
+  geom_bar()         
+```
+
+Si datos son individuales, pero al reves
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  ggplot(aes(y = fct_rev(fct_infreq(hospital)))) + # Ojo: Tienen que ser datos individuales
+  geom_bar()         
+```
+
+Si datos son agregados
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  ggplot(aes(y = fct_reorder(hospital, n), x = n)) + 
+  geom_col()
+```
+
+Si datos son agregados, pero al revés
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  ggplot(aes(y = fct_rev(fct_reorder(hospital, n)), x = n)) + 
+  geom_col()
+```
+
+- Personalizar gráfico
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  ggplot(aes(y = fct_rev(fct_reorder(hospital, n)), x = n)) + 
+  geom_col() + 
+  labs(x = "Frecuencia absoluta", 
+       y = "Hospitales", 
+       title = "", 
+       caption = "Fuente: Datos de Epihandbook.") + 
+  theme_bw()
+```
+
+- Colores diferentes para cada barra según variable hospital
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  ggplot(aes(y = fct_rev(fct_reorder(hospital, n)), x = n, fill = hospital)) + 
+  geom_col() + 
+  labs(x = "Frecuencia absoluta", 
+       y = "Hospitales", 
+       title = "", 
+       caption = "Fuente: Datos de Epihandbook.") + 
+  theme_bw() +                      # Configurar tema completo
+  theme(legend.position = "none")   # Quita leyenda
+```
+
+## Gráfico de barras de frecuencias relativas
+
+Solo con datos agrupados - geom_col(): 
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  mutate(porcentaje = 100 * n / sum(n)) %>% 
+  ggplot(aes(y = hospital, x = porcentaje)) + 
+  geom_col()
+```
+
+Solo con datos agrupados - geom_bar(stat = "identity"): 
+
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  mutate(porcentaje = 100 * n / sum(n)) %>% 
+  ggplot(aes(y = hospital, x = porcentaje)) + 
+  geom_bar(stat = "identity")
+```
+
+Solo con datos  individuales - geom_bar(): 
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  ggplot(aes(y = hospital)) + 
+  geom_bar(aes(x = (..count..)/sum(..count..))) + 
+  labs(x = "Porcentaje", y = "Hospital")
+```
+
+
+- Personalizado
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  mutate(porcentaje = 100 * n / sum(n)) %>% 
+  ggplot(aes(y = fct_rev(fct_reorder(hospital, porcentaje)), x = porcentaje, fill = hospital)) + 
+  geom_col() + 
+  labs(x = "Porcentaje (%)", 
+       y = "Hospitales", 
+       title = "", 
+       caption = "Fuente: Datos de Epihandbook.") + 
+  theme_bw() +                      # Configurar tema completo
+  theme(legend.position = "none")   # Quita leyenda
+```
+
+## Gráfico de barras apiladas
+
+- De frecuencias absolutas
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  ggplot(aes(x = "", y = n, fill = hospital)) + 
+  geom_bar(stat = "identity", position = "stack")
+```
+
+- De frecuencias relativas
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  ggplot(aes(x = "", y = n, fill = hospital)) + 
+  geom_bar(stat = "identity", position = "fill")
+```
+
+- Extra bonus: otra opcion para frecuencias relativas
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  mutate(porcentaje = 100 * n / sum(n)) %>% 
+  ggplot(aes(x = "", y = porcentaje, fill = hospital)) + 
+  geom_bar(stat = "identity", position = "stack") 
+```
+
+- Personalizar
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  mutate(porcentaje = 100 * n / sum(n)) %>% 
+  ggplot(aes(x = "", y = porcentaje, fill = hospital)) + 
+  geom_bar(stat = "identity", position = "stack") + 
+  labs(x = "", y = "Porcentaje (%)", fill = "Hospitales") + 
+  theme_minimal()
+```
+
+
+## Otros gráficos
+
+### Gráfico de pái (pie)
+
+- De frecuencias absolutas
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  ggplot(aes(x = "", y = n, fill = hospital)) + 
+  geom_bar(stat = "identity", position = "stack") +
+  coord_polar("y")
+```
+
+- De frecuencias relativas
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  ggplot(aes(x = "", y = n, fill = hospital)) + 
+  geom_bar(stat = "identity", position = "fill") +
+  coord_polar("y")
+```
+
+- Personalizar
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  mutate(porcentaje = 100 * n / sum(n)) %>% 
+  ggplot(aes(x = "", y = porcentaje, fill = hospital)) + 
+  geom_bar(stat = "identity", position = "stack") + 
+  coord_polar("y") + 
+  labs(x = "", y = "Porcentaje (%)", fill = "Hospitales") + 
+  theme_minimal()
+```
+
+### Gráfico de lollipop 
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  ggplot(aes(y = hospital, x = n)) + 
+  geom_point() + 
+  geom_segment(aes(y = hospital, yend = hospital, x = 0, xend = n)) 
+```
+
+- Personalizar
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  ggplot(aes(y = hospital, x = n)) + 
+  geom_segment(aes(y = hospital, yend = hospital, x = 0, xend = n), 
+               color = "blue") +
+  geom_point(color = "skyblue", size = 5) + 
+  theme_minimal()
+```
+
+### Treemap
+
+```{r}
+ebola_data %>% 
+  filter(hospital != "Missing") %>% 
+  count(hospital) %>% 
+  treemap(index = "hospital", 
+          vSize = "n", 
+          type = "index")
+```
+

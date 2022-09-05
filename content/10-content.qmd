@@ -1,4 +1,4 @@
 ---
-title: "Pruebas de hipótesis para 3 o más grupos"
+title: "Pruebas de hipótesis para 1 y 2 grupos"
 date: "2022-09-22"
 ---

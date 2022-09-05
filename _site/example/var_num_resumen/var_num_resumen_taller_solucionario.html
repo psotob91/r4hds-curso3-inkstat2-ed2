@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R para Ciencia de Datos en Salud 3 - Identificando tipos de Variables</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//files/icon-512-inkastats.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sín resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la busqueda",
+    "search-hide-matches-text": "Esconder resultados adicionales",
+    "search-more-match-text": "hay más resultados en este documento",
+    "search-more-matches-text": "más resultados en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Eviar"
+  }
+}</script>
+
+
+<meta property="og:title" content="R para Ciencia de Datos en Salud 3 - Identificando tipos de Variables">
+<meta property="og:description" content="Vamos a resolver una serie de ejercicios de medidas de resumen de variables numéricas. Para esto, vamos a hacer uso de la base de datos boost_inmuno.dta.">
+<meta property="og:image" content="https://rcds3.inkastats.es//files/social-image-f22.png">
+<meta property="og:site-name" content="R para Ciencia de Datos en Salud 3">
+<meta property="og:locale" content="en_US">
+<meta property="og:image:height" content="514">
+<meta property="og:image:width" content="1264">
+<meta name="twitter:title" content="R para Ciencia de Datos en Salud 3 - Identificando tipos de Variables">
+<meta name="twitter:description" content="Vamos a resolver una serie de ejercicios de medidas de resumen de variables numéricas. Para esto, vamos a hacer uso de la base de datos boost_inmuno.dta.">
+<meta name="twitter:image" content="https://rcds3.inkastats.es//files/social-image-f22.png">
+<meta name="twitter:creator" content="@psotob91">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="514">
+<meta name="twitter:image-width" content="1264">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">R para Ciencia de Datos en Salud 3</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../syllabus.html">Syllabus</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../schedule.html">Cronograma</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../content/index.html">Contenido</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../assignment/index.html">Tareas</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../example/index.html" aria-current="page">Ejemplos</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resource/index.html">Recursos</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://discord.gg/jRnxKhnE"><i class="bi bi-discord" role="img" aria-label="Discord">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.google.com"><i class="bi bi-cloud-fill" role="img" aria-label="RStudio.cloud">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Identificando tipos de Variables</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Información general</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../example/index.html" class="sidebar-item-text sidebar-link">Ejemplos de código</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Sesión 1</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../example/mi_primer_proyecto/mi_primer_quarto.html" class="sidebar-item-text sidebar-link">Mi primer documento quarto</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../example/importar_datos/importar_datos_ejemplos.html" class="sidebar-item-text sidebar-link">Importando Datos con R - Ejemplos</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../example/mi_primer_ggplot/mi_primer_ggplot_solucion.html" class="sidebar-item-text sidebar-link">Mi primer ggplot</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../example/mi_primer_ggplot/mi_segundo_ggplot_solucion.html" class="sidebar-item-text sidebar-link">MI segundo grafico ggplot2</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../example/mi_primer_manejo_datos/mi_primer_manejo_datos_solucion.html" class="sidebar-item-text sidebar-link">Mi primer manejo de datos</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Sesión 2</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../example/aid/aid_taller_solucionario.html" class="sidebar-item-text sidebar-link">Taller: Análisis Inicial de Datos</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../example/var_num_graficos/var_num_graficos_solucionario.html" class="sidebar-item-text sidebar-link">Taller: Gráfico de variables numéricas</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../example/var_num_resumen/var_num_resumen_taller_solucionario.html" class="sidebar-item-text sidebar-link active">Identificando tipos de Variables</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Sesión 3</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../example/var_cat_resumen/var_cat_resumen_taller_solucionario.html" class="sidebar-item-text sidebar-link">Identificando tipos de Variables</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../example/var_cat_graficos/var_cat_graficos_taller_solucionario.html" class="sidebar-item-text sidebar-link">Identificando tipos de Variables</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Sesión 4</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  example/var_tiempo/var_tiempo_solucionario.qmd
+  </li>
+          <li class="sidebar-item">
+  example/tabla_reprod/tabla_reprod_taller_solucionario.qmd
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#cargar-paquetes" id="toc-cargar-paquetes" class="nav-link" data-scroll-target="#cargar-paquetes">Cargar paquetes</a></li>
+  <li><a href="#importar-datos" id="toc-importar-datos" class="nav-link" data-scroll-target="#importar-datos">Importar Datos</a></li>
+  <li><a href="#análisis-inicial-de-datos-inspección" id="toc-análisis-inicial-de-datos-inspección" class="nav-link" data-scroll-target="#análisis-inicial-de-datos-inspección">Análisis Inicial de Datos: Inspección</a></li>
+  <li><a href="#descripción-con-r-base" id="toc-descripción-con-r-base" class="nav-link" data-scroll-target="#descripción-con-r-base">Descripción con R base</a></li>
+  <li><a href="#descripción-con-dplyr" id="toc-descripción-con-dplyr" class="nav-link" data-scroll-target="#descripción-con-dplyr">Descripción con dplyr</a></li>
+  <li><a href="#descripción-con-summarytools" id="toc-descripción-con-summarytools" class="nav-link" data-scroll-target="#descripción-con-summarytools">Descripción con summarytools</a></li>
+  <li><a href="#descripción-con-hmisc" id="toc-descripción-con-hmisc" class="nav-link" data-scroll-target="#descripción-con-hmisc">Descripción con Hmisc</a></li>
+  <li><a href="#extra-bonus-uso-de-paquete-desctools" id="toc-extra-bonus-uso-de-paquete-desctools" class="nav-link" data-scroll-target="#extra-bonus-uso-de-paquete-desctools">Extra bonus: Uso de paquete DescTools</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Identificando tipos de Variables</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Enseñar el código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Esconder el código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver el código</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>Vamos a resolver una serie de ejercicios de medidas de resumen de variables numéricas. Para esto, vamos a hacer uso de la base de datos <code>boost_inmuno.dta</code>. Esta es una base de datos simulada y modificada para los fines de este ejercicio, la cual se basa en el estudio <strong>Immunogenicity and reactogenicity of a third dose of BNT162b2 vaccine for COVID-19 after a primary regimen with BBIBP-CorV or BNT162b2 vaccines in Lima, Peru</strong> pre-publicado en <strong>MedRxiv</strong> en 2022 y en revisión por pares por la revista Plos Medicine. El estudio detallado puede leerse en el artículo original el cual se encuentra en este <a href="https://www.medrxiv.org/content/10.1101/2022.05.01.22274548v1">enlace web</a>.</p>
+<p>Este fue un estudio observacional exploratorio que evaluó la <strong>reactogenicidad</strong> e <strong>inmunogenicidad</strong> de la tercera dosis en persona de salud y adultos mayores. Ambos grupos recibieron como tercera dosis la vacuna <strong>BNT162b2 (Pfizer)</strong>; sin embargo, hubo diferencias en cuanto al esquema primario producto de cómo el esquema de vacunación nacional fue realizado. El personal de salud había recibido como esquema primario la vacuna <strong>BBIBP-CorV (Sinopharm)</strong> y los adultos mayores recibieron mayoritariamente <strong>BNT162b2 (Pfizer)</strong>, por lo que tuvimos un grupo de <strong>vacunación heteróloga</strong> (BBIBP-CorV + BNT162b2) y otro de <strong>vacunación homóloga</strong> (SOlo BNT162b2) en los cuales evaluar la inmunogenicidad y reactogenicidad.</p>
+</section>
+<section id="cargar-paquetes" class="level2">
+<h2 class="anchored" data-anchor-id="cargar-paquetes">Cargar paquetes</h2>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)     <span class="co"># Esto carga {dplyr}, {ggplot2}, etc.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+✔ tibble  3.1.8     ✔ dplyr   1.0.9
+✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ readr   2.1.2     ✔ forcats 0.5.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)         <span class="co"># Para importar datos de Stata</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)         <span class="co"># Exploración de datos</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)  <span class="co"># Para generar estadísticos descriptivos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'summarytools'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:tibble':
+
+    view</code></pre>
+</div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)         <span class="co"># Para generar estadísticos descriptivos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lattice</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: survival</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Formula</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'Hmisc'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:summarytools':
+
+    label, label&lt;-</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:dplyr':
+
+    src, summarize</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    format.pval, units</code></pre>
+</div>
+</div>
+</section>
+<section id="importar-datos" class="level2">
+<h2 class="anchored" data-anchor-id="importar-datos">Importar Datos</h2>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="ot">&lt;-</span> <span class="fu">read_stata</span>(<span class="st">"boost_inmuno.dta"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_factor</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="análisis-inicial-de-datos-inspección" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-inicial-de-datos-inspección">Análisis Inicial de Datos: Inspección</h2>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 285
+Columns: 9
+$ id              &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,…
+$ edad            &lt;dbl&gt; 23, 24, 24, 23, 24, 26, 25, 27, 25, 26, 28, 28, 27, 29…
+$ sexo            &lt;fct&gt; Femenino, Masculino, NA, Femenino, Femenino, Femenino,…
+$ comorb          &lt;fct&gt; No, No, No, No, No, No, No, No, No, No, No, No, No, No…
+$ tipo_refuerzo   &lt;chr&gt; "Heterologo", "Heterologo", "Heterologo", "Heterologo"…
+$ tdosis_refuerzo &lt;dbl&gt; 233, 232, 242, 234, 236, 241, 201, 241, 212, 239, 246,…
+$ ant_COV         &lt;fct&gt; Prior Infection, Prior Infection, No Infection, No Inf…
+$ IgG_Basal       &lt;dbl&gt; 99.79, 41.34, 413.50, 13.42, 4.83, 21.70, 8.70, 10.81,…
+$ IgG_Final       &lt;dbl&gt; 554.63, 549.02, 485.43, 573.46, 473.81, 603.79, 532.84…</code></pre>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">Piped data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">285</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">factor</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">tipo_refuerzo</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">ordered</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: left;">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">sexo</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Fem: 189, Mas: 95</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">comorb</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">No: 214, Sí: 71</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ant_COV</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">No : 201, Pri: 84</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 10%">
+<col style="width: 14%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">id</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">143.00</td>
+<td style="text-align: right;">82.42</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">72.00</td>
+<td style="text-align: right;">143.00</td>
+<td style="text-align: right;">214.00</td>
+<td style="text-align: right;">285.00</td>
+<td style="text-align: left;">▇▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">edad</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">48.25</td>
+<td style="text-align: right;">14.71</td>
+<td style="text-align: right;">23.00</td>
+<td style="text-align: right;">36.00</td>
+<td style="text-align: right;">46.00</td>
+<td style="text-align: right;">59.00</td>
+<td style="text-align: right;">97.00</td>
+<td style="text-align: left;">▇▇▇▂▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tdosis_refuerzo</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">214.47</td>
+<td style="text-align: right;">25.28</td>
+<td style="text-align: right;">134.00</td>
+<td style="text-align: right;">199.00</td>
+<td style="text-align: right;">222.00</td>
+<td style="text-align: right;">235.00</td>
+<td style="text-align: right;">267.00</td>
+<td style="text-align: left;">▁▂▃▇▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IgG_Basal</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">82.54</td>
+<td style="text-align: right;">122.33</td>
+<td style="text-align: right;">-2.19</td>
+<td style="text-align: right;">8.15</td>
+<td style="text-align: right;">28.33</td>
+<td style="text-align: right;">96.33</td>
+<td style="text-align: right;">583.97</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IgG_Final</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">492.26</td>
+<td style="text-align: right;">71.15</td>
+<td style="text-align: right;">235.51</td>
+<td style="text-align: right;">447.18</td>
+<td style="text-align: right;">501.20</td>
+<td style="text-align: right;">545.15</td>
+<td style="text-align: right;">618.44</td>
+<td style="text-align: left;">▁▁▃▇▅</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="descripción-con-r-base" class="level2">
+<h2 class="anchored" data-anchor-id="descripción-con-r-base">Descripción con R base</h2>
+<ul>
+<li>Media de la variable edad:</li>
+</ul>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bd_inmuno<span class="sc">$</span>edad)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 48.24561</code></pre>
+</div>
+</div>
+<ul>
+<li>Mediana de la variable edad</li>
+</ul>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(bd_inmuno<span class="sc">$</span>edad)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 46</code></pre>
+</div>
+</div>
+<ul>
+<li>Desviación estándar de edad</li>
+</ul>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(bd_inmuno<span class="sc">$</span>edad)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14.70901</code></pre>
+</div>
+</div>
+<ul>
+<li>Media de IgG Basal</li>
+</ul>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bd_inmuno<span class="sc">$</span>IgG_Basal)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bd_inmuno<span class="sc">$</span>IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 82.54356</code></pre>
+</div>
+</div>
+<ul>
+<li>Media truncada al 5% de la variable IgG_Basal</li>
+</ul>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bd_inmuno<span class="sc">$</span>IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">trim =</span> <span class="fl">0.05</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 65.68734</code></pre>
+</div>
+</div>
+</section>
+<section id="descripción-con-dplyr" class="level2">
+<h2 class="anchored" data-anchor-id="descripción-con-dplyr">Descripción con dplyr</h2>
+<ul>
+<li>Media de IgG_Basal:</li>
+</ul>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media_IgG_Basal =</span> <span class="fu">mean</span>(IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  Media_IgG_Basal
+            &lt;dbl&gt;
+1            82.5</code></pre>
+</div>
+</div>
+<ul>
+<li>Media, DE, Mediana, P25 y P75 de IgG_Basal:</li>
+</ul>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media_IgG_Basal =</span> <span class="fu">mean</span>(IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">DE_IgG_Basal =</span> <span class="fu">sd</span>(IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">Mediana_IgG_Basal =</span> <span class="fu">median</span>(IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">P25_IgG_Basal =</span> <span class="fu">quantile</span>(IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.25</span>)), </span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">P75_IgG_Basal =</span> <span class="fu">quantile</span>(IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.75</span>)))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+  Media_IgG_Basal DE_IgG_Basal Mediana_IgG_Basal P25_IgG_Basal P75_IgG_Basal
+            &lt;dbl&gt;        &lt;dbl&gt;             &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+1            82.5         122.              28.3          8.15          96.3</code></pre>
+</div>
+</div>
+</section>
+<section id="descripción-con-summarytools" class="level2">
+<h2 class="anchored" data-anchor-id="descripción-con-summarytools">Descripción con summarytools</h2>
+<ul>
+<li>Medidas de resumen numérica de la variable edad</li>
+</ul>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descr</span>(edad)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Descriptive Statistics  
+bd_inmuno$edad  
+Label: edad  
+N: 285  
+
+                      edad
+----------------- --------
+             Mean    48.25
+          Std.Dev    14.71
+              Min    23.00
+               Q1    36.00
+           Median    46.00
+               Q3    59.00
+              Max    97.00
+              MAD    17.79
+              IQR    23.00
+               CV     0.30
+         Skewness     0.44
+      SE.Skewness     0.14
+         Kurtosis    -0.39
+          N.Valid   285.00
+        Pct.Valid   100.00</code></pre>
+</div>
+</div>
+<ul>
+<li>Medidas de resumen numérica de la variable IgG_Basal</li>
+</ul>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descr</span>(IgG_Basal)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Descriptive Statistics  
+bd_inmuno$IgG_Basal  
+Label: igG pre refuerzo  
+N: 285  
+
+                    IgG_Basal
+----------------- -----------
+             Mean       82.54
+          Std.Dev      122.33
+              Min       -2.19
+               Q1        8.13
+           Median       28.33
+               Q3       96.61
+              Max      583.97
+              MAD       36.80
+              IQR       88.17
+               CV        1.48
+         Skewness        2.14
+      SE.Skewness        0.14
+         Kurtosis        3.92
+          N.Valid      284.00
+        Pct.Valid       99.65</code></pre>
+</div>
+</div>
+<ul>
+<li>Medidas de resumen numérica de todas las variables numéricas</li>
+</ul>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descr</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Non-numerical variable(s) ignored: sexo, comorb, tipo_refuerzo, ant_COV</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Descriptive Statistics  
+bd_inmuno  
+N: 285  
+
+                      edad       id   IgG_Basal   IgG_Final   tdosis_refuerzo
+----------------- -------- -------- ----------- ----------- -----------------
+             Mean    48.25   143.00       82.54      492.26            214.47
+          Std.Dev    14.71    82.42      122.33       71.15             25.28
+              Min    23.00     1.00       -2.19      235.51            134.00
+               Q1    36.00    72.00        8.13      447.18            199.00
+           Median    46.00   143.00       28.33      501.20            222.00
+               Q3    59.00   214.00       96.61      545.15            235.00
+              Max    97.00   285.00      583.97      618.44            267.00
+              MAD    17.79   105.26       36.80       70.13             22.24
+              IQR    23.00   142.00       88.17       97.97             36.00
+               CV     0.30     0.58        1.48        0.14              0.12
+         Skewness     0.44     0.00        2.14       -0.73             -0.87
+      SE.Skewness     0.14     0.14        0.14        0.14              0.14
+         Kurtosis    -0.39    -1.21        3.92        0.44             -0.08
+          N.Valid   285.00   285.00      284.00      285.00            285.00
+        Pct.Valid   100.00   100.00       99.65      100.00            100.00</code></pre>
+</div>
+</div>
+</section>
+<section id="descripción-con-hmisc" class="level2">
+<h2 class="anchored" data-anchor-id="descripción-con-hmisc">Descripción con Hmisc</h2>
+<ul>
+<li>Medidas de resumen de la variable edad</li>
+</ul>
+<p>Con dialecto de R base</p>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(bd_inmuno<span class="sc">$</span>edad)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>bd_inmuno$edad : edad  Format:%10.0g 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     285        0       60    0.999    48.25    16.72       28       31 
+     .25      .50      .75      .90      .95 
+      36       46       59       68       72 
+
+lowest : 23 24 25 26 27, highest: 78 79 92 94 97</code></pre>
+</div>
+</div>
+<p>Con dialecto de R tidy</p>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(edad) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">describe</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>. : edad  Format:%10.0g 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     285        0       60    0.999    48.25    16.72       28       31 
+     .25      .50      .75      .90      .95 
+      36       46       59       68       72 
+
+lowest : 23 24 25 26 27, highest: 78 79 92 94 97</code></pre>
+</div>
+</div>
+<ul>
+<li>Medidas de resumen de todas las variables</li>
+</ul>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(bd_inmuno)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>bd_inmuno 
+
+ 9  Variables      285  Observations
+--------------------------------------------------------------------------------
+id : ID de paciente  Format:%9.0g 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     285        0      285        1      143    95.33     15.2     29.4 
+     .25      .50      .75      .90      .95 
+    72.0    143.0    214.0    256.6    270.8 
+
+lowest :   1   2   3   4   5, highest: 281 282 283 284 285
+--------------------------------------------------------------------------------
+edad  Format:%10.0g 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     285        0       60    0.999    48.25    16.72       28       31 
+     .25      .50      .75      .90      .95 
+      36       46       59       68       72 
+
+lowest : 23 24 25 26 27, highest: 78 79 92 94 97
+--------------------------------------------------------------------------------
+sexo : genero 
+       n  missing distinct 
+     284        1        2 
+                              
+Value       Femenino Masculino
+Frequency        189        95
+Proportion     0.665     0.335
+--------------------------------------------------------------------------------
+comorb : comorbilidad 
+       n  missing distinct 
+     285        0        2 
+                      
+Value         No    Sí
+Frequency    214    71
+Proportion 0.751 0.249
+--------------------------------------------------------------------------------
+tipo_refuerzo  Format:%10s 
+       n  missing distinct 
+     284        1        2 
+                                
+Value      Heterologo   Homologo
+Frequency         228         56
+Proportion      0.803      0.197
+--------------------------------------------------------------------------------
+tdosis_refuerzo : FV3_FV2  Format:%10.0g 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     285        0       89    0.999    214.5    27.56    161.2    176.0 
+     .25      .50      .75      .90      .95 
+   199.0    222.0    235.0    237.0    241.0 
+
+lowest : 134 151 152 153 154, highest: 247 248 251 252 267
+--------------------------------------------------------------------------------
+ant_COV 
+       n  missing distinct 
+     285        0        2 
+                                          
+Value         No Infection Prior Infection
+Frequency              201              84
+Proportion           0.705           0.295
+--------------------------------------------------------------------------------
+IgG_Basal : igG pre refuerzo  Format:%10.0g 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     284        1      280        1    82.54    110.1    2.002    3.499 
+     .25      .50      .75      .90      .95 
+   8.155   28.325   96.325  266.028  412.019 
+
+lowest :  -2.19   0.12   0.31   0.32   0.46, highest: 490.21 517.96 528.28 529.36 583.97
+--------------------------------------------------------------------------------
+IgG_Final : igG post refuerzo  Format:%10.0g 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     285        0      283        1    492.3    79.27    360.0    402.4 
+     .25      .50      .75      .90      .95 
+   447.2    501.2    545.1    572.7    594.1 
+
+lowest : 235.51 246.25 290.47 300.55 309.48, highest: 608.42 611.89 614.52 615.54 618.44
+--------------------------------------------------------------------------------</code></pre>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">describe</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>. 
+
+ 9  Variables      285  Observations
+--------------------------------------------------------------------------------
+id : ID de paciente  Format:%9.0g 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     285        0      285        1      143    95.33     15.2     29.4 
+     .25      .50      .75      .90      .95 
+    72.0    143.0    214.0    256.6    270.8 
+
+lowest :   1   2   3   4   5, highest: 281 282 283 284 285
+--------------------------------------------------------------------------------
+edad  Format:%10.0g 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     285        0       60    0.999    48.25    16.72       28       31 
+     .25      .50      .75      .90      .95 
+      36       46       59       68       72 
+
+lowest : 23 24 25 26 27, highest: 78 79 92 94 97
+--------------------------------------------------------------------------------
+sexo : genero 
+       n  missing distinct 
+     284        1        2 
+                              
+Value       Femenino Masculino
+Frequency        189        95
+Proportion     0.665     0.335
+--------------------------------------------------------------------------------
+comorb : comorbilidad 
+       n  missing distinct 
+     285        0        2 
+                      
+Value         No    Sí
+Frequency    214    71
+Proportion 0.751 0.249
+--------------------------------------------------------------------------------
+tipo_refuerzo  Format:%10s 
+       n  missing distinct 
+     284        1        2 
+                                
+Value      Heterologo   Homologo
+Frequency         228         56
+Proportion      0.803      0.197
+--------------------------------------------------------------------------------
+tdosis_refuerzo : FV3_FV2  Format:%10.0g 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     285        0       89    0.999    214.5    27.56    161.2    176.0 
+     .25      .50      .75      .90      .95 
+   199.0    222.0    235.0    237.0    241.0 
+
+lowest : 134 151 152 153 154, highest: 247 248 251 252 267
+--------------------------------------------------------------------------------
+ant_COV 
+       n  missing distinct 
+     285        0        2 
+                                          
+Value         No Infection Prior Infection
+Frequency              201              84
+Proportion           0.705           0.295
+--------------------------------------------------------------------------------
+IgG_Basal : igG pre refuerzo  Format:%10.0g 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     284        1      280        1    82.54    110.1    2.002    3.499 
+     .25      .50      .75      .90      .95 
+   8.155   28.325   96.325  266.028  412.019 
+
+lowest :  -2.19   0.12   0.31   0.32   0.46, highest: 490.21 517.96 528.28 529.36 583.97
+--------------------------------------------------------------------------------
+IgG_Final : igG post refuerzo  Format:%10.0g 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     285        0      283        1    492.3    79.27    360.0    402.4 
+     .25      .50      .75      .90      .95 
+   447.2    501.2    545.1    572.7    594.1 
+
+lowest : 235.51 246.25 290.47 300.55 309.48, highest: 608.42 611.89 614.52 615.54 618.44
+--------------------------------------------------------------------------------</code></pre>
+</div>
+</div>
+</section>
+<section id="extra-bonus-uso-de-paquete-desctools" class="level2">
+<h2 class="anchored" data-anchor-id="extra-bonus-uso-de-paquete-desctools">Extra bonus: Uso de paquete DescTools</h2>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'DescTools'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:Hmisc':
+
+    %nin%, Label, Mean, Quantile</code></pre>
+</div>
+</div>
+<ul>
+<li>Medidas de resumen para la variable edad:</li>
+</ul>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Desc</span>(bd_inmuno<span class="sc">$</span>edad)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+bd_inmuno$edad (numeric) :
+  edad
+
+
+  length       n    NAs  unique     0s   mean  meanCI'
+     285     285      0      60      0  48.25   46.53
+          100.0%   0.0%           0.0%          49.96
+                                                     
+     .05     .10    .25  median    .75    .90     .95
+   28.00   31.00  36.00   46.00  59.00  68.00   72.00
+                                                     
+   range      sd  vcoef     mad    IQR   skew    kurt
+   74.00   14.71   0.30   17.79  23.00   0.44   -0.39
+                                                     
+lowest : 23.0 (2), 24.0 (3), 25.0 (2), 26.0 (2), 27.0 (5)
+highest: 78.0, 79.0, 92.0, 94.0, 97.0
+
+' 95%-CI (classic)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(edad) <span class="sc">%&gt;%</span> </span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Desc</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+. (numeric) :
+  edad
+
+
+  length       n    NAs  unique     0s   mean  meanCI'
+     285     285      0      60      0  48.25   46.53
+          100.0%   0.0%           0.0%          49.96
+                                                     
+     .05     .10    .25  median    .75    .90     .95
+   28.00   31.00  36.00   46.00  59.00  68.00   72.00
+                                                     
+   range      sd  vcoef     mad    IQR   skew    kurt
+   74.00   14.71   0.30   17.79  23.00   0.44   -0.39
+                                                     
+lowest : 23.0 (2), 24.0 (3), 25.0 (2), 26.0 (2), 27.0 (5)
+highest: 78.0, 79.0, 92.0, 94.0, 97.0
+
+' 95%-CI (classic)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>Medidas de resumen para todas las variables</li>
+</ul>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Desc</span>(bd_inmuno)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+Describe bd_inmuno (tbl_df, tbl, data.frame):
+
+data frame: 285 obs. of  9 variables
+        283 complete cases (99.3%)
+
+  Nr  ColName          Class      NAs       Levels       Label         
+  1   id               numeric    .                      ID de paciente
+  2   edad             numeric    .                      edad          
+  3   sexo             factor     1 (0.4%)  (2):         genero        
+                                            1-Femenino,                
+                                            2-Masculino                
+  4   comorb           factor     .         (2): 1-No,   comorbilidad  
+                                            2-Sí                       
+  5   tipo_refuerzo    character  .                      tipo_refuerzo 
+  6   tdosis_refuerzo  numeric    .                      FV3_FV2       
+  7   ant_COV          factor     .         (2): 1-No    ant_COV       
+                                            Infection,                 
+                                            2-Prior                    
+                                            Infection                  
+  8   IgG_Basal        numeric    1 (0.4%)               igG pre       
+                                                         refuerzo      
+  9   IgG_Final        numeric    .                      igG post      
+                                                         refuerzo      
+
+
+------------------------------------------------------------------------------ 
+1 - id (numeric) :
+  ID de paciente
+
+
+  length       n    NAs  unique      0s    mean  meanCI'
+     285     285      0     = n       0  143.00  133.39
+          100.0%   0.0%            0.0%          152.61
+                                                       
+     .05     .10    .25  median     .75     .90     .95
+   15.20   29.40  72.00  143.00  214.00  256.60  270.80
+                                                       
+   range      sd  vcoef     mad     IQR    skew    kurt
+  284.00   82.42   0.58  105.26  142.00    0.00   -1.21
+                                                       
+lowest : 1.0, 2.0, 3.0, 4.0, 5.0
+highest: 281.0, 282.0, 283.0, 284.0, 285.0
+
+' 95%-CI (classic)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+2 - edad (numeric) :
+  edad
+
+
+  length       n    NAs  unique     0s   mean  meanCI'
+     285     285      0      60      0  48.25   46.53
+          100.0%   0.0%           0.0%          49.96
+                                                     
+     .05     .10    .25  median    .75    .90     .95
+   28.00   31.00  36.00   46.00  59.00  68.00   72.00
+                                                     
+   range      sd  vcoef     mad    IQR   skew    kurt
+   74.00   14.71   0.30   17.79  23.00   0.44   -0.39
+                                                     
+lowest : 23.0 (2), 24.0 (3), 25.0 (2), 26.0 (2), 27.0 (5)
+highest: 78.0, 79.0, 92.0, 94.0, 97.0
+
+' 95%-CI (classic)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-23-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+3 - sexo (factor - dichotomous) :
+  genero
+
+
+  length      n    NAs unique
+     285    284      1      2
+          99.6%   0.4%       
+
+           freq   perc  lci.95  uci.95'
+Femenino    189  66.5%   60.9%   71.8%
+Masculino    95  33.5%   28.2%   39.1%
+
+' 95%-CI (Wilson)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-23-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+4 - comorb (factor - dichotomous) :
+  comorbilidad
+
+
+  length      n    NAs unique
+     285    285      0      2
+         100.0%   0.0%       
+
+    freq   perc  lci.95  uci.95'
+No   214  75.1%   69.8%   79.8%
+Sí    71  24.9%   20.2%   30.2%
+
+' 95%-CI (Wilson)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-23-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+5 - tipo_refuerzo (character) :
+  tipo_refuerzo
+
+
+  length      n    NAs unique levels  dupes
+     285    285      0      3      3      y
+         100.0%   0.0%                     
+
+        level  freq   perc  cumfreq  cumperc
+1  Heterologo   228  80.0%      228    80.0%
+2    Homologo    56  19.6%      284    99.6%
+3                 1   0.4%      285   100.0%</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-23-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+6 - tdosis_refuerzo (numeric) :
+  FV3_FV2
+
+
+  length       n     NAs  unique      0s    mean  meanCI'
+     285     285       0      89       0  214.47  211.52
+          100.0%    0.0%            0.0%          217.42
+                                                        
+     .05     .10     .25  median     .75     .90     .95
+  161.20  176.00  199.00  222.00  235.00  237.00  241.00
+                                                        
+   range      sd   vcoef     mad     IQR    skew    kurt
+  133.00   25.28    0.12   22.24   36.00   -0.87   -0.08
+                                                        
+lowest : 134.0, 151.0, 152.0, 153.0, 154.0
+highest: 247.0 (2), 248.0, 251.0, 252.0, 267.0
+
+heap(?): remarkable frequency (8.4%) for the mode(s) (= 235)
+
+' 95%-CI (classic)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-23-6.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+7 - ant_COV (factor - dichotomous) :
+  ant_COV
+
+
+  length      n    NAs unique
+     285    285      0      2
+         100.0%   0.0%       
+
+                 freq   perc  lci.95  uci.95'
+No Infection      201  70.5%   65.0%   75.5%
+Prior Infection    84  29.5%   24.5%   35.0%
+
+' 95%-CI (Wilson)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-23-7.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+8 - IgG_Basal (numeric) :
+  igG pre refuerzo
+
+    length         n     NAs   unique       0s      mean    meanCI'
+       285       284       1      280        0   82.5436   68.2550
+               99.6%    0.4%              0.0%             96.8321
+                                                                  
+       .05       .10     .25   median      .75       .90       .95
+    2.0020    3.4990  8.1550  28.3250  96.3250  266.0280  412.0195
+                                                                  
+     range        sd   vcoef      mad      IQR      skew      kurt
+  586.1600  122.3317  1.4820  36.7981  88.1700    2.1387    3.9167
+                                                                  
+lowest : -2.1900, 0.12, 0.31, 0.32, 0.46
+highest: 490.21, 517.96, 528.28, 529.36, 583.97
+
+' 95%-CI (classic)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-23-8.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+9 - IgG_Final (numeric) :
+  igG post refuerzo
+
+
+   length        n      NAs   unique       0s     mean   meanCI'
+      285      285        0      283        0  492.257  483.962
+            100.0%     0.0%              0.0%           500.553
+                                                               
+      .05      .10      .25   median      .75      .90      .95
+  360.000  402.390  447.180  501.200  545.150  572.692  594.106
+                                                               
+    range       sd    vcoef      mad      IQR     skew     kurt
+  382.930   71.150    0.145   70.127   97.970   -0.729    0.444
+                                                               
+lowest : 235.51, 246.25, 290.47, 300.55, 309.48
+highest: 608.42, 611.89, 614.52, 615.54, 618.44
+
+' 95%-CI (classic)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-23-9.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Desc</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+Describe . (tbl_df, tbl, data.frame):
+
+data frame: 285 obs. of  9 variables
+        283 complete cases (99.3%)
+
+  Nr  ColName          Class      NAs       Levels       Label         
+  1   id               numeric    .                      ID de paciente
+  2   edad             numeric    .                      edad          
+  3   sexo             factor     1 (0.4%)  (2):         genero        
+                                            1-Femenino,                
+                                            2-Masculino                
+  4   comorb           factor     .         (2): 1-No,   comorbilidad  
+                                            2-Sí                       
+  5   tipo_refuerzo    character  .                      tipo_refuerzo 
+  6   tdosis_refuerzo  numeric    .                      FV3_FV2       
+  7   ant_COV          factor     .         (2): 1-No    ant_COV       
+                                            Infection,                 
+                                            2-Prior                    
+                                            Infection                  
+  8   IgG_Basal        numeric    1 (0.4%)               igG pre       
+                                                         refuerzo      
+  9   IgG_Final        numeric    .                      igG post      
+                                                         refuerzo      
+
+
+------------------------------------------------------------------------------ 
+1 - id (numeric) :
+  ID de paciente
+
+
+  length       n    NAs  unique      0s    mean  meanCI'
+     285     285      0     = n       0  143.00  133.39
+          100.0%   0.0%            0.0%          152.61
+                                                       
+     .05     .10    .25  median     .75     .90     .95
+   15.20   29.40  72.00  143.00  214.00  256.60  270.80
+                                                       
+   range      sd  vcoef     mad     IQR    skew    kurt
+  284.00   82.42   0.58  105.26  142.00    0.00   -1.21
+                                                       
+lowest : 1.0, 2.0, 3.0, 4.0, 5.0
+highest: 281.0, 282.0, 283.0, 284.0, 285.0
+
+' 95%-CI (classic)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+2 - edad (numeric) :
+  edad
+
+
+  length       n    NAs  unique     0s   mean  meanCI'
+     285     285      0      60      0  48.25   46.53
+          100.0%   0.0%           0.0%          49.96
+                                                     
+     .05     .10    .25  median    .75    .90     .95
+   28.00   31.00  36.00   46.00  59.00  68.00   72.00
+                                                     
+   range      sd  vcoef     mad    IQR   skew    kurt
+   74.00   14.71   0.30   17.79  23.00   0.44   -0.39
+                                                     
+lowest : 23.0 (2), 24.0 (3), 25.0 (2), 26.0 (2), 27.0 (5)
+highest: 78.0, 79.0, 92.0, 94.0, 97.0
+
+' 95%-CI (classic)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-24-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+3 - sexo (factor - dichotomous) :
+  genero
+
+
+  length      n    NAs unique
+     285    284      1      2
+          99.6%   0.4%       
+
+           freq   perc  lci.95  uci.95'
+Femenino    189  66.5%   60.9%   71.8%
+Masculino    95  33.5%   28.2%   39.1%
+
+' 95%-CI (Wilson)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-24-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+4 - comorb (factor - dichotomous) :
+  comorbilidad
+
+
+  length      n    NAs unique
+     285    285      0      2
+         100.0%   0.0%       
+
+    freq   perc  lci.95  uci.95'
+No   214  75.1%   69.8%   79.8%
+Sí    71  24.9%   20.2%   30.2%
+
+' 95%-CI (Wilson)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-24-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+5 - tipo_refuerzo (character) :
+  tipo_refuerzo
+
+
+  length      n    NAs unique levels  dupes
+     285    285      0      3      3      y
+         100.0%   0.0%                     
+
+        level  freq   perc  cumfreq  cumperc
+1  Heterologo   228  80.0%      228    80.0%
+2    Homologo    56  19.6%      284    99.6%
+3                 1   0.4%      285   100.0%</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-24-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+6 - tdosis_refuerzo (numeric) :
+  FV3_FV2
+
+
+  length       n     NAs  unique      0s    mean  meanCI'
+     285     285       0      89       0  214.47  211.52
+          100.0%    0.0%            0.0%          217.42
+                                                        
+     .05     .10     .25  median     .75     .90     .95
+  161.20  176.00  199.00  222.00  235.00  237.00  241.00
+                                                        
+   range      sd   vcoef     mad     IQR    skew    kurt
+  133.00   25.28    0.12   22.24   36.00   -0.87   -0.08
+                                                        
+lowest : 134.0, 151.0, 152.0, 153.0, 154.0
+highest: 247.0 (2), 248.0, 251.0, 252.0, 267.0
+
+heap(?): remarkable frequency (8.4%) for the mode(s) (= 235)
+
+' 95%-CI (classic)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-24-6.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+7 - ant_COV (factor - dichotomous) :
+  ant_COV
+
+
+  length      n    NAs unique
+     285    285      0      2
+         100.0%   0.0%       
+
+                 freq   perc  lci.95  uci.95'
+No Infection      201  70.5%   65.0%   75.5%
+Prior Infection    84  29.5%   24.5%   35.0%
+
+' 95%-CI (Wilson)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-24-7.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+8 - IgG_Basal (numeric) :
+  igG pre refuerzo
+
+    length         n     NAs   unique       0s      mean    meanCI'
+       285       284       1      280        0   82.5436   68.2550
+               99.6%    0.4%              0.0%             96.8321
+                                                                  
+       .05       .10     .25   median      .75       .90       .95
+    2.0020    3.4990  8.1550  28.3250  96.3250  266.0280  412.0195
+                                                                  
+     range        sd   vcoef      mad      IQR      skew      kurt
+  586.1600  122.3317  1.4820  36.7981  88.1700    2.1387    3.9167
+                                                                  
+lowest : -2.1900, 0.12, 0.31, 0.32, 0.46
+highest: 490.21, 517.96, 528.28, 529.36, 583.97
+
+' 95%-CI (classic)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-24-8.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>------------------------------------------------------------------------------ 
+9 - IgG_Final (numeric) :
+  igG post refuerzo
+
+
+   length        n      NAs   unique       0s     mean   meanCI'
+      285      285        0      283        0  492.257  483.962
+            100.0%     0.0%              0.0%           500.553
+                                                               
+      .05      .10      .25   median      .75      .90      .95
+  360.000  402.390  447.180  501.200  545.150  572.692  594.106
+                                                               
+    range       sd    vcoef      mad      IQR     skew     kurt
+  382.930   71.150    0.145   70.127   97.970   -0.729    0.444
+                                                               
+lowest : 235.51, 246.25, 290.47, 300.55, 309.48
+highest: 608.42, 611.89, 614.52, 615.54, 618.44
+
+' 95%-CI (classic)</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="var_num_resumen_taller_solucionario_files/figure-html/unnamed-chunk-24-9.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/rcds3\.inkastats\.es\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Correr el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb78" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Identificando tipos de Variables"</span></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introducción</span></span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a>Vamos a resolver una serie de ejercicios de medidas de resumen de variables numéricas. Para esto, vamos a hacer uso de la base de datos <span class="in">`boost_inmuno.dta`</span>. Esta es una base de datos simulada y modificada para los fines de este ejercicio, la cual se basa en el estudio **Immunogenicity and reactogenicity of a third dose of BNT162b2 vaccine for COVID-19 after a primary regimen with BBIBP-CorV or BNT162b2 vaccines in Lima, Peru** pre-publicado en **MedRxiv** en 2022 y en revisión por pares por la revista Plos Medicine. El estudio detallado puede leerse en el artículo original el cual se encuentra en este <span class="co">[</span><span class="ot">enlace web</span><span class="co">](https://www.medrxiv.org/content/10.1101/2022.05.01.22274548v1)</span>. </span>
+<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>Este fue un estudio observacional exploratorio que evaluó la **reactogenicidad** e **inmunogenicidad** de la tercera dosis en persona de salud y adultos mayores. Ambos grupos recibieron como tercera dosis la vacuna **BNT162b2 (Pfizer)**; sin embargo, hubo diferencias en cuanto al esquema primario producto de cómo el esquema de vacunación nacional fue realizado. El personal de salud había recibido como esquema primario la vacuna **BBIBP-CorV (Sinopharm)** y los adultos mayores recibieron mayoritariamente **BNT162b2 (Pfizer)**, por lo que tuvimos un grupo de **vacunación heteróloga** (BBIBP-CorV + BNT162b2) y otro de **vacunación homóloga** (SOlo BNT162b2) en los cuales evaluar la inmunogenicidad y reactogenicidad.</span>
+<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cargar paquetes</span></span>
+<span id="cb78-12"><a href="#cb78-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-15"><a href="#cb78-15" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-16"><a href="#cb78-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)     <span class="co"># Esto carga {dplyr}, {ggplot2}, etc.</span></span>
+<span id="cb78-17"><a href="#cb78-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)         <span class="co"># Para importar datos de Stata</span></span>
+<span id="cb78-18"><a href="#cb78-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)         <span class="co"># Exploración de datos</span></span>
+<span id="cb78-19"><a href="#cb78-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)  <span class="co"># Para generar estadísticos descriptivos</span></span>
+<span id="cb78-20"><a href="#cb78-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)         <span class="co"># Para generar estadísticos descriptivos</span></span>
+<span id="cb78-21"><a href="#cb78-21" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-22"><a href="#cb78-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-23"><a href="#cb78-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Importar Datos</span></span>
+<span id="cb78-24"><a href="#cb78-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-27"><a href="#cb78-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-28"><a href="#cb78-28" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="ot">&lt;-</span> <span class="fu">read_stata</span>(<span class="st">"boost_inmuno.dta"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb78-29"><a href="#cb78-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_factor</span>()</span>
+<span id="cb78-30"><a href="#cb78-30" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-31"><a href="#cb78-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-32"><a href="#cb78-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Análisis Inicial de Datos: Inspección</span></span>
+<span id="cb78-33"><a href="#cb78-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-36"><a href="#cb78-36" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-37"><a href="#cb78-37" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb78-38"><a href="#cb78-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span>
+<span id="cb78-39"><a href="#cb78-39" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-40"><a href="#cb78-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-43"><a href="#cb78-43" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-44"><a href="#cb78-44" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb78-45"><a href="#cb78-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim</span>()</span>
+<span id="cb78-46"><a href="#cb78-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-47"><a href="#cb78-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-48"><a href="#cb78-48" aria-hidden="true" tabindex="-1"></a><span class="fu">## Descripción con R base</span></span>
+<span id="cb78-49"><a href="#cb78-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-50"><a href="#cb78-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Media de la variable edad:</span>
+<span id="cb78-51"><a href="#cb78-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-54"><a href="#cb78-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-55"><a href="#cb78-55" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bd_inmuno<span class="sc">$</span>edad)</span>
+<span id="cb78-56"><a href="#cb78-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-57"><a href="#cb78-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-58"><a href="#cb78-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mediana de la variable edad</span>
+<span id="cb78-59"><a href="#cb78-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-62"><a href="#cb78-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-63"><a href="#cb78-63" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(bd_inmuno<span class="sc">$</span>edad)</span>
+<span id="cb78-64"><a href="#cb78-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-65"><a href="#cb78-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-66"><a href="#cb78-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Desviación estándar de edad</span>
+<span id="cb78-67"><a href="#cb78-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-70"><a href="#cb78-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-71"><a href="#cb78-71" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(bd_inmuno<span class="sc">$</span>edad)</span>
+<span id="cb78-72"><a href="#cb78-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-73"><a href="#cb78-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-74"><a href="#cb78-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Media de IgG Basal</span>
+<span id="cb78-75"><a href="#cb78-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-78"><a href="#cb78-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-79"><a href="#cb78-79" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bd_inmuno<span class="sc">$</span>IgG_Basal)</span>
+<span id="cb78-80"><a href="#cb78-80" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-81"><a href="#cb78-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-84"><a href="#cb78-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-85"><a href="#cb78-85" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bd_inmuno<span class="sc">$</span>IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb78-86"><a href="#cb78-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-87"><a href="#cb78-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-88"><a href="#cb78-88" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Media truncada al 5% de la variable IgG_Basal</span>
+<span id="cb78-89"><a href="#cb78-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-92"><a href="#cb78-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-93"><a href="#cb78-93" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bd_inmuno<span class="sc">$</span>IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">trim =</span> <span class="fl">0.05</span>)</span>
+<span id="cb78-94"><a href="#cb78-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-95"><a href="#cb78-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-96"><a href="#cb78-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Descripción con dplyr</span></span>
+<span id="cb78-97"><a href="#cb78-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-98"><a href="#cb78-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Media de IgG_Basal:</span>
+<span id="cb78-99"><a href="#cb78-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-102"><a href="#cb78-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-103"><a href="#cb78-103" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb78-104"><a href="#cb78-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media_IgG_Basal =</span> <span class="fu">mean</span>(IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb78-105"><a href="#cb78-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-106"><a href="#cb78-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-107"><a href="#cb78-107" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Media, DE, Mediana, P25 y P75 de IgG_Basal:</span>
+<span id="cb78-108"><a href="#cb78-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-111"><a href="#cb78-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-112"><a href="#cb78-112" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb78-113"><a href="#cb78-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media_IgG_Basal =</span> <span class="fu">mean</span>(IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb78-114"><a href="#cb78-114" aria-hidden="true" tabindex="-1"></a>            <span class="at">DE_IgG_Basal =</span> <span class="fu">sd</span>(IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb78-115"><a href="#cb78-115" aria-hidden="true" tabindex="-1"></a>            <span class="at">Mediana_IgG_Basal =</span> <span class="fu">median</span>(IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb78-116"><a href="#cb78-116" aria-hidden="true" tabindex="-1"></a>            <span class="at">P25_IgG_Basal =</span> <span class="fu">quantile</span>(IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.25</span>)), </span>
+<span id="cb78-117"><a href="#cb78-117" aria-hidden="true" tabindex="-1"></a>            <span class="at">P75_IgG_Basal =</span> <span class="fu">quantile</span>(IgG_Basal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.75</span>)))</span>
+<span id="cb78-118"><a href="#cb78-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-119"><a href="#cb78-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-120"><a href="#cb78-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## Descripción con summarytools</span></span>
+<span id="cb78-121"><a href="#cb78-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-122"><a href="#cb78-122" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Medidas de resumen numérica de la variable edad</span>
+<span id="cb78-123"><a href="#cb78-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-126"><a href="#cb78-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-127"><a href="#cb78-127" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb78-128"><a href="#cb78-128" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descr</span>(edad)</span>
+<span id="cb78-129"><a href="#cb78-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-130"><a href="#cb78-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-131"><a href="#cb78-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Medidas de resumen numérica de la variable IgG_Basal</span>
+<span id="cb78-132"><a href="#cb78-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-135"><a href="#cb78-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-136"><a href="#cb78-136" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb78-137"><a href="#cb78-137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descr</span>(IgG_Basal)</span>
+<span id="cb78-138"><a href="#cb78-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-139"><a href="#cb78-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-140"><a href="#cb78-140" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Medidas de resumen numérica de todas las variables numéricas</span>
+<span id="cb78-141"><a href="#cb78-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-144"><a href="#cb78-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-145"><a href="#cb78-145" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb78-146"><a href="#cb78-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descr</span>()</span>
+<span id="cb78-147"><a href="#cb78-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-148"><a href="#cb78-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-149"><a href="#cb78-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## Descripción con Hmisc</span></span>
+<span id="cb78-150"><a href="#cb78-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-151"><a href="#cb78-151" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Medidas de resumen de la variable edad</span>
+<span id="cb78-152"><a href="#cb78-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-153"><a href="#cb78-153" aria-hidden="true" tabindex="-1"></a>Con dialecto de R base</span>
+<span id="cb78-154"><a href="#cb78-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-157"><a href="#cb78-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-158"><a href="#cb78-158" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(bd_inmuno<span class="sc">$</span>edad)</span>
+<span id="cb78-159"><a href="#cb78-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-160"><a href="#cb78-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-161"><a href="#cb78-161" aria-hidden="true" tabindex="-1"></a>Con dialecto de R tidy</span>
+<span id="cb78-162"><a href="#cb78-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-165"><a href="#cb78-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-166"><a href="#cb78-166" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb78-167"><a href="#cb78-167" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(edad) <span class="sc">%&gt;%</span> </span>
+<span id="cb78-168"><a href="#cb78-168" aria-hidden="true" tabindex="-1"></a>  <span class="fu">describe</span>()</span>
+<span id="cb78-169"><a href="#cb78-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-170"><a href="#cb78-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-171"><a href="#cb78-171" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Medidas de resumen de todas las variables</span>
+<span id="cb78-172"><a href="#cb78-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-175"><a href="#cb78-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-176"><a href="#cb78-176" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(bd_inmuno)</span>
+<span id="cb78-177"><a href="#cb78-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-178"><a href="#cb78-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-181"><a href="#cb78-181" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-182"><a href="#cb78-182" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb78-183"><a href="#cb78-183" aria-hidden="true" tabindex="-1"></a>  <span class="fu">describe</span>()</span>
+<span id="cb78-184"><a href="#cb78-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-185"><a href="#cb78-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-186"><a href="#cb78-186" aria-hidden="true" tabindex="-1"></a><span class="fu">## Extra bonus: Uso de paquete DescTools</span></span>
+<span id="cb78-187"><a href="#cb78-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-190"><a href="#cb78-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-191"><a href="#cb78-191" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb78-192"><a href="#cb78-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-193"><a href="#cb78-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-194"><a href="#cb78-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Medidas de resumen para la variable edad:</span>
+<span id="cb78-195"><a href="#cb78-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-198"><a href="#cb78-198" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-199"><a href="#cb78-199" aria-hidden="true" tabindex="-1"></a><span class="fu">Desc</span>(bd_inmuno<span class="sc">$</span>edad)</span>
+<span id="cb78-200"><a href="#cb78-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-201"><a href="#cb78-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-204"><a href="#cb78-204" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-205"><a href="#cb78-205" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb78-206"><a href="#cb78-206" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(edad) <span class="sc">%&gt;%</span> </span>
+<span id="cb78-207"><a href="#cb78-207" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Desc</span>()</span>
+<span id="cb78-208"><a href="#cb78-208" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-209"><a href="#cb78-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-210"><a href="#cb78-210" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Medidas de resumen para todas las variables</span>
+<span id="cb78-211"><a href="#cb78-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-214"><a href="#cb78-214" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-215"><a href="#cb78-215" aria-hidden="true" tabindex="-1"></a><span class="fu">Desc</span>(bd_inmuno)</span>
+<span id="cb78-216"><a href="#cb78-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb78-217"><a href="#cb78-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-220"><a href="#cb78-220" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb78-221"><a href="#cb78-221" aria-hidden="true" tabindex="-1"></a>bd_inmuno <span class="sc">%&gt;%</span> </span>
+<span id="cb78-222"><a href="#cb78-222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Desc</span>()</span>
+<span id="cb78-223"><a href="#cb78-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Contenido <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> 2022 por <a href="https://github.com/psotob91">Percy Soto-Becerra</a> <br> Todo el contenido está bajo <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-by" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-nc" aria-hidden="true"></i> <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-right">Hecho con <i class="fa-brands fa-r-project" aria-hidden="true"></i> y <a href="https://quarto.org/">Quarto</a><br> <a href="https://github.com/psotob91/r4hds-curso3-inkstat">Ver el código fuente en <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

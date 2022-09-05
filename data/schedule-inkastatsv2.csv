@@ -1,22 +1,22 @@
 group;subgroup;date;date_end;title;deadline;content;example;assignment
 Análisis descriptivo;Sesión 1;22/08/2022;;Introducción a R y Rstudio;;content/01-content;example/01-example;
-Análisis descriptivo;Sesión 2;25/08/2022;;Análisis descriptivo univariado;;content/02-content;;
-Análisis descriptivo;Sesión 2;29/08/2022;5/09/2022;Problem set 1;11:59 p. m.;;;assignment/01-problem-set
-Análisis descriptivo;Sesión 3;29/08/2022;;Análisis descriptivo bivariado;;content/03-content;example/02-example;
-Análisis descriptivo;Sesión 4;1/09/2022;;Reporte descriptivo reproducible;;content/04-content;;
-Análisis descriptivo;Sesión 4;5/09/2022;12/09/2022;Problem set 2;11:59 p. m.;;;assignment/02-problem-set
-Principios de inferencia;Sesión 5;5/09/2022;;Principios de inferencia estadística;;content/05-content;example/03-example;
-Principios de inferencia;Sesión 6;8/09/2022;;Estimación bajo inferencia clásica;;content/06-content;;
-Principios de inferencia;Sesión 6;8/09/2022;15/09/2022;Problem set 3;11:59 p. m.;;;assignment/03-problem-set
-Principios de inferencia;Sesión 7;12/09/2022;;Estimación bajo inferencia por remuestreo;;content/07-content;example/04-example;
-Principios de inferencia;Sesión 8;15/09/2022;;Pruebas de hipótesis: Paradigma clásico y bajo remuestreo;;content/08-content;;
-Principios de inferencia;Sesión 8;15/09/2022;22/09/2022;Problem set 4;11:59 p. m.;;;assignment/04-problem-set
-Herramientas;Sesión 9;19/09/2022;;Pruebas de hipótesis para 1 y 2 grupos;;content/09-content;example/05-example;
-Herramientas;Sesión 10;22/09/2022;;Pruebas de hipótesis para 3 o más grupos;;content/10-content;;
-Herramientas;Sesión 10;22/09/2022;29/09/2022;Problem set 5;11:59 p. m.;;;assignment/05-problem-set
-Herramientas;Sesión 11;26/09/2022;;Pruebas de hipótesis para proporciones;;content/11-content;example/06-example;
-Aplicaciones;Sesión 12;29/09/2022;;Intervalos de confianza: buenas prácticas y errores de concepto;;content/12-content;;
-Aplicaciones;Sesión 12;29/09/2022;6/10/2022;Problem set 6;11:59 p. m.;;;assignment/06-problem-set
-Aplicaciones;Sesión 13;3/10/2022;;Valor p: buenas prácticas y errores de concepto;;content/13-content;example/07-example;
+Análisis descriptivo;Sesión 2;25/08/2022;;AID/AED y Análisis descriptivo univariado de variables numéricas;;content/02-content;;
+Análisis descriptivo;Sesión 2;29/08/2022;17/09/2022;Problem set 1;11:59 p. m.;;;assignment/01-problem-set
+Análisis descriptivo;Sesión 3;29/08/2022;;Análisis descriptivo univariado de variables categóricas;;content/03-content;example/02-example;
+Análisis descriptivo;Sesión 4;1/09/2022;;Análisis descriptivo univariado de variables de tiempo;;content/04-content;;
+Análisis descriptivo;Sesión 4;5/09/2022;24/09/2022;Problem set 2;11:59 p. m.;;;assignment/02-problem-set
+Análisis descriptivo;Sesión 5;5/09/2022;;Análisis descriptivo bivariado;;content/05-content;example/03-example;
+Análisis descriptivo;Sesión 6;8/09/2022;;Reporte descriptivo reproducible;;content/06-content;;
+Análisis descriptivo;Sesión 6;8/09/2022;1/10/2022;Problem set 3;11:59 p. m.;;;assignment/03-problem-set
+Principios de inferencia;Sesión 7;12/09/2022;;Principios de inferencia y estimación por inferencia clásica;;content/07-content;example/04-example;
+Principios de inferencia;Sesión 8;15/09/2022;;Estimación bajo inferencia por remuestreo;;content/08-content;;
+Principios de inferencia;Sesión 8;15/09/2022;8/10/2022;Problem set 4;11:59 p. m.;;;assignment/04-problem-set
+Herramientas;Sesión 9;19/09/2022;;Pruebas de hipótesis: Paradigma clásico y bajo remuestreo;;content/09-content;example/05-example;
+Herramientas;Sesión 10;22/09/2022;;Pruebas de hipótesis para 1 y 2 grupos;;content/10-content;;
+Herramientas;Sesión 10;22/09/2022;15/10/2022;Problem set 5;11:59 p. m.;;;assignment/05-problem-set
+Herramientas;Sesión 11;26/09/2022;;Pruebas de hipótesis para 3 o más grupos;;content/11-content;example/06-example;
+Herramientas;Sesión 12;29/09/2022;;Pruebas de hipótesis para proporciones;;content/12-content;;
+Herramientas;Sesión 12;29/09/2022;22/10/2022;Problem set 6;11:59 p. m.;;;assignment/06-problem-set
+Aplicaciones;Sesión 13;3/10/2022;;Intervalos de confianza y alor p: buenas prácticas y errores de concepto;;content/13-content;example/07-example;
 Aplicaciones;Sesión 14;6/10/2022;;Reporte reproducible de inferencia estadística;;content/14-content;;
-Aplicaciones;Sesión 14;6/10/2022;13/10/2022;Problem set 7;;;;assignment/07-problem-set
+Aplicaciones;Sesión 14;6/10/2022;29/10/2022;Problem set 7;;;;assignment/07-problem-set

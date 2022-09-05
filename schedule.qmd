@@ -23,7 +23,7 @@ library(kableExtra)
 #   targets::tar_load(schedule_file)
 # })
 
-schedule_raw <- read.csv("data/schedule-inkastatsv2.csv", sep = ";", encoding = "latin1", na.strings = c("", "NA"))
+schedule_raw <- read.csv("data/schedule-inkastatsv3.csv", sep = ";", encoding = "latin1", na.strings = c("", "NA"))
 
 schedule <- schedule_raw %>%
   mutate(group = fct_inorder(group)) %>%

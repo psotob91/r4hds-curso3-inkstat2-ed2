@@ -1,5 +1,5 @@
 ---
-title: "Pruebas de hipótesis para 1 y 2 grupos"
+title: "Pruebas de hipótesis: Paradigma clásico y bajo remuestreo"
 date: "2022-09-19"
 ---
 

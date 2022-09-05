@@ -1,0 +1,269 @@
+---
+title: "Identificando tipos de Variables"
+---
+
+## Introducción
+
+Vamos a resolver una serie de ejercicios acerca de descripción de variables categóricas. Usaremos un conjunto de datos juguetes acerca de casos de pacientes con Ébola que se atendieron en hospitales de África. Estos datos están disponibles en el libro [The Epidemiologist Handbook](https://epirhandbook.com/en/index.html).
+
+## Cargar paquetes
+
+
+```{r}
+library(tidyverse)     # Esto carga {dplyr}, {ggplot2}, etc.
+library(rio)           # Para importar cualquier tipo de datos
+library(skimr)         # Exploración de datos
+library(summarytools)  # Para generar estadísticos descriptivos
+library(Hmisc)         # Para generar estadísticos descriptivos
+library(scales)        # Utilitarios para maquillar indicadores (%, $, etc.)
+library(janitor)       # Funciones para generar tablas categoricas elegantes
+library(DescTools)     # Para generar estadísticos descriptivos
+```
+
+## Importar datos
+
+```{r}
+ebola_data <- import("linelist_cleaned.rds")
+```
+
+## Análisis inicial de datos
+
+```{r}
+ebola_data %>% 
+  glimpse()
+```
+ 
+```{r}
+ebola_data %>% 
+  skim()
+``` 
+ 
+## R base para medidas de frecuencia
+
+- Frecuencias absolutas de mujeres y varones
+
+```{r}
+table(ebola_data$gender)
+```
+
+- Frecuencias absolutas de mujeres y varones con datos perdidos
+
+```{r}
+table(ebola_data$gender, useNA = "always")
+```
+
+- Proporción de mujeres y varones
+
+```{r}
+prop.table(table(ebola_data$gender))
+```
+
+- Frecuencias absolutas de mujeres y varones con datos perdidos
+
+```{r}
+prop.table(table(ebola_data$gender, useNA = "always"))
+```
+
+## dplyr para medidas de frecuencia
+
+- Frecuencia absoluta para valores de género:
+
+```{r}
+ebola_data %>% 
+  group_by(gender) %>% 
+  summarise(FA = n()) -> tabla_genero
+
+tabla_genero
+```
+
+- Frecuencia relativa para valores de género:
+
+```{r}
+ebola_data %>% 
+  group_by(gender) %>% 
+  summarise(FA = n()) %>% 
+  mutate(Porcentaje = 100 * FA / sum(FA))
+```
+
+```{r}
+tabla_genero %>% 
+  mutate(Porcentaje = 100 * FA / sum(FA))
+```
+
+```{r}
+ebola_data %>% 
+  group_by(gender) %>% 
+  summarise(FA = n()) %>% 
+  mutate(Porcentaje = scales::percent(FA / sum(FA)))
+```
+
+```{r}
+ebola_data %>% 
+  group_by(gender) %>% 
+  summarise(FA = n()) %>% 
+  mutate(Porcentaje = scales::percent(round(FA / sum(FA), 3)))
+```
+
+- Sin datos perdidos
+
+```{r}
+ebola_data %>% 
+  group_by(gender) %>% 
+  summarise(FA = n()) %>% 
+  filter(!is.na(gender)) %>% 
+  mutate(Porcentaje = scales::percent(round(FA / sum(FA), 4)))
+```
+
+## janitor para medidas de frecuencia
+
+- Frecuencias absolutas para valores de gender
+
+```{r}
+ebola_data %>% 
+  tabyl(gender)
+```
+
+- Frecuencias absolutas para valores de gender y con % adornados
+
+```{r}
+ebola_data %>% 
+  tabyl(gender) %>% 
+  adorn_pct_formatting()
+```
+
+- Frecuencias absolutas para valores de gender y con % adornados sin datos perdidos
+
+```{r}
+ebola_data %>% 
+  tabyl(gender, show_na = FALSE) %>% 
+  adorn_pct_formatting()
+```
+
+- Frecuencias absolutas para valores de gender y con % adornados sin datos perdidos y con 2 decimales
+
+```{r}
+ebola_data %>% 
+  tabyl(gender, show_na = FALSE) %>% 
+  adorn_pct_formatting(digits = 2)
+```
+
+- Frecuencias absolutas para valores de gender y con % adornados sin datos perdidos y con 2 decimales y adornado con totales
+
+```{r}
+ebola_data %>% 
+  tabyl(gender, show_na = FALSE) %>% 
+  adorn_pct_formatting(digits = 2) %>%  
+  adorn_totals()
+```
+
+## summarytools para medidas de frecuencia
+
+- Frecuencias para la variable age_cat
+
+```{r}
+freq(ebola_data$age_cat)
+```
+
+```{r}
+ebola_data %>% 
+  freq(age_cat)
+```
+
+
+```{r}
+ebola_data %>% 
+  select(age_cat) %>% 
+  freq()
+```
+
+- Frecuencias para la variable age_cat y gender
+
+```{r}
+ebola_data %>% 
+  select(age_cat, gender) %>% 
+  freq()
+```
+
+
+
+- Frecuencias para todas las variables categóricas
+
+```{r}
+ebola_data %>%
+  select(-case_id, -hospital, -vomit) %>% 
+  freq()
+```
+
+## Hmisc para medidas de frecuencia
+
+- Frecuencias para hospital
+
+```{r}
+describe(ebola_data$age_cat)
+```
+
+```{r}
+ebola_data %>% 
+  pull(age_cat) %>% 
+  describe()
+```
+
+```{r}
+ebola_data %>% 
+  select(age_cat) %>% 
+  describe()
+```
+
+- Frecuencias para age_cat y gender
+
+```{r}
+ebola_data %>% 
+  select(age_cat, gender) %>% 
+  describe()
+```
+
+- Frecuencias para todas las variables
+
+```{r}
+ebola_data %>% 
+  describe()
+```
+
+## Extra bonus: DescTools
+
+- Frecuencias para genero
+
+```{r}
+Desc(ebola_data$gender)
+```
+
+
+```{r}
+ebola_data %>% 
+  pull(gender) %>% 
+  Desc()
+```
+
+
+
+```{r}
+ebola_data %>% 
+  select(gender) %>% 
+  Desc()
+```
+
+- Frecuencias para genero y age_cat
+
+```{r}
+ebola_data %>% 
+  select(age_cat, gender) %>% 
+  Desc()
+```
+
+
+- Frecuencias para todas las variables categóricas (inclusive las numéricas)
+
+```{r}
+ebola_data %>% 
+  Desc()
+```

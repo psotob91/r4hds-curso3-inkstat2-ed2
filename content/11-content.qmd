@@ -1,5 +1,5 @@
 ---
-title: "Pruebas de hipótesis para proporciones"
+title: "Pruebas de hipótesis para 3 o más grupos"
 date: "2022-09-26"
 ---
 

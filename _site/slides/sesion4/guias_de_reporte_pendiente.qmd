@@ -1,0 +1,64 @@
+---
+title: "guias_de_reporte_pendiente"
+---
+
+## Recomendaciones sobre reporte descriptivo según STROBE {.scrollable}
+
+- *`Strengthening the Reporting of Observational Studies in Epidemiology (STROBE)`* es una `guía de reporte` de `estudios observacionales` en `salud` mundialmente reconocida.
+
+- Las `revistas de alto impacto` solicitan que los investigadores se adhieran a estas guías y llenen un checklist.
+
+![<FONT size='4'>[Vanderbroucke JP, Elm Ev, Altman DG, et al. 2007](https://www.acpjournals.org/doi/epdf/10.7326/0003-4819-147-8-200710160-00010-w1)</FONT>](img/strobe.png)
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Lo que mencionamos acerca de reportar variables numéricas:
+:::
+
+::: {.column width="50%"}
+![<FONT size='4'>[Vanderbroucke JP, Elm Ev, Altman DG, et al. 2007](https://www.acpjournals.org/doi/epdf/10.7326/0003-4819-147-8-200710160-00010-w1)</FONT>](img/strobe-description.png)
+:::
+:::: 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![<FONT size='4'>[Vanderbroucke JP, Elm Ev, Altman DG, et al. 2007](https://www.acpjournals.org/doi/epdf/10.7326/0003-4819-147-8-200710160-00010-w1)</FONT>](img/strobe-missing.png)
+:::
+
+::: {.column width="50%"}
+- También debe reportarse el `número de participantes` con `datos perdidos` para cada variable de interés
+:::
+
+::::
+
+## Recomendaciones adicionales para mejorar un reporte descriptivo transparente según REMARK {.scrollable}
+
+-   *`Reporting Recommendations for Tumor Marker Prognostic Studies (REMARK)`* es una guía de reporte para estudios de marcadores pronósticos:
+<FONT size='6'>
+    - Inicialmente para cáncer. </FONT> <FONT size='6'>
+    - Debido a su amplio alcance, se usa en casi cualquier campo (p. ej., cardiología, neurología, etc.) donde se evalúe un marcador pronóstico.</FONT>
+
+![<FONT size='4'>[Sauerbrei W, Taube SE, McShane LM, et al. JNCI 2018](https://doi.org/10.1093/jnci/djy088)</FONT>](img/remark.png)
+
+
+![<FONT size='4'>[Sauerbrei W, Taube SE, McShane LM, et al. JNCI 2018](https://doi.org/10.1093/jnci/djy088)</FONT>](img/remark-description.png)
+
+:::: {.columns}
+
+::: {.column width="50%"}
+-   REMARK indica que `debe reportarse`  la `distribución` de los `marcadores` o `factores pronóstico` de interés y del `desenlace`: <FONT size='6'>
+    -   Biomarcador o score de predicción </FONT><FONT size='6'>
+    -   Desenlace </FONT>
+:::
+ 
+::: {.column width="50%"}    
+![<FONT size='4'>[Sauerbrei W, Taube SE, McShane LM, et al. JNCI 2018](https://doi.org/10.1093/jnci/djy088)</FONT>](img/remark-distribution.png)    
+:::
+
+::::
+
+-   Lamentablemente es una mala práctica no hacerlo. <FONT size='6'>
+    -   Usen anexos si el espacio queda corto y no quieren distraer al lector del mensaje principal. </FONT><FONT size='6'>
+    -   No hay excusa para no reportar esto. </FONT>

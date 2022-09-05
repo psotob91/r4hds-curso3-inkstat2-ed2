@@ -1,0 +1,51 @@
+---
+title: "Ejercicio Sesion 2"
+author: "Percy Soto-Becerra"
+---
+
+## Cargar los paquetes
+
+```{r}
+library(tidyverse) # Varios paquetes: Manejo de datos
+library(skimr)     # Para AID / AED
+library(dslabs)    # Para descargar un dataset juguete
+options(scipen = 99999)
+```
+
+## Cargar la base de datos
+
+```{r}
+data("gapminder")
+```
+
+```{r}
+class(gapminder)
+```
+
+## Análisis Inicial de Datos
+
+```{r}
+gapminder
+```
+
+```{r}
+head(gapminder, 10)
+```
+
+```{r}
+head(n = 10, x = gapminder)
+```
+
+```{r}
+glimpse(gapminder)
+```
+
+```{r}
+head(gapminder$country)
+```
+
+```{r}
+options(scipen = 99999)
+skim(gapminder)
+```
+

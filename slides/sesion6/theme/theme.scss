@@ -1,0 +1,84 @@
+/*-- scss:defaults --*/
+
+$body-bg: #002B36;
+$body-color: #FFFFFF;
+$link-color: #E9AFA3;
+$presentation-heading-color: #A7D5E8;
+
+/*-- scss:rules --*/
+.reveal .slides > section > section { 
+  text-align:left; 
+}
+
+.hl {
+  color: #E9AFA3;
+}
+
+.verd1 {
+  color: #8FADA7;
+}
+
+.verd2 {
+  color: #2D5459;
+}
+
+
+.plo {
+  color: #9DA7A7;
+}
+
+.reveal .slide blockquote {
+  text-align: left;
+  width: 100%;
+  border-left-color: #8FADA7;
+  box-shadow: none;
+  background: #2D5459;
+}
+
+#yellow {
+  background-color: #FAFFAF;
+  color: black;
+}
+
+#yellowh {
+  background-color: #D5FE00;
+  color: black;
+}
+
+#black {
+  background-color: black;
+}
+
+#red {
+  background-color: #fa551b;
+}
+
+.big-text1 {
+  font-size: 60px;
+  color: white;
+}
+
+.big-text2 {
+  font-size: 100px;
+  color: white;
+}
+
+.big-text3 {
+  font-size: 120px;
+  color: white;
+}
+
+.big-text4 {
+  font-size: 150px;
+  color: white;
+}
+
+.big-text5 {
+  font-size: 200px;
+  color: white;
+}
+
+.big-text6 {
+  font-size: 220px;
+  color: white;
+}

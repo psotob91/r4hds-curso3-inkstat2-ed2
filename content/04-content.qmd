@@ -1,5 +1,5 @@
 ---
-title: "Reporte descriptivo reproducible"
+title: "Análisis descriptivo univariado de variables de tiempo"
 date: "2022-09-01"
 ---
 
@@ -9,19 +9,13 @@ date: "2022-09-01"
 
 ### Objetivos
 
-En esta cuarta sesión revisaremos los siguiente:
+En esta segunda sesión revisaremos los siguiente:
 
-- Documentos Markdown, R markdown y Quarto.
+- Descripción univariada de datos de tiempos de supervivencia.
 
-- Generación de documentos en html.
+- Gráficos univariados de datos de tiempos de supervivencia.
 
-- Generación de documentos de texto.
-
-- Generación de documentos en PDF.
-
-- Generación de tablas reproducibles y automatizadas.
-
-- Buenas prácticas de ciencia reproducible.
+- Tablas descriptivas univariadas reproducibles.
 
 :::
 
@@ -29,30 +23,33 @@ En esta cuarta sesión revisaremos los siguiente:
 
 ::: {.panel-tabset}
 
-### Markdown, R Markdown y Quarto
+### Datos de tiempo de supervivencia
 
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
-### HTML
+::: {.callout-note}
+
+### Nuestro turno: Descripción de variables de tiempo
+
+- Puede descargar los archivos generados en la carpeta `var_tiempo` en el siguiente enlace: [Aquí](../slides/sesion2/ejemplos/var_tiempo.zip).
+
+- Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí](../example/var_tiempo/var_tiempo.qmd)
+
+:::
+
+### Tabla univariada reproducible
 
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
-### Word
+::: {.callout-note}
 
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+### Nuestro turno: Tabla univariada reproducible
 
+- Puede descargar los archivos generados en la carpeta `report_reprod_univ` en el siguiente enlace: [Aquí](../slides/sesion2/ejemplos/report_reprod_univ.zip).
 
-### PDF
+- Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí](../example/report_reprod_univ/report_reprod_univ.qmd)
 
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-
-### Tablas reproducibles
-
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-
-### Buenas Prácticas
-
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/739682804?h=685cded25e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 15/8/2022, 11:01:57"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+:::
 
 :::
 
@@ -64,76 +61,28 @@ source(here::here("R", "slide-things.R"))
 
 ::: {.panel-tabset}
 
-### Markdown, R Markdown y Quarto
+### Datos de tiempo de supervivencia
 
-```{r show-slide-tabs1, echo=FALSE, results="asis"}
-slide_buttons("/slides/sesion4/04-01-rmarkdown-quarto")
+```{r show-slide-tabs7, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion4/04-01-superviv")
 ```
 
 ```{r}
 #| echo: false
 #| out.width: 100%
-knitr::include_url('../slides/sesion4/04-01-rmarkdown-quarto.html')
+knitr::include_url('../slides/sesion4/04-01-superviv.html')
 ```
 
-### HTML
+### Tablas univariadas reproducibles
 
-```{r show-slide-tabs2, echo=FALSE, results="asis"}
-slide_buttons("/slides/sesion4/04-02-document-html")
-```
-
-```{r}
-#| echo: false
-#| out.width: 100%
-knitr::include_url('../slides/sesion4/04-02-document-html.html')
-```
-
-### Word
-
-```{r show-slide-tabs3, echo=FALSE, results="asis"}
-slide_buttons("/slides/sesion4/04-03-document-word")
+```{r show-slide-tabs8, echo=FALSE, results="asis"}
+slide_buttons("/slides/sesion4/04-02-tabla-reprod")
 ```
 
 ```{r}
 #| echo: false
 #| out.width: 100%
-knitr::include_url('../slides/sesion4/04-03-document-word.html')
-```
-
-### PDF
-
-```{r show-slide-tabs4, echo=FALSE, results="asis"}
-slide_buttons("/slides/sesion4/04-04-document-pdf")
-```
-
-```{r}
-#| echo: false
-#| out.width: 100%
-knitr::include_url('../slides/sesion4/04-04-document-pdf.html')
-```
-
-### Tablas reproducibles
-
-```{r show-slide-tabs5, echo=FALSE, results="asis"}
-slide_buttons("/slides/sesion4/004-05-tablas-automati")
-```
-
-```{r}
-#| echo: false
-#| out.width: 100%
-knitr::include_url('../slides/sesion4/04-05-tablas-automati.html')
-```
-
-### Buenas Prácticas
-
-```{r show-slide-tabs6, echo=FALSE, results="asis"}
-slide_buttons("/slides/sesion4/04-06-buenas-practicas")
-```
-
-```{r}
-#| echo: false
-#| out.width: 100%
-knitr::include_url('../slides/sesion4/04-06-buenas-practicas.html')
+knitr::include_url('../slides/sesion4/04-02-tabla-reprod.html')
 ```
 
 :::

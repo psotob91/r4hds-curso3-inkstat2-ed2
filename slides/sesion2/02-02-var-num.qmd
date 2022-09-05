@@ -1240,7 +1240,7 @@ countdown_timer <- function(
 
 -   Descargue la carpeta `var_num_graficos`.
 
-- Abra el proyecto `var_num_graficos.Rproj` y dentro de este, abra el archivo quarto `var_num_graficos_tal.qmd`. 
+- Abra el proyecto `var_num_graficos.Rproj` y dentro de este, abra el archivo quarto `var_num_graficos_taller.qmd`. 
 
 - Siga las instrucciones indicadas en este.
 

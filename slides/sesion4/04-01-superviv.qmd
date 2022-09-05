@@ -1,0 +1,1298 @@
+---
+title: "<FONT color='#A7D5E8'>Datos de tiempo de supervivencia</FONT>"
+subtitle: "<FONT color='#E9AFA3' size='10'>R para Ciencia de Datos en Salud: <br> Análisis Descriptivo e Inferencia Estadística</FONT>"
+author: "<FONT color='#FFFFFF' size='30'>Percy Soto-Becerra M.D., M.Sc(c)</FONT>"
+institute: "<FONT color='#FFFFFF' size='5'>InkaStats Data Science Solutions | Medical Branch<br>@github/psotob91</FONT>"
+
+format: 
+  revealjs:
+    self-contained: true
+    theme: [simple, theme/theme.scss]
+    footer: "Datos de tiempo de supervivencia"
+    slide-number: c/t
+    logo: img/logo.png
+    width: 1920
+    height: 1080
+    highlight-style: ayu-dark
+    self-contained-math: true
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(fontawesome)
+library(tidyverse)
+library(quarto)
+library(gt)
+library(gtExtras)
+library(gtsummary)
+library(showtext)
+library(survival)
+library(ggsurvfit)
+library(survminer)
+
+## Ver QUARTO RSTUDIO CONFERENCE: https://github.com/rstudio-conf-2022/get-started-quarto/blob/main/materials/02-authoring.qmd
+## 
+## blackboard theme: https://github.com/schochastics/quarto-blackboard-theme
+## 
+## https://github.com/schochastics/xaringan-themes
+```
+
+---
+
+# Datos de tiempo de supervivencia
+
+## El problema de los datos de tiempo a evento
+
+<br/>
+
+- A menudo tenemos interés en describir los datos relacionados al tiempo de ocurrencia de algún evento de interés.
+
+- Los eventos de interés pueden ser muchos: muerte, cura, desarrollo de alguna enfermedad, entre abandono al tratamiento, etc.
+
+- Un problema que tenemos es que no siempre podemos observar el tiempo de ocurrencia del evento:
+
+    + Los eventos pueden tardar mucho tiempo y el estudio acaba antes de que todos tengan el evento.
+    
+    + Los participantes abandonan el estudio.
+    
+## Situación ideal: Todos desarrollan el evento
+
+:::: {.columns}
+
+::: {.column width='35%'}
+
+<br/>
+
+- Idealmente, todos los participantes desarrollan el evento de interés.
+
+    + No hay censuras, los datos están completos.
+
+- Podemos estimar entonces: 
+
+    + El promedio de tiempo a la muerte.
+        - Otras métricas como la mediana, percentiles, etc.
+        
+    + También podemos estimar la incidencia acumulada (IA) de muerte para cualquier punto del tiempo de manera directa.
+        - IA a 1 mes, 2 meses, 3 meses, ..., 10 meses
+
+
+
+:::
+
+
+::: {.column width='65%'}
+
+<br/> <br/>
+
+```{r}
+#| echo: false
+set.seed(123145)
+
+linea_tiempo <- data.frame(
+  sujeto = factor(1:5), 
+  tmuerte = round(rexp(5, 1 / 15), 0), 
+  tcensura = 10
+  ) %>% 
+  mutate(
+    t_seg = pmin(tmuerte, tcensura), 
+    muerte = (tmuerte <= tcensura), 
+    muerte = factor(as.numeric(muerte), 
+                    levels = c(0, 1), 
+                    labels = c("Sí", "Sí"))
+    ) %>% 
+  select(sujeto, t_seg, muerte) %>% 
+  arrange(sujeto)
+```
+
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+linea_tiempo %>%  
+  ggplot() + 
+  geom_point(aes(x = t_seg , y = sujeto, shape = muerte), size = 4) + 
+  geom_segment(aes(x = 0, xend = t_seg, y = sujeto, yend = sujeto), size = 0.8) + 
+  scale_x_continuous(breaks = 0:11, limits = c(0, 11)) + 
+  labs(y = "Sujeto", x = "Tiempo de seguimiento (meses)", shape = "Muerte", color = "Muerte") + 
+  geom_vline(xintercept = 10, linetype = "dashed") + 
+  # geom_vline(xintercept = 17, linetype = "dashed") + 
+  theme_minimal() + 
+  scale_shape_manual(values = c(4)) + 
+  annotate("text", 
+           x = 9.8, 
+           y = 4, 
+           label = "Fin de estudio", 
+           size = 3, 
+           angle = 90, 
+           color = "red") + 
+  annotate("text", 
+           x = 10.2, 
+           y = 4, 
+           label = "(censura administrativa)", 
+           size = 3, 
+           angle = 90, 
+           color = "red")
+```
+
+:::
+
+::::
+
+
+## Todos desarrollan el evento
+
+:::: {.columns}
+
+::: {.column width='35%'}
+
+<br/>
+
+- Media de tiempo a muerte:
+
+<FONT size='5'>$$\bar{x}_{tiempo} = \frac{10+8+10+6+10}{5} = 8.8 \text{ meses}$$</FONT>
+
+- IA de muerte a 6 meses (%):
+
+<FONT size='5'>$$IA(t = 6 \text{ meses}) = 100 \times \frac{1}{5} = 20\%$$</FONT>
+    
+- IA de muerte a 8 meses (%):
+
+<FONT size='5'>$$IA(t = 8 \text{ meses}) = 100 \times \frac{2}{5} = 40\%$$</FONT>
+    
+- IA de muerte a 10 meses (%):
+
+<FONT size='5'>$$IA(t = 10 \text{ meses}) = 100 \times \frac{5}{5} = 100\%$$</FONT>
+:::
+
+
+::: {.column width='65%'}
+
+<br/> <br/>
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+linea_tiempo %>%  
+  ggplot() + 
+  geom_point(aes(x = t_seg , y = sujeto, shape = muerte), size = 4) + 
+  geom_segment(aes(x = 0, xend = t_seg, y = sujeto, yend = sujeto), size = 0.8) + 
+  scale_x_continuous(breaks = 0:11, limits = c(0, 11)) + 
+  labs(y = "Sujeto", x = "Tiempo de seguimiento (meses)", shape = "Muerte", color = "Muerte") + 
+  geom_vline(xintercept = 10, linetype = "dashed") + 
+  # geom_vline(xintercept = 17, linetype = "dashed") + 
+  theme_minimal() + 
+  scale_shape_manual(values = c(4)) + 
+  annotate("text", 
+           x = 9.8, 
+           y = 4, 
+           label = "Fin de estudio", 
+           size = 3, 
+           angle = 90, 
+           color = "red") + 
+  annotate("text", 
+           x = 10.2, 
+           y = 4, 
+           label = "(censura administrativa)", 
+           size = 3, 
+           angle = 90, 
+           color = "red")
+```
+
+:::
+
+::::
+
+    
+## No todos desarrollan el evento, pero todos completan el seguimiento
+
+:::: {.columns}
+
+::: {.column width='35%'}
+
+<br/>
+
+- Los tiempos al evento están disponibles para algunos sujetos.
+     
+     + En otros sujetos, los tiempos al evento solo dan información parcial (censurados).
+      
+- Promediar estos tiempos no es válido
+
+    + Realmente no tenemos los tiempos a evento completos.
+
+- Todavía podemos hallar la IA de manera directa. 
+
+     + Usamos la proporción observada de evento en cada punto de tiempo de interés.
+
+
+:::
+
+
+::: {.column width='65%'}
+
+<br/> <br/>
+
+```{r}
+#| echo: false
+set.seed(123145)
+
+linea_tiempo2 <- linea_tiempo %>% 
+  mutate(
+    t_seg = case_when(
+      t_seg == 10 ~ 9, 
+      TRUE ~ t_seg
+      ), 
+    muerte = as.character(muerte), 
+    muerte = case_when(
+      t_seg == 9 ~ "No (censura)", 
+      TRUE ~ muerte
+    )
+  )
+```
+
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+linea_tiempo2 %>%  
+  ggplot() + 
+  geom_point(aes(x = t_seg, y = sujeto, shape = muerte), size = 4) + 
+  geom_segment(aes(x = 0, xend = t_seg, y = sujeto, yend = sujeto), size = 0.8) + 
+  scale_x_continuous(breaks = 0:11, limits = c(0, 11)) + 
+  labs(y = "Sujeto", x = "Tiempo de seguimiento (meses)", shape = "Muerte", color = "Muerte") + 
+  geom_vline(xintercept = 9, linetype = "dashed") + 
+  # geom_vline(xintercept = 17, linetype = "dashed") + 
+  theme_bw() + 
+  scale_shape_manual(values = c(1, 4)) + 
+  annotate("text", 
+           x = 8.8, 
+           y = 4, 
+           label = "Fin de estudio", 
+           size = 3, 
+           angle = 90, 
+           color = "red") + 
+  annotate("text", 
+           x = 9.2, 
+           y = 4, 
+           label = "(censura administrativa)", 
+           size = 3, 
+           angle = 90, 
+           color = "red")
+```
+
+:::
+
+::::
+
+## No todos desarrollan el evento, pero todos completan el seguimiento
+
+:::: {.columns}
+
+::: {.column width='35%'}
+
+<br/>
+
+- Media con los datos observados con tiempos incompletos:
+    
+    + ¡Subestimación del verdadero valor de ella!
+
+- IA de muerte a 6 meses (%):
+
+<FONT size='5'>$$IA(t = 6 \text{ meses}) = 100 \times \frac{1}{5} = 20\%$$</FONT>
+    
+- IA de muerte a 8 meses (%):
+
+<FONT size='5'>$$IA(t = 8 \text{ meses}) = 100 \times \frac{2}{5} = 40\%$$</FONT>
+    
+- IA de muerte a 10 meses (%): 
+
+    + No se puede calcular porque todo acabó en 10 meses
+
+:::
+
+
+::: {.column width='65%'}
+
+<br/> <br/>
+
+```{r}
+#| echo: false
+set.seed(123145)
+
+linea_tiempo2 <- linea_tiempo %>% 
+  mutate(
+    t_seg = case_when(
+      t_seg == 10 ~ 9, 
+      TRUE ~ t_seg
+      ), 
+    muerte = as.character(muerte), 
+    muerte = case_when(
+      t_seg == 9 ~ "No (censura)", 
+      TRUE ~ muerte
+    )
+  )
+```
+
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+linea_tiempo2 %>%  
+  ggplot() + 
+  geom_point(aes(x = t_seg, y = sujeto, shape = muerte), size = 4) + 
+  geom_segment(aes(x = 0, xend = t_seg, y = sujeto, yend = sujeto), size = 0.8) + 
+  scale_x_continuous(breaks = 0:11, limits = c(0, 11)) + 
+  labs(y = "Sujeto", x = "Tiempo de seguimiento (meses)", shape = "Muerte", color = "Muerte") + 
+  geom_vline(xintercept = 9, linetype = "dashed") + 
+  # geom_vline(xintercept = 17, linetype = "dashed") + 
+  theme_bw() + 
+  scale_shape_manual(values = c(1, 4)) + 
+  annotate("text", 
+           x = 8.8, 
+           y = 4, 
+           label = "Fin de estudio", 
+           size = 3, 
+           angle = 90, 
+           color = "red") + 
+  annotate("text", 
+           x = 9.2, 
+           y = 4, 
+           label = "(censura administrativa)", 
+           size = 3, 
+           angle = 90, 
+           color = "red")
+```
+
+:::
+
+::::
+
+
+## Situación real: No todos desarrollan el evento y hay pérdidas de seguimiento
+
+
+:::: {.columns}
+
+::: {.column width='35%'}
+
+<br/>
+
+- IA no siempre puede calcularse de proporción observada en cada tiempo t.
+
+    + Hay censuras por pérdida de seguimiento.
+    
+    + No todos los individuos censurados tienen misma oportunidad de ser seguidos en todo el estudio.
+
+- No todos los individuos censurados tuvieron mismo tiempo de seguimiento.
+
+    + No es justo comparar un individuo sin evento con 3 meses de seguimiento con otro de 9 meses de seguimiento.
+
+
+:::
+
+
+::: {.column width='65%'}
+
+```{r}
+#| echo: false
+
+set.seed(123145)
+
+linea_tiempo <- data.frame(
+  sujeto = factor(1:5), 
+  tmuerte = round(rexp(5, 1 / 15), 0), 
+  tcensura = round(runif(5, 3, 15), 0)
+  ) %>% 
+  mutate(
+    t_seg = pmin(tmuerte, tcensura), 
+    muerte = (tmuerte <= tcensura), 
+    muerte = factor(as.numeric(muerte), 
+                    levels = c(0, 1), 
+                    labels = c("No", "Sí")), 
+    t_seg = if_else(sujeto == 2, 14, t_seg)
+    ) %>% 
+  # select(sujeto, t_seg, muerte) %>% 
+  arrange(sujeto)
+```
+
+<br/> <br/>
+
+::: {.r-stack}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+linea_tiempo %>% 
+  ggplot() + 
+  geom_point(aes(x = t_seg , y = sujeto, shape = muerte), size = 4) + 
+  geom_segment(aes(x = 0, xend = t_seg, y = sujeto, yend = sujeto), size = 0.8) + 
+  scale_x_continuous(breaks = 0:15, limits = c(0, 15)) + 
+  labs(y = "Sujeto", x = "Tiempo de seguimiento (meses)", shape = "Muerte", color = "Muerte") + 
+  geom_vline(xintercept = 14, linetype = "dashed") + 
+  # geom_vline(xintercept = 17, linetype = "dashed") + 
+  theme_bw() + 
+  scale_shape_manual(values = c(1, 4)) + 
+  annotate("text", 
+           x = 13.8, 
+           y = 4, 
+           label = "Fin de estudio", 
+           size = 3, 
+           angle = 90, 
+           color = "red") + 
+  annotate("text", 
+           x = 14.2, 
+           y = 4, 
+           label = "(censura administrativa)", 
+           size = 3, 
+           angle = 90, 
+           color = "red") 
+```
+
+
+::: {.fragment}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+linea_tiempo %>% 
+  ggplot() + 
+  geom_point(aes(x = t_seg , y = sujeto, shape = muerte), size = 4) + 
+  geom_segment(aes(x = 0, xend = t_seg, y = sujeto, yend = sujeto), size = 0.8) + 
+  scale_x_continuous(breaks = 0:15, limits = c(0, 15)) + 
+  labs(y = "Sujeto", x = "Tiempo de seguimiento (meses)", shape = "Muerte", color = "Muerte") + 
+  geom_vline(xintercept = 14, linetype = "dashed") + 
+  # geom_vline(xintercept = 17, linetype = "dashed") + 
+  theme_bw() + 
+  scale_shape_manual(values = c(1, 4)) + 
+  annotate("text", 
+           x = 13.8, 
+           y = 4, 
+           label = "Fin de estudio", 
+           size = 3, 
+           angle = 90, 
+           color = "red") + 
+  annotate("text", 
+           x = 14.2, 
+           y = 4, 
+           label = "(censura administrativa)", 
+           size = 3, 
+           angle = 90, 
+           color = "red") + 
+  annotate("text", 
+           x = 10, 
+           y = 2.5, 
+           label = "Pérdida de seguimiento\n(censura por pérdida)", 
+           size = 3, 
+           angle = 0, 
+           color = "red") +   
+  geom_segment(aes(x = 10, 
+                   xend = 9, 
+                   y = 3, 
+                   yend = 4.85), 
+               color = "red",  
+               size = 1,  
+               arrow = arrow(angle = 30, length = unit(0.1, "inches"))) + 
+  geom_segment(aes(x = 8, 
+                   xend = 5.2, 
+                   y = 2.5, 
+                   yend = 3), 
+               color = "red",                 
+               size = 1,  
+               arrow = arrow(angle = 30, length = unit(0.1, "inches"))) 
+```
+
+:::
+
+:::
+
+
+
+:::
+
+::::
+
+# Métodos para describir datos de supervivencia
+
+## ¿Qué métodos podemos usar?
+
+<br/>
+
+- Debemos usar algún método tenga en cuenta los tiempos de seguimiento desiguales en los indviduos censurados.
+
+
+    + Densidad de incidencia
+    
+    + Tasa de incidencia
+    
+    + Incidencia y Sobrevidad Acumuladas^[Usando un método que considere censuras.]
+    
+    + Tablas de vida^[Reporta IA y SA para cada punto de tiempo]
+    
+    + Hazards
+    
+- Nosotros solo nos centraremos en dos medidas que se usan tradicionalmente para describir datos de supervivencia:
+
+    + Densidad/Tasa de incidencia
+    
+    + Incidencia y Sobrevida Acumulada<sup>1</sup>
+    
+    + Tabla de vida<sup>1</sup>
+    
+
+## Densidad y Tasa de Incidencia {.scrollable}
+
+::: {.panel-tabset}
+
+### Cálculo
+
+:::: {.columns}
+
+::: {.column width='35%'}
+
+- Se calcula dividiendo el número de casos nuevos sobre el total de tiempo de seguimiento por persona.
+
+<FONT size='5'>$$\text{Densidad de Incidencia} = \frac{\text{Número de eventos nuevos}}{\text{Total de tiempo-persona}}$$</FONT>
+
+- En el ejemplo de la derecha:
+
+<FONT size='5'>$$\text{Densidad de Incidencia} = $$</FONT>
+
+<FONT size='5'>$$\frac{2 \text{ casos}}{9 +8+5+1+14 \text{ meses-persona}}$$</FONT>
+
+<FONT size='5'>$$= 0.04 \text{ casos por mes-persona}$$</FONT>
+
+<FONT size='5'>$$= 4 \text{ casos por 100 meses-persona}$$</FONT>
+
+:::
+
+::: {.column width='65%'}
+
+> Medida de la frecuencia con la que un evento de interés ocurre a lo 
+> largo de un periodo de tiempo especificado.
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+
+linea_tiempo %>% 
+  ggplot() + 
+  geom_point(aes(x = t_seg , y = sujeto, shape = muerte), size = 4) + 
+  geom_segment(aes(x = 0, xend = t_seg, y = sujeto, yend = sujeto), size = 0.8) + 
+  scale_x_continuous(breaks = 0:15, limits = c(0, 15)) + 
+  labs(y = "Sujeto", x = "Tiempo de seguimiento (meses)", shape = "Muerte", color = "Muerte") + 
+  geom_vline(xintercept = 14, linetype = "dashed") + 
+  # geom_vline(xintercept = 17, linetype = "dashed") + 
+  theme_bw() + 
+  scale_shape_manual(values = c(1, 4)) + 
+  annotate("text", 
+           x = 13.8, 
+           y = 4, 
+           label = "Fin de estudio", 
+           size = 3, 
+           angle = 90, 
+           color = "red") + 
+  annotate("text", 
+           x = 14.2, 
+           y = 4, 
+           label = "(censura administrativa)", 
+           size = 3, 
+           angle = 90, 
+           color = "red") 
+```
+
+:::
+
+::::
+
+
+### Densidad versus Tasa
+
+- Algunos autores diferencian el concepto de [densidad]{.hl} del de [tasa]{.hl}.
+
+- *Skzlo, et al.*, en su libro *"Epidemiology beyond the basics"*, hace tal distinción e indica lo siguiente: 
+    
+    - La densidad se calcula con los datos de individuales de los tiempos de seguimiento de cada persona (tiempo en riesgo).
+    
+    - La tasa se calculan cuando no se cuentan con datos de los tiempos individuales; en cambio, se disponen de datos agregados.
+    
+        + Por tanto, se hace algunos supuestos sobre el tiempo de seguimiento de los datos agregados y se calculan estas tasas.
+    
+- Densidad de incidencia y tasa de incidencia tienen las misma interpretación y supuestos.
+
+### Datos individuales 
+
+```{r}
+#| echo: false
+erc_data <- readRDS("data_renal.rds")
+```
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+- Si tenemos datos con los tiempos de seguimiento, es relativamente fácil calcular.
+
+- Veamos los datos:
+
+```{r}
+head(erc_data)
+```
+
+
+:::
+
+::: {.column width='50%'}
+
+- Variables de interés para cálculo de densidad de incidencia:
+
+    + [time5y]{.hl}: tiempo de seguimiento (años)
+    + [death5y]{.hl}: muerte(1) o vivo aún(0)
+
+- Cálculo de densidad de incidencia:
+
+[0.0492 caso por 1 año-persona]{.hl}
+
+```{r}
+erc_data %>% 
+  summarise(DI = sum(death5y) / sum(time5y))
+```
+  
+[4.92 casos por 100 años-persona]{.hl}
+
+```{r}
+erc_data %>% 
+  summarise(DI = sum(death5y) / sum(time5y) * 100)
+```  
+
+
+:::
+
+::::
+
+### Lidiando con fechas
+
+- Muchas veces, los datos individuales no tienen los tiempos de seguimiento, sino las fechas.
+
+    - Hay que calcular los tiempos de seguimiento restando las fechas de interés.
+  
+:::: {.columns}
+
+::: {.column width='50%'}
+
+- Veamos los siguientes datos:
+
+```{r}
+ebola_data_small <- readRDS("ebola_data_small.rds")
+head(ebola_data_small)
+```
+
+- Primero, convertir fechas de `character` a `date`:
+
+```{r}
+library(lubridate)
+ebola_data_small <- ebola_data_small %>% 
+  mutate(date_onset = ymd(date_onset), 
+         date_outcome = ymd(date_outcome)) 
+
+head(ebola_data_small)
+```
+
+- Luego, calculamos el tiempo de seguimiento restando fechas:
+
+```{r}
+ebola_data_small <- 
+  ebola_data_small %>%
+  mutate(tseg_dias = as.double(date_outcome - date_onset))
+head(ebola_data_small)
+```
+
+```{r}
+#| echo: false
+ebola_data_small %>% 
+  mutate(tseg_dias = if_else(tseg_dias <= 0, NA_real_, tseg_dias)) -> ebola_data_small
+```
+
+:::
+
+::: {.column width='50%'}
+
+- Para contar el número de eventos, necesitamos convertir la variable outcome de character a numeric:
+
+```{r}
+ebola_data_small <- 
+  ebola_data_small %>% 
+  mutate(outcome2 = case_when(outcome == "Recover" ~ 0, 
+                              outcome == "Death" ~ 1, 
+                              TRUE ~ as.numeric(NA)))
+head(ebola_data_small)
+```
+
+- Cálculo de la densidad de incidencia:
+
+[Recordar que hay NA]{.hl}
+
+```{r}
+ebola_data_small %>% 
+  summarise(DI = sum(outcome2) / sum(tseg_dias))
+```
+[Si hay NA, siempre hay que considerarlo]{.hl}
+
+```{r}
+ebola_data_small %>% 
+  summarise(DI = sum(outcome2, na.rm = TRUE) / sum(tseg_dias, na.rm = TRUE) * 100)
+```
+
+- 4.84 casos por 100 años-persona
+
+:::
+
+::::
+  
+### Datos agregados
+
+- Con datos agregados, se suele tener el número de eventos y el tiempo de seguimiento por cada unidad de observación agregada.
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+- Veamos los datos:
+
+```{r}
+#| echo: false
+tasa_inc_data <- data.frame(
+  ncasos = c(1245, 5234, 2312, 4524), 
+  region = c("Lima", "Arequipa", "Ayacucho", "Tacna"), 
+  pop_mid_year = c(214555, 341421, 54545, 123454)
+)
+```
+
+```{r}
+tasa_inc_data
+```
+
+- Calculemos la tasa de incidencia para todos los datos
+
+```{r}
+tasa_inc_data %>% 
+  summarise(tasa_incidencia = sum(ncasos) / sum(pop_mid_year) * 1000)
+```
+
+La tasa de incidencia de la enfermedad para todas las regiones estudiadas fue de 18.14 casos por 1000 años-persona.
+
+:::
+
+::: {.column width='50%'}
+
+- Calculemos la tasa de incidencia para cada región
+
+```{r}
+tasa_inc_data %>% 
+  mutate(tasa_incidencia = ncasos / pop_mid_year * 1000)
+```
+
+La tasa de incidencia de la enfermedad para Lima fue de 5.8 casos por 1000 años-persona. En Arequipa fue de 15.3 casos por 1000 años-persona. La TI de la enfermedad en Ayacucho fue de 42.4 casos por 1000 años-persona y en Tacna fue de 36.6 casos por 1000 años-persona.
+
+:::
+
+::::
+
+:::
+
+
+## Incidencia y Supervivencia Acumulada {.scrollable}
+
+::: {.panel-tabset}
+
+### IA
+
+>  La incidencia acumulada en un tiempo t o $IA(t)$ o proporción de incidencia en un tiempo t, es la probabilidad de desarrollar un evento nuevo en un intervalo t de tiempo.
+
+- Si no hay pérdidas de seguimiento, se calcula directamente:
+
+$$IA(t) = \frac{\text{Nº de eventos nuevos hasta tiempo t}}{\text{Total de individuos en riesgo al incio del estudio}}$$
+
+- Si hay pérdidas de seguimiento, debe usarse algún método que tenga en cuenta estas censuras:
+
+    + El método de Kaplan y Meier es una opción popular en Bioestadística y Epidemiología.
+    
+    + Otros métodos también existen, por ejemplo, el estimador de Nelson-Aalen.
+
+### SA
+
+> La sobrevida acumulada en tiempo t o $SA(t)$ es la probabilidad de que un individuo sobreviva más allá de un tiempo $t$. 
+
+- Si no hay pérdidas de seguimiento, también se calcularía directamente:
+
+$$SA(t) = \frac{\text{Nº de individuos aún en riesgo en tiempo t}}{\text{Total de individuos en riesgo al incio del estudio}}$$
+
+- Con pérdida de seguimiento, se puede usar el método de KM.
+
+- La $SA(t)$ es el complemento de la $IA(t)$:
+
+$$SA(t) = 1 - IA(t)$$
+
+### Método de KM
+
+> También conocida como método de producto-límite, permite estimar la $SA(t)$ y la $IA(t)$ teniendo en cuenta que hay censuras.
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+- No entraremos en detalles técnicos.
+
+    + Esto se ve en un curso de análisis de supervivencia.
+
+- KM permite estimar cada $SA(t)$ e $IA(t)$ en los puntos de tiempo $t$ obervados. 
+
+    + El reporte de cada $SA(t)$ e $IA(t)$ en una tabla, se llama [tabla de vida]{.hl}
+    
+- Usaremos los datos de ébola:
+
+```{r}
+head(ebola_data_small, 2)
+```
+:::
+
+::: {.column width='50%'}
+
+- No tenemos una sola variable de interés observada, tenemos un vector de dos variables:
+
+    + [Tiempo de seguimiento observado]{.hl}: 
+    
+        + tseg_dias
+    
+    + [Indicador de evento y censura]{.hl}: 
+    
+        + outcome2: 1 = muerte, 0 = censura (recuperado)
+
+- Importante que el indicador de evento/censura sea numérico con 1 y 0.
+
+
+:::
+
+::::
+
+
+### {survival}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+- Usaremos el paquete [{survival}]{.plo} que usa principalmente sintaxis R base.
+
+```{r}
+library(survival)
+```
+
+
+- Debemos definir un objeto de supervivencia con función [Surv()]{.plo}:
+
+```r
+Surv(tiempo_seguimiento, evento_censura)
+```
+
+- Luego, pedimos a R que estime la tabla de vida con [survfit()]{.plo} y la guarde en un objeto:
+
+```r
+tabla_vida <- survfit(Surv(tiempo_seguimiento, evento_censura), 
+                      data = datos)
+```
+
+- Por último, pedimos que muestre la tabla de vida:
+
+```r
+summary(tabla_vida)
+```
+
+
+:::
+
+::: {.column width='50%'}
+
+- Usando los datos de ebola, creamos el objeto tabla de vida y pedimos ver sus resultados con [summary]{.plo}:
+
+```{r}
+surv_ebola <- survfit(Surv(tseg_dias, outcome2) ~ 1, 
+                      data = ebola_data_small)
+summary(surv_ebola)
+```
+
+- No podemos obtener directamente estimados de $IA(t)$, estos habría que calcularlos.
+
+:::
+
+::::
+
+
+### {ggsurvfit}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+- El problema con el paquete [survival()]{.plo} es que usa R base, por lo que es difícil de manipualr.
+
+- El paquete [ggsurvfit()]{.plo}  utiliza internamente [survival()]{.plo} pero permite trabajar con R tidy potenciando el reporte de tablas de vida.
+
+```{r}
+library(ggsurvfit)
+```
+
+- Se usa la función [survfit2()]{.plo}:
+
+```r
+tab_vida2 <- survfit2(Surv(tseg_dias, outcome2) ~ 1, data = datos)
+```
+
+- Para el reporte, usamos [tidy_survfit]{.plo}, el cual remplaza a [summary()]{.plo}
+
+```r
+tidy_survfit(tab_vida2)
+```
+
+[Supervivencia acumulada]{.hl}
+
+```{r}
+surv_ebola <- survfit2(Surv(tseg_dias, outcome2) ~ 1, data = ebola_data_small)
+tidy_survfit(surv_ebola)
+```
+
+:::
+
+::: {.column width='50%'}
+
+[Incidencia acumulada]{.hl}
+
+```{r}
+tidy_survfit(surv_ebola, type = "risk")
+```
+
+[Tiempos específicos de interés]{.hl}
+
+```{r}
+tidy_survfit(surv_ebola, times = c(1, 2, 5), type = "risk")
+```
+
+[Selecciona solo columnas de interés]{.hl}
+
+```{r}
+tidy_survfit(surv_ebola,  times = c(1, 2, 5), type = "risk") %>% 
+  select(time, n.event, n.risk, estimate)
+```
+
+:::
+
+::::
+
+### Más info
+
+Más información sobre análisis de datos de supervivencia:
+
+- [{survival}]{.plo}: <https://cran.r-project.org/web/packages/survival/index.html> (Ver Sección Vignettes)
+
+- [{ggsurvfit}]{.plo}: <https://www.danieldsjoberg.com/ggsurvfit/index.html>
+
+- Un tutorial básico para epidemiólogos sobre análisis de supevivencia: <https://epirhandbook.com/en/survival-analysis.html>
+
+- Una lista amplia de paquetes en R para análisis de supervivencia: <https://cran.r-project.org/web/views/Survival.html>
+
+- Un (más avanzado) tutorial interesante sobre análisis de supervivencia: <https://www.emilyzabor.com/tutorials/survival_analysis_in_r_tutorial.html>
+
+:::
+
+## Curvas de supervivencia {.scrollable}
+
+::: {.panel-tabset}
+
+### Definición
+
+> Es la versión gráfica de la tabla de vida.
+
+- Hay varios métodos para obtenerla.
+
+    + [No paramétricos]{.hl}: método de KM, Nelson-Aalen, etc.
+    + [Semiparamétricos]{.hl}: predichas de modelo de regresión de Cox.
+    + [Paramétricos]{.hl}: predichas de modelos paramétricos de supervivencia.
+    
+- Veremos algunas funciones para obtener gráficos para reporte.
+
+- Solo nos centraremos en el método no paramétrico de Kaplan-Meier para describir datos de supervivencia.
+
+### {survival}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+- Se puede graficar el objeto de [survfit]{.plo} con la función [plot]{.plo}.
+
+```{r}
+surv_ebola <- survfit(Surv(tseg_dias, outcome2) ~ 1, 
+                      data = ebola_data_small)
+summary(surv_ebola)
+```
+
+:::
+
+::: {.column width='50%'}
+
+```{r}
+#| fig-align: center
+plot(surv_ebola)
+```
+
+- Este gráfico no es [{ggplto2}]{.plo}, en cambio, es de R base.
+
+    + Se puede personalizar, pero la sintaxis de estos gráficos es relativamente complicada y más limitada que la sintaxis de [{ggplot2}]{.plo}
+    
+:::
+
+::::
+
+### {ggsurvfit}
+
+- Podemos usar la función [ggsurvfit()]{.plo} para realizar gráficos publicables de la KM.
+
+    + Estos gráficos sí siguen sintaxis [{ggplot2}](.plo) y uno puede seguir agregando capas.
+    
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+- La función [ggsurvfit()]{.plo} es un wrapper de [ggplot()]{.plo} con [geom_step()]{.plo} diseñado para crear la curva de supervivencia:
+    
+```{r}
+#| fig-align: center
+surv_ebola %>% 
+  ggsurvfit()
+```
+
+- Le podemos agregar una tabla de riesgo, la cual en Bioestadística es un estándar mínimo de publicación de curvas de KM:
+
+```{r}
+#| fig-align: center
+surv_ebola %>% 
+  ggsurvfit() + 
+  add_risktable()
+```
+
+- También se puede agregar marcas de censuras:
+
+```{r}
+#| fig-align: center
+surv_ebola %>% 
+  ggsurvfit() + 
+  add_risktable() + 
+  add_censor_mark()
+```
+
+:::
+
+::: {.column width='50%'}
+
+- Puedes configurar temas
+
+```{r}
+#| fig-align: center
+surv_ebola %>% 
+  ggsurvfit() + 
+  add_risktable() + 
+  add_censor_mark() + 
+  theme_classic()
+```
+
+- También temas de la tabla de riesgos
+
+```{r}
+#| fig-align: center
+surv_ebola %>% 
+  ggsurvfit() + 
+  add_risktable(theme = theme_risktable_boxed()) + 
+  add_censor_mark() +
+  theme_classic()
+```
+
+- Puedes hacer más personalizaciones:
+
+```{r}
+#| fig-align: center
+surv_ebola %>% 
+  ggsurvfit(size = 1, color = "red") + 
+  add_risktable(theme = theme_risktable_boxed()) + 
+  add_censor_mark(color = "red") + 
+  theme_classic() + 
+  labs(y = "Supervivencia Acumulada (%)", 
+       x = "Tiempo (Días)", 
+       title = "Curva de supervivencia en pacientes con Ébola")
+```
+
+:::
+
+::::
+
+
+
+### {survminer}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+- El paquete [{survminer}]{.plo} también ofrece funciones para gráficos [ggplot2()]{.plo}.
+
+    - Sin embargo, los objetos que crean también tienen atributos adicionales: 
+    
+        + No usa la lóigica de capas ni el símbolo [+]{.plo}
+
+    - Personalmente creo que esto genera algunas inconsistencias y obliga a salirse un poco de la sintaxis [{ggplot2}]{.plo}
+
+- No veremos [{survminer}]{.plo} en detalle, porque [ggsurvfit()]{.plo}  lo supera por creces.
+
+- Solo veremos un par de ejemplos para conocer, por cultura general, el paquete en general:
+
+```{r}
+library(survminer)
+```
+
+- El gráfico de curvas KM puede obtener mediante:
+
+```{r}
+surv_ebola %>% 
+  ggsurvplot() 
+```
+
+:::
+
+::: {.column width='50%'}
+
+- Puedes agregar una tabla de riesgo :
+
+```{r}
+surv_ebola %>% 
+  ggsurvplot(risk.table = TRUE)
+```
+
+- También puedes hacer algunas personalizaciones si son argumentos dentro de la función:
+
+```{r}
+surv_ebola %>% 
+  ggsurvplot(risk.table = TRUE, 
+             xlab = "Tiempo (días)", 
+             ylab = "Supervivencia Acumulada (%)", 
+             ggtheme = theme_minimal(), 
+             risk.table.title = "Número en riesgo")
+```
+
+:::
+
+::::
+
+
+### Más info
+
+Más información sobre gráficos KM para datos de supervivencia:
+
+- [{ggsurvfit}]{.plo}: <https://www.danieldsjoberg.com/ggsurvfit/index.html>
+
+    + Gráficos: <https://www.danieldsjoberg.com/ggsurvfit/articles/gallery.html>
+    
+    + Temas: <https://www.danieldsjoberg.com/ggsurvfit/articles/themes.html>
+    
+    + Listado de todas las funciones: <https://www.danieldsjoberg.com/ggsurvfit/reference/index.html>
+
+- [{survminer}]{.plo}: <https://rpkgs.datanovia.com/survminer/index.html>
+
+- Un tutorial para epidemiólogos sober survminer: <https://epirhandbook.com/en/survival-analysis.html>
+
+
+:::
+
+
+```{r}
+#| echo: false
+library(countdown)
+countdown_timer <- function(
+    minutes = 1, 
+    play_sound = TRUE, 
+    font_size = "2em", 
+    ...
+) {
+  countdown(
+    minutes = minutes,
+    # Fanfare when it's over
+    play_sound = play_sound,
+    # Set timer theme to match solarized colors
+    color_border              = "#404041",
+    color_text                = "white",
+    color_background = "#000000",
+    color_running_background  = "#72994E",
+    color_running_text        = "white",
+    color_finished_background = "#EE6331",
+    color_finished_text       = "white",
+    font_size = font_size,
+    ...
+  )
+}
+```
+
+# `r fontawesome::fa("laptop-code", "white")` Nuestro turno {background-color="#000000"}
+
+<br/>
+
+- Abra el proyecto `var_tiempo.Rproj` y dentro de este, abra el archivo quarto `var_tiempo.qmd`. 
+
+- Siga las instrucciones indicadas en este.
+
+- Renderice el archivo quarto final.
+
+<br/><br/><br/>  
+
+```{R}
+#| echo: false
+countdown_timer(10)
+```
+
+```{r}
+#| echo: false
+#| eval: false
+set.seed(123145)
+tinicio1 <- sample(0:5, 10, replace = T)
+tinicio2 <- tinicio1 + sample(4:10, 10, replace = T)
+  
+linea_tiempo <- data.frame(
+  sujeto = factor(rep(1:10, 2)), 
+  tinicio = c(tinicio1, tinicio2),
+  tfin = c(tinicio2, tinicio2 + sample(4:20, 10, replace = T)), 
+  censor = sample(c("Sin enfermedad X", "Con enfermedad X"), 20, replace = T)
+  ) %>% 
+  arrange(sujeto)
+
+linea_tiempo %>% 
+  ggplot() + 
+  geom_point(aes(x = tfin, y = sujeto, shape = censor, color = censor)) + 
+  geom_segment(aes(x = tinicio, xend = tfin, y = sujeto, yend = sujeto, color = censor)) + 
+  scale_x_continuous(breaks = 0:29, limits = c(0, 29)) + 
+  labs(y = "Sujeto", x = "Tiempo", shape = "Estado de salud", color = "Estado de salud") + 
+  geom_vline(xintercept = 6, linetype = "dashed") + 
+  geom_vline(xintercept = 17, linetype = "dashed") + 
+  theme_bw()
+```

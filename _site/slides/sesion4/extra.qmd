@@ -1,0 +1,425 @@
+---
+title: "Extra: ggpubr"
+---
+
+::: {.panel-tabset}
+
+### ggpubr
+
+> Podemos crear cada gráfico de ggplot2 en R y luego juntarlos. Otra opción es usar el paquete [{ggpubr}]{.plo} que es un atajo de ggplot2:
+
+```r
+library(ggpubr)
+```
+
+> La función [gghistogram]{.plo} es un atajo de las líneas de código usadas con [geom_histogram]{.plo} de [{ggplot2}]{.plo}:
+
+:::: {.columns}
+
+::: {.column width='40%'}
+
+```r
+bd_inmuno %>% 
+  gghistogram(x = "IgG_Basal")
+```
+
+:::
+
+::: {.column width='60%'}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+library(ggpubr)
+bd_inmuno %>% 
+  gghistogram(x = "IgG_Basal")
+```
+
+:::
+
+::::
+
+
+### varios histogramas
+
+
+>Si queremos generar histogramas para varias variables numéricas, solo tenemos que especificar `x = c(var1, var2, var3, ..., varK)` y poner `combine = TRUE` para que salgan en una sola figura: 
+
+:::: {.columns}
+
+::: {.column width='40%'}
+
+```r
+bd_inmuno %>% 
+  gghistogram(
+    x = c("edad", "IgG_Basal", "IgG_Final"), 
+    combine = TRUE
+    )
+```
+
+:::
+
+::: {.column width='60%'}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+bd_inmuno %>% 
+  gghistogram(
+    x = c("edad", "IgG_Basal", "IgG_Final"), 
+    combine = TRUE
+    )
+```
+
+:::
+
+::::
+
+- Más configuraciones para [gghistogram]{.plo}: <https://rpkgs.datanovia.com/ggpubr/reference/gghistogram.html>
+
+### personalizar gráficos 1
+
+>Podemos configurar los colores con `fill = ` y las etiquetas con `xlab = ` e `ylab = `.
+
+:::: {.columns}
+
+::: {.column width='40%'}
+
+```r
+bd_inmuno %>% 
+  gghistogram(
+    x = c("edad", "IgG_Basal", "IgG_Final"), 
+    combine = TRUE, 
+    fill = "green", 
+    xlab = "Variables numéricas", 
+    y = "Frecuencia"
+    )
+```
+
+:::
+
+::: {.column width='60%'}
+
+```{r}
+#| fig-align: center
+#| out-width: 100%
+#| echo: false
+bd_inmuno %>% 
+  gghistogram(
+    x = c("edad", "IgG_Basal", "IgG_Final"), 
+    combine = TRUE, 
+    fill = "green", 
+    xlab = "Variables numéricas", 
+    ylab = "Frecuencia"
+    )
+```
+
+:::
+
+::::
+
+- Más configuraciones para [gghistogram]{.plo}: <https://rpkgs.datanovia.com/ggpubr/reference/gghistogram.html>
+
+### personalizar gráficos 2
+
+>También podemos agregar otros elementos adicionales como una línea con el valor de la mediana `add = "median"` y una "alfombra" de datos con barras verticales mediante `rug = TRUE`.
+
+:::: {.columns}
+
+::: {.column width='40%'}
+
+
+```r
+bd_inmuno %>% 
+  gghistogram(
+    x = c("edad", "IgG_Basal", "IgG_Final"), 
+    combine = TRUE, 
+    fill = "green", 
+    xlab = "Variables numéricas", 
+    add = "median", 
+    rug = TRUE
+    )
+```
+:::
+
+::: {.column width='60%'}
+
+```{r}
+#| fig-align: center
+#| out-width: 100%
+#| echo: false
+bd_inmuno %>% 
+  gghistogram(
+    x = c("edad", "IgG_Basal", "IgG_Final"), 
+    combine = TRUE, 
+    fill = "green", 
+    xlab = "Variables numéricas", 
+    add = "median", 
+    rug = TRUE
+    )
+```
+
+:::
+
+::::
+
+- Más configuraciones para [gghistogram]{.plo}: <https://rpkgs.datanovia.com/ggpubr/reference/gghistogram.html>
+
+
+:::
+_
+
+
+
+
+## Violin
+
+::: {.panel-tabset}
+
+### ggplot2
+
+>Gráficos de violin son similares a gráficos de caja, excepto porque también muestran la densidad de probabilidad.
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+[Cajas horizontales]{.hl}
+
+```{r}
+#| code-line-numbers: "1|2|3|"
+#| fig-align: center
+#| out-width: 100%
+#| message: true
+bd_inmuno %>% 
+  ggplot(aes(x = IgG_Basal, y = sexo)) + 
+  geom_violin()
+```
+
+:::
+
+::: {.column width='50%'}
+
+[Cajas verticales]{.hl}
+
+```{r}
+#| code-line-numbers: "1|2|3|"
+#| fig-align: center
+#| out-width: 100%
+#| message: true
+bd_inmuno %>% 
+  ggplot(aes(y = IgG_Basal)) + 
+  geom_boxplot()
+```
+
+:::
+
+::::
+
+### personalizar
+
+> Podemos personalizar el gráfico agregando capas. Por ejemplo, podemos usar `labs()` y `theme_`. También podemos eliminar los números y guiones del eje x usando `theme()`.
+
+:::: {.columns}
+
+::: {.column width='40%'}
+
+```{r}
+#| code-line-numbers: "1,2,3|4|5|6|3,5,6|7|4,5,6|7|8|7,8|"
+#| eval: false
+bd_inmuno %>% 
+  ggplot(aes(y = IgG_Basal)) + 
+  geom_boxplot() + 
+  labs(x = NULL, 
+       y = "IgG basal (AU/mL)", 
+       title = "Gráfico de cajas de IgG basal") + 
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank())
+```
+
+:::
+
+::: {.column width='60%'}
+
+```{r}
+#| fig-align: center
+#| out-width: 100%
+#| message: true
+#| echo: false
+bd_inmuno %>% 
+  ggplot(aes(y = IgG_Basal)) + 
+  geom_boxplot() + 
+  labs(x = NULL, 
+       y = "IgG basal (AU/mL)", 
+       title = "Gráfico de cajas de IgG basal") + 
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank())
+```
+
+:::
+
+::::
+
+### partes
+
+:::: {.columns}
+
+::: {.column width='40%'}
+
+- Anatomía:
+
+    + `Bordes de caja`: percentil 25 (cuartil 1) y 75 (cuartil 3)
+    
+    + `Linea horizontal dentro de caja`: percentil 50 (cuartil 2 o mediana)
+    
+    + `Rango intercuartílico (IQR)`: percentil 75- percentil 25
+    
+    + `Bigotes`: ± 1.5 IQR
+    
+    + `Puntos fuera de bigotes`: Outliers según regla de Tukey
+    
+:::
+
+::: {.column width='60%'}
+
+```{r}
+#| echo: false
+#| out-width: 100%
+#| fig-align: center
+bd_inmuno %>% 
+  ggplot(aes(y = edad)) + 
+  geom_boxplot() + 
+  labs(x = NULL, 
+       y = "Edad (años)", 
+       title = "Gráfico de cajas de Edad") +  
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank()) +
+  annotate("text", x = 0.2, y = 62, label = "Percentil 75 = Cuartil 3", color = "red") + 
+  annotate("text", x = 0.2, y = 49, label = "Percentil 50 = Cuartil 2 = Mediana", color = "red") + 
+  annotate("text", x = 0.2, y = 39, label = "Percentil 25 = Cuartil 1", color = "red") + 
+  annotate("text", x = 0.16, y = 90, label = "Extremo superior (p75 + 1.5 * IQR)", color = "red") + 
+  annotate("text", x = 0.15, y = 25, label = "Extremo inferior (p75 - 1.5 * IQR)", color = "red") + 
+  annotate("text", x = 0.13, y = 95, label = "Datos extremos ('outliers')", color = "red") 
+```
+
+
+:::
+
+::::
+
+
+### notas 
+
+- Aunque se puede usar en gráficos univariados, no es un muy gráfico para estos fines.
+
+    - ¡Es mejor para realizar comparaciones en análisis bivariados!
+
+- Los "outliers" o valores extremos son solo referenciales.
+
+- Las cajas sugieren simetría de distribución, pero no permiten ver la forma directamente: 
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+[Distribución simétrica]{.hl}
+
+```{r}
+#| echo: false
+set.seed(123)
+datos <- data.frame(
+  simetrico = rnorm(100), 
+  asimetrico = rexp(100, 0.5)
+)
+```
+
+```{r}
+#| echo: false
+datos %>%  
+  ggplot(aes(x = simetrico)) +  
+  geom_boxplot()
+```
+
+
+:::
+
+::: {.column width='50%'}
+
+[Distribución asimétrica]{.hl}
+
+```{r}
+#| echo: false
+datos %>%  
+  ggplot(aes(x = 1, y = asimetrico)) +  
+  geom_violin()
+```
+
+:::
+
+::::
+
+
+
+### más info
+
+<br/><br/>
+[Más información en el siguiente enlace:]{.big-text1}
+
+[<https://ggplot2.tidyverse.org/reference/geom_boxplot.html>]{.big-text1}
+
+:::
+
+
+## {.scrollable}
+
+:::: {.columns}
+
+::: {.column width='47%'}
+
+### ggplot2
+
+**[Pros]{.hl}**
+
+- Paquete que proporciona funciones que siguen la `gramática de gráficos`.
+
+- Altamante personalizable:
+
+    + Prácticamente no hay ningún gráfico que no puedas crear con ggplot2.
+
+**[Contras]{.hl}**
+
+- Aunque cuenta con varios atajos de personalización (p. ej., theme_), sigue requiriendo bastante código.
+
+- Se deben dibujar una variable a la vez. Dibujar varias variables a la vez es un poco más "tricky" y requiere un poco de programación en R.
+
+:::
+
+::: {.column width='4%'}
+
+:::
+
+::: {.column width='47%'}
+
+### ggpubr
+
+**[Pros]{.hl}**
+
+- Es un atajo o "wrapper" de ggplot2. 
+
+    + Puedo seguir usando funciones de ggplot agregando capas adicionales con operador: `+`
+
+- Se requiere mucho menos código para gráficos de interés y se pueden graficar varias variables a la vez.
+
+**[Contras]{.hl}**
+
+- Su capacidad de personalización es menor que ggplot2. Sin embargo, al construirse sobre ggplot2, puede seguir modificándose sobre este.
+
+- Dependes de los gráficos iniciales que ggpubr te ofrece.
+
+:::
+
+::::
+
+---

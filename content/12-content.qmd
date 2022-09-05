@@ -1,4 +1,4 @@
 ---
-title: "Intervalos de confianza: buenas prácticas y errores de concepto"
+title: "Pruebas de hipótesis para proporciones"
 date: "2022-09-29"
 ---

@@ -1,4 +1,4 @@
 ---
-title: "Valor p: buenas prácticas y errores de concepto"
+title: "Intervalos de confianza y valor p: buenas prácticas y errores de concepto"
 date: "2022-10-03"
 ---

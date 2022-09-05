@@ -1,4 +1,4 @@
 ---
-title: "Estimación bajo inferencia por remuestreo"
+title: "Principios de inferencia y estimación por inferencia clásica"
 date: "2022-09-12"
 ---
