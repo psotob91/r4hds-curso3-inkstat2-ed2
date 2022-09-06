@@ -37,6 +37,7 @@ library(magick)
 library(webshot2)
 library(rmarkdown)
 library(flextable)
+library(huxtable)
 
 ## Ver QUARTO RSTUDIO CONFERENCE: https://github.com/rstudio-conf-2022/get-started-quarto/blob/main/materials/02-authoring.qmd
 ## 
@@ -49,9 +50,47 @@ library(flextable)
 
 # Crisis de Reproducibilidad
 
+## La crisis de Reproducibilidad
+
+<br/> 
+
+:::: {.columns}
+
+::: {.column width='60%'}
+
+<br/>
+
+- Calidad de la investigación médica a menudo es baja.
+
+- [Código de baja calidad]{.hl} en investigación médica es parte del problema.
+
+- [Código de baja calidad]{.hl} es [más propenso]{.hl} a [tener errores]{.hl}.
+
+- Reproducibilidad a menudo es [engorrosa]{.hl} y [consume tiempo]{.hl}.
+
+:::
+
+::: {.column width='40%'}
+
+```{r}
+#| echo: false
+#| out-width: 100%
+#| fig-align: center
+knitr::include_graphics("img/reproducibility-graphic-online1.jpeg")
+```
+
+:::
+
+::::
+
+::: aside
+<https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970> <br/>
+<https://www.danieldsjoberg.com/clinical-reporting-gtsummary-rmed/slides/#/reproducibility-crisis>
+:::
+
 # Reporte Reproducible
 
-## Recomendaciones adicionales para reporte descriptivo transparente (cont.)
+## ¿Cómo hacer que un análisis de datos sea reproducible?
 
 <br/> 
 
@@ -931,6 +970,15 @@ knitr::include_graphics("img/tab13.png")
 
 ::::
 
+## En resumen: {gtsummary} + fórmulas
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+knitr::include_graphics("img/Dan-SummaryTables-5.png")
+```
+
 ## Personzalización con bold_*() / italicize_*() {auto-animate="true"}
 
 :::: {.columns}
@@ -1030,9 +1078,9 @@ datos %>%
   ) %>% 
   bold_labels() %>% 
   as_gt() %>% 
-  gtsave("tab14.png", "img/")
+  gtsave("tab15.png", "img/")
 
-knitr::include_graphics("img/tab14.png")
+knitr::include_graphics("img/tab15.png")
 ```
 
 :::
@@ -1091,9 +1139,9 @@ datos %>%
   bold_labels() %>% 
   italicize_levels() %>% 
   as_gt() %>% 
-  gtsave("tab15.png", "img/")
+  gtsave("tab16.png", "img/")
 
-knitr::include_graphics("img/tab15.png")
+knitr::include_graphics("img/tab16.png")
 ```
 
 :::
@@ -1101,14 +1149,58 @@ knitr::include_graphics("img/tab15.png")
 ::::
 
 
-## Guardar tabla como documento MS Word
+## Guardar tabla como documento MS Word {auto-animate="true"}
 
-- Se puede `descargar` la tabla en formato `MS. Word` para `reporte reproducible`.
+:::: {.columns}
 
-- Primero se  `guarda`  como un `objeto` de `R`:
+::: {.column width='50%'}
+- Se puede [descargar]{.hl} la tabla en formato [MS. Word]{.hl} para [reporte reproducible]{.hl}.
+
+- Primero se  [guarda]{.hl}  como un [objeto]{.hl} de [R]{.hl}:
+
+```r
+datos %>% 
+  select(age, treated, married2, height, e2) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    label = list(
+      treated ~ "Treated with supplement", e2 ~ "Estradiol, UI",
+      married2 ~ "Marital status"
+    ), 
+    missing = "ifany"
+  ) %>% 
+  bold_labels() -> tabla1 
+
+tabla1
+```
+:::
+
+::: {.column width='50%'}
 
 ```{r}
-#| code-line-numbers: "12|"
+#| echo: false
+datos %>% 
+  select(age, treated, married2, height, e2) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    label = list(
+      treated ~ "Treated with supplement", e2 ~ "Estradiol, UI",
+      married2 ~ "Marital status"
+    ), 
+    missing = "ifany"
+  ) %>% 
+  bold_labels() -> tabla1
+```
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| error: false
+#| fig-align: center
+#| out-width: 50%
+#| code-overflow: wrap
 datos %>% 
   select(age, treated, married2, height, e2) %>% 
   tbl_summary(
@@ -1120,37 +1212,490 @@ datos %>%
     missing = "ifany"
   ) %>% 
   bold_labels() %>% 
-  italicize_levels() -> tabla1 
+  as_gt() %>% 
+  gtsave("tab17.png", "img/")
+
+knitr::include_graphics("img/tab17.png")
+```
+
+:::
+
+::::
+
+## Guardar tabla como documento MS Word {auto-animate="true"}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+- Se puede [descargar]{.hl} la tabla en formato [MS. Word]{.hl} para [reporte reproducible]{.hl}.
+
+- Primero se  [guarda]{.hl}  como un [objeto]{.hl} de [R]{.hl}:
+
+```r
+datos %>% 
+  select(age, treated, married2, height, e2) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    label = list(
+      treated ~ "Treated with supplement", e2 ~ "Estradiol, UI",
+      married2 ~ "Marital status"
+    ), 
+    missing = "ifany"
+  ) %>% 
+  bold_labels() -> tabla1 
 
 tabla1
 ```
+:::
 
-## Guardar tabla como documento MS Word
+::: {.column width='50%'}
 
-- Luego, al objeto se lo `guarda` como un archivo de `MS Word`. Para esto, se usa la función `as_flex_table()` del paquete `{gtsummary}` y la función `save_as_docx()` del paquete `{flextable}`: 
+```{r}
+#| echo: false
+datos %>% 
+  select(age, treated, married2, height, e2) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    label = list(
+      treated ~ "Treated with supplement", e2 ~ "Estradiol, UI",
+      married2 ~ "Marital status"
+    ), 
+    missing = "ifany"
+  ) %>% 
+  bold_labels() -> tabla1
+```
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| error: false
+#| fig-align: center
+#| out-width: 50%
+#| code-overflow: wrap
+datos %>% 
+  select(age, treated, married2, height, e2) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    label = list(
+      treated ~ "Treated with supplement", e2 ~ "Estradiol, UI",
+      married2 ~ "Marital status"
+    ), 
+    missing = "ifany"
+  ) %>% 
+  bold_labels() %>% 
+  as_gt() %>% 
+  gtsave("tab17.png", "img/")
+
+knitr::include_graphics("img/tab17.png")
+```
+
+:::
+
+::::
+
+- Luego, al objeto se lo [guarda]{.hl} como un archivo de [MS Word]{.hl}. 
+
+
+## Guardar tabla como documento MS Word {auto-animate="true"}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+- Se puede [descargar]{.hl} la tabla en formato [MS. Word]{.hl} para [reporte reproducible]{.hl}.
+
+- Primero se  [guarda]{.hl}  como un [objeto]{.hl} de [R]{.hl}:
+
+```r
+datos %>% 
+  select(age, treated, married2, height, e2) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    label = list(
+      treated ~ "Treated with supplement", e2 ~ "Estradiol, UI",
+      married2 ~ "Marital status"
+    ), 
+    missing = "ifany"
+  ) %>% 
+  bold_labels() -> tabla1 
+
+tabla1
+```
+:::
+
+::: {.column width='50%'}
+
+```{r}
+#| echo: false
+datos %>% 
+  select(age, treated, married2, height, e2) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    label = list(
+      treated ~ "Treated with supplement", e2 ~ "Estradiol, UI",
+      married2 ~ "Marital status"
+    ), 
+    missing = "ifany"
+  ) %>% 
+  bold_labels() -> tabla1
+```
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| error: false
+#| fig-align: center
+#| out-width: 50%
+#| code-overflow: wrap
+datos %>% 
+  select(age, treated, married2, height, e2) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    label = list(
+      treated ~ "Treated with supplement", e2 ~ "Estradiol, UI",
+      married2 ~ "Marital status"
+    ), 
+    missing = "ifany"
+  ) %>% 
+  bold_labels() %>% 
+  as_gt() %>% 
+  gtsave("tab17.png", "img/")
+
+knitr::include_graphics("img/tab17.png")
+```
+
+:::
+
+::::
+
+- Luego, al objeto se lo [guarda]{.hl} como un archivo de [MS Word]{.hl}. 
+
+:::: {.columns}
+
+::: {.column width='30%'}
 
 ```{r}
 library(flextable)
+```
+
+:::
+
+::: {.column width='70%'}
+
+- Paso 1: Cargar paquete [{flextable}]{.plo}
+
+:::
+
+::::
+
+
+## Guardar tabla como documento MS Word {auto-animate="true"}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+- Se puede [descargar]{.hl} la tabla en formato [MS. Word]{.hl} para [reporte reproducible]{.hl}.
+
+- Primero se  [guarda]{.hl}  como un [objeto]{.hl} de [R]{.hl}:
+
+```r
+datos %>% 
+  select(age, treated, married2, height, e2) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    label = list(
+      treated ~ "Treated with supplement", e2 ~ "Estradiol, UI",
+      married2 ~ "Marital status"
+    ), 
+    missing = "ifany"
+  ) %>% 
+  bold_labels() -> tabla1 
+
+tabla1
+```
+:::
+
+::: {.column width='50%'}
+
+```{r}
+#| echo: false
+datos %>% 
+  select(age, treated, married2, height, e2) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    label = list(
+      treated ~ "Treated with supplement", e2 ~ "Estradiol, UI",
+      married2 ~ "Marital status"
+    ), 
+    missing = "ifany"
+  ) %>% 
+  bold_labels() -> tabla1
+```
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| error: false
+#| fig-align: center
+#| out-width: 50%
+#| code-overflow: wrap
+datos %>% 
+  select(age, treated, married2, height, e2) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    label = list(
+      treated ~ "Treated with supplement", e2 ~ "Estradiol, UI",
+      married2 ~ "Marital status"
+    ), 
+    missing = "ifany"
+  ) %>% 
+  bold_labels() %>% 
+  as_gt() %>% 
+  gtsave("tab17.png", "img/")
+
+knitr::include_graphics("img/tab17.png")
+```
+
+:::
+
+::::
+
+- Luego, al objeto se lo [guarda]{.hl} como un archivo de [MS Word]{.hl}. 
+
+:::: {.columns}
+
+::: {.column width='30%'}
+
+```{r}
+library(flextable)
+
+tabla1 %>% 
+  as_flex_table() 
+```
+
+:::
+
+::: {.column width='70%'}
+
+- Paso 1: Cargar paquete [{flextable}]{.plo}
+
+- Paso 2: Se convierte a objeto de tipo [flextable]{.hl} con la función [as_flex_table()]{.plo}.
+
+
+:::
+
+::::
+
+
+## Guardar tabla como documento MS Word {auto-animate="true"}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+- Se puede [descargar]{.hl} la tabla en formato [MS. Word]{.hl} para [reporte reproducible]{.hl}.
+
+- Primero se  [guarda]{.hl}  como un [objeto]{.hl} de [R]{.hl}:
+
+```r
+datos %>% 
+  select(age, treated, married2, height, e2) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    label = list(
+      treated ~ "Treated with supplement", e2 ~ "Estradiol, UI",
+      married2 ~ "Marital status"
+    ), 
+    missing = "ifany"
+  ) %>% 
+  bold_labels() -> tabla1 
+
+tabla1
+```
+:::
+
+::: {.column width='50%'}
+
+```{r}
+#| echo: false
+datos %>% 
+  select(age, treated, married2, height, e2) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    label = list(
+      treated ~ "Treated with supplement", e2 ~ "Estradiol, UI",
+      married2 ~ "Marital status"
+    ), 
+    missing = "ifany"
+  ) %>% 
+  bold_labels() -> tabla1
+```
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| error: false
+#| fig-align: center
+#| out-width: 50%
+#| code-overflow: wrap
+datos %>% 
+  select(age, treated, married2, height, e2) %>% 
+  tbl_summary(
+    type = list(height ~ "continuous"), 
+    label = list(
+      treated ~ "Treated with supplement", e2 ~ "Estradiol, UI",
+      married2 ~ "Marital status"
+    ), 
+    missing = "ifany"
+  ) %>% 
+  bold_labels() %>% 
+  as_gt() %>% 
+  gtsave("tab17.png", "img/")
+
+knitr::include_graphics("img/tab17.png")
+```
+
+:::
+
+::::
+
+- Luego, al objeto se lo [guarda]{.hl} como un archivo de [MS Word]{.hl}: 
+
+
+:::: {.columns}
+
+::: {.column width='30%'}
+
+```{r}
+library(flextable)
+
 tabla1 %>% 
   as_flex_table() %>% 
   save_as_docx(path = "Tabla1.docx")
 ```
 
-- El `MS Word` aparecerá en la `carpeta` del `proyecto`:
+:::
 
-![](img/tabla1-rstudio.png)
+::: {.column width='70%'}
 
-- Y la `tabla` en `Word` lucirá así:
+- Paso 1: Cargar paquete [{flextable}]{.plo}
 
-![](img/tabla1-word.png)
+- Paso 2: Se convierte a objeto de tipo [flextable]{.hl} con la función [as_flex_table()]{.plo}.
+
+- Paso 3: Se guarda como word con la función [save_as_docx()]{.plo}
+
+:::
+
+::::
 
 
---- 
+## Guardar tabla como documento MS Word (cont.)
 
-<br/><br/><br/><br/><br/>
-<center>[Preguntas?]{.big-text6}</center>
+- El [MS Word]{.hl} aparecerá en la [carpeta]{.hl}  del [proyecto]{.hl}:
 
---- 
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+knitr::include_graphics("img/tabla1-rstudio.png")
+```
 
-<br/><br/><br/><br/><br/>
-<center>[Muchas gracias!]{.big-text6}</center>
+
+## Guardar tabla como documento MS Word (cont.)
+
+- Y la [tabla]{.hl} en [Word]{.hl} lucirá así:
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+knitr::include_graphics("img/tabla1-word.png")
+```
+
+## Guardar tabla como documento MS Excel
+
+:::: {.columns}
+
+::: {.column width='30%'}
+
+- Usamos el paquete [{huxtable}]{.plo}
+
+```{r}
+library(huxtable)
+```
+
+- Con la función [as_hux_xlsx]{.plo} convertimos el objeto [tbl_summary]{.hl} a un excel con un nombre de archivo que uno defina:
+ 
+```{r}
+tabla1 %>% 
+  as_hux_xlsx(file = "Tabla1.xlsx")
+```
+
+:::
+
+::: {.column width='70%'}
+
+
+- La tabla en excel se muestra a continuación:
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+knitr::include_graphics("img/tabla1-excel.png")
+```
+
+:::
+
+::::
+
+
+```{r}
+#| echo: false
+library(countdown)
+countdown_timer <- function(
+    minutes = 1, 
+    play_sound = TRUE, 
+    font_size = "2em", 
+    ...
+) {
+  countdown(
+    minutes = minutes,
+    # Fanfare when it's over
+    play_sound = play_sound,
+    # Set timer theme to match solarized colors
+    color_border              = "#404041",
+    color_text                = "white",
+    color_background = "#000000",
+    color_running_background  = "#72994E",
+    color_running_text        = "white",
+    color_finished_background = "#EE6331",
+    color_finished_text       = "white",
+    font_size = font_size,
+    ...
+  )
+}
+```
+
+# `r fontawesome::fa("laptop-code", "white")` Nuestro turno {background-color="#000000"}
+
+<br/>
+
+- Abra el proyecto `report_reprod_univ.Rproj` y dentro de este, abra el archivo quarto `report_reprod_univ.qmd`. 
+
+- Siga las instrucciones indicadas en este.
+
+- Renderice el archivo quarto final.
+
+<br/><br/><br/>  
+
+```{R}
+#| echo: false
+countdown_timer(10)
+```

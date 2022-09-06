@@ -62,3 +62,46 @@ title: "guias_de_reporte_pendiente"
 -   Lamentablemente es una mala práctica no hacerlo. <FONT size='6'>
     -   Usen anexos si el espacio queda corto y no quieren distraer al lector del mensaje principal. </FONT><FONT size='6'>
     -   No hay excusa para no reportar esto. </FONT>
+    
+    
+
+## El escándalo de la mala investigación médica
+
+```{r}
+#| out-width: 60%
+#| echo: false
+#| fig-align: center
+knitr::include_graphics("img/mala-ciencia-medica.png")
+```
+
+::: aside
+Altman DG. The scandal of poor medical research. BMJ 1994; 308:283.
+Douglas G Altman: statitician, researcher, and driving forcé behind global initiatives to improve reliability of health research. BMJ 2018; 361:k2588.
+:::
+
+## El escándalo de la mala investigación médica (cont.)
+
+<br/>
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+*“¿Qué debemos pensar acerca de un médico que usa el tratamiento incorrecto, ya sea intencionalmente o por ignorancia, o que usa el tratamiento correcto de manera incorrecta (por ejemplo, administrando la dosis incorrecta de un medicamento)? [La mayoría de la gente estaría de acuerdo en que tal comportamiento no es profesional, posiblemente poco ético y ciertamente inaceptable.]{.hl}”*
+
+
+:::
+
+::: {.column width='50%'}
+
+*“Entonces, ¿qué deberíamos pensar acerca de los investigadores que usan las técnicas incorrectas (ya sea intencionalmente o por ignorancia), o usan las técnicas correctas incorrectamente, o malinterpretan sus resultados, o informan sus resultados de manera selectiva, o citan la literatura de manera selectiva y extraen conclusiones injustificadas? Deberíamos estar horrorizados. [Sin embargo, numerosos estudios de la literatura médica, tanto en revistas generales como especializadas, han demostrado que todos los fenómenos anteriores son comunes.]{.hl} Sin duda, esto es un escándalo”*
+
+|                                                                    *Douglas Altman 1994*
+
+:::
+
+::::
+
+::: aside
+Traducido y adaptado de Altman DG. The scandal of poor medical research. BMJ 1994; 308:283
+:::
