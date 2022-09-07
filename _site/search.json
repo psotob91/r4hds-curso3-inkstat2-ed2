@@ -40,5 +40,75 @@
     "title": "AID/AED y Análisis descriptivo univariado de variables numéricas",
     "section": "Slides",
     "text": "Slides\n\nTipo de variablesAnálisis Inicial y Exploratorio de DatosDatos numéricos: GráficosDatos numéricos: Medidas de resumen\n\n\n\n Ver diapositivas en una nueva ventana\n\n\n\n\n\n\n\n\n Ver diapositivas en una nueva ventana\n\n\n\n\n\n\n\n\n Ver diapositivas en una nueva ventana\n\n\n\n\n\n\n\n\n Ver diapositivas en una nueva ventana"
+  },
+  {
+    "objectID": "example/var_tiempo/var_tiempo.html",
+    "href": "example/var_tiempo/var_tiempo.html",
+    "title": "Taller: Descripción de variables de tiempo",
+    "section": "",
+    "text": "Vamos a resolver una serie de ejercicios acerca de gráfocps de variables categóricas. Usaremos un conjunto de datos juguetes acerca de casos de pacientes con Ébola que se atendieron en hospitales de África. Estos datos están disponibles en el libro The Epidemiologist Handbook."
+  },
+  {
+    "objectID": "example/var_tiempo/var_tiempo.html#cargar-paquetes",
+    "href": "example/var_tiempo/var_tiempo.html#cargar-paquetes",
+    "title": "Taller: Descripción de variables de tiempo",
+    "section": "Cargar paquetes",
+    "text": "Cargar paquetes\n\n\nCódigo\nlibrary(tidyverse)      # Paquete con paquetes de funciones diverssa: {dplyr}, {ggplot2}\n\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.8     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n\nCódigo\nlibrary(rio)            # Navaja suiza de la importacion de datos en R\nlibrary(skimr)          # Exploración de datos\nlibrary(summarytools)   # Para generar estadísticos descriptivos\n\n\n\nAttaching package: 'summarytools'\n\n\nThe following object is masked from 'package:tibble':\n\n    view\n\n\nCódigo\nlibrary(lubridate)      # Paquete para manipular fechas usando estilo R tidy\n\n\n\nAttaching package: 'lubridate'\n\n\nThe following objects are masked from 'package:base':\n\n    date, intersect, setdiff, union\n\n\nCódigo\nlibrary(survival)       # Paquete principal para análisis de datos tiempo-evento\nlibrary(ggsurvfit)      # Paquete para análisis de datos tiempo-evento usando tidy style (ggplot2)\nlibrary(survminer)      # Paquete para analisi de datos tiempo-evento usando tidy style\n\n\nLoading required package: ggpubr\n\n\n\nAttaching package: 'survminer'\n\n\nThe following object is masked from 'package:survival':\n\n    myeloma"
+  },
+  {
+    "objectID": "example/var_tiempo/var_tiempo.html#importar-datos",
+    "href": "example/var_tiempo/var_tiempo.html#importar-datos",
+    "title": "Taller: Descripción de variables de tiempo",
+    "section": "Importar datos",
+    "text": "Importar datos\n\n\nCódigo\nebola_data_small <- import(\"ebola_data_small.rds\")"
+  },
+  {
+    "objectID": "example/var_tiempo/var_tiempo.html#análisis-inicial-de-datos",
+    "href": "example/var_tiempo/var_tiempo.html#análisis-inicial-de-datos",
+    "title": "Taller: Descripción de variables de tiempo",
+    "section": "Análisis Inicial de Datos",
+    "text": "Análisis Inicial de Datos\n\nVer 6 primeras filas:\n\n\n\nCódigo\nhead(ebola_data_small)\n\n\n# A tibble: 6 × 4\n  case_id date_onset date_outcome outcome\n  <chr>   <chr>      <chr>        <chr>  \n1 5fe599  2014-05-13 <NA>         <NA>   \n2 8689b7  2014-05-13 2014-05-18   Recover\n3 11f8ea  2014-05-16 2014-05-30   Recover\n4 b8812a  2014-05-18 <NA>         <NA>   \n5 893f25  2014-05-21 2014-05-29   Recover\n6 be99c8  2014-05-22 2014-05-24   Recover\n\n\n\nVistazo a datos:\n\n\n\nCódigo\nebola_data_small %>% \n  glimpse()\n\n\nRows: 5,888\nColumns: 4\n$ case_id      <chr> \"5fe599\", \"8689b7\", \"11f8ea\", \"b8812a\", \"893f25\", \"be99c8…\n$ date_onset   <chr> \"2014-05-13\", \"2014-05-13\", \"2014-05-16\", \"2014-05-18\", \"…\n$ date_outcome <chr> NA, \"2014-05-18\", \"2014-05-30\", NA, \"2014-05-29\", \"2014-0…\n$ outcome      <chr> NA, \"Recover\", \"Recover\", NA, \"Recover\", \"Recover\", \"Reco…\n\n\n\nUn poco má de detalles:\n\n\n\nCódigo\nebola_data_small %>% \n  skim()\n\n\n\nData summary\n\n\nName\nPiped data\n\n\nNumber of rows\n5888\n\n\nNumber of columns\n4\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\ncharacter\n4\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: character\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmin\nmax\nempty\nn_unique\nwhitespace\n\n\n\n\ncase_id\n0\n1.00\n6\n6\n0\n5888\n0\n\n\ndate_onset\n256\n0.96\n10\n10\n0\n367\n0\n\n\ndate_outcome\n936\n0.84\n10\n10\n0\n371\n0\n\n\noutcome\n1323\n0.78\n5\n7\n0\n2\n0\n\n\n\n\n\n\nVeamos los datos categoricos:\n\n\n\nCódigo\n# ebola_data_small %>% \n#   freq()\n\n\n\nVeamos los datos numéricos:\n\n\n\nCódigo\n# ebola_data_small %>% \n#   descr()\n\n\n\n\nCódigo\ntable(ebola_data_small$outcome, useNA = \"always\")\n\n\n\n  Death Recover    <NA> \n   2582    1983    1323"
+  },
+  {
+    "objectID": "example/var_tiempo/var_tiempo.html#crear-los-datos-de-tiempo-a-evento-y-el-indicador-del-evento",
+    "href": "example/var_tiempo/var_tiempo.html#crear-los-datos-de-tiempo-a-evento-y-el-indicador-del-evento",
+    "title": "Taller: Descripción de variables de tiempo",
+    "section": "Crear los datos de tiempo a evento y el indicador del evento",
+    "text": "Crear los datos de tiempo a evento y el indicador del evento\n\n\n\n\nVerificando creación de variable muerte:\n\n\n\n\n\nNota: Si la fecha esta en otros formatos, solo se permuta la y, m y d:\n\n“13-02-2021” –> dmy(“13-02-2021”)\n“02-13-2021” –> mdy(“02-13-2021”)"
+  },
+  {
+    "objectID": "example/var_tiempo/var_tiempo.html#calcular-tasa-densidad-de-incidencia",
+    "href": "example/var_tiempo/var_tiempo.html#calcular-tasa-densidad-de-incidencia",
+    "title": "Taller: Descripción de variables de tiempo",
+    "section": "Calcular tasa/ densidad de incidencia",
+    "text": "Calcular tasa/ densidad de incidencia\n\nDado que tenemos datos individuales, podemos calcular la densidad de incidencia de muerte:\n\n\n\n\nLa densidad de incidencia de muerte en pacientes con ébola fue de …."
+  },
+  {
+    "objectID": "example/var_tiempo/var_tiempo.html#configurar-objeto-survival-para-cálculo-de-incidenciasupervivencia-acumulada",
+    "href": "example/var_tiempo/var_tiempo.html#configurar-objeto-survival-para-cálculo-de-incidenciasupervivencia-acumulada",
+    "title": "Taller: Descripción de variables de tiempo",
+    "section": "Configurar objeto survival para cálculo de incidencia/supervivencia acumulada",
+    "text": "Configurar objeto survival para cálculo de incidencia/supervivencia acumulada\n\n\nCódigo\n# Surv(tseg, muerte) ~  1"
+  },
+  {
+    "objectID": "example/var_tiempo/var_tiempo.html#imprimir-tabla-de-vida",
+    "href": "example/var_tiempo/var_tiempo.html#imprimir-tabla-de-vida",
+    "title": "Taller: Descripción de variables de tiempo",
+    "section": "Imprimir tabla de vida",
+    "text": "Imprimir tabla de vida\n\n\n\n\nR base con summary()\n\n\n\n\n\nR tidy con survfit2(), tidy_survfit() de {ggsurvfit}\n\n\n\n\nTabla de vida con estimados de supervivencia acumulada:\n\n\n\n\n\nTabla de vida con estimados de incidencia acumulada:\n\n\n\n\n\nSolo extraer tiempo, n.event, n.risk y estimado de IA"
+  },
+  {
+    "objectID": "example/var_tiempo/var_tiempo.html#crear-curva-de-supervivencia-mediante-método-de-kaplan-meier",
+    "href": "example/var_tiempo/var_tiempo.html#crear-curva-de-supervivencia-mediante-método-de-kaplan-meier",
+    "title": "Taller: Descripción de variables de tiempo",
+    "section": "Crear curva de supervivencia mediante método de Kaplan-Meier",
+    "text": "Crear curva de supervivencia mediante método de Kaplan-Meier\n\nR base con plot() de {survival}\n\n\n\n\n\nR tidy con ggsurvfit() de {ggsurvfit}\n\n\n\n\n\nExtra: R tidy con ggsurvplot() de {survminer}"
+  },
+  {
+    "objectID": "example/var_tiempo/var_tiempo.html#personalizar-curvas-de-supervivencia-de-ggsurvfit",
+    "href": "example/var_tiempo/var_tiempo.html#personalizar-curvas-de-supervivencia-de-ggsurvfit",
+    "title": "Taller: Descripción de variables de tiempo",
+    "section": "Personalizar curvas de supervivencia de {ggsurvfit}",
+    "text": "Personalizar curvas de supervivencia de {ggsurvfit}"
   }
 ]

@@ -39,7 +39,7 @@ En esta segunda sesión revisaremos los siguiente:
 
 - Puede descargar los archivos generados en la carpeta `var_tiempo` en el siguiente enlace: [Aquí](../slides/sesion4/ejemplos/var_tiempo.zip).
 
-- Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí](../example/var_tiempo/var_tiempo.qmd)
+- Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí](../example/var_tiempo/var_tiempo_solucionario.qmd)
 
 :::
 
@@ -53,7 +53,7 @@ En esta segunda sesión revisaremos los siguiente:
 
 - Puede descargar los archivos generados en la carpeta `report_reprod_univ` en el siguiente enlace: [Aquí](../slides/sesion4/ejemplos/report_reprod_univ.zip).
 
-- Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí](../example/report_reprod_univ/report_reprod_univ.qmd)
+- Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí](../example/report_reprod_univ/report_reprod_univ_solucionario.qmd)
 :::
 
 :::
