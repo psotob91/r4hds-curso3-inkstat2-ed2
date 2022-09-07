@@ -1786,6 +1786,28 @@
         "openssl"
       ]
     },
+    "huxtable": {
+      "Package": "huxtable",
+      "Version": "5.5.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "038e4e4d9f8914dbe03616e3336b8234",
+      "Requirements": [
+        "R6",
+        "assertthat",
+        "commonmark",
+        "fansi",
+        "generics",
+        "glue",
+        "htmltools",
+        "memoise",
+        "rlang",
+        "stringi",
+        "stringr",
+        "tidyselect",
+        "xml2"
+      ]
+    },
     "ids": {
       "Package": "ids",
       "Version": "1.0.1",

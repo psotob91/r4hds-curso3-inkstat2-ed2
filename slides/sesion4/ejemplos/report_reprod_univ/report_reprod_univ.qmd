@@ -1,0 +1,185 @@
+---
+title: "Taller: Tabla univariada reproducibles"
+Author: Percy Soto-Becerra
+---
+
+
+## Introducción
+
+Vamos a trabajar con los datos simulados de un ensayo clínico publicado sobre el efecto de un suplemento en desenlaces metabólicos y hormonales en mujeres con menopausia.
+
+## Cargar paquetes 
+
+```{r}
+library(tidyverse)      # Varios paquetes para funciones diveresas {dplyr}, {ggplot2}
+library(rio)            # Navaja suiza para importar datos en R
+library(skimr)          # Funciones para describir datos de manera rápida en AID/AED
+library(DescTools)      # Funciones para describir datos de manera rápida en AID/AED
+library(gtsummary)      # Generar tablas en format gtsummary
+library(flextable)      # Convertir a flex_table y guardar como MS Word las tablas
+library(huxtable)       # Convertir a hux_table y guardar como MS Excel las tablas
+library(labelled)       # Varias funciones para etiquetado de las variables
+``` 
+
+## Importar datos
+
+```{r}
+datos <- import("datos_maca_tabla1.rds")
+```
+
+## Análisis Inicial de Datos
+
+- Vistazo:
+
+```{r}
+datos %>% 
+  glimpse()
+```
+
+- Seis primeras filas:
+
+```{r}
+datos %>% 
+  head()
+```
+
+- Análisis inicial de datos de todas las variables:
+
+```{r}
+datos %>% 
+  skim()
+```
+
+- Análisis inicial de datos de todas las variables (con gráficos de distribución):
+
+```{r}
+datos %>% 
+  Desc()
+```
+
+- ¿Qué variables numéricas tienen distribución aproximadamente...?
+
+**Simétrica:** 
+
+**Simétrica acampanda - tipo "normal":** 
+
+**Asimétrica:** 
+
+## Preprocesamiento de datos para preparar tabla 1
+
+- Seleccionar variables a incluir en tabla 1 y filtrar a la medición basal
+
+```{r}
+
+```
+
+- Etiquetar nombre de variables como se desee que aparezcan en la tabla. El nombre de las variables debe estar en español.
+
+```{r}
+
+```
+
+- Opción alternativa (`RECOMENDADA`): Podemos filtrar, seleccionar y etiquetar en un solo `pipeline`: 
+
+```{r}
+
+```
+
+## Creación de tabla 1 descriptiva general paso a paso
+
+- Creación de Tabla 1 básica:
+
+```{r}
+
+```
+
+- Corregir problema de tipo de variable para `height`:
+
+```{r}
+
+```
+
+- Cambiar estadísticos para reportar en variables numéricas simétricas a media y desviación estándar:
+
+```{r}
+
+```
+
+- Agregar rango a todas las variables numéricas, reportar en misma celda:
+
+```{r}
+
+```
+
+- Agregar rango a todas las variables numéricas, pero reportar en otra fila nueva:
+
+```{r}
+
+```
+
+- Cambiar el reporte de las variables categóricas: reportar n / N y p%
+
+```{r}
+
+```
+
+- Reportar dos decimales para las varibles numéricas, excepto para edad (solo 1 decimal). Para las variables categóricas reportar 2 decimales solo en %, ningún decimal en las frecuencias absolutas.
+
+```{r}
+
+```
+
+
+- Solo repotar datos perdidos si hay uno. Tipo: usar "ifany".
+
+```{r}
+
+```
+
+- Denominar a los datos perdidos como "Datos faltantes":
+
+```{r}
+
+```
+
+- Poner en negrita los nombres de las variables:
+
+```{r}
+
+```
+
+- Poner en cursiva los nombres de los valores de las variables:
+
+```{r}
+
+```
+
+Una tabla rara, pero sí se puede poner de negrito y cursivas tanto las etiquetas de variables como las etiquetas de valores:
+
+```{r}
+
+```
+
+- Guardar tabla como objeto denominado `tabla1`:
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+
+- Exportar como tabla en Word:
+
+```{r}
+
+```
+
+- Exportar como tabla en MS Excel:
+
+```{r}
+
+```
+

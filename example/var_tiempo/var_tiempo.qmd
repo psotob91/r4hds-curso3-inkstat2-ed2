@@ -1,0 +1,185 @@
+---
+title: "Taller: Descripción de variables de tiempo"
+author: "Percy Soto Becerra"
+---
+
+## Introducción
+
+Vamos a resolver una serie de ejercicios acerca de gráfocps de variables categóricas. Usaremos un conjunto de datos juguetes acerca de casos de pacientes con Ébola que se atendieron en hospitales de África. Estos datos están disponibles en el libro [The Epidemiologist Handbook](https://epirhandbook.com/en/index.html).
+
+## Cargar paquetes
+
+```{r}
+library(tidyverse)      # Paquete con paquetes de funciones diverssa: {dplyr}, {ggplot2}
+library(rio)            # Navaja suiza de la importacion de datos en R
+library(skimr)          # Exploración de datos
+library(summarytools)   # Para generar estadísticos descriptivos
+library(lubridate)      # Paquete para manipular fechas usando estilo R tidy
+library(survival)       # Paquete principal para análisis de datos tiempo-evento
+library(ggsurvfit)      # Paquete para análisis de datos tiempo-evento usando tidy style (ggplot2)
+library(survminer)      # Paquete para analisi de datos tiempo-evento usando tidy style
+```
+
+
+## Importar datos
+
+```{r}
+ebola_data_small <- import("ebola_data_small.rds")
+```
+
+
+## Análisis Inicial de Datos
+
+- Ver 6 primeras filas:
+
+```{r}
+head(ebola_data_small)
+```
+
+- Vistazo a datos:
+
+```{r}
+ebola_data_small %>% 
+  glimpse()
+```
+
+- Un poco má de detalles:
+
+```{r}
+ebola_data_small %>% 
+  skim()
+```
+
+- Veamos los datos categoricos: 
+
+```{r}
+# ebola_data_small %>% 
+#   freq()
+```
+
+- Veamos los datos numéricos: 
+
+```{r}
+# ebola_data_small %>% 
+#   descr()
+```
+
+```{r}
+table(ebola_data_small$outcome, useNA = "always")
+```
+
+## Crear los datos de tiempo a evento y el indicador del evento
+
+```{r}
+
+```
+
+- Verificando creación de variable muerte: 
+
+```{r}
+
+```
+
+- **Nota:** Si la fecha esta en otros formatos, solo se permuta la y, m y d:
+
+"13-02-2021" --> dmy("13-02-2021")
+
+"02-13-2021" --> mdy("02-13-2021")
+
+## Calcular tasa/ densidad de incidencia
+
+- Dado que tenemos datos individuales, podemos calcular la densidad de incidencia de muerte:
+
+```{r}
+
+```
+La densidad de incidencia de muerte en pacientes con ébola fue de ....
+
+## Configurar objeto survival para cálculo de incidencia/supervivencia acumulada
+
+```{r}
+# Surv(tseg, muerte) ~  1
+```
+
+```{r}
+
+```
+
+## Imprimir tabla de vida
+
+```{r}
+
+```
+
+### R base con summary()
+
+```{r}
+
+```
+
+### R tidy con survfit2(), tidy_survfit() de {ggsurvfit}
+
+```{r}
+
+```
+
+- Tabla de vida con estimados de supervivencia acumulada:
+
+```{r}
+
+```
+
+- Tabla de vida con estimados de incidencia acumulada:
+
+```{r}
+
+```
+
+- Solo extraer tiempo, n.event, n.risk y estimado de IA
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+## Crear curva de supervivencia mediante método de Kaplan-Meier
+
+### R base con plot() de {survival}
+
+```{r}
+
+```
+
+### R tidy con ggsurvfit() de {ggsurvfit}
+
+```{r}
+
+```
+
+### Extra: R tidy con ggsurvplot() de {survminer}
+
+```{r}
+
+```
+
+## Personalizar curvas de supervivencia de {ggsurvfit}
+
+```{r}
+
+```
+
+
+
