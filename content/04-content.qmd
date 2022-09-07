@@ -37,7 +37,7 @@ En esta segunda sesión revisaremos los siguiente:
 
 ### Nuestro turno: Descripción de variables de tiempo
 
-- Puede descargar los archivos generados en la carpeta `var_tiempo` en el siguiente enlace: [Aquí](../slides/sesion2/ejemplos/var_tiempo.zip).
+- Puede descargar los archivos generados en la carpeta `var_tiempo` en el siguiente enlace: [Aquí](../slides/sesion4/ejemplos/var_tiempo.zip).
 
 - Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí](../example/var_tiempo/var_tiempo.qmd)
 
@@ -51,7 +51,7 @@ En esta segunda sesión revisaremos los siguiente:
 
 ### Nuestro turno: Tabla univariada reproducible
 
-- Puede descargar los archivos generados en la carpeta `report_reprod_univ` en el siguiente enlace: [Aquí](../slides/sesion2/ejemplos/report_reprod_univ.zip).
+- Puede descargar los archivos generados en la carpeta `report_reprod_univ` en el siguiente enlace: [Aquí](../slides/sesion4/ejemplos/report_reprod_univ.zip).
 
 - Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí](../example/report_reprod_univ/report_reprod_univ.qmd)
 :::

@@ -29,7 +29,7 @@ En esta segunda sesión revisaremos los siguiente:
 
 ### Nuestro turno: Frecuencias de variables categóricas
 
-- Puede descargar los archivos generados en la carpeta `var_cat_resumen` en el siguiente enlace: [Aquí](../slides/sesion2/ejemplos/var_cat_resumen.zip).
+- Puede descargar los archivos generados en la carpeta `var_cat_resumen` en el siguiente enlace: [Aquí](../slides/sesion3/ejemplos/var_cat_resumen.zip).
 
 - Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí](../example/var_cat_resumen/var_cat_resumen_taller_solucionario.qmd)
 
@@ -43,7 +43,7 @@ En esta segunda sesión revisaremos los siguiente:
 
 ### Nuestro turno: Gráficos de variables categóricas
 
-- Puede descargar los archivos generados en la carpeta `var_cat_graficos` en el siguiente enlace: [Aquí](../slides/sesion2/ejemplos/var_cat_graficos.zip).
+- Puede descargar los archivos generados en la carpeta `var_cat_graficos` en el siguiente enlace: [Aquí](../slides/sesion3/ejemplos/var_cat_graficos.zip).
 
 - Puede ver la versión Web de este ejercicio en el siguiente enlace de la sección Ejemplos: [Aquí](../example/var_cat_graficos_taller_solucionario.qmd)
 
